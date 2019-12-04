@@ -81,7 +81,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 31442620864,
+  "duration": 28243285373,
   "status": "passed"
 });
 formatter.scenario({
@@ -143,7 +143,7 @@ formatter.match({
   "location": "OnBoardingSteps.user_swipe_images_onboarding_screen()"
 });
 formatter.result({
-  "duration": 201659839,
+  "duration": 178132855,
   "error_message": "java.lang.NullPointerException\n\tat stepDefinitions.OnBoardingSteps.user_swipe_images_onboarding_screen(OnBoardingSteps.java:13)\n\tat ✽.Given user swipe images onboarding screen(Login.feature:5)\n",
   "status": "failed"
 });
@@ -196,7 +196,7 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 6020694,
+  "duration": 1912106,
   "status": "passed"
 });
 });

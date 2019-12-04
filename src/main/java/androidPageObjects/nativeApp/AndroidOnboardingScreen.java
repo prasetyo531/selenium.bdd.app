@@ -36,44 +36,41 @@ public class AndroidOnboardingScreen extends ActionBaseAndroid {
 	}
 
 	//intro screen
-	public void swipeAfterSplashScreen(){
+	public AndroidOnboardingScreen swipeAfterSplashScreen() throws IOException {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		this.horizontalSwipeByPercentage(SplashScreenImage,0.9,0.01,0.5,500);
 		this.horizontalSwipeByPercentage(SplashScreenImage, 0.9,0.01,0.5,500);
+		return new AndroidOnboardingScreen();
 	}
 
-	public void clickGetStartedBtn() throws InterruptedException {
+	public AndroidOnboardingScreen clickGetStartedBtn() throws IOException, InterruptedException {
 
 		Thread.sleep(900);
 		tapByElement(GetStartedBtn);
 		//GetStartedBtn.click();
+		return new AndroidOnboardingScreen();
 	}
 
 
 	//onboarding screen
-	public void clickLoginBtn(){
+	public AndroidOnboardingScreen clickLoginBtn() throws IOException {
 		tapByElement(LoginBtn);
 		//LoginBtn.click();
+		return new AndroidOnboardingScreen();
 	}
 
-	public void clickSignupBtn(){
+	public AndroidOnboardingScreen clickSignupBtn() throws IOException {
 		tapByElement(SignupBtn);
 		//SignupBtn.click();
+		return new AndroidOnboardingScreen();
 	}
 
-	public void clickFacebookBtn(){
+	public AndroidOnboardingScreen clickFacebookBtn() throws IOException {
 		tapByElement(FacebookBtn);
 		//FacebookBtn.click();
-	}
-
-	public AndroidOnboardingScreen typeData(String data){
-		
-		textField.sendKeys(data);
-		
-		return this;
-		
+		return new AndroidOnboardingScreen();
 	}
 
 }
