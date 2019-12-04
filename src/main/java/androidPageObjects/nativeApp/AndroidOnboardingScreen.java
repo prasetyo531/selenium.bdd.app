@@ -38,7 +38,7 @@ public class AndroidOnboardingScreen extends ActionBaseAndroid {
 	//intro screen
 	public AndroidOnboardingScreen swipeAfterSplashScreen() throws IOException {
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		this.horizontalSwipeByPercentage(SplashScreenImage,0.9,0.01,0.5,500);
 		this.horizontalSwipeByPercentage(SplashScreenImage, 0.9,0.01,0.5,500);
