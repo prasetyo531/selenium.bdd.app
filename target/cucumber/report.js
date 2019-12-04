@@ -22,46 +22,41 @@ formatter.scenarioOutline({
 });
 formatter.step({
   "line": 5,
-  "name": "user open the apps",
+  "name": "user swipe images onboarding screen",
   "keyword": "Given "
 });
 formatter.step({
   "line": 6,
-  "name": "user swipe images onboarding screen",
+  "name": "user clicks on the login button",
   "keyword": "When "
 });
 formatter.step({
   "line": 7,
-  "name": "user clicks on the login button",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 8,
   "name": "user directed to login form",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 9,
+  "line": 8,
   "name": "user enters the \"\u003cusername\u003e\" username",
   "keyword": "And "
 });
 formatter.step({
-  "line": 10,
+  "line": 9,
   "name": "user enter the \"\u003cpassword\u003e\" password",
   "keyword": "And "
 });
 formatter.step({
-  "line": 11,
+  "line": 10,
   "name": "user clicks on the login button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 12,
+  "line": 11,
   "name": "user should be directed to homepage",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 14,
+  "line": 13,
   "name": "",
   "description": "",
   "id": "login-into-account;login-to-account-with-credentials;",
@@ -71,7 +66,7 @@ formatter.examples({
         "username",
         "password"
       ],
-      "line": 15,
+      "line": 14,
       "id": "login-into-account;login-to-account-with-credentials;;1"
     },
     {
@@ -79,19 +74,18 @@ formatter.examples({
         "testqa",
         "test123"
       ],
-      "line": 16,
+      "line": 15,
       "id": "login-into-account;login-to-account-with-credentials;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 7072618323,
-  "error_message": "java.lang.NullPointerException\n\tat utils.DriverFactory.getDriver(DriverFactory.java:57)\n\tat stepDefinitions.MasterHooks.setup(MasterHooks.java:14)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)\n\tat cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)\n\tat cucumber.runtime.Runtime.runHooks(Runtime.java:212)\n\tat cucumber.runtime.Runtime.runBeforeHooks(Runtime.java:202)\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:40)\n\tat cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)\n\tat org.junit.runners.Suite.runChild(Suite.java:128)\n\tat org.junit.runners.Suite.runChild(Suite.java:27)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat cucumber.runtime.junit.ExamplesRunner.run(ExamplesRunner.java:59)\n\tat org.junit.runners.Suite.runChild(Suite.java:128)\n\tat org.junit.runners.Suite.runChild(Suite.java:27)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat cucumber.runtime.junit.ScenarioOutlineRunner.run(ScenarioOutlineRunner.java:53)\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat cucumber.api.junit.Cucumber.run(Cucumber.java:100)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)\n\tat com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)\n\tat com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)\n\tat com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)\n",
-  "status": "failed"
+  "duration": 31442620864,
+  "status": "passed"
 });
 formatter.scenario({
-  "line": 16,
+  "line": 15,
   "name": "Login to account with credentials",
   "description": "",
   "id": "login-into-account;login-to-account-with-credentials;;2",
@@ -106,26 +100,21 @@ formatter.scenario({
 });
 formatter.step({
   "line": 5,
-  "name": "user open the apps",
+  "name": "user swipe images onboarding screen",
   "keyword": "Given "
 });
 formatter.step({
   "line": 6,
-  "name": "user swipe images onboarding screen",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
   "name": "user clicks on the login button",
   "keyword": "When "
 });
 formatter.step({
-  "line": 8,
+  "line": 7,
   "name": "user directed to login form",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 9,
+  "line": 8,
   "name": "user enters the \"testqa\" username",
   "matchedColumns": [
     0
@@ -133,7 +122,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "line": 10,
+  "line": 9,
   "name": "user enter the \"test123\" password",
   "matchedColumns": [
     1
@@ -141,26 +130,22 @@ formatter.step({
   "keyword": "And "
 });
 formatter.step({
-  "line": 11,
+  "line": 10,
   "name": "user clicks on the login button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 12,
+  "line": 11,
   "name": "user should be directed to homepage",
   "keyword": "Then "
-});
-formatter.match({
-  "location": "IntroSteps.user_open_the_apps()"
-});
-formatter.result({
-  "status": "skipped"
 });
 formatter.match({
   "location": "OnBoardingSteps.user_swipe_images_onboarding_screen()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 201659839,
+  "error_message": "java.lang.NullPointerException\n\tat stepDefinitions.OnBoardingSteps.user_swipe_images_onboarding_screen(OnBoardingSteps.java:13)\n\tat ✽.Given user swipe images onboarding screen(Login.feature:5)\n",
+  "status": "failed"
 });
 formatter.match({
   "location": "LoginSteps.user_clicks_on_the_login_button()"
@@ -211,7 +196,7 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 2568840,
+  "duration": 6020694,
   "status": "passed"
 });
 });

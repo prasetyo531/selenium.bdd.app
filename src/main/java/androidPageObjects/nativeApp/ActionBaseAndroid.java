@@ -15,9 +15,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DriverFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.NoSuchElementException;
 
 import static io.appium.java_client.touch.TapOptions.tapOptions;
@@ -235,5 +236,36 @@ public class ActionBaseAndroid extends DriverFactory {
 
         raiseToast(toastText);
         wait.until(toastMatches("^Catch.+!", true));
+    }
+
+    private static void copyFileUsingStream(File source, File dest) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+
+            while((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+
+    public static void copyLatestExtentReport() throws IOException {
+        Date d = new Date();
+        String date = d.toString().replace(":", "_").replace(" ", "_");
+        File source = new File(System.getProperty("user.dir") + "//target//report.html");
+        File dest = new File(System.getProperty("user.dir") + "//target//" + date.toString() + ".html");
+        copyFileUsingStream(source, dest);
+
+        ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
+
     }
 }

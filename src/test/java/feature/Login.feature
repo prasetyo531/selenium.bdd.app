@@ -2,8 +2,7 @@ Feature: Login into account
 
   @android
   Scenario Outline: Login to account with credentials
-    Given user open the apps
-    When user swipe images onboarding screen
+    Given user swipe images onboarding screen
     When user clicks on the login button
     Then user directed to login form
     And user enters the "<username>" username
