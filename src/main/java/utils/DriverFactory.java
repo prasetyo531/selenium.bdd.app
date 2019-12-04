@@ -1,7 +1,7 @@
 package utils;
 
-import androidScreen.nativeApp.AndroidIntroScreen;
-import androidScreen.nativeApp.AndroidOnboardingScreen;
+import androidPageObjects.nativeApp.AndroidIntroScreen;
+import androidPageObjects.nativeApp.AndroidOnboardingScreen;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -30,10 +30,10 @@ public class DriverFactory {
 
 
     //set configuration
-    public static String loadPropertyFile = "ios.properties";
+    public static String loadPropertyFile = "android.properties";
 
     @Before
-    public void setUp() throws IOException, InterruptedException{
+    public AppiumDriver getDriver() throws IOException, InterruptedException{
 
         try {
             if (driver == null) {
@@ -62,7 +62,7 @@ public class DriverFactory {
     }
 
     @After
-    public void tearDown(Scenario scenario) throws InterruptedException{
+    public void endDriver() throws InterruptedException, IOException {
 
         //driver.quit();
         AppiumServer.stop();

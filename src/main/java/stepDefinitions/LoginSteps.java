@@ -5,13 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import utils.DriverFactory;
 
-public class LoginSteps {
-
-    @Given("^user open the apps$")
-    public void user_open_the_apps() throws Throwable {
-        throw new PendingException();
-    }
+public class LoginSteps extends DriverFactory {
 
     @Then("^user directed to login form$")
     public void user_directed_to_login_form() throws Throwable {
