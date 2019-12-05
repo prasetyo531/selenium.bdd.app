@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 35166073502,
+              "duration": 32388746970,
               "status": "passed"
             },
             "match": {
@@ -21,7 +21,7 @@
         "after": [
           {
             "result": {
-              "duration": 16782799,
+              "duration": 1147967,
               "status": "passed"
             },
             "match": {
@@ -34,8 +34,9 @@
         "steps": [
           {
             "result": {
-              "duration": 39214097927,
-              "status": "passed"
+              "duration": 136426594,
+              "error_message": "java.lang.NullPointerException\n\tat stepDefinitions.OnBoardingSteps.user_swipe_images_onboarding_screen(OnBoardingSteps.java:24)\n\tat ✽.Given user swipe images onboarding screen(Login.feature:5)\n",
+              "status": "failed"
             },
             "line": 5,
             "name": "user swipe images onboarding screen",
@@ -46,9 +47,7 @@
           },
           {
             "result": {
-              "duration": 4203379,
-              "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat stepDefinitions.LoginSteps.user_clicks_on_the_login_button(LoginSteps.java:29)\n\tat ✽.When user clicks on the login button(Login.feature:6)\n",
-              "status": "pending"
+              "status": "skipped"
             },
             "line": 6,
             "name": "user clicks on the login button",

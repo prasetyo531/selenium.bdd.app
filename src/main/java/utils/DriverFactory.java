@@ -3,13 +3,16 @@ package utils;
 import androidPageObjects.nativeApp.AndroidOnboardingScreen;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
     //grid
-    public static AppiumDriver<MobileElement> driver;
+    public static AppiumDriver driver;
 
     /****************
      Android Screen
@@ -24,7 +27,7 @@ public class DriverFactory {
     //set configuration
     public static String loadPropertyFile = "android.properties";
 
-    public AppiumDriver<MobileElement> getDriver() {
+    public AppiumDriver getDriver() {
 
         try {
             if (driver == null) {

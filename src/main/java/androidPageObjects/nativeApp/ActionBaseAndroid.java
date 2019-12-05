@@ -2,8 +2,7 @@ package androidPageObjects.nativeApp;
 
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.MultiTouchAction;
-import io.appium.java_client.TouchAction;
+import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
@@ -36,11 +35,10 @@ public class ActionBaseAndroid extends DriverFactory {
 
     Faker faker = new Faker();
 
-    public ActionBaseAndroid() throws IOException{
+    public ActionBaseAndroid() {
 
-        this.wait = new WebDriverWait(driver, 30);
+       androidonboardingScreen = PageFactory.initElements(driver, AndroidOnboardingScreen.class);
     }
-
 
     protected void sleep (long time) {
         try {
