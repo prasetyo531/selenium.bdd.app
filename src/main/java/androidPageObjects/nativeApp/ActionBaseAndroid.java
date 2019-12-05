@@ -35,9 +35,9 @@ public class ActionBaseAndroid extends DriverFactory {
 
     Faker faker = new Faker();
 
-    public ActionBaseAndroid() {
+    public ActionBaseAndroid() throws IOException {
 
-       androidonboardingScreen = PageFactory.initElements(driver, AndroidOnboardingScreen.class);
+        this.wait = new WebDriverWait(driver, 15);
     }
 
     protected void sleep (long time) {

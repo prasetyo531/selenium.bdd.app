@@ -2,12 +2,7 @@ package utils;
 
 import androidPageObjects.nativeApp.AndroidOnboardingScreen;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
-import java.io.IOException;
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
@@ -47,6 +42,8 @@ public class DriverFactory {
             }
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
+        } finally {
+            androidonboardingScreen = PageFactory.initElements(driver, AndroidOnboardingScreen.class);
         }
         return driver;
     }
