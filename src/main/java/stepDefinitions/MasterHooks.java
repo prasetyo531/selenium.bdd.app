@@ -11,27 +11,10 @@ import java.io.IOException;
 
 public class MasterHooks extends DriverFactory {
 
-    //set configuration
-    public static String loadPropertyFile = "android.properties";
-
     @Before
     public void setUp() throws IOException, InterruptedException{
 
-        if(driver==null){
-
-            AppiumServer.stop();
-            AppiumServer.start();
-
-            if(loadPropertyFile.contains("ios")){
-                CommonUtils.loadIosConfigProp("ios.properties");
-                CommonUtils.setIOSCapabilities();
-                driver = CommonUtils.getIOSDriver();
-            } else if(loadPropertyFile.contains("android")){
-                CommonUtils.loadAndroidConfigProp("android.properties");
-                CommonUtils.setAndroidCapabilities();
-                driver = CommonUtils.getAndroidDriver();
-            }
-        }
+        driver = getDriver();
 
     }
 
