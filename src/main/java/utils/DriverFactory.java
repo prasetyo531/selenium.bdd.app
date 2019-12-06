@@ -12,7 +12,7 @@ public class DriverFactory {
     /****************
      Android Screen
      ****************/
-    public static AndroidOnboardingScreen androidonboardingScreen;
+    //public static AndroidOnboardingScreen androidonboardingScreen;
 
 
     /****************
@@ -42,8 +42,6 @@ public class DriverFactory {
             }
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
-        } finally {
-            androidonboardingScreen = PageFactory.initElements(driver, AndroidOnboardingScreen.class);
         }
         return driver;
     }

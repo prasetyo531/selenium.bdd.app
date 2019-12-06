@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "source": "^user swipe images onboarding screen$",
+    "steps": [
+      {
+        "name": "user swipe images onboarding screen",
+        "aggregatedDurations": {
+          "average": 12.67237737,
+          "median": 12.67237737
+        },
+        "durations": [
+          {
+            "duration": 12.67237737,
+            "location": "Login.feature:5"
+          }
+        ]
+      }
+    ]
+  }
+]

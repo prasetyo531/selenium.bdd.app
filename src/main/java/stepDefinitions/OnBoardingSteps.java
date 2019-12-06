@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import utils.DriverFactory;
 
+import java.io.IOException;
+
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
@@ -17,6 +19,16 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static java.time.Duration.ofMillis;
 
 public class OnBoardingSteps extends DriverFactory {
+
+    AndroidOnboardingScreen androidonboardingScreen;
+
+    {
+        try {
+            androidonboardingScreen = new AndroidOnboardingScreen(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Given("^user swipe images onboarding screen$")
     public void user_swipe_images_onboarding_screen() throws Throwable {
