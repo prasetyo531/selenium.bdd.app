@@ -24,5 +24,6 @@ public class OnBoardingSteps extends DriverFactory {
     public void user_swipe_images_onboarding_screen() throws Throwable {
 
         androidonboardingScreen.swipeAfterSplashScreen();
+        androidonboardingScreen.clickGetStartedBtn();
     }
 }
