@@ -35,11 +35,6 @@ public class ActionBaseAndroid extends DriverFactory {
 
     Faker faker = new Faker();
 
-    public ActionBaseAndroid() throws IOException {
-
-        this.wait = new WebDriverWait(driver, 15);
-    }
-
     protected void sleep (long time) {
         try {
             Thread.sleep(time);
