@@ -23,8 +23,6 @@ import static utils.DriverFactory.driver;
 
 public class AndroidOnboardingScreen extends DriverFactory {
 
-//	public AppiumDriver driver=null;
-
 	@AndroidFindBy(id="com.fdbr.android.debug:id/imageAds")
 	public AndroidElement SplashScreenImage;
 

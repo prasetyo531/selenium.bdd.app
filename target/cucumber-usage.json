@@ -5,12 +5,12 @@
       {
         "name": "user swipe images onboarding screen",
         "aggregatedDurations": {
-          "average": 22.206906622,
-          "median": 22.206906622
+          "average": 33.533006508,
+          "median": 33.533006508
         },
         "durations": [
           {
-            "duration": 22.206906622,
+            "duration": 33.533006508,
             "location": "Login.feature:5"
           }
         ]
