@@ -20,16 +20,6 @@ import static java.time.Duration.ofMillis;
 
 public class OnBoardingSteps extends DriverFactory {
 
-    AndroidOnboardingScreen androidonboardingScreen;
-
-    {
-        try {
-            androidonboardingScreen = new AndroidOnboardingScreen(driver);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Given("^user swipe images onboarding screen$")
     public void user_swipe_images_onboarding_screen() throws Throwable {
 

@@ -4,6 +4,8 @@ import androidPageObjects.nativeApp.AndroidOnboardingScreen;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class DriverFactory {
 
     //grid
@@ -12,7 +14,7 @@ public class DriverFactory {
     /****************
      Android Screen
      ****************/
-    //public static AndroidOnboardingScreen androidonboardingScreen;
+    public static AndroidOnboardingScreen androidonboardingScreen;
 
 
     /****************
@@ -22,7 +24,7 @@ public class DriverFactory {
     //set configuration
     public static String loadPropertyFile = "android.properties";
 
-    public AppiumDriver getDriver() {
+    public AppiumDriver getDriver() throws IOException {
 
         try {
             if (driver == null) {
@@ -42,6 +44,9 @@ public class DriverFactory {
             }
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
+        } finally {
+            // This is to Instantiate class
+            androidonboardingScreen = new AndroidOnboardingScreen(driver);
         }
         return driver;
     }
