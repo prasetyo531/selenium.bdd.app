@@ -1,8 +1,8 @@
 package utils;
 
-import androidPageObjects.nativeApp.AndroidOnboardingScreen;
+import androidPageObjects.AndroidIntroScreen;
+import androidPageObjects.AndroidOnboardingScreen;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
@@ -14,7 +14,8 @@ public class DriverFactory {
     /****************
      Android Screen
      ****************/
-    public static AndroidOnboardingScreen androidonboardingScreen;
+    public static AndroidIntroScreen androidIntroScreen;
+    public static AndroidOnboardingScreen androidOnboardingScreen;
 
 
     /****************
@@ -46,7 +47,8 @@ public class DriverFactory {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
             // This is to Instantiate class
-            androidonboardingScreen = new AndroidOnboardingScreen(driver);
+            androidIntroScreen = new AndroidIntroScreen(driver);
+            androidOnboardingScreen = new AndroidOnboardingScreen(driver);
         }
         return driver;
     }

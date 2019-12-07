@@ -1,19 +1,15 @@
-package androidPageObjects.nativeApp;
+package androidPageObjects;
 
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.*;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import stepDefinitions.MasterHooks;
 import utils.DriverFactory;
 
 import java.io.*;

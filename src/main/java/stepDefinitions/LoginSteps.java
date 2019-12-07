@@ -26,7 +26,8 @@ public class LoginSteps extends DriverFactory {
 
     @And("^user clicks on the login button$")
     public void user_clicks_on_the_login_button() throws Throwable {
-        throw new PendingException();
+
+        androidOnboardingScreen.clickLoginBtn();
     }
 
     @Then("^user should be directed to homepage$")

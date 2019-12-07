@@ -1,6 +1,6 @@
 package runner;
 
-import androidPageObjects.nativeApp.ActionBaseAndroid;
+import androidPageObjects.ActionBaseAndroid;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

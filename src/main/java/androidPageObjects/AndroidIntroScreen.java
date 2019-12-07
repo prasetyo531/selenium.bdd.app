@@ -1,15 +1,11 @@
-package androidPageObjects.nativeApp;
+package androidPageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,9 +18,8 @@ import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static io.appium.java_client.touch.offset.PointOption.point;
 import static java.time.Duration.ofMillis;
-import static utils.DriverFactory.driver;
 
-public class AndroidOnboardingScreen extends DriverFactory {
+public class AndroidIntroScreen extends DriverFactory {
 
 	@AndroidFindBy(id="com.fdbr.android.debug:id/imageAds")
 	public AndroidElement SplashScreenImage;
@@ -33,7 +28,7 @@ public class AndroidOnboardingScreen extends DriverFactory {
 	public AndroidElement GetStartedBtn;
 
 
-	public AndroidOnboardingScreen(AppiumDriver driver) throws IOException {
+	public AndroidIntroScreen(AppiumDriver driver) throws IOException {
 
 		this.driver = driver;
 		//Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
