@@ -5,12 +5,12 @@
       {
         "name": "user swipe images onboarding screen",
         "aggregatedDurations": {
-          "average": 12.609004206,
-          "median": 12.609004206
+          "average": 49.774952493,
+          "median": 49.774952493
         },
         "durations": [
           {
-            "duration": 12.609004206,
+            "duration": 49.774952493,
             "location": "Login.feature:5"
           }
         ]
@@ -23,12 +23,12 @@
       {
         "name": "user clicks on the login button",
         "aggregatedDurations": {
-          "average": 1.971532336,
-          "median": 1.971532336
+          "average": 10.782076224,
+          "median": 10.782076224
         },
         "durations": [
           {
-            "duration": 1.971532336,
+            "duration": 10.782076224,
             "location": "Login.feature:6"
           }
         ]
