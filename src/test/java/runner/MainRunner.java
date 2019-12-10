@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import java.io.File;
 import java.io.IOException;
 
-@RunWith(Cucumber.class)
+@RunWith(Cucumber.class) //this annotations tells junit run test
 @CucumberOptions(
         features = {"src/test/java/feature/"},
         glue = {"stepDefinitions"},
