@@ -81,7 +81,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 32210517417,
+  "duration": 48480113831,
   "status": "passed"
 });
 formatter.scenario({
@@ -143,21 +143,21 @@ formatter.match({
   "location": "OnBoardingSteps.user_swipe_images_onboarding_screen()"
 });
 formatter.result({
-  "duration": 11237238504,
+  "duration": 37797785733,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginSteps.user_clicks_on_the_login_button()"
 });
 formatter.result({
-  "duration": 1585682555,
+  "duration": 10952857927,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginSteps.user_directed_to_login_form()"
 });
 formatter.result({
-  "duration": 5028964,
+  "duration": 1391939,
   "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat stepDefinitions.LoginSteps.user_directed_to_login_form(LoginSteps.java:14)\n\tat ✽.Then user directed to login form(Login.feature:7)\n",
   "status": "pending"
 });
@@ -198,7 +198,7 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 5265322,
+  "duration": 412787,
   "status": "passed"
 });
 });

@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 32210517417,
+              "duration": 48480113831,
               "status": "passed"
             },
             "match": {
@@ -21,11 +21,11 @@
         "after": [
           {
             "result": {
-              "duration": 5265322,
+              "duration": 412787,
               "status": "passed"
             },
             "match": {
-              "location": "MasterHooks.tearDown()"
+              "location": "MasterHooks.tearDownScreenshootFailure(Scenario)"
             }
           }
         ],
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 11237238504,
+              "duration": 37797785733,
               "status": "passed"
             },
             "line": 5,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 1585682555,
+              "duration": 10952857927,
               "status": "passed"
             },
             "line": 6,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 5028964,
+              "duration": 1391939,
               "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat stepDefinitions.LoginSteps.user_directed_to_login_form(LoginSteps.java:14)\n\tat ✽.Then user directed to login form(Login.feature:7)\n",
               "status": "pending"
             },

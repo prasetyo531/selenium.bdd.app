@@ -1,13 +1,13 @@
 package androidPageObjects;
 
+import com.cucumber.listener.Reporter;
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DriverFactory;
@@ -28,6 +28,7 @@ import static java.time.Duration.ofSeconds;
 public class ActionBaseAndroid extends DriverFactory {
 
     protected WebDriverWait wait;
+    private static String screenshotName;
 
     Faker faker = new Faker();
 
@@ -251,6 +252,29 @@ public class ActionBaseAndroid extends DriverFactory {
         }
     }
 
+    /***EXTENT REPORT****************************************************************/
+    public static String returnDateStamp(String fileExtension) {
+        Date d = new Date();
+        String date = d.toString().replace(":", "_").replace(" ", "_") + fileExtension;
+        return date;
+    }
+
+    public static void captureScreenshot() throws IOException, InterruptedException {
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+        screenshotName = returnDateStamp(".jpg");
+
+        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "//output//imgs//" + screenshotName));
+
+        Reporter.addStepLog("Taking a screenshot!");
+        Reporter.addStepLog("<br>");
+        Reporter.addStepLog("<a target=\"_blank\", href="+ returnScreenshotName() + "><img src="+ returnScreenshotName()+ " height=200 width=300></img></a>");
+    }
+
+    public static String returnScreenshotName() {
+        return (System.getProperty("user.dir") + "//output//imgs//" + screenshotName).toString();
+    }
+
     public static void copyLatestExtentReport() throws IOException {
         Date d = new Date();
         String date = d.toString().replace(":", "_").replace(" ", "_");
@@ -259,6 +283,6 @@ public class ActionBaseAndroid extends DriverFactory {
         copyFileUsingStream(source, dest);
 
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
-
     }
+
 }
