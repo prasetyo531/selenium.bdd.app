@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class AndroidOnboardingScreen extends ActionBaseAndroid {
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLoginn")
+    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
     public AndroidElement LoginBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
