@@ -11,20 +11,26 @@ import java.io.IOException;
 
 public class AndroidOnboardingScreen extends ActionBaseAndroid {
 
+    /*
+    intro
+     */
+    @AndroidFindBy(id="com.fdbr.android.debug:id/imageAds")
+    public AndroidElement splashScreenImage;
+
+    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonGetStarted")
+    public AndroidElement getStartedBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
+    public AndroidElement nextIntroBtn;
+
+    /*
+    onboarding
+     */
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
-    public AndroidElement LoginBtn;
+    public AndroidElement loginBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
-    public AndroidElement SignupBtn;
-
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonFacebook")
-    public AndroidElement FacebookBtn;
-
-    @AndroidFindBy(id="io.selendroid.testapp:id/visibleButtonTest")
-    public AndroidElement textField;
-
-    @AndroidFindBy(id="io.selendroid.testapp:id/visibleTextView")
-    public AndroidElement displayBtn;
+    public AndroidElement signupBtn;
 
     public AndroidOnboardingScreen(AppiumDriver driver) throws IOException {
 
@@ -33,9 +39,35 @@ public class AndroidOnboardingScreen extends ActionBaseAndroid {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    //intro screen
+    public void swipeAfterSplashScreen() throws IOException {
+
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        this.horizontalSwipeByPercentage(splashScreenImage,0.9,0.01,0.5,500);
+        this.horizontalSwipeByPercentage(splashScreenImage, 0.9,0.01,0.5,500);
+
+    }
+
+    public void clickNextIntroBtn() {
+
+        tapByElement(nextIntroBtn);
+    }
+
+    public void clickGetStartedBtn() throws InterruptedException {
+
+        tapByElement(getStartedBtn);
+    }
+
+
     public void clickLoginBtn() {
 
-        tapByElement(LoginBtn);
+        tapByElement(loginBtn);
+    }
+
+    public void clickSignupBtn() {
+
+        tapByElement(signupBtn);
     }
 
 }

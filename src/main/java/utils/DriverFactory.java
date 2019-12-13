@@ -14,7 +14,6 @@ public class DriverFactory {
     /****************
      Android Screen
      ****************/
-    public static AndroidIntroScreen androidIntroScreen;
     public static AndroidOnboardingScreen androidOnboardingScreen;
 
 
@@ -47,7 +46,6 @@ public class DriverFactory {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
             // This is to Instantiate class
-            androidIntroScreen = new AndroidIntroScreen(driver);
             androidOnboardingScreen = new AndroidOnboardingScreen(driver);
         }
         return driver;
