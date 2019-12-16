@@ -15,13 +15,21 @@ public class LoginSteps extends DriverFactory {
     }
 
     @Then("^User input the \"([^\"]*)\" username$")
-    public void User_input_the_something_username(String username, String strArg1) throws Throwable {
-        throw new PendingException();
+    public void User_input_the_something_username(String username) throws Throwable {
+
+        androidLoginScreen.inputusername(username);
     }
 
     @And("^User input the \"([^\"]*)\" password$")
-    public void User_input_the_something_password(String password, String strArg1) throws Throwable {
-        throw new PendingException();
+    public void User_input_the_something_password(String password) throws Throwable {
+
+        androidLoginScreen.inputpassword(password);
+    }
+
+    @When("^User click login button on login screen$")
+    public void user_click_login_button_on_login_screen() throws Throwable {
+
+        androidLoginScreen.clickLogin();
     }
 
 
@@ -29,6 +37,5 @@ public class LoginSteps extends DriverFactory {
     public void User_should_be_directed_to_homepage() throws Throwable {
         throw new PendingException();
     }
-
 
 }

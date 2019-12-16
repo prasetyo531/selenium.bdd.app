@@ -1,6 +1,7 @@
 package utils;
 
-import androidPageObjects.AndroidIntroScreen;
+import androidPageObjects.AndroidHomeScreen;
+import androidPageObjects.AndroidLoginScreen;
 import androidPageObjects.AndroidOnboardingScreen;
 import io.appium.java_client.AppiumDriver;
 
@@ -15,6 +16,8 @@ public class DriverFactory {
      Android Screen
      ****************/
     public static AndroidOnboardingScreen androidOnboardingScreen;
+    public static AndroidLoginScreen androidLoginScreen;
+    public static AndroidHomeScreen androidHomeScreen;
 
 
     /****************
@@ -47,6 +50,8 @@ public class DriverFactory {
         } finally {
             // This is to Instantiate class
             androidOnboardingScreen = new AndroidOnboardingScreen(driver);
+            androidLoginScreen = new AndroidLoginScreen(driver);
+            androidHomeScreen = new AndroidHomeScreen(driver);
         }
         return driver;
     }

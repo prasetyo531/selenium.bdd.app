@@ -32,6 +32,8 @@ public class AndroidOnboardingScreen extends ActionBaseAndroid {
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
     public AndroidElement signupBtn;
 
+
+    // This is a constructor, as every page need a base driver to find android elements
     public AndroidOnboardingScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;

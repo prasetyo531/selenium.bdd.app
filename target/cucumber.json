@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 38937019751,
+              "duration": 44359171363,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 15,
+        "line": 19,
         "name": "Login to account with credentials",
         "description": "",
         "id": "login-into-account;login-to-account-with-credentials;;2",
         "after": [
           {
             "result": {
-              "duration": 450840,
+              "duration": 305263,
               "status": "passed"
             },
             "match": {
@@ -34,67 +34,56 @@
         "steps": [
           {
             "result": {
-              "duration": 45425857264,
+              "duration": 38667086234,
               "status": "passed"
             },
-            "line": 5,
-            "name": "user swipe images onboarding screen",
+            "line": 9,
+            "name": "User navigates to onboarding screen by swipe",
             "match": {
-              "location": "OnBoardingSteps.user_swipe_images_onboarding_screen()"
+              "location": "OnBoardingSteps.user_navigates_to_onboarding_screen_by_swipe()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3540244304,
+              "duration": 10751969151,
               "status": "passed"
             },
-            "line": 6,
-            "name": "user clicks on the login button",
+            "line": 10,
+            "name": "User click login button on onboarding screen",
             "match": {
-              "location": "LoginSteps.user_clicks_on_the_login_button()"
+              "location": "OnBoardingSteps.user_click_login_button_on_onboarding_screen()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1520415,
-              "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat stepDefinitions.LoginSteps.user_directed_to_login_form(LoginSteps.java:14)\n\tat ✽.Then user directed to login form(Login.feature:7)\n",
-              "status": "pending"
+              "duration": 1289844139,
+              "status": "passed"
             },
-            "line": 7,
-            "name": "user directed to login form",
-            "match": {
-              "location": "LoginSteps.user_directed_to_login_form()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 8,
-            "name": "user enters the \"testqa\" username",
+            "line": 11,
+            "name": "User input the \"testqa\" username",
             "match": {
               "arguments": [
                 {
                   "val": "testqa",
-                  "offset": 17
+                  "offset": 16
                 }
               ],
-              "location": "LoginSteps.user_enters_the_something_username(String,String)"
+              "location": "LoginSteps.User_input_the_something_username(String)"
             },
             "matchedColumns": [
               0
             ],
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 1793743620,
+              "status": "passed"
             },
-            "line": 9,
-            "name": "user enter the \"test123\" password",
+            "line": 12,
+            "name": "User input the \"test123\" password",
             "match": {
               "arguments": [
                 {
@@ -102,7 +91,7 @@
                   "offset": 16
                 }
               ],
-              "location": "LoginSteps.user_enter_the_something_password(String,String)"
+              "location": "LoginSteps.User_input_the_something_password(String)"
             },
             "matchedColumns": [
               1
@@ -111,37 +100,49 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 7561089765,
+              "status": "passed"
             },
-            "line": 10,
-            "name": "user clicks on the login button",
+            "line": 13,
+            "name": "User click login button on login screen",
             "match": {
-              "location": "LoginSteps.user_clicks_on_the_login_button()"
+              "location": "LoginSteps.user_click_login_button_on_login_screen()"
             },
-            "keyword": "And "
+            "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 2249933,
+              "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat stepDefinitions.LoginSteps.User_should_be_directed_to_homepage(LoginSteps.java:38)\n\tat ✽.Then User should be directed to homepage(Login.feature:14)\n",
+              "status": "pending"
             },
-            "line": 11,
-            "name": "user should be directed to homepage",
+            "line": 14,
+            "name": "User should be directed to homepage",
             "match": {
-              "location": "LoginSteps.user_should_be_directed_to_homepage()"
+              "location": "LoginSteps.User_should_be_directed_to_homepage()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 15,
+            "name": "User can see product matches",
+            "match": {},
+            "keyword": "And "
           }
         ],
         "tags": [
           {
-            "line": 3,
+            "line": 7,
             "name": "@android"
           }
         ]
       }
     ],
     "name": "Login into account",
-    "description": "",
+    "description": "\nIn order to perform sucessfull login\nAs user that have complete profile\nI should see product matches",
     "id": "login-into-account",
     "keyword": "Feature",
     "uri": "Login.feature"

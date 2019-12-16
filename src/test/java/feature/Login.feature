@@ -10,7 +10,7 @@ Feature: Login into account
     When User click login button on onboarding screen
     Then User input the "<username>" username
     And User input the "<password>" password
-    When User clicks on the login button
+    When User click login button on login screen
     Then User should be directed to homepage
     And User can see product matches
 
