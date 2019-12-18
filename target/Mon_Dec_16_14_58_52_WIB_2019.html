@@ -46,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Dec 18, 2019 06:23:10 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Dec 16, 2019 02:47:22 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -168,7 +168,7 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Login into account</span>
-						<span class='test-time'>Dec 18, 2019 06:23:41 PM</span>
+						<span class='test-time'>Dec 16, 2019 02:48:05 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -179,7 +179,7 @@
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 <div class='scenariooutline node' test-id='2' status='fail'>
-    <span class='duration right label'>0h 0m 41s+956ms</span>
+    <span class='duration right label'>0h 1m 23s+143ms</span>
     <div class="bdd-test">
         <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Login to account with credentials</div>
     </div>
@@ -205,14 +205,14 @@
                     </li>
                     <li test-id='8' class='gc then fail' status='fail'>
                         <h6 class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Then User should be directed to homescreen</h6>
-                            <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: com.fdbr.android.debug:id/labelHello}) (tried for 10 second(s) with 500 milliseconds interval)
+                            <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: aw0}) (tried for 10 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 	at androidPageObjects.ActionBaseAndroid.isElementPresent(ActionBaseAndroid.java:46)
-	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:88)
+	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:87)
 	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at ✽.Then User should be directed to homescreen(Login.feature:13)
-Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.fdbr.android.debug:id/labelHello})
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: aw0})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
 	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
@@ -222,7 +222,7 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element b
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	at androidPageObjects.ActionBaseAndroid.isElementPresent(ActionBaseAndroid.java:46)
-	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:88)
+	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:87)
 	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -265,16 +265,16 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element b
 	at org.testng.TestNG.run(TestNG.java:1017)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@79ef14d2 (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@6f69801d (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
 	... 51 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.fdbr.android.debug:id/labelHello})
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: aw0})
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:181a:2108:c4a9:1ddd%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
+System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:c15:f88:485b:6f78%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
 Driver info: driver.version: AndroidDriver
 	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
@@ -298,7 +298,7 @@ Driver info: driver.version: AndroidDriver
                             <div class="node-step">skipped</div>
                             <div class="node-step">Taking a screenshot!</div>
                             <div class="node-step"><br></div>
-                            <div class="node-step"><a target="_blank", href=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Wed_Dec_18_18_24_23_WIB_2019.jpg><img src=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Wed_Dec_18_18_24_23_WIB_2019.jpg height=200 width=300></img></a></div>
+                            <div class="node-step"><a target="_blank", href=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Mon_Dec_16_14_49_28_WIB_2019.jpg><img src=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Mon_Dec_16_14_49_28_WIB_2019.jpg height=200 width=300></img></a></div>
                     </li>
             </ul>
         </li>
@@ -368,7 +368,7 @@ Driver info: driver.version: AndroidDriver
 								</thead>
 								<tbody>
 									<tr>
-										<td>Dec 18, 2019 06:23:41 PM</td>
+										<td>Dec 16, 2019 02:48:05 PM</td>
 										<td class='linked' test-id='3'>Login into account.Login to account with credentials.Login to account with credentials</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -421,17 +421,17 @@ Driver info: driver.version: AndroidDriver
 								</thead>
 								<tbody>
 									<tr>
-										<td>Dec 18, 2019 06:24:01 PM</td>
+										<td>Dec 16, 2019 02:49:03 PM</td>
 										<td class='linked' test-id='8'>Login into account.Login to account with credentials.Login to account with credentials.Then User should be directed to homescreen</td>
 										<td>
-											<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: com.fdbr.android.debug:id/labelHello}) (tried for 10 second(s) with 500 milliseconds interval)
+											<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: aw0}) (tried for 10 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 	at androidPageObjects.ActionBaseAndroid.isElementPresent(ActionBaseAndroid.java:46)
-	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:88)
+	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:87)
 	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at ✽.Then User should be directed to homescreen(Login.feature:13)
-Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.fdbr.android.debug:id/labelHello})
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: aw0})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
 	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
@@ -441,7 +441,7 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element b
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	at androidPageObjects.ActionBaseAndroid.isElementPresent(ActionBaseAndroid.java:46)
-	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:88)
+	at androidPageObjects.AndroidHomeScreen.verifyHomescreen(AndroidHomeScreen.java:87)
 	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -484,16 +484,16 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element b
 	at org.testng.TestNG.run(TestNG.java:1017)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@79ef14d2 (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@6f69801d (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
 	... 51 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.fdbr.android.debug:id/labelHello})
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: aw0})
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:181a:2108:c4a9:1ddd%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
+System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:c15:f88:485b:6f78%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
 Driver info: driver.version: AndroidDriver
 	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
@@ -553,19 +553,19 @@ Driver info: driver.version: AndroidDriver
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Dec 18, 2019 06:23:10 PM</div>
+					<div class='panel-lead'>Dec 16, 2019 02:47:22 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Dec 18, 2019 06:24:23 PM</div>
+			 		<div class='panel-lead'>Dec 16, 2019 02:49:28 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 13s+159ms</div>
+					<div class='panel-lead'>0h 2m 5s+720ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -632,7 +632,7 @@ Driver info: driver.version: AndroidDriver
 		</script>
 		<script>
 			var timeline = {
-			        "Login into account":41.956
+			        "Login into account":83.143
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

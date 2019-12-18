@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class AndroidHomeScreen extends ActionBaseAndroid{
 
+    //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
+
     /**********
      tab bar
      **********/
@@ -31,6 +33,18 @@ public class AndroidHomeScreen extends ActionBaseAndroid{
     /*
     home screen
      */
+    @AndroidFindBy(id="com.fdbr.android.debug:id/labelHello")
+    public AndroidElement greetingText;
+
+    @AndroidFindBy(xpath="//android.view.View[contains(@resource-id,'aw0') and @text='goc-shop']")
+    public AndroidElement adsBanner;
+
+    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonMenuToolbar")
+    public AndroidElement notifBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.debug:id/inputSearch")
+    public AndroidElement searchBar;
+
     @AndroidFindBy(id="com.fdbr.android.debug:id/id_addreview")
     public AndroidElement addReview;
 
@@ -68,5 +82,24 @@ public class AndroidHomeScreen extends ActionBaseAndroid{
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
+
+    public boolean verifyHomescreen() {
+
+        boolean boolElem1= isElementPresent(greetingText);
+        boolean boolElem2= isElementPresent(adsBanner);
+        boolean boolElem3= isElementPresent(notifBtn);
+        boolean boolElem4= isElementPresent(searchBar);
+        //boolean boolElem5= isElementPresent(firstindextproductmatches);
+
+        return (boolElem1 && boolElem2 && boolElem3 && boolElem4);
+    }
+
+    public void verifyProductMatches() {
+
+        isElementPresent(firstindextproductmatches);
+        System.out.println("product matches is present");
+    }
+
+
 
 }

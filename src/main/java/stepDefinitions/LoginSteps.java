@@ -9,20 +9,10 @@ import utils.DriverFactory;
 
 public class LoginSteps extends DriverFactory {
 
-    @Then("^User directed to login screen$")
-    public void User_directed_to_login_screen() throws Throwable {
-        throw new PendingException();
-    }
-
-    @Then("^User input the \"([^\"]*)\" username$")
-    public void User_input_the_something_username(String username) throws Throwable {
+    @Then("^User input \"([^\"]*)\" username and \"([^\"]*)\" password$")
+    public void user_input_something_username_and_something_password(String username, String password) throws Throwable {
 
         androidLoginScreen.inputusername(username);
-    }
-
-    @And("^User input the \"([^\"]*)\" password$")
-    public void User_input_the_something_password(String password) throws Throwable {
-
         androidLoginScreen.inputpassword(password);
     }
 
@@ -33,9 +23,16 @@ public class LoginSteps extends DriverFactory {
     }
 
 
-    @Then("^User should be directed to homepage$")
-    public void User_should_be_directed_to_homepage() throws Throwable {
-        throw new PendingException();
+    @Then("^User should be directed to homescreen$")
+    public void User_should_be_directed_to_homescreen() throws Throwable {
+
+        androidHomeScreen.verifyHomescreen();
+    }
+
+    @And("^User can see product matches$")
+    public void user_can_see_product_matches() throws Throwable {
+
+        androidHomeScreen.verifyProductMatches();
     }
 
 }

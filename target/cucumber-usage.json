@@ -1,16 +1,16 @@
 [
   {
-    "source": "^User input the \"([^\"]*)\" username$",
+    "source": "^User input \"([^\"]*)\" username and \"([^\"]*)\" password$",
     "steps": [
       {
-        "name": "User input the \"testqa\" username",
+        "name": "User input \"putwid\" username and \"tester123\" password",
         "aggregatedDurations": {
-          "average": 1.289844139,
-          "median": 1.289844139
+          "average": 4.232129175,
+          "median": 4.232129175
         },
         "durations": [
           {
-            "duration": 1.289844139,
+            "duration": 4.232129175,
             "location": "Login.feature:11"
           }
         ]
@@ -23,31 +23,13 @@
       {
         "name": "User navigates to onboarding screen by swipe",
         "aggregatedDurations": {
-          "average": 38.667086234,
-          "median": 38.667086234
+          "average": 12.852775092,
+          "median": 12.852775092
         },
         "durations": [
           {
-            "duration": 38.667086234,
+            "duration": 12.852775092,
             "location": "Login.feature:9"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "source": "^User input the \"([^\"]*)\" password$",
-    "steps": [
-      {
-        "name": "User input the \"test123\" password",
-        "aggregatedDurations": {
-          "average": 1.79374362,
-          "median": 1.79374362
-        },
-        "durations": [
-          {
-            "duration": 1.79374362,
-            "location": "Login.feature:12"
           }
         ]
       }
@@ -59,13 +41,13 @@
       {
         "name": "User click login button on login screen",
         "aggregatedDurations": {
-          "average": 7.561089765,
-          "median": 7.561089765
+          "average": 1.672186636,
+          "median": 1.672186636
         },
         "durations": [
           {
-            "duration": 7.561089765,
-            "location": "Login.feature:13"
+            "duration": 1.672186636,
+            "location": "Login.feature:12"
           }
         ]
       }
@@ -77,12 +59,12 @@
       {
         "name": "User click login button on onboarding screen",
         "aggregatedDurations": {
-          "average": 10.751969151,
-          "median": 10.751969151
+          "average": 1.631713817,
+          "median": 1.631713817
         },
         "durations": [
           {
-            "duration": 10.751969151,
+            "duration": 1.631713817,
             "location": "Login.feature:10"
           }
         ]
