@@ -1,40 +1,46 @@
-package androidPageObjects;
+package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
-public class AndroidOnboardingScreen extends ActionBaseAndroid {
+public class OnboardingScreen extends ActionBase {
 
     /*
     intro
      */
+    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
+    @iOSFindBy(id="NEXT")
+    public MobileElement nextIntroScreenBtn;
+
     @AndroidFindBy(id="com.fdbr.android.debug:id/imageAds")
-    public AndroidElement splashScreenImage;
+    public MobileElement splashScreenImage;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonGetStarted")
-    public AndroidElement getStartedBtn;
+    @iOSFindBy(id="Get Started")
+    public MobileElement getStartedBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
-    public AndroidElement nextIntroBtn;
+    public MobileElement nextIntroBtn;
 
     /*
     onboarding
      */
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
-    public AndroidElement loginBtn;
+    @iOSFindBy(id="Log In")
+    public MobileElement loginBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
-    public AndroidElement signupBtn;
+    public MobileElement signupBtn;
 
 
     // This is a constructor, as every page need a base driver to find android elements
-    public AndroidOnboardingScreen(AppiumDriver driver) throws IOException {
+    public OnboardingScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -53,7 +59,9 @@ public class AndroidOnboardingScreen extends ActionBaseAndroid {
 
     public void clickNextIntroBtn() {
 
-        tapByElement(nextIntroBtn);
+        //tapByElement(nextIntroBtn);
+        tapByElementMobileElement(nextIntroScreenBtn);
+        tapByElementMobileElement(nextIntroScreenBtn);
     }
 
     public void clickGetStartedBtn() throws InterruptedException {

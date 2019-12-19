@@ -1,14 +1,14 @@
-package androidPageObjects;
+package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
-public class AndroidHomeScreen extends ActionBaseAndroid{
+public class HomeScreen extends ActionBase {
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
@@ -16,67 +16,67 @@ public class AndroidHomeScreen extends ActionBaseAndroid{
      tab bar
      **********/
     @AndroidFindBy(accessibility="Home")
-    public AndroidElement homeTab;
+    public MobileElement homeTab;
 
     @AndroidFindBy(accessibility="Feed")
-    public AndroidElement feedTab;
+    public MobileElement feedTab;
 
     @AndroidFindBy(accessibility="Discover")
-    public AndroidElement discoverTab;
+    public MobileElement discoverTab;
 
     @AndroidFindBy(accessibility="com.fdbr.android.debug:id/")
-    public AndroidElement plusTab;
+    public MobileElement plusTab;
 
     @AndroidFindBy(accessibility="com.fdbr.android.debug:id/")
-    public AndroidElement profileTab;
+    public MobileElement profileTab;
 
     /*
     home screen
      */
     @AndroidFindBy(id="com.fdbr.android.debug:id/labelHello")
-    public AndroidElement greetingText;
+    public MobileElement greetingText;
 
     @AndroidFindBy(xpath="//android.view.View[contains(@resource-id,'aw0') and @text='goc-shop']")
-    public AndroidElement adsBanner;
+    public MobileElement adsBanner;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonMenuToolbar")
-    public AndroidElement notifBtn;
+    public MobileElement notifBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/inputSearch")
-    public AndroidElement searchBar;
+    public MobileElement searchBar;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/id_addreview")
-    public AndroidElement addReview;
+    public MobileElement addReview;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/id_addpost")
-    public AndroidElement addPost;
+    public MobileElement addPost;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/id_addproduct")
-    public AndroidElement addProduct;
+    public MobileElement addProduct;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/buttonCancel') and @text='Cancel']")
-    public AndroidElement cancel;
+    public MobileElement cancel;
 
     @AndroidFindBy(xpath ="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[4]")
-    public AndroidElement firstindextproductmatches;
+    public MobileElement firstindextproductmatches;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type, Skin Undertone']")
-    public AndroidElement productMatchesSkinTypeAndSkinUndertone;
+    public MobileElement productMatchesSkinTypeAndSkinUndertone;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type, Skin Tone']")
-    public AndroidElement productMatchesSkinTypeAndSkinTone;
+    public MobileElement productMatchesSkinTypeAndSkinTone;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Tone']")
-    public AndroidElement productMatchesSkinTone;
+    public MobileElement productMatchesSkinTone;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type']")
-    public AndroidElement productMatchesSkinType;
+    public MobileElement productMatchesSkinType;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Hair Type']")
-    public AndroidElement productMatchesHairType;
+    public MobileElement productMatchesHairType;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public AndroidHomeScreen(AppiumDriver driver) throws IOException {
+    public HomeScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘

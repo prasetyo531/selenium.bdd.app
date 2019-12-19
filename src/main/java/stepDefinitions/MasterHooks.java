@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import androidPageObjects.ActionBaseAndroid;
+import pageObjects.ActionBase;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -22,7 +22,7 @@ public class MasterHooks extends DriverFactory {
     public void tearDownScreenshootFailure(Scenario scenario) throws InterruptedException, IOException {
         try {
             if (driver !=null && scenario.isFailed()) {
-                ActionBaseAndroid.captureScreenshot();
+                ActionBase.captureScreenshot();
                 AppiumServer.stop();
             } if (driver != null) {
                 AppiumServer.stop();

@@ -1,10 +1,9 @@
-package androidPageObjects;
+package pageObjects;
 
 import com.cucumber.listener.Reporter;
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.*;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -25,7 +24,7 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static java.time.Duration.ofMillis;
 import static java.time.Duration.ofSeconds;
 
-public class ActionBaseAndroid extends DriverFactory {
+public class ActionBase extends DriverFactory {
 
     protected WebDriverWait wait;
     private static String screenshotName;
@@ -40,10 +39,10 @@ public class ActionBaseAndroid extends DriverFactory {
         }
     }
 
-    protected boolean isElementPresent(AndroidElement androidElement) {
+    protected boolean isElementPresent(MobileElement mobileElement) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOf(androidElement));
+            wait.until(ExpectedConditions.visibilityOf(mobileElement));
             System.out.println("element is present");
             return true;
         } catch (NoSuchElementException e) {
@@ -52,10 +51,10 @@ public class ActionBaseAndroid extends DriverFactory {
         }
     }
 
-    protected boolean isElementEnabled(AndroidElement androidElement) {
+    protected boolean isElementEnabled(MobileElement mobileElement) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.elementToBeClickable(androidElement));
+            wait.until(ExpectedConditions.elementToBeClickable(mobileElement));
             System.out.println("element is present");
             return true;
         } catch (NoSuchElementException e) {
@@ -67,20 +66,30 @@ public class ActionBaseAndroid extends DriverFactory {
     /**********************************************************************************
      Tap to an element for 250 milliseconds
      **********************************************************************************/
-    public void tapByElement (AndroidElement androidElement) {
+    public void tapByElement (MobileElement mobileElement) {
         try {
             new TouchAction(driver)
-                    .tap(tapOptions().withElement(element(androidElement)))
+                    .tap(tapOptions().withElement(element(mobileElement)))
                     .waitAction(waitOptions(Duration.ofMillis(250))).perform();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void pressByElement (AndroidElement androidElement) {
+    public void tapByElementMobileElement (MobileElement mobileElement) {
+        try {
+            new TouchAction(driver)
+                    .tap(tapOptions().withElement(element(mobileElement)))
+                    .waitAction(waitOptions(Duration.ofMillis(250))).perform();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void pressByElement (MobileElement mobileElement) {
         try {
             TouchAction action = new TouchAction(driver);
-            action.tap(tapOptions().withElement(element(androidElement))).perform();
+            action.tap(tapOptions().withElement(element(mobileElement))).perform();
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -100,10 +109,10 @@ public class ActionBaseAndroid extends DriverFactory {
     }
 
     //Press by element
-    public void pressByElement (AndroidElement androidElement, long seconds) {
+    public void pressByElement (MobileElement mobileElement, long seconds) {
         try {
             new TouchAction(driver)
-                    .press(element(androidElement))
+                    .press(element(mobileElement))
                     .waitAction(waitOptions(ofSeconds(seconds)))
                     .release()
                     .perform();
@@ -123,14 +132,14 @@ public class ActionBaseAndroid extends DriverFactory {
 
 
     //Horizontal Swipe by percentages
-    public void horizontalSwipeByPercentage (AndroidElement androidElement, double startPercentage, double endPercentage, double anchorPercentage, int duration) {
+    public void horizontalSwipeByPercentage (MobileElement mobileElement, double startPercentage, double endPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.height * anchorPercentage);
         int startPoint = (int) (size.width * startPercentage);
         int endPoint = (int) (size.width * endPercentage);
 
         new TouchAction(driver)
-                .tap(tapOptions().withElement(element(androidElement)))
+                .tap(tapOptions().withElement(element(mobileElement)))
                 .press(point(startPoint, anchor))
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(endPoint, anchor))
@@ -152,7 +161,7 @@ public class ActionBaseAndroid extends DriverFactory {
     }
 
     //Swipe by elements
-    public void swipeByElements (AndroidElement startElement, AndroidElement endElement) {
+    public void swipeByElements (MobileElement startElement, MobileElement endElement) {
         int startX = startElement.getLocation().getX() + (startElement.getSize().getWidth() / 2);
         int startY = startElement.getLocation().getY() + (startElement.getSize().getHeight() / 2);
 
@@ -167,9 +176,9 @@ public class ActionBaseAndroid extends DriverFactory {
     }
 
     //Multitouch action by using an android element
-    public void multiTouchByElement (AndroidElement androidElement) {
+    public void multiTouchByElement (MobileElement mobileElement) {
         TouchAction press = new TouchAction(driver)
-                .press(element(androidElement))
+                .press(element(mobileElement))
                 .waitAction(waitOptions(ofSeconds(1)))
                 .release();
 

@@ -1,8 +1,8 @@
 package utils;
 
-import androidPageObjects.AndroidHomeScreen;
-import androidPageObjects.AndroidLoginScreen;
-import androidPageObjects.AndroidOnboardingScreen;
+import pageObjects.HomeScreen;
+import pageObjects.LoginScreen;
+import pageObjects.OnboardingScreen;
 import io.appium.java_client.AppiumDriver;
 
 import java.io.IOException;
@@ -15,9 +15,9 @@ public class DriverFactory {
     /****************
      Android Screen
      ****************/
-    public static AndroidOnboardingScreen androidOnboardingScreen;
-    public static AndroidLoginScreen androidLoginScreen;
-    public static AndroidHomeScreen androidHomeScreen;
+    public static OnboardingScreen androidOnboardingScreen;
+    public static LoginScreen androidLoginScreen;
+    public static HomeScreen androidHomeScreen;
 
 
     /****************
@@ -25,7 +25,7 @@ public class DriverFactory {
      ****************/
 
     //set configuration
-    public static String loadPropertyFile = "android.properties";
+    public static String loadPropertyFile = "ios.properties";
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -49,9 +49,9 @@ public class DriverFactory {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
             // This is to Instantiate class
-            androidOnboardingScreen = new AndroidOnboardingScreen(driver);
-            androidLoginScreen = new AndroidLoginScreen(driver);
-            androidHomeScreen = new AndroidHomeScreen(driver);
+            androidOnboardingScreen = new OnboardingScreen(driver);
+            androidLoginScreen = new LoginScreen(driver);
+            androidHomeScreen = new HomeScreen(driver);
         }
         return driver;
     }
