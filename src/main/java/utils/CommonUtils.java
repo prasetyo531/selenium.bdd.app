@@ -96,7 +96,7 @@ public class CommonUtils {
         capabilities.setCapability(DEVICE_READY_TIMEOUT, CommonUtils.DEVICE_TIMEOUT);
         capabilities.setCapability(APP_ACTIVITY, CommonUtils.APPS_ACTIVITY);
         capabilities.setCapability(APP_PACKAGE, CommonUtils.BASE_PKG);
-        //https://appiumpro.com/editions/50
+        //https://appiumpro.com/editions/50 - if false will install from android properties
         capabilities.setCapability("skipDeviceInitialization", true);
         capabilities.setCapability("skipServerInstallation", true);
     }

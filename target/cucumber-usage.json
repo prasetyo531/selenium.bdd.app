@@ -1,0 +1,110 @@
+[
+  {
+    "source": "^User input \"([^\"]*)\" username and \"([^\"]*)\" password$",
+    "steps": [
+      {
+        "name": "User input \"putwid\" username and \"tester123\" password",
+        "aggregatedDurations": {
+          "average": 4.115485814,
+          "median": 4.115485814
+        },
+        "durations": [
+          {
+            "duration": 4.115485814,
+            "location": "Login.feature:11"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^User should be directed to homescreen$",
+    "steps": [
+      {
+        "name": "User should be directed to homescreen",
+        "aggregatedDurations": {
+          "average": 9.253521027,
+          "median": 9.253521027
+        },
+        "durations": [
+          {
+            "duration": 9.253521027,
+            "location": "Login.feature:13"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^User navigates to onboarding screen by swipe$",
+    "steps": [
+      {
+        "name": "User navigates to onboarding screen by swipe",
+        "aggregatedDurations": {
+          "average": 11.515948523,
+          "median": 11.515948523
+        },
+        "durations": [
+          {
+            "duration": 11.515948523,
+            "location": "Login.feature:9"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^User click login button on login screen$",
+    "steps": [
+      {
+        "name": "User click login button on login screen",
+        "aggregatedDurations": {
+          "average": 1.045292953,
+          "median": 1.045292953
+        },
+        "durations": [
+          {
+            "duration": 1.045292953,
+            "location": "Login.feature:12"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^User click login button on onboarding screen$",
+    "steps": [
+      {
+        "name": "User click login button on onboarding screen",
+        "aggregatedDurations": {
+          "average": 1.483790228,
+          "median": 1.483790228
+        },
+        "durations": [
+          {
+            "duration": 1.483790228,
+            "location": "Login.feature:10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^User can see product matches$",
+    "steps": [
+      {
+        "name": "User can see product matches",
+        "aggregatedDurations": {
+          "average": 1.441823101,
+          "median": 1.441823101
+        },
+        "durations": [
+          {
+            "duration": 1.441823101,
+            "location": "Login.feature:14"
+          }
+        ]
+      }
+    ]
+  }
+]

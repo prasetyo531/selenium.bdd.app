@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
-  "line": 22,
+  "line": 8,
   "name": "Login to account with credentials",
   "description": "",
   "id": "login-into-account;login-to-account-with-credentials",
@@ -15,43 +15,43 @@ formatter.scenarioOutline({
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 21,
-      "name": "@ios"
+      "line": 7,
+      "name": "@android"
     }
   ]
 });
 formatter.step({
-  "line": 23,
-  "name": "User navigates to onboarding screen by click next",
+  "line": 9,
+  "name": "User navigates to onboarding screen by swipe",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 24,
+  "line": 10,
   "name": "User click login button on onboarding screen",
   "keyword": "When "
 });
 formatter.step({
-  "line": 25,
+  "line": 11,
   "name": "User input \"\u003cusername\u003e\" username and \"\u003cpassword\u003e\" password",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 26,
+  "line": 12,
   "name": "User click login button on login screen",
   "keyword": "When "
 });
 formatter.step({
-  "line": 27,
+  "line": 13,
   "name": "User should be directed to homescreen",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 28,
+  "line": 14,
   "name": "User can see product matches",
   "keyword": "And "
 });
 formatter.examples({
-  "line": 30,
+  "line": 16,
   "name": "",
   "description": "",
   "id": "login-into-account;login-to-account-with-credentials;",
@@ -61,7 +61,7 @@ formatter.examples({
         "username",
         "password"
       ],
-      "line": 31,
+      "line": 17,
       "id": "login-into-account;login-to-account-with-credentials;;1"
     },
     {
@@ -69,18 +69,18 @@ formatter.examples({
         "putwid",
         "tester123"
       ],
-      "line": 32,
+      "line": 18,
       "id": "login-into-account;login-to-account-with-credentials;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 17765318176,
+  "duration": 27889509248,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 32,
+  "line": 18,
   "name": "Login to account with credentials",
   "description": "",
   "id": "login-into-account;login-to-account-with-credentials;;2",
@@ -88,23 +88,23 @@ formatter.scenario({
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 21,
-      "name": "@ios"
+      "line": 7,
+      "name": "@android"
     }
   ]
 });
 formatter.step({
-  "line": 23,
-  "name": "User navigates to onboarding screen by click next",
+  "line": 9,
+  "name": "User navigates to onboarding screen by swipe",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 24,
+  "line": 10,
   "name": "User click login button on onboarding screen",
   "keyword": "When "
 });
 formatter.step({
-  "line": 25,
+  "line": 11,
   "name": "User input \"putwid\" username and \"tester123\" password",
   "matchedColumns": [
     0,
@@ -113,32 +113,32 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.step({
-  "line": 26,
+  "line": 12,
   "name": "User click login button on login screen",
   "keyword": "When "
 });
 formatter.step({
-  "line": 27,
+  "line": 13,
   "name": "User should be directed to homescreen",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 28,
+  "line": 14,
   "name": "User can see product matches",
   "keyword": "And "
 });
 formatter.match({
-  "location": "OnBoardingSteps.user_navigates_to_onboarding_screen_by_click_next()"
+  "location": "OnBoardingSteps.user_navigates_to_onboarding_screen_by_swipe()"
 });
 formatter.result({
-  "duration": 5734863617,
+  "duration": 11515948523,
   "status": "passed"
 });
 formatter.match({
   "location": "OnBoardingSteps.user_click_login_button_on_onboarding_screen()"
 });
 formatter.result({
-  "duration": 911676189,
+  "duration": 1483790228,
   "status": "passed"
 });
 formatter.match({
@@ -153,4 +153,34 @@ formatter.match({
     }
   ],
   "location": "LoginSteps.user_input_something_username_and_something_password(String,String)"
+});
+formatter.result({
+  "duration": 4115485814,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginSteps.user_click_login_button_on_login_screen()"
+});
+formatter.result({
+  "duration": 1045292953,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginSteps.User_should_be_directed_to_homescreen()"
+});
+formatter.result({
+  "duration": 9253521027,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginSteps.user_can_see_product_matches()"
+});
+formatter.result({
+  "duration": 1441823101,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 452468,
+  "status": "passed"
+});
 });
