@@ -13,16 +13,11 @@ public class DriverFactory {
     public static AppiumDriver driver;
 
     /****************
-     Android Screen
+     Android & IOS Screen
      ****************/
-    public static OnboardingScreen androidOnboardingScreen;
-    public static LoginScreen androidLoginScreen;
-    public static HomeScreen androidHomeScreen;
-
-
-    /****************
-     IOS Screen
-     ****************/
+    public static OnboardingScreen onBoardingScreen;
+    public static LoginScreen loginScreen;
+    public static HomeScreen homeScreen;
 
     //set configuration
     public static String loadPropertyFile = "android.properties";
@@ -49,9 +44,9 @@ public class DriverFactory {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
             // This is to Instantiate class
-            androidOnboardingScreen = new OnboardingScreen(driver);
-            androidLoginScreen = new LoginScreen(driver);
-            androidHomeScreen = new HomeScreen(driver);
+            onBoardingScreen = new OnboardingScreen(driver);
+            loginScreen = new LoginScreen(driver);
+            homeScreen = new HomeScreen(driver);
         }
         return driver;
     }
