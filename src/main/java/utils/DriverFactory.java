@@ -1,5 +1,6 @@
 package utils;
 
+import org.testng.annotations.Parameters;
 import pageObjects.HomeScreen;
 import pageObjects.LoginScreen;
 import pageObjects.OnboardingScreen;
@@ -11,6 +12,18 @@ public class DriverFactory {
 
     //grid
     public static AppiumDriver driver;
+
+//    public String getLoadPropertyFile() {
+//        return loadPropertyFile;
+//    }
+//
+//    @Parameters({"PROPERTY"})
+//    public void setLoadPropertyFile(String loadPropertyFile) {
+//        this.loadPropertyFile = loadPropertyFile;
+//    }
+//
+//    public String loadPropertyFile;
+
 
     /****************
      Android & IOS Screen

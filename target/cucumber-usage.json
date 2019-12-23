@@ -5,12 +5,12 @@
       {
         "name": "User input \"putwid\" username and \"tester123\" password",
         "aggregatedDurations": {
-          "average": 4.405220538,
-          "median": 4.405220538
+          "average": 3.590339353,
+          "median": 3.590339353
         },
         "durations": [
           {
-            "duration": 4.405220538,
+            "duration": 3.590339353,
             "location": "Login.feature:11"
           }
         ]
@@ -23,12 +23,12 @@
       {
         "name": "User should be directed to homescreen",
         "aggregatedDurations": {
-          "average": 11.304617833,
-          "median": 11.304617833
+          "average": 4.399233126,
+          "median": 4.399233126
         },
         "durations": [
           {
-            "duration": 11.304617833,
+            "duration": 4.399233126,
             "location": "Login.feature:13"
           }
         ]
@@ -41,12 +41,12 @@
       {
         "name": "User navigates to onboarding screen by swipe",
         "aggregatedDurations": {
-          "average": 15.053259031,
-          "median": 15.053259031
+          "average": 43.014373693,
+          "median": 43.014373693
         },
         "durations": [
           {
-            "duration": 15.053259031,
+            "duration": 43.014373693,
             "location": "Login.feature:9"
           }
         ]
@@ -59,12 +59,12 @@
       {
         "name": "User click login button on login screen",
         "aggregatedDurations": {
-          "average": 1.107340734,
-          "median": 1.107340734
+          "average": 11.120360535,
+          "median": 11.120360535
         },
         "durations": [
           {
-            "duration": 1.107340734,
+            "duration": 11.120360535,
             "location": "Login.feature:12"
           }
         ]
@@ -77,12 +77,12 @@
       {
         "name": "User click login button on onboarding screen",
         "aggregatedDurations": {
-          "average": 1.66240436,
-          "median": 1.66240436
+          "average": 11.170859595,
+          "median": 11.170859595
         },
         "durations": [
           {
-            "duration": 1.66240436,
+            "duration": 11.170859595,
             "location": "Login.feature:10"
           }
         ]
@@ -95,12 +95,12 @@
       {
         "name": "User can see product matches",
         "aggregatedDurations": {
-          "average": 1.160939188,
-          "median": 1.160939188
+          "average": 1.473013768,
+          "median": 1.473013768
         },
         "durations": [
           {
-            "duration": 1.160939188,
+            "duration": 1.473013768,
             "location": "Login.feature:14"
           }
         ]
