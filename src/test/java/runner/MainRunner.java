@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @RunWith(Cucumber.class) //this annotations tells junit run test
 @CucumberOptions(
-        features = {"src/test/java/feature/"},
+        features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
         tags = {"@android"},
