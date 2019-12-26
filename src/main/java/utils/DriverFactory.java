@@ -32,10 +32,10 @@ public class DriverFactory {
     public static LoginScreen loginScreen;
     public static HomeScreen homeScreen;
 
-    //set configuration
-    public static String loadPropertyFile = "android.properties";
-
     public AppiumDriver getDriver() throws IOException {
+
+        //set configuration
+        String loadPropertyFile = "android.properties";
 
         try {
             if (driver == null) {

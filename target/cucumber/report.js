@@ -76,7 +76,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 40286638816,
+  "duration": 51985554900,
   "status": "passed"
 });
 formatter.scenario({
@@ -131,14 +131,14 @@ formatter.match({
   "location": "OnBoardingSteps.user_navigates_to_onboarding_screen_by_swipe()"
 });
 formatter.result({
-  "duration": 43014373693,
+  "duration": 11554266208,
   "status": "passed"
 });
 formatter.match({
   "location": "OnBoardingSteps.user_click_login_button_on_onboarding_screen()"
 });
 formatter.result({
-  "duration": 11170859595,
+  "duration": 1596243097,
   "status": "passed"
 });
 formatter.match({
@@ -155,32 +155,32 @@ formatter.match({
   "location": "LoginSteps.user_input_something_username_and_something_password(String,String)"
 });
 formatter.result({
-  "duration": 3590339353,
+  "duration": 4554593244,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginSteps.user_click_login_button_on_login_screen()"
 });
 formatter.result({
-  "duration": 11120360535,
+  "duration": 1124400679,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginSteps.User_should_be_directed_to_homescreen()"
 });
 formatter.result({
-  "duration": 4399233126,
+  "duration": 9804193746,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginSteps.user_can_see_product_matches()"
 });
 formatter.result({
-  "duration": 1473013768,
+  "duration": 1163942443,
   "status": "passed"
 });
 formatter.after({
-  "duration": 563747,
+  "duration": 520995,
   "status": "passed"
 });
 });
