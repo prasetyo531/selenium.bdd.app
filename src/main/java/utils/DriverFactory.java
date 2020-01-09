@@ -23,7 +23,7 @@ public class DriverFactory {
     public AppiumDriver getDriver() throws IOException {
 
         //set configuration
-        String loadPropertyFile = "android.properties";
+        String loadPropertyFile = "ios.properties";
 
         try {
             if (driver == null) {
@@ -44,7 +44,7 @@ public class DriverFactory {
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
-            // This is to Instantiate class
+            // This is to Instantiate class by creating object
             onBoardingScreen = new OnboardingScreen(driver);
             loginScreen = new LoginScreen(driver);
             homeScreen = new HomeScreen(driver);

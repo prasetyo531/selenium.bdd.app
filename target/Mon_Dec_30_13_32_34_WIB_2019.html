@@ -46,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Dec 30, 2019 01:34:57 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Dec 27, 2019 06:50:20 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -75,7 +75,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@ios</a></li>
+					<li><a href='#'>@android</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -144,10 +144,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>2</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='66.667%'><span class='strong'>4</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='50%'>3</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> others
                 </div>
             </div>
         </div>
@@ -165,10 +165,10 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='2'>
 					<div class='test-heading'>
 						<span class='test-name'>Login into account</span>
-						<span class='test-time'>Dec 30, 2019 01:35:24 PM</span>
+						<span class='test-time'>Dec 27, 2019 06:50:58 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -178,41 +178,52 @@
     <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
     <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-<div class='scenariooutline node' test-id='2' status='fail'>
-    <span class='duration right label'>0h 0m 33s+400ms</span>
+<div class='scenariooutline node' test-id='3' status='fail'>
+    <span class='duration right label'>0h 0m 48s+460ms</span>
     <div class="bdd-test">
         <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Login to account with credentials</div>
     </div>
     <ul class='steps'>
-        <li test-id='3' class='node scenario fail' status='fail'>
+        <li test-id='4' class='node scenario fail' status='fail'>
             <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Login to account with credentials</div>
             <ul class='gc steps'>
-                    <li test-id='4' class='gc given pass' status='pass'>
-                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given User navigates to onboarding screen by click next</h6>
+                    <li test-id='5' class='gc given pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given User navigates to onboarding screen by swipe</h6>
                             <div class="node-step">passed</div>
                     </li>
-                    <li test-id='5' class='gc when pass' status='pass'>
+                    <li test-id='6' class='gc when pass' status='pass'>
                         <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When User click login button on onboarding screen</h6>
                             <div class="node-step">passed</div>
                     </li>
-                    <li test-id='6' class='gc then fail' status='fail'>
-                        <h6 class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Then User input "putwid" username and "tester123" password</h6>
-                            <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: UsernameEmailField
+                    <li test-id='7' class='gc then pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then User input "putwid" username and "tester123" password</h6>
+                            <div class="node-step">passed</div>
+                    </li>
+                    <li test-id='8' class='gc when pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When User click login button on login screen</h6>
+                            <div class="node-step">passed</div>
+                    </li>
+                    <li test-id='9' class='gc then fail' status='fail'>
+                        <h6 class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Then User should be directed to homescreen</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: com.fdbr.android.debug:id/labelHello}) (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at pageObjects.ActionBase.isElementPresent(ActionBase.java:45)
+	at pageObjects.HomeScreen.verifyHomescreen(HomeScreen.java:88)
+	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
+	at ✽.Then User should be directed to homescreen(Login.feature:13)
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.fdbr.android.debug:id/labelHello})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
-	at io.appium.java_client.ios.IOSElement$$EnhancerByCGLIB$$d311658.setValue(<generated>)
-	at pageObjects.LoginScreen.inputusername(LoginScreen.java:41)
-	at stepDefinitions.LoginSteps.user_input_something_username_and_something_password(LoginSteps.java:15)
-	at ✽.Then User input "putwid" username and "tester123" password(Login.feature:25)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@65d675dd (tried for 1 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
-	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
-	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
-	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
-	at io.appium.java_client.ios.IOSElement$$EnhancerByCGLIB$$d311658.setValue(<generated>)
-	at pageObjects.LoginScreen.inputusername(LoginScreen.java:41)
-	at stepDefinitions.LoginSteps.user_input_something_username_and_something_password(LoginSteps.java:15)
+	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:301)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at pageObjects.ActionBase.isElementPresent(ActionBase.java:45)
+	at pageObjects.HomeScreen.verifyHomescreen(HomeScreen.java:88)
+	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -252,68 +263,47 @@ Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: wait
 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
 	at org.testng.TestNG.runSuites(TestNG.java:1049)
 	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@7555000d (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+	... 56 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.fdbr.android.debug:id/labelHello})
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:8bc:17da:4647:fca8%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
-Driver info: io.appium.java_client.ios.IOSDriver
-Capabilities {browserName: , bundleId: com.femaledaily.fdbr-dev, clearSystemFiles: true, databaseEnabled: false, deviceName: iPhone 6, deviceReadyTimeout: 300, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: false, newCommandTimeout: 300, platform: MAC, platformName: iOS, platformVersion: 12.4.1, takesScreenshot: true, udid: 6e9fae38c3ee3a776b7fb77833e..., webStorageEnabled: false}
-Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
-*** Element info: {Using=id, value=UsernameEmailField}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:231)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:363)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:70)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElementById(IOSDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:1cbb:860e:c81a:c7c5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
+Driver info: driver.version: AndroidDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
-	... 47 more
+	... 58 more
 </textarea>
                                                 </li>
-                    <li test-id='7' class='gc when skip' status='skip'>
-                        <h6 class="step-name" title=""><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When User click login button on login screen</h6>
-                            <div class="node-step">skipped</div>
-                    </li>
-                    <li test-id='8' class='gc then skip' status='skip'>
-                        <h6 class="step-name" title=""><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then User should be directed to homescreen</h6>
-                            <div class="node-step">skipped</div>
-                    </li>
-                    <li test-id='9' class='gc and skip' status='skip'>
+                    <li test-id='10' class='gc and skip' status='skip'>
                         <h6 class="step-name" title=""><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And User can see product matches</h6>
                             <div class="node-step">skipped</div>
                             <div class="node-step">Taking a screenshot!</div>
                             <div class="node-step"><br></div>
-                            <div class="node-step"><a target="_blank", href=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Mon_Dec_30_13_35_58_WIB_2019.jpg><img src=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Mon_Dec_30_13_35_58_WIB_2019.jpg height=200 width=300></img></a></div>
+                            <div class="node-step"><a target="_blank", href=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Fri_Dec_27_18_51_46_WIB_2019.jpg><img src=/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android//output//imgs//Fri_Dec_27_18_51_46_WIB_2019.jpg height=200 width=300></img></a></div>
                     </li>
             </ul>
         </li>
@@ -361,7 +351,7 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@ios</span>
+						<span class='category-name'>@android</span>
 						<span class='category-status right'>
 						<span class='label fail'>1</span>
 						</span>
@@ -383,8 +373,8 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 								</thead>
 								<tbody>
 									<tr>
-										<td>Dec 30, 2019 01:35:24 PM</td>
-										<td class='linked' test-id='3'>Login into account.Login to account with credentials.Login to account with credentials</td>
+										<td>Dec 27, 2019 06:50:58 PM</td>
+										<td class='linked' test-id='4'>Login into account.Login to account with credentials.Login to account with credentials</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
@@ -421,7 +411,7 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 			<ul id='exception-collection' class='exception-collection'>
 				<li class='exception displayed active'>
 					<div class='exception-heading'>
-						<span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+						<span class='exception-name'>org.openqa.selenium.TimeoutException</span>
 						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
 					</div>
 					<div class='exception-content hide'>
@@ -436,25 +426,28 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 								</thead>
 								<tbody>
 									<tr>
-										<td>Dec 30, 2019 01:35:33 PM</td>
-										<td class='linked' test-id='6'>Login into account.Login to account with credentials.Login to account with credentials.Then User input "putwid" username and "tester123" password</td>
+										<td>Dec 27, 2019 06:51:25 PM</td>
+										<td class='linked' test-id='9'>Login into account.Login to account with credentials.Login to account with credentials.Then User should be directed to homescreen</td>
 										<td>
-											<textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: UsernameEmailField
+											<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.id: com.fdbr.android.debug:id/labelHello}) (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at pageObjects.ActionBase.isElementPresent(ActionBase.java:45)
+	at pageObjects.HomeScreen.verifyHomescreen(HomeScreen.java:88)
+	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
+	at ✽.Then User should be directed to homescreen(Login.feature:13)
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.fdbr.android.debug:id/labelHello})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
-	at io.appium.java_client.ios.IOSElement$$EnhancerByCGLIB$$d311658.setValue(<generated>)
-	at pageObjects.LoginScreen.inputusername(LoginScreen.java:41)
-	at stepDefinitions.LoginSteps.user_input_something_username_and_something_password(LoginSteps.java:15)
-	at ✽.Then User input "putwid" username and "tester123" password(Login.feature:25)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@65d675dd (tried for 1 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
-	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
-	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
-	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:60)
-	at io.appium.java_client.ios.IOSElement$$EnhancerByCGLIB$$d311658.setValue(<generated>)
-	at pageObjects.LoginScreen.inputusername(LoginScreen.java:41)
-	at stepDefinitions.LoginSteps.user_input_something_username_and_something_password(LoginSteps.java:15)
+	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:301)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at pageObjects.ActionBase.isElementPresent(ActionBase.java:45)
+	at pageObjects.HomeScreen.verifyHomescreen(HomeScreen.java:88)
+	at stepDefinitions.LoginSteps.User_should_be_directed_to_homescreen(LoginSteps.java:29)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -494,52 +487,39 @@ Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: wait
 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
 	at org.testng.TestNG.runSuites(TestNG.java:1049)
 	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@7555000d (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:303)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+	... 56 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.fdbr.android.debug:id/labelHello})
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:8bc:17da:4647:fca8%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
-Driver info: io.appium.java_client.ios.IOSDriver
-Capabilities {browserName: , bundleId: com.femaledaily.fdbr-dev, clearSystemFiles: true, databaseEnabled: false, deviceName: iPhone 6, deviceReadyTimeout: 300, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: false, newCommandTimeout: 300, platform: MAC, platformName: iOS, platformVersion: 12.4.1, takesScreenshot: true, udid: 6e9fae38c3ee3a776b7fb77833e..., webStorageEnabled: false}
-Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
-*** Element info: {Using=id, value=UsernameEmailField}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:231)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:363)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:70)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElementById(IOSDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+System info: host: 'FDN-Prasetyos-MacBook-Pro.local', ip: 'fe80:0:0:0:1cbb:860e:c81a:c7c5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.1', java.version: '11.0.4'
+Driver info: driver.version: AndroidDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
-	... 47 more
+	... 58 more
 </textarea>
 										</td>
 									</tr>
@@ -583,19 +563,19 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Dec 30, 2019 01:34:57 PM</div>
+					<div class='panel-lead'>Dec 27, 2019 06:50:20 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Dec 30, 2019 01:35:58 PM</div>
+			 		<div class='panel-lead'>Dec 27, 2019 06:51:47 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 1s+257ms</div>
+					<div class='panel-lead'>0h 1m 26s+748ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -611,7 +591,7 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@ios</td>
+							<td>@android</td>
 							<td>0</td>
 							<td>1</td>
 							<td>0</td>
@@ -649,20 +629,20 @@ Session ID: 294dd52f-df93-41eb-8251-ef68384f90dc
 				debugChild: 0,
 				exceptionsChild: 1,
 				grandChildCount: 6,
-				passGrandChild: 2,
+				passGrandChild: 4,
 				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 3,
+				skipGrandChild: 1,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 4,
+				exceptionsGrandChild: 2,
 			};
 		</script>
 		<script>
 			var timeline = {
-			        "Login into account":33.4
+			        "Login into account":48.46
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
