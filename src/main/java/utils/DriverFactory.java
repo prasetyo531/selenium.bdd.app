@@ -23,7 +23,7 @@ public class DriverFactory {
     public AppiumDriver getDriver() throws IOException {
 
         //set configuration
-        String loadPropertyFile = "ios.properties";
+        String loadPropertyFile = "android.properties";
 
         try {
             if (driver == null) {
