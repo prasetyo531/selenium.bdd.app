@@ -29,4 +29,4 @@ Feature: Login into account
 
     Examples:
       |   username    |		password		 |
-      |	  putwid	  |		tester123 		 |
+      |	  ipadev	  |		test123 		 |
