@@ -11,9 +11,7 @@ import java.io.IOException;
 
 public class OnboardingScreen extends ActionBase {
 
-    /*
-    intro
-     */
+    /*  intro   */
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
     @iOSFindBy(id="NEXT")
     public MobileElement nextIntroScreenBtn;
@@ -28,14 +26,13 @@ public class OnboardingScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
     public MobileElement nextIntroBtn;
 
-    /*
-    onboarding
-     */
+    /*  onboarding  */
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
-    @iOSFindBy(id="Log In")
+    @iOSFindBy(id="LOGIN")
     public MobileElement loginBtn;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
+    @iOSFindBy(id="SIGN UP")
     public MobileElement signupBtn;
 
 

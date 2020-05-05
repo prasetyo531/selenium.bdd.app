@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.io.IOException;
 public class LoginScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/inputUsernameEmail")
+    @iOSFindBy(xpath="/AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField")
     public MobileElement UsernameEmailField;
 
     @AndroidFindBy(id="com.fdbr.android.debug:id/inputPassword")
