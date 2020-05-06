@@ -1,0 +1,18 @@
+GIVEN (describing the context)
+WHEN (describing the action)
+THEN (describing the outcome)
+AND (further action/event)
+
+--good grammar rule--
+Given steps should use past or present-perfect tense, because they represent an initial state that must already be established.
+When steps should use present tense, because they represent actions actively performed as part of the behavior.
+Then steps should use present or future tense, because they represent what should happen after the behavior actions.
+
+--parameter--
+Frequency of Execution: @daily, @hourly, @nightly
+Dependencies: @database, @fixtures, @local, @proxy
+Progress: @wip, @todo, @implemented, @blocked
+Level: @functional, @acceptance, @smoke, @sanity, @regression
+Environment: @integration, @test, @stage, @live
+
+@wip for incomplete step

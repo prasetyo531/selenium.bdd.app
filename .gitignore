@@ -1,0 +1,10 @@
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+.classpath
+.project
+.settings
+*.iml
+#ignore folder
+test-output/
+target/
