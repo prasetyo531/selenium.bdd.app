@@ -273,7 +273,7 @@ public class ActionBase extends DriverFactory {
 
         screenshotName = returnDateStamp(".jpg");
 
-        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "//output//imgs//" + screenshotName));
+        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/imgs/" + screenshotName));
 
         Reporter.addStepLog("Taking a screenshot!");
         Reporter.addStepLog("<br>");
@@ -281,14 +281,14 @@ public class ActionBase extends DriverFactory {
     }
 
     public static String returnScreenshotName() {
-        return (System.getProperty("user.dir") + "//output//imgs//" + screenshotName).toString();
+        return (System.getProperty("user.dir") + "/output/imgs/" + screenshotName).toString();
     }
 
     public static void copyLatestExtentReport() throws IOException {
         Date d = new Date();
         String date = d.toString().replace(":", "_").replace(" ", "_");
-        File source = new File(System.getProperty("user.dir") + "//target//report.html");
-        File dest = new File(System.getProperty("user.dir") + "//target//" + date.toString() + ".html");
+        File source = new File(System.getProperty("user.dir") + "/test-output/cucumber/report.html");
+        File dest = new File(System.getProperty("user.dir") + "/output/report/" + date.toString() + ".html");
         copyFileUsingStream(source, dest);
 
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
