@@ -3,6 +3,7 @@ package pageObjects;
 import com.cucumber.listener.Reporter;
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
+import com.google.gson.JsonObject;
 import io.appium.java_client.*;
 import io.appium.java_client.functions.ExpectedCondition;
 import org.apache.commons.io.FileUtils;
@@ -292,6 +293,27 @@ public class ActionBase extends DriverFactory {
         copyFileUsingStream(source, dest);
 
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
+    }
+
+    public static void sendMessageToTelegram(String scenario,String status) throws IOException {
+
+        String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";
+        String CHAT_ID = "-318709168"; //kuncen api
+
+        RestAssured.baseURI = "https://api.telegram.org/bot"+TOKEN;
+        RequestSpecification httpRequest = RestAssured.given();
+        String text = "Test Case : "+ scenario + "\n"
+                + "status : "+ status;
+
+        httpRequest.header("Content-Type", "application/json").log().all();
+
+        JsonObject payload = new JsonObject();
+        payload.addProperty("chat_id", CHAT_ID);
+        payload.addProperty("text", text);
+        httpRequest.body(payload.toString());
+
+        Response response = httpRequest.post("/sendMessage");
+        response.getBody().prettyPrint();
     }
 
 }
