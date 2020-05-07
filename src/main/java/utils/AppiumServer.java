@@ -9,14 +9,15 @@ public class AppiumServer {
     //Appium Launch on Windows
     private static Process process;
 
-    //Calling the node.exe and appium.js
+    /*
+    Calling the node.exe and appium.js
+    which node
+    which appium
+     */
     private static String STARTSERVER = "/usr/local/bin/node /usr/local/bin/appium";
 
 
-
-
     //Starting the Appium Server
-
     public static void start() throws IOException, InterruptedException {
 
         Runtime runtime = Runtime.getRuntime();
