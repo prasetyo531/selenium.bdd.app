@@ -22,7 +22,7 @@ public class MasterHooks extends DriverFactory {
     public void tearDownScreenshootFailure(Scenario scenario) throws InterruptedException, IOException {
         try {
             if (driver !=null && scenario.isFailed()) {
-                ActionBase.captureScreenshot();
+                //ActionBase.captureScreenshot();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
                 //AppiumServer.stop();
             } if (driver != null) {
@@ -33,14 +33,5 @@ public class MasterHooks extends DriverFactory {
         }
 
     }
-
-
-    /* attaching images to report at dir target/cucumber
-    @After
-    public void tearDown() throws InterruptedException,IOException {
-
-        AppiumServer.stop();
-    }
-    */
 }
 

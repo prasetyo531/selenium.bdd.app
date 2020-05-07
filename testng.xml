@@ -7,9 +7,14 @@
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
 
-    <test name="bdd-login">
+    <test name="maintest">
         <classes>
             <class name="runner.MainRunner"/>
+        </classes>
+    </test>
+    <test name="curltest">
+        <classes>
+            <class name="sendReport.curlTelegram"/>
         </classes>
     </test>
 </suite>

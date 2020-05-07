@@ -272,12 +272,13 @@ public class ActionBase extends DriverFactory {
         return date;
     }
 
+    /*   not using on purspose since ss task by extent manager    */
     public static void captureScreenshot() throws IOException, InterruptedException {
         File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
         screenshotName = returnDateStamp(".jpg");
 
-        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/imgs/" + screenshotName));
+        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/report/" + screenshotName));
 
         Reporter.addStepLog("Taking a screenshot!");
         Reporter.addStepLog("<br>");

@@ -54,7 +54,7 @@ public class ExtentManager {
 			screenshotName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
 
 			try {
-				FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "//reports//" + screenshotName));
+				FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/output/report/" + screenshotName));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
