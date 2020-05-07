@@ -6,6 +6,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import io.appium.java_client.*;
 import io.appium.java_client.functions.ExpectedCondition;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -298,7 +301,7 @@ public class ActionBase extends DriverFactory {
     public static void sendMessageToTelegram(String scenario,String status) throws IOException {
 
         String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";
-        String CHAT_ID = "-318709168"; //kuncen api
+        String CHAT_ID = "-329202248"; //AppiumTelegram
 
         RestAssured.baseURI = "https://api.telegram.org/bot"+TOKEN;
         RequestSpecification httpRequest = RestAssured.given();
