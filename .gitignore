@@ -8,3 +8,5 @@
 #ignore folder
 test-output/
 target/
+client/properties/
+client/app/

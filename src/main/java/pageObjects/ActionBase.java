@@ -10,6 +10,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +22,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.NoSuchElementException;
 
+import static io.appium.java_client.CommandExecutionHelper.execute;
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
@@ -64,6 +66,20 @@ public class ActionBase extends DriverFactory {
         } catch (NoSuchElementException e) {
             System.out.println("element is not present");
             return false;
+        }
+    }
+
+    /***  SENDKEYS  ***/
+    public void inputValue(MobileElement mobileElement, String value) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOf(mobileElement));
+            mobileElement.clear();
+            mobileElement.setValue(value);
+            System.out.println("element is present");
+        } catch (NoSuchElementException e) {
+            System.out.println("element is not present");
+            Assert.fail("Unable to send keys to WebElement, Exception: " + e.getMessage());
         }
     }
 

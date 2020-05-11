@@ -11,24 +11,27 @@ import java.io.IOException;
 
 public class LoginScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/inputUsernameEmail")
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/inputEmailUsernamePhone")
     @iOSFindBy(xpath="/AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField")
-    public MobileElement UsernameEmailField;
+    public MobileElement usernameEmailField;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/inputPassword")
-    public MobileElement PasswordField;
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/inputPassword")
+    public MobileElement passwordField;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
-    public MobileElement LoginBtn;
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonNext")
+    public MobileElement nextLoginBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonBackToolbar")
-    public MobileElement BackArrow;
+    @AndroidFindBy(id="Navigate up")
+    public MobileElement backArrow;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/text_input_end_icon")
-    public MobileElement UnhidePassword;
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonChange")
+    public MobileElement changeBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonForgotPassword")
-    public MobileElement ForgotPassword;
+    @AndroidFindBy(id="Show password")
+    public MobileElement unhidePassword;
+
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonForgotPassword")
+    public MobileElement forgotPassword;
 
     // This is a constructor, as every page need a base driver to find android elements
     public LoginScreen(AppiumDriver driver) throws IOException {
@@ -38,19 +41,24 @@ public class LoginScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public void inputusername(String username) {
+    public void usrEmailPhoneName(String usremailphonename) {
 
-        UsernameEmailField.setValue(username);
+        inputValue(usernameEmailField, usremailphonename);
     }
 
-    public void inputpassword(String password) {
+    public void inputPassword(String password) {
 
-        PasswordField.setValue(password);
+        passwordField.setValue(password);
+    }
+
+    public void clickNext() {
+
+        tapByElement(nextLoginBtn);
     }
 
     public void clickLogin() {
 
-        tapByElement(LoginBtn);
+        tapByElement(nextLoginBtn);
     }
 
 

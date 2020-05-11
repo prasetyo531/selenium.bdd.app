@@ -5,6 +5,7 @@ import pageObjects.HomeScreen;
 import pageObjects.LoginScreen;
 import pageObjects.OnboardingScreen;
 import io.appium.java_client.AppiumDriver;
+import pageObjects.OtpScreen;
 
 import java.io.IOException;
 
@@ -19,6 +20,7 @@ public class DriverFactory {
     public static OnboardingScreen onBoardingScreen;
     public static LoginScreen loginScreen;
     public static HomeScreen homeScreen;
+    public static OtpScreen otpScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -48,6 +50,7 @@ public class DriverFactory {
             onBoardingScreen = new OnboardingScreen(driver);
             loginScreen = new LoginScreen(driver);
             homeScreen = new HomeScreen(driver);
+            otpScreen = new OtpScreen(driver);
         }
         return driver;
     }

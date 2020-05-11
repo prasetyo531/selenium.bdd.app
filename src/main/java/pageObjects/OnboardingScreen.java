@@ -26,15 +26,22 @@ public class OnboardingScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
     public MobileElement nextIntroBtn;
 
-    /*  onboarding  */
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonLogin")
+    /*  onboarding screen */
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonLogin")
     @iOSFindBy(id="LOGIN")
     public MobileElement loginBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonSignUp")
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonSignUp")
     @iOSFindBy(id="SIGN UP")
     public MobileElement signupBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonTerms")
+    @iOSFindBy(id="SIGN UP")
+    public MobileElement labelTerms;
+
+    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonPrivacy")
+    @iOSFindBy(id="SIGN UP")
+    public MobileElement labelPrivacy;
 
     // This is a constructor, as every page need a base driver to find android elements
     public OnboardingScreen(AppiumDriver driver) throws IOException {

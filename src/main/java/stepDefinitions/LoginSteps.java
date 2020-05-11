@@ -9,30 +9,25 @@ import utils.DriverFactory;
 
 public class LoginSteps extends DriverFactory {
 
-    @Then("^User input \"([^\"]*)\" username and \"([^\"]*)\" password$")
-    public void user_input_something_username_and_something_password(String username, String password) throws Throwable {
+    @Then("^user enters the \"([^\"]*)\" phonenumber$")
+    public void user_enters_the_something_phonenumber(String phonenumber) throws Throwable {
 
-        loginScreen.inputusername(username);
-        loginScreen.inputpassword(password);
+        loginScreen.usrEmailPhoneName(phonenumber);
+
     }
 
-    @When("^User click login button on login screen$")
-    public void user_click_login_button_on_login_screen() throws Throwable {
+    @And("^user clicks on the next button$")
+    public void user_clicks_on_the_next_button() throws Throwable {
 
-        loginScreen.clickLogin();
+        loginScreen.clickNext();
     }
 
+    @When("^user input correct otp on otp screen to login$")
+    public void user_input_correct_otp_on_otp_screen_to_login() throws Throwable {
 
-    @Then("^User should be directed to homescreen$")
-    public void User_should_be_directed_to_homescreen() throws Throwable {
-
-        homeScreen.verifyHomescreen();
-    }
-
-    @And("^User can see product matches$")
-    public void user_can_see_product_matches() throws Throwable {
-
-        homeScreen.verifyProductMatches();
+        otpScreen.clickAllowReadMsg();
+        otpScreen.compareTextReceiver();
+        otpScreen.clickConfirmOtp();
     }
 
 }
