@@ -12,34 +12,34 @@ import java.io.IOException;
 public class OnboardingScreen extends ActionBase {
 
     /*  intro   */
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonNext")
     @iOSFindBy(id="NEXT")
     public MobileElement nextIntroScreenBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/imageAds")
+    @AndroidFindBy(id="com.fdbr.android:id/imageAds")
     public MobileElement splashScreenImage;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonGetStarted")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonGetStarted")
     @iOSFindBy(id="Get Started")
     public MobileElement getStartedBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonNext")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonNext")
     public MobileElement nextIntroBtn;
 
     /*  onboarding screen */
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonLogin")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonLogin")
     @iOSFindBy(id="LOGIN")
     public MobileElement loginBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonSignUp")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSignUp")
     @iOSFindBy(id="SIGN UP")
     public MobileElement signupBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonTerms")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonTerms")
     @iOSFindBy(id="SIGN UP")
     public MobileElement labelTerms;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonPrivacy")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonPrivacy")
     @iOSFindBy(id="SIGN UP")
     public MobileElement labelPrivacy;
 

@@ -24,34 +24,34 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(accessibility="Discover")
     public MobileElement discoverTab;
 
-    @AndroidFindBy(accessibility="com.fdbr.android.debug:id/")
+    @AndroidFindBy(accessibility="com.fdbr.android:id/")
     public MobileElement plusTab;
 
-    @AndroidFindBy(accessibility="com.fdbr.android.debug:id/")
+    @AndroidFindBy(accessibility="com.fdbr.android:id/")
     public MobileElement profileTab;
 
     /*
     home screen
      */
-    @AndroidFindBy(id="com.fdbr.android.debug:id/labelHello")
+    @AndroidFindBy(id="com.fdbr.android:id/labelHello")
     public MobileElement greetingText;
 
     @AndroidFindBy(xpath="//android.view.View[contains(@resource-id,'aw0') and @text='goc-shop']")
     public MobileElement adsBanner;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
     public MobileElement notifBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/inputSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchBar;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/id_addreview")
+    @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
     public MobileElement addReview;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/id_addpost")
+    @AndroidFindBy(id="com.fdbr.android:id/id_addpost")
     public MobileElement addPost;
 
-    @AndroidFindBy(id="com.fdbr.android.debug:id/id_addproduct")
+    @AndroidFindBy(id="com.fdbr.android:id/id_addproduct")
     public MobileElement addProduct;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/buttonCancel') and @text='Cancel']")

@@ -14,16 +14,16 @@ public class OtpScreen extends ActionBase{
     @AndroidFindBy(id="com.google.android.gms:id/positive_button")
     public MobileElement allowReadOtpBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/labelAuthReceiver")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelAuthReceiver")
     public MobileElement authReceiverLabel;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/labelTapToChange")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelTapToChange")
     public MobileElement tapToChangeLabel;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/labelResendOtp")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelResendOtp")
     public MobileElement resendCodeLabel;
 
-    @AndroidFindBy(id="com.fdbr.android.debug.auth:id/buttonConfirm")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonConfirm")
     public MobileElement confirmOtpBtn;
 
 
