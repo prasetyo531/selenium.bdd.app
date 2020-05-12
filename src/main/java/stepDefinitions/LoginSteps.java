@@ -9,15 +9,14 @@ import utils.DriverFactory;
 
 public class LoginSteps extends DriverFactory {
 
-    @Then("^user enters the \"([^\"]*)\" phonenumber$")
-    public void user_enters_the_something_phonenumber(String phonenumber) throws Throwable {
+    @Then("^user enters the \"([^\"]*)\" phonenumber to login$")
+    public void user_enters_the_something_phonenumber_to_login(String phonenumber) throws Throwable {
 
-        loginScreen.usrEmailPhoneName(phonenumber);
-
+        loginScreen.inputUsrEmailPhoneName(phonenumber);
     }
 
-    @And("^user clicks on the next button$")
-    public void user_clicks_on_the_next_button() throws Throwable {
+    @And("^user clicks next button on login screen$")
+    public void user_clicks__next_button_on_login_screen() throws Throwable {
 
         loginScreen.clickNext();
     }
@@ -26,7 +25,7 @@ public class LoginSteps extends DriverFactory {
     public void user_input_correct_otp_from_phone_on_otp_screen_to_login() throws Throwable {
 
         otpScreen.clickAllowReadMsg();
-        otpScreen.compareTextReceiver();
+        otpScreen.comparePhoneReceiver();
         otpScreen.clickConfirmOtp();
     }
 

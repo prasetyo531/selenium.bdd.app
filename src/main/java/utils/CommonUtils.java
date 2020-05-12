@@ -91,7 +91,7 @@ public class CommonUtils {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, CommonUtils.PLATFORM_NAME);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CommonUtils.DEVICE_NAME);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, CommonUtils.AUTOMATION_INSTRUMENTATION);
-        capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPLICATION_NAME);
+        //capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPLICATION_NAME);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, CommonUtils.NEW_COMMAND_TIMEOUT);
         capabilities.setCapability(DEVICE_READY_TIMEOUT, CommonUtils.DEVICE_TIMEOUT);
         capabilities.setCapability(APP_ACTIVITY, CommonUtils.APPS_ACTIVITY);

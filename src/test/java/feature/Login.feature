@@ -10,8 +10,8 @@ Feature: Login into account
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User click login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber
-    And user clicks on the next button
+    Then user enters the "<phonenumber>" phonenumber to login
+    And user clicks next button on login screen
     When user input correct otp from phone on otp screen to login
 #    Then user will direct to homescreen
 

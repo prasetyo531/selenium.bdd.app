@@ -9,14 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
-public class LoginScreen extends ActionBase {
+public class RegisterScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailUsernamePhone")
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
     @iOSFindBy(xpath="/AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField")
-    public MobileElement usernameEmailField;
-
-    @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    public MobileElement passwordField;
+    public MobileElement emailField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
     public MobileElement nextLoginBtn;
@@ -24,17 +21,7 @@ public class LoginScreen extends ActionBase {
     @AndroidFindBy(id="Navigate up")
     public MobileElement backArrow;
 
-    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonChange")
-    public MobileElement changeBtn;
-
-    @AndroidFindBy(id="Show password")
-    public MobileElement unhidePassword;
-
-    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonForgotPassword")
-    public MobileElement forgotPassword;
-
-    // This is a constructor, as every page need a base driver to find android elements
-    public LoginScreen(AppiumDriver driver) throws IOException {
+    public RegisterScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -43,25 +30,11 @@ public class LoginScreen extends ActionBase {
 
     public void inputUsrEmailPhoneName(String usremailphonename) {
 
-        inputValue(usernameEmailField, usremailphonename);
-    }
-
-    public void inputPassword(String password) {
-
-        passwordField.setValue(password);
+        inputValue(emailField, usremailphonename);
     }
 
     public void clickNext() {
 
         tapByElement(nextLoginBtn);
     }
-
-    public void clickLogin() {
-
-        tapByElement(nextLoginBtn);
-    }
-
-
-
-
 }

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OtpScreen extends ActionBase{
 
@@ -44,11 +46,27 @@ public class OtpScreen extends ActionBase{
         tapByElement(confirmOtpBtn);
     }
 
-    //get text
-    public void compareTextReceiver() {
+    //get phone
+    public void comparePhoneReceiver() {
 
         String labelReceiver = authReceiverLabel.getText();
         Assert.assertTrue(labelReceiver.startsWith("+628"));
+    }
+
+    //get phone
+    public void compareEmailReceiver() {
+
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher;
+
+        String labelReceiver = authReceiverLabel.getText();
+        matcher = pattern.matcher(labelReceiver);
+        matcher.matches();
+        //Assert.assertTrue(labelReceiver.contains(".com"));
     }
 
 }

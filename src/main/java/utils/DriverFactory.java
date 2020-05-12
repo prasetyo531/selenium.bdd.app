@@ -1,11 +1,8 @@
 package utils;
 
 import org.testng.annotations.Parameters;
-import pageObjects.HomeScreen;
-import pageObjects.LoginScreen;
-import pageObjects.OnboardingScreen;
+import pageObjects.*;
 import io.appium.java_client.AppiumDriver;
-import pageObjects.OtpScreen;
 
 import java.io.IOException;
 
@@ -21,6 +18,7 @@ public class DriverFactory {
     public static LoginScreen loginScreen;
     public static HomeScreen homeScreen;
     public static OtpScreen otpScreen;
+    public static RegisterScreen registerScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -49,6 +47,7 @@ public class DriverFactory {
             // This is to Instantiate class by creating object
             onBoardingScreen = new OnboardingScreen(driver);
             loginScreen = new LoginScreen(driver);
+            registerScreen = new RegisterScreen(driver);
             homeScreen = new HomeScreen(driver);
             otpScreen = new OtpScreen(driver);
         }

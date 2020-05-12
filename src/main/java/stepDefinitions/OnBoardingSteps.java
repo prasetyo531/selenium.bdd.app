@@ -27,4 +27,10 @@ public class OnBoardingSteps extends DriverFactory {
 
         onBoardingScreen.clickLoginBtn();
     }
+
+    @When("^User click register button on onboarding screen$")
+    public void user_click_register_button_on_onboarding_screen() throws Throwable {
+
+        onBoardingScreen.clickSignupBtn();
+    }
 }
