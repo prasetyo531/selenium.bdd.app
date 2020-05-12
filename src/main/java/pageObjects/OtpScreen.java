@@ -56,6 +56,7 @@ public class OtpScreen extends ActionBase{
     //get phone
     public void compareEmailReceiver() {
 
+        //https://mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
         final String EMAIL_PATTERN =
                 "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";

@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -11,6 +12,16 @@ import java.io.IOException;
 public class HomeScreen extends ActionBase {
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
+
+
+    /*
+    account status
+     */
+    @AndroidFindBy(id="com.fdbr.android:id/btnAction")
+    public MobileElement accountStatus;
+
+    @AndroidFindBy(id="com.fdbr.android:id/btnClose")
+    public MobileElement closeAccountStatusModal;
 
     /**********
      tab bar
@@ -36,7 +47,7 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
     public MobileElement greetingText;
 
-    @AndroidFindBy(xpath="//android.view.View[contains(@resource-id,'aw0') and @text='goc-shop']")
+    @AndroidFindBy(id="com.fdbr.android:id/layoutAds")
     public MobileElement adsBanner;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
@@ -83,15 +94,40 @@ public class HomeScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    /*
+    public void verifyAccountStatusModal(){
+        try {
+            isElementPresent(accountStatus);
+            System.out.println("account status is present");
+            return true;
+        } catch (NoSuchElementException e){
+            e.printStackTrace();
+            System.out.println("account status is not present");
+        }
+    }
+     */
+
+    public void verifyAccountStatusModal() {
+
+        boolean checkAccountStatusModal = isElementPresent(accountStatus);
+        if (checkAccountStatusModal == true) {
+            tapByElement(closeAccountStatusModal);
+            System.out.println("account status modal is present");
+            verifyHomescreen();
+        } else {
+            System.out.println("account status modal is not present");
+            verifyHomescreen();
+        }
+    }
+
     public boolean verifyHomescreen() {
 
         boolean boolElem1= isElementPresent(greetingText);
-        boolean boolElem2= isElementPresent(adsBanner);
-        boolean boolElem3= isElementPresent(notifBtn);
-        boolean boolElem4= isElementPresent(searchBar);
+        boolean boolElem2= isElementPresent(notifBtn);
+        boolean boolElem3= isElementPresent(searchBar);
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
-        return (boolElem1 && boolElem2 && boolElem3 && boolElem4);
+        return (boolElem1 && boolElem2 && boolElem3);
     }
 
     public void verifyProductMatches() {

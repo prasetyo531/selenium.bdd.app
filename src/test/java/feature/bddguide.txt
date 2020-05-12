@@ -9,6 +9,7 @@ When steps should use present tense, because they represent actions actively per
 Then steps should use present or future tense, because they represent what should happen after the behavior actions.
 
 --parameter--
+Media : @realdevice, @emulator
 Platform : @android , @ios
 Frequency of Execution: @daily, @hourly, @nightly
 Dependencies: @database, @fixtures, @local, @proxy

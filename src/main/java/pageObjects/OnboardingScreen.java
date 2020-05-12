@@ -64,8 +64,8 @@ public class OnboardingScreen extends ActionBase {
     public void clickNextIntroBtn() {
 
         //tapByElement(nextIntroBtn);
-        tapByElementMobileElement(nextIntroScreenBtn);
-        tapByElementMobileElement(nextIntroScreenBtn);
+        tapByElement(nextIntroScreenBtn);
+        tapByElement(nextIntroScreenBtn);
     }
 
     public void clickGetStartedBtn() throws InterruptedException {

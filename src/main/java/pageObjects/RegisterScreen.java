@@ -11,9 +11,9 @@ import java.io.IOException;
 
 public class RegisterScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailPhone")
     @iOSFindBy(xpath="/AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField")
-    public MobileElement emailField;
+    public MobileElement emailPhoneField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
     public MobileElement nextLoginBtn;
@@ -30,7 +30,7 @@ public class RegisterScreen extends ActionBase {
 
     public void inputUsrEmailPhoneName(String usremailphonename) {
 
-        inputValue(emailField, usremailphonename);
+        inputValue(emailPhoneField, usremailphonename);
     }
 
     public void clickNext() {

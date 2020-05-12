@@ -16,9 +16,10 @@ public class DriverFactory {
      ****************/
     public static OnboardingScreen onBoardingScreen;
     public static LoginScreen loginScreen;
-    public static HomeScreen homeScreen;
-    public static OtpScreen otpScreen;
     public static RegisterScreen registerScreen;
+    public static CompleteAccountScreen completeAccountScreen;
+    public static OtpScreen otpScreen;
+    public static HomeScreen homeScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -48,8 +49,9 @@ public class DriverFactory {
             onBoardingScreen = new OnboardingScreen(driver);
             loginScreen = new LoginScreen(driver);
             registerScreen = new RegisterScreen(driver);
-            homeScreen = new HomeScreen(driver);
+            completeAccountScreen = new CompleteAccountScreen(driver);
             otpScreen = new OtpScreen(driver);
+            homeScreen = new HomeScreen(driver);
         }
         return driver;
     }
