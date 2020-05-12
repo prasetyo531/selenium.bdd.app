@@ -22,8 +22,8 @@ public class LoginSteps extends DriverFactory {
         loginScreen.clickNext();
     }
 
-    @When("^user input correct otp on otp screen to login$")
-    public void user_input_correct_otp_on_otp_screen_to_login() throws Throwable {
+    @When("^user input correct otp from phone on otp screen to login$")
+    public void user_input_correct_otp_from_phone_on_otp_screen_to_login() throws Throwable {
 
         otpScreen.clickAllowReadMsg();
         otpScreen.compareTextReceiver();

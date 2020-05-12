@@ -12,7 +12,7 @@ Feature: Login into account
     When User click login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber
     And user clicks on the next button
-    When user input correct otp on otp screen to login
+    When user input correct otp from phone on otp screen to login
 #    Then user will direct to homescreen
 
     Examples:
