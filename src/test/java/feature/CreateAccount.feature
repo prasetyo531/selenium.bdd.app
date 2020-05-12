@@ -3,7 +3,7 @@ Feature: Create account
   In order to perform sucessfull register
   User can register using phone number and email
 
-  @realdevice
+  @Android @Regression @RealDevices 
   Scenario Outline: Register using new phone number
     Given User navigates to onboarding screen by swipe
     When User click register button on onboarding screen

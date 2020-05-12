@@ -6,7 +6,7 @@ Feature: Login into account
   If user input wrong combination display error msg
   If user input suspend email/phone display sneak msg
 
-  @androidtest
+  @Android @Regression @RealDevices
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User click login button on onboarding screen
