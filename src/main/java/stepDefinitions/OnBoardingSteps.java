@@ -22,14 +22,14 @@ public class OnBoardingSteps extends DriverFactory {
     }
 
     //onboarding screen
-    @When("^User click login button on onboarding screen$")
-    public void user_click_login_button_on_onboarding_screen() throws Throwable {
+    @When("^User clicks login button on onboarding screen$")
+    public void user_clicks_login_button_on_onboarding_screen() throws Throwable {
 
         onBoardingScreen.clickLoginBtn();
     }
 
-    @When("^User click register button on onboarding screen$")
-    public void user_click_register_button_on_onboarding_screen() throws Throwable {
+    @When("^User clicks register button on onboarding screen$")
+    public void user_clicks_register_button_on_onboarding_screen() throws Throwable {
 
         onBoardingScreen.clickSignupBtn();
     }

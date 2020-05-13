@@ -3,10 +3,10 @@ Feature: Create account
   In order to perform sucessfull register
   User can register using phone number and email
 
-  @Android @Regression @RealDevices 
+  @Android @Regression @RealAccount @RealDevices
   Scenario Outline: Register using new phone number
     Given User navigates to onboarding screen by swipe
-    When User click register button on onboarding screen
+    When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
     When user input correct otp from phone on otp screen to register

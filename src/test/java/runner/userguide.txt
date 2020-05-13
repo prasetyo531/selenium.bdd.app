@@ -1,0 +1,7 @@
+- check android.properties samaiin device kaliaan
+check appPackageName dan appPackageActivity
+1. buka fd app
+2. In terminal, run adb shell
+3. In emulator or device, right after you click on app icon, run in terminal dumpsys window windows | grep -E 'mCurrentFocus'
+- check ios.properties samaiin device kaliaan
+- directory common utils samaiin dgn user dir kaliaan

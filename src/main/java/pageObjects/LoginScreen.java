@@ -48,7 +48,7 @@ public class LoginScreen extends ActionBase {
 
     public void inputPassword(String password) {
 
-        passwordField.setValue(password);
+        inputValue(passwordField, password);
     }
 
     public void clickNext() {

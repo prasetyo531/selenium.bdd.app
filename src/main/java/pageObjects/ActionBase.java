@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import io.appium.java_client.*;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -87,16 +88,6 @@ public class ActionBase extends DriverFactory {
      Tap to an element for 250 milliseconds
      **********************************************************************************/
     public void tapByElement (MobileElement mobileElement) {
-        try {
-            new TouchAction(driver)
-                    .tap(tapOptions().withElement(element(mobileElement)))
-                    .waitAction(waitOptions(Duration.ofMillis(250))).perform();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void tapByElementMobileElement (MobileElement mobileElement) {
         try {
             new TouchAction(driver)
                     .tap(tapOptions().withElement(element(mobileElement)))

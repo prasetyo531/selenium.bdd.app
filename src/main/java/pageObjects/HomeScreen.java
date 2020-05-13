@@ -13,16 +13,6 @@ public class HomeScreen extends ActionBase {
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
-
-    /*
-    account status
-     */
-    @AndroidFindBy(id="com.fdbr.android:id/btnAction")
-    public MobileElement accountStatus;
-
-    @AndroidFindBy(id="com.fdbr.android:id/btnClose")
-    public MobileElement closeAccountStatusModal;
-
     /**********
      tab bar
      **********/
@@ -40,6 +30,13 @@ public class HomeScreen extends ActionBase {
 
     @AndroidFindBy(accessibility="com.fdbr.android:id/")
     public MobileElement profileTab;
+
+    /*  account status  */
+    @AndroidFindBy(id="com.fdbr.android:id/btnAction")
+    public MobileElement accountCompleteVerBtn;
+
+    @AndroidFindBy(id="com.fdbr.android:id/btnClose")
+    public MobileElement closeAccountStatusModal;
 
     /*
     home screen
@@ -109,7 +106,7 @@ public class HomeScreen extends ActionBase {
 
     public void verifyAccountStatusModal() {
 
-        boolean checkAccountStatusModal = isElementPresent(accountStatus);
+        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
             tapByElement(closeAccountStatusModal);
             System.out.println("account status modal is present");
@@ -134,6 +131,11 @@ public class HomeScreen extends ActionBase {
 
         isElementPresent(firstindextproductmatches);
         System.out.println("product matches is present");
+    }
+
+    public void clickAccountCompleteVerBtn(){
+
+        tapByElement(accountCompleteVerBtn);
     }
 
 

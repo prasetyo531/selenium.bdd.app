@@ -6,10 +6,11 @@ Feature: Login into account
   If user input wrong combination display error msg
   If user input suspend email/phone display sneak msg
 
-  @Android @Regression @RealDevices
+  #FDBRMA-103
+  @Android @Regression @Login @RealDevices
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
-    When User click login button on onboarding screen
+    When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
     And user clicks next button on login screen
     When user input correct otp from phone on otp screen to login
