@@ -7,7 +7,7 @@ Feature: Login into account
   If user input suspend email/phone display sneak msg
 
   #FDBRMA-103
-  @Android @Regression @Login @RealDevices
+  @Android @Login @Regression @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

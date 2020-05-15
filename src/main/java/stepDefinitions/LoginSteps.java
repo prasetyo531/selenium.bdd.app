@@ -17,14 +17,14 @@ public class LoginSteps extends DriverFactory {
     }
 
     //***   Login input password   ****//
-    @Then("^user enters the \"([^\"]*)\" on login screen$")
-    public void user_enters_the_something_on_login_screen(String username) throws Throwable {
+    @Then("^user enters the \"([^\"]*)\" username on login screen$")
+    public void user_enters_the_something_username_on_login_screen(String username) throws Throwable {
 
         loginScreen.inputUsrEmailPhoneName(username);
     }
 
-    @And("^user enters the \"([^\"]*)\" on login screen$")
-    public void user_enters_the_something_on_login_screen(String password) throws Throwable {
+    @And("^user enters the \"([^\"]*)\" password on login screen$")
+    public void user_enters_the_something_password_on_login_screen(String password) throws Throwable {
 
         loginScreen.inputPassword(password);
     }

@@ -5,12 +5,12 @@ Feature: Verify account
   User should have real number
   User should fill personal info, beauty profile and concern
 
-  @Android @Smoke @Profile @RealDevices
+  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
   Scenario Outline: Verify profile as registered user, user havent complete any detail
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" on login screen
-    And user enters the "<password>" on login screen
+    Then user enters the "<username>" username on login screen
+    And user enters the "<password>" password on login screen
     And user clicks login button on login screen
     When user click complete verify button on homescreen
     Then user clicks verify now button on verify email screen

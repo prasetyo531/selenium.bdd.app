@@ -73,7 +73,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement hairType;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement coloredHair;
+    public List<MobileElement> coloredHair;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
     public MobileElement isHijaber;
@@ -82,17 +82,17 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement buttonSaveBeautyProfile;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipBeautyProfile")
-    public MobileElement skipBtnPersonalInfo;
+    public MobileElement skipBeautyProfile;
 
     /***  beauty concern screen  ***/
     @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowSkinConcern")
-    public MobileElement skinCon;
+    public List<MobileElement> skinCon;
 
     @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowBodyConcern")
-    public MobileElement bodyCon;
+    public List<MobileElement> bodyCon;
 
     @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowHairConcern")
-    public MobileElement hairCon;
+    public List<MobileElement> hairCon;
 
     @AndroidFindBy(id="com.fdbr.android.bseautyprofile:id/buttonSaveBeautyConcern")
     public MobileElement btnSaveBeautyConcern;
@@ -158,13 +158,13 @@ public class VerifyAccountScreen extends ActionBase {
         sc.get(1).click();
     }
 
-    public void clickSkinCon(){
+    public void clickBodyCon(){
 
         List<MobileElement> bc = bodyCon;
         bc.get(1).click();
     }
 
-    public void clickSkinCon(){
+    public void clickHairCon(){
 
         List<MobileElement> hc = hairCon;
         hc.get(1).click();

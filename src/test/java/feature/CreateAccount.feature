@@ -3,7 +3,7 @@ Feature: Create account
   In order to perform sucessfull register
   User can register using phone number and email
 
-  @Android @Regression @RealAccount @RealDevices
+  @Android @Register @Regression @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Register using new phone number
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -15,5 +15,5 @@ Feature: Create account
     Then user will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email              |      username     |
-      |	  081284915951	     |    bddregister@mailinator.com   |    bddregister    |
+      |   phonenumber        |              email                 |      username        |
+      |	  081284915951	     |    bddappregister@mailinator.com   |    bddappregister    |
