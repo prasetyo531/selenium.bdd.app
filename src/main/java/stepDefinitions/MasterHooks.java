@@ -24,9 +24,9 @@ public class MasterHooks extends DriverFactory {
             if (driver !=null && scenario.isFailed()) {
                 //ActionBase.captureScreenshot();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
-                //AppiumServer.stop();
+                AppiumServer.stop();
             } if (driver != null) {
-                //AppiumServer.stop();
+                AppiumServer.stop();
             }
         } catch (IOException e) {
             e.printStackTrace();
