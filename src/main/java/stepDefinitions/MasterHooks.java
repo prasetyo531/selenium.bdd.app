@@ -21,8 +21,10 @@ public class MasterHooks extends DriverFactory {
     @After
     public void tearDownScreenshootFailure(Scenario scenario) throws InterruptedException, IOException {
         try {
+            driver.resetApp();
             if (driver !=null && scenario.isFailed()) {
                 //ActionBase.captureScreenshot();
+                driver.resetApp();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
                 AppiumServer.stop();
             } if (driver != null) {

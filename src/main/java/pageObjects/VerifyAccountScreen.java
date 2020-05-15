@@ -104,6 +104,10 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
     public MobileElement errorMsgUnderField;
 
+    //snackbar msg
+    @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
+    public MobileElement snackbarMsg;
+
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
 
