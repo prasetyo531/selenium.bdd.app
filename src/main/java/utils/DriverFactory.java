@@ -11,6 +11,9 @@ public class DriverFactory {
     //grid
     public static AppiumDriver driver;
 
+    //set configuration
+    public static String loadPropertyFile = "android.properties";
+
     /****************
      Android & IOS Screen
      ****************/
@@ -23,9 +26,6 @@ public class DriverFactory {
     public static VerifyAccountScreen verifyAccountScreen;
 
     public AppiumDriver getDriver() throws IOException {
-
-        //set configuration
-        String loadPropertyFile = "android.properties";
 
         try {
             if (driver == null) {

@@ -84,6 +84,20 @@ public class ActionBase extends DriverFactory {
         }
     }
 
+    public void inputValue(MobileElement mobileElement, String value, MobileElement keyboard) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOf(mobileElement));
+            mobileElement.clear();
+            mobileElement.setValue(value);
+            keyboard.click();
+            System.out.println("element is present");
+        } catch (NoSuchElementException e) {
+            System.out.println("element is not present");
+            Assert.fail("Unable to send keys to WebElement, Exception: " + e.getMessage());
+        }
+    }
+
     /**********************************************************************************
      Tap to an element for 250 milliseconds
      **********************************************************************************/

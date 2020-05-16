@@ -12,7 +12,7 @@ import java.io.IOException;
 public class CompleteAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmail")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement emailField;
 
 //    @AndroidFindBy(id="")
@@ -20,32 +20,32 @@ public class CompleteAccountScreen extends ActionBase {
 //    public MobileElement phoneField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputUsername")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement usernameField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement showPasswordIcon;
 
     /*  dob   */
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputBirthDate")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement birthdayField;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_ok")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement birthdayYesModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement birthdayNoModal;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSubmit")
-    @iOSFindBy(xpath="")
+    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
     public MobileElement submitField;
 
     public CompleteAccountScreen(AppiumDriver driver) throws IOException {
