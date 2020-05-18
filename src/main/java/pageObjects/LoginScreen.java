@@ -50,7 +50,7 @@ public class LoginScreen extends ActionBase {
 
     public void inputUsrEmailPhoneName(String usremailphonename) {
 
-        inputValue(usernameEmailField, usremailphonename, doneKeyboard);
+        inputValue(usernameEmailField, usremailphonename);
     }
 
     public void inputPassword(String password) {

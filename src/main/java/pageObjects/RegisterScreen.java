@@ -12,13 +12,15 @@ import java.io.IOException;
 public class RegisterScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailPhone")
-    @iOSFindBy(xpath="/AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField")
+    @iOSFindBy(id="id_reg_emailphone")
     public MobileElement emailPhoneField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
-    public MobileElement nextLoginBtn;
+    @iOSFindBy(id="id_next_register")
+    public MobileElement nextLoginRegisterBtn;
 
     @AndroidFindBy(id="Navigate up")
+    @iOSFindBy(id="id_back_emailphone")
     public MobileElement backArrow;
 
     public RegisterScreen(AppiumDriver driver) throws IOException {
@@ -35,6 +37,6 @@ public class RegisterScreen extends ActionBase {
 
     public void clickNext() {
 
-        tapByElement(nextLoginBtn);
+        tapByElement(nextLoginRegisterBtn);
     }
 }

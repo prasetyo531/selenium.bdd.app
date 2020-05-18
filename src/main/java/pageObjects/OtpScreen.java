@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -14,18 +15,23 @@ import java.util.regex.Pattern;
 public class OtpScreen extends ActionBase{
 
     @AndroidFindBy(id="com.google.android.gms:id/positive_button")
+    @iOSFindBy(id="suggestion")
     public MobileElement allowReadOtpBtn;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/labelAuthReceiver")
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[contains(text(),'Enter the 6 digit code we have sent to')]")
     public MobileElement authReceiverLabel;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/labelTapToChange")
+    @iOSFindBy(id="Haven't receive the code? Resend now")
     public MobileElement tapToChangeLabel;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/labelResendOtp")
+    @iOSFindBy(id="Resend now")
     public MobileElement resendCodeLabel;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonConfirm")
+    @iOSFindBy(id="id_otp_confirm")
     public MobileElement confirmOtpBtn;
 
 
@@ -36,6 +42,7 @@ public class OtpScreen extends ActionBase{
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    /***  android ***/
     public void clickAllowReadMsg() {
 
         tapByElement(allowReadOtpBtn);
@@ -46,11 +53,29 @@ public class OtpScreen extends ActionBase{
         tapByElement(confirmOtpBtn);
     }
 
-    //get phone
+    //get String phone android
     public void comparePhoneReceiver() {
 
         String labelReceiver = authReceiverLabel.getText();
         Assert.assertTrue(labelReceiver.startsWith("+628"));
+    }
+
+    /***  ios ***/
+    public void clickAllowReadMsgIos() {
+
+        tapByElement(allowReadOtpBtn);
+    }
+
+    public void clickConfirmOtpIos() {
+
+        tapByElement(confirmOtpBtn);
+    }
+
+    //get String phone ios
+    public void comparePhoneReceiverIos() {
+
+        String labelReceiver = authReceiverLabel.getText();
+        Assert.assertTrue(labelReceiver.contains("+628"));
     }
 
     //get phone

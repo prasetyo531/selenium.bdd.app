@@ -77,6 +77,7 @@ public class ActionBase extends DriverFactory {
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             mobileElement.clear();
             mobileElement.setValue(value);
+            driver.hideKeyboard();
             System.out.println("element is present");
         } catch (NoSuchElementException e) {
             System.out.println("element is not present");

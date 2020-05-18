@@ -27,6 +27,14 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
+    @When("^user input correct otp from phone on otp screen from ios to register$")
+    public void user_input_correct_otp_from_phone_on_otp_screen_from_ios_to_register() throws Throwable {
+
+        otpScreen.clickAllowReadMsg();
+        //otpScreen.comparePhoneReceiver();
+        otpScreen.clickConfirmOtp();
+    }
+
     //complete account
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register$")
     public void user_enters_the_something_something_password_and_select_dob_to_register(String email, String username) throws Throwable {
