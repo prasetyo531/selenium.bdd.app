@@ -114,6 +114,7 @@ public class CommonUtils {
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, CommonUtils.NEW_COMMAND_TIMEOUT);
         capabilities.setCapability(DEVICE_READY_TIMEOUT, CommonUtils.DEVICE_TIMEOUT);
         capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
+        capabilities.setCapability("autoGrantPermissions", true);
         //capabilities.setCapability("app", CommonUtils.APP);
     }
 

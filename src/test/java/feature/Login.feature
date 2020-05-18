@@ -28,7 +28,7 @@ Feature: Login into account
     Then user enters the "<phonenumber>" phonenumber to login
     And user clicks next button on login screen
     When user input correct otp from phone on otp screen from ios to login
-    Then user will see modal account status on homescreen
+    Then user will see modal account status on ios homescreen
 
     Examples:
       |   phonenumber        |

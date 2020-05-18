@@ -13,6 +13,12 @@ public class VerifyAccountSteps extends DriverFactory {
         homeScreen.verifyAccountStatusModal();
     }
 
+    @Then("^user will see modal account status on ios homescreen$")
+    public void user_will_see_modal_account_status_on_ios_homescreen() throws Throwable {
+
+        homeScreen.verifyAccountStatusModalIos();
+    }
+
     @When("^user click complete verify button on modal$")
     public void user_click_complete_verify_button_on_modal() throws Throwable {
 

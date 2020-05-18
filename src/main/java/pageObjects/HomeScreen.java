@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
@@ -33,24 +34,30 @@ public class HomeScreen extends ActionBase {
 
     /*  account status  */
     @AndroidFindBy(id="com.fdbr.android:id/btnAction")
+    @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/btnClose")
+    @iOSFindBy(id="icon close")
     public MobileElement closeAccountStatusModal;
 
     /*
     home screen
      */
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
+    @iOSFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
 
     @AndroidFindBy(id="com.fdbr.android:id/layoutAds")
+    @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement adsBanner;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @iOSFindBy(id="ic notification")
     public MobileElement notifBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
+    @iOSFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
     @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
@@ -105,6 +112,19 @@ public class HomeScreen extends ActionBase {
      */
 
     public void verifyAccountStatusModal() {
+
+        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        if (checkAccountStatusModal == true) {
+            tapByElement(closeAccountStatusModal);
+            System.out.println("account status modal is present");
+            verifyHomescreen();
+        } else {
+            System.out.println("account status modal is not present");
+            verifyHomescreen();
+        }
+    }
+
+    public void verifyAccountStatusModalIos() {
 
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
