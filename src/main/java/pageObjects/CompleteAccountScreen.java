@@ -12,40 +12,41 @@ import java.io.IOException;
 public class CompleteAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmail")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="id_compacc_email")
     public MobileElement emailField;
 
-//    @AndroidFindBy(id="")
-//    @iOSFindBy(xpath="")
-//    public MobileElement phoneField;
+    @AndroidFindBy(id="com.fdbr.android.auth:id/inputPhone")
+    @iOSFindBy(id="id_compacc_phone")
+    public MobileElement phoneField;
 
+    //bio options
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputUsername")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="id_compacc_username")
     public MobileElement usernameField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="id_compacc_password")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="id_showpassword")
     public MobileElement showPasswordIcon;
 
     /*  dob   */
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputBirthDate")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id=" Date of birth")
     public MobileElement birthdayField;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_ok")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
-    public MobileElement birthdayYesModal;
+    @iOSFindBy(id="Done")
+    public MobileElement birthdayYesDoneModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="Cancel")
     public MobileElement birthdayNoModal;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSubmit")
-    @iOSFindBy(xpath="com.fdbr.android.auth:id/inputEmail")
+    @iOSFindBy(id="id_compacc_submit")
     public MobileElement submitField;
 
     public CompleteAccountScreen(AppiumDriver driver) throws IOException {
@@ -60,10 +61,10 @@ public class CompleteAccountScreen extends ActionBase {
         inputValue(emailField, email);
     }
 
-//    public void inputPhone(String phone){
-//
-//        inputValue(phoneField, phone);
-//    }
+    public void inputPhone(String phone){
+
+        inputValue(phoneField, phone);
+    }
 
     public void inputUsername(String username){
 
@@ -78,7 +79,7 @@ public class CompleteAccountScreen extends ActionBase {
     public void inputBirthday(){
 
         tapByElement(birthdayField);
-        tapByElement(birthdayYesModal);
+        tapByElement(birthdayYesDoneModal);
     }
 
     public void clickSubmitCompleteAccount(){
