@@ -17,6 +17,12 @@ public class LoginSteps extends DriverFactory {
     }
 
     //***   Login input password   ****//
+    @Then("^user enters the \"([^\"]*)\" email to login$")
+    public void user_enters_the_something_email_to_login(String email) throws Throwable {
+
+        loginScreen.inputUsrEmailPhoneName(email);
+    }
+
     @Then("^user enters the \"([^\"]*)\" username on login screen$")
     public void user_enters_the_something_username_on_login_screen(String username) throws Throwable {
 
@@ -57,5 +63,33 @@ public class LoginSteps extends DriverFactory {
         otpScreen.clickConfirmOtpIos();
     }
 
+    /*  negative test    */
+    @Then("^user see and close modal phone number is not registered$")
+    public void user_see_and_close_modal_phone_number_is_not_registered() throws Throwable {
+
+        loginScreen.errorTitlePhoneNumberNotRegisteredModal();
+        loginScreen.errorDescPhoneNumberNotRegisteredModal();
+    }
+
+    @Then("^user see and close modal phone number is not verified$")
+    public void user_see_and_close_modal_phone_number_is_not_verified() throws Throwable {
+
+        loginScreen.errorTitlePhoneNumberNotVerifiedModal();
+        loginScreen.errorDescPhoneNumberNotVerifiedModal();
+    }
+
+    @Then("^user see and close modal email is not registered$")
+    public void user_see_and_close_modal_email_is_not_registered() throws Throwable {
+
+        loginScreen.errorTitleEmailUsernameNotRegisteredModal();
+        loginScreen.errorDescEmailNotRegisteredModal();
+    }
+
+    @Then("^user see and close modal email is used to multiple account$")
+    public void user_see_and_close_modal_email_is_used_to_multiple_account() throws Throwable {
+
+        loginScreen.errorTitleEmailDuplicateModal();
+        loginScreen.errorDescEmailDuplicateModal();
+    }
 
 }

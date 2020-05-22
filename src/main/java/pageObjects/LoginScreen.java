@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.io.IOException;
 
@@ -38,6 +39,19 @@ public class LoginScreen extends ActionBase {
     @iOSFindBy(id="Done")
     public MobileElement doneKeyboard;
 
+    /*  element modal login phone number and email */
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModal;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descModal;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement yesBtnModal;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
+    public MobileElement noBtnModal;
+
     //String selectorUsernameEmailField = "type == 'UIAccessibilityTextFieldElement' AND value BEGINSWITH[c] 'Email, Username or phone number' AND visible == 1";
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -67,5 +81,81 @@ public class LoginScreen extends ActionBase {
 
         tapByElement(nextLoginBtn);
     }
+
+    /*  action modal phone number and email */
+    /*  title modal */
+    public void errorTitlePhoneNumberNotVerifiedModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Identify your phone number");
+    }
+
+    public void errorTitleEmailDuplicateModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Identify your username");
+    }
+
+    public void errorTitleUsernameDuplicateModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Identify your email");
+    }
+
+    public void errorTitlePhoneNumberNotRegisteredModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Phone number is not registered");
+    }
+
+    public void errorTitleEmailUsernameNotRegisteredModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
+    }
+
+    /*  content or description modal */
+    public void errorDescPhoneNumberNotVerifiedModal(){
+
+        isElementPresent(descModal);
+        String getDesc = descModal.getText();
+        Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches this account: Please login with the correct email. If the email does not belong to you, please create a new account."));
+    }
+
+    public void errorDescEmailDuplicateModal(){
+
+        isElementPresent(descModal);
+        String getDesc = descModal.getText();
+        Assert.assertTrue(getDesc.contains("Hi! The email you have entered matches these accounts: Please login with the correct username."));
+    }
+
+    public void errorDescPhoneNumberNotRegisteredModal(){
+
+        isElementPresent(descModal);
+        String getDesc = descModal.getText();
+        Assert.assertTrue(getDesc.contains("Create a new account with this number? +62"));
+    }
+
+    public void errorDescEmailNotRegisteredModal(){
+
+        isElementPresent(descModal);
+        String getDesc = descModal.getText();
+        Assert.assertEquals(getDesc,"The email and password you entered do not match. Do you want to reset your password?");
+    }
+
+    public void clickYesBtnModal(){
+
+    }
+
+    public void clickNoBtnModal(){
+
+    }
+
+
 
 }

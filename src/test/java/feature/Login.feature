@@ -11,7 +11,7 @@ Feature: Login into account
   ##################################################################################
 
   #FDBRMA-103
-  @Android @Login @Regression @RealAccount @RealDevices @IntegrationTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -25,95 +25,86 @@ Feature: Login into account
       |	  081284915951	     |
 
   #FDBRMA-111
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unverified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user see and close modal phone number is not verified
 
     Examples:
       |   phonenumber        |
-      |	  081284919999	     |
+      |	  0812849159510	     |
 
   #FDBRMA-110
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user see and close modal phone number is not registered
 
     Examples:
       |   phonenumber        |
-      |	  081284919999	     |
+      |	  0812812812812	     |
 
   #FDBRMA-104
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using verified email address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then user enters the "<email>" email to login
+    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |
-      |	  081284919999	     |
+      |           email                  |        password       |
+      |	      testflight@mailinator.com	 |        test123        |
 
   #FDBRMA-106
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using registered email address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then user enters the "<email>" email to login
+    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |
-      |	  081284919999	     |
+      |           email                  |        password       |
+      |	      ssonew10@mailinator.com	 |        test123        |
 
   #FDBRMA-112
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered email address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then user enters the "<email>" email to login
+    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user see and close modal email is not registered
 
     Examples:
-      |   phonenumber        |
-      |	  081284919999	     |
+      |           email                      |        password       |
+      |	      unregistered@unregistered.com	 |        test123        |
 
   #FDBRMA-173
   @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using email that registered to multiple account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then user enters the "<email>" email to login
+    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
-    Then user will see error msg as modal
+    Then user see and close modal email is used to multiple account
 
     Examples:
-      |   phonenumber        |
-      |	  081284919999	     |
-
-  #FDBRMA-174
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Login using username that registered to multiple account
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
-    Then user will see error msg as modal
-
-    Examples:
-      |   phonenumber        |
-      |	  081284919999	     |
+      |           email                      |        password       |
+      |	      unregistered@unregistered.com	 |        test123        |
 
 
   ##################################################################################

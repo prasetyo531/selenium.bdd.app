@@ -38,7 +38,7 @@ public class ActionBase extends DriverFactory {
 
     Faker faker = new Faker();
 
-    protected void sleep (long time) {
+    protected void sleep(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
@@ -102,7 +102,7 @@ public class ActionBase extends DriverFactory {
     /**********************************************************************************
      Tap to an element for 250 milliseconds
      **********************************************************************************/
-    public void tapByElement (MobileElement mobileElement) {
+    public void tapByElement(MobileElement mobileElement) {
         try {
             new TouchAction(driver)
                     .tap(tapOptions().withElement(element(mobileElement)))
@@ -112,7 +112,7 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public void pressByElement (MobileElement mobileElement) {
+    public void pressByElement(MobileElement mobileElement) {
         try {
             TouchAction action = new TouchAction(driver);
             action.tap(tapOptions().withElement(element(mobileElement))).perform();
@@ -129,7 +129,7 @@ public class ActionBase extends DriverFactory {
     /**********************************************************************************
      Tap by coordinates
      **********************************************************************************/
-    public void tapByCoordinates (int x,  int y) {
+    public void tapByCoordinates(int x,  int y) {
         try {
             new TouchAction(driver)
                     .tap(point(x, y))
@@ -140,7 +140,7 @@ public class ActionBase extends DriverFactory {
     }
 
     //Press by element
-    public void pressByElement (MobileElement mobileElement, long seconds) {
+    public void pressByElement(MobileElement mobileElement, long seconds) {
         try {
             new TouchAction(driver)
                     .press(element(mobileElement))
@@ -153,7 +153,7 @@ public class ActionBase extends DriverFactory {
     }
 
     //Press by coordinates
-    public void pressByCoordinates (int x, int y, long seconds) {
+    public void pressByCoordinates(int x, int y, long seconds) {
         new TouchAction(driver)
                 .press(point(x,y))
                 .waitAction(waitOptions(ofSeconds(seconds)))
