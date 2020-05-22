@@ -41,10 +41,10 @@ public class LoginSteps extends DriverFactory {
         loginScreen.clickNext();
     }
 
-    @And("^user clicks login button on login screen$")
-    public void user_clicks_login_button_on_login_screen() throws Throwable {
+    @When("^user clicks login button on login screen$")
+    public void user_clicks__login_button_on_login_screen() throws Throwable {
 
-        loginScreen.clickNext();
+        loginScreen.clickLogin();
     }
 
     @When("^user input correct otp from phone on otp screen from android to login$")

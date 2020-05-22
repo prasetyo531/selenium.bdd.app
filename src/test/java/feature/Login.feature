@@ -38,7 +38,7 @@ Feature: Login into account
       |	  0812849159510	     |
 
   #FDBRMA-110
-  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Test @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -56,8 +56,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
@@ -70,8 +71,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
@@ -84,8 +86,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
     Then user see and close modal email is not registered
 
     Examples:
@@ -93,18 +96,19 @@ Feature: Login into account
       |	      unregistered@unregistered.com	 |        test123        |
 
   #FDBRMA-173
-  @Android @Login @Staging @Wip @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using email that registered to multiple account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user enters the "<password>" password on login screen
     And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
     Then user see and close modal email is used to multiple account
 
     Examples:
       |           email                      |        password       |
-      |	      unregistered@unregistered.com	 |        test123        |
+      |	      duplicate01@duplicate.com	     |        test123        |
 
    #FDBRMA-128 & FDBRMA-109
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest

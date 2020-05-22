@@ -130,24 +130,30 @@ public class LoginScreen extends ActionBase {
     }
 
     /*  content or description modal */
-    public void errorDescPhoneNumberNotVerifiedModal(){
+    public void errorDescPhoneNumberNotVerifiedModal() {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
-        Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches this account: Please login with the correct email. If the email does not belong to you, please create a new account."));
+        System.out.println(getDesc);
+        Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches this account:"));
+        Assert.assertTrue(getDesc.contains("Please login with the correct email.\n" +
+                "If the email does not belong to you, please create a new account."));
     }
 
     public void errorDescEmailDuplicateModal(){
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
-        Assert.assertTrue(getDesc.contains("Hi! The email you have entered matches these accounts: Please login with the correct username."));
+        System.out.println(getDesc);
+        Assert.assertTrue(getDesc.contains("Hi! The email you have entered matches these accounts:"));
+        Assert.assertTrue(getDesc.contains("Please login with the correct username."));
     }
 
     public void errorDescPhoneNumberNotRegisteredModal(){
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
+        System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Create a new account with this number? +62"));
     }
 
