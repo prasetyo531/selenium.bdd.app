@@ -112,7 +112,7 @@ Feature: Login into account
 
    #FDBRMA-128 & FDBRMA-109
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Login using phone number. Input number less than 8 characters
+  Scenario Outline: Login using phone number. Input number less than 8 characters and more than 14 characters
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
