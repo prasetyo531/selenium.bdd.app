@@ -106,6 +106,20 @@ Feature: Login into account
       |           email                      |        password       |
       |	      unregistered@unregistered.com	 |        test123        |
 
+   #FDBRMA-128 & FDBRMA-109
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
+  Scenario Outline: Login using phone number. Input number less than 8 characters
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to login
+    And user clicks login button on login screen
+    Then display msg "Please enter your correct phone number" is displayed under phone number field
+
+    Examples:
+      | phonenumber              |
+      | 081702                   |
+      | 081702081702081702081702 |
+
 
   ##################################################################################
   #IOS

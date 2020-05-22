@@ -17,6 +17,9 @@ public class LoginScreen extends ActionBase {
     @iOSFindBy(id="Email, Username or phone number")
     public MobileElement usernameEmailField;
 
+    @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
+    public MobileElement txtWarningPhoneId;
+
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
     public MobileElement passwordField;
 
@@ -80,6 +83,13 @@ public class LoginScreen extends ActionBase {
     public void clickLogin() {
 
         tapByElement(nextLoginBtn);
+    }
+
+    /*  error msg underneath field   */
+    public void assertTextWarningLogin(String text){
+
+        String txtWarning = txtWarningPhoneId.getText();
+        Assert.assertEquals(txtWarning, text);
     }
 
     /*  action modal phone number and email */
@@ -150,10 +160,12 @@ public class LoginScreen extends ActionBase {
 
     public void clickYesBtnModal(){
 
+        tapByElement(yesBtnModal);
     }
 
     public void clickNoBtnModal(){
 
+        tapByElement(noBtnModal);
     }
 
 

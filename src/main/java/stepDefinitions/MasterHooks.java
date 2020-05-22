@@ -16,6 +16,7 @@ public class MasterHooks extends DriverFactory {
 
         driver = getDriver();
 
+        System.out.println("driver before : "+driver);
     }
 
     @After
