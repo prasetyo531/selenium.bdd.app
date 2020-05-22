@@ -38,7 +38,7 @@ Feature: Login into account
       |	  0812849159510	     |
 
   #FDBRMA-110
-  @Android @Login @Test @Regression @RealAccount @RealDevices @UiTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

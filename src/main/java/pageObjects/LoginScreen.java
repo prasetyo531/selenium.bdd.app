@@ -161,7 +161,9 @@ public class LoginScreen extends ActionBase {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
-        Assert.assertEquals(getDesc,"The email and password you entered do not match. Do you want to reset your password?");
+        System.out.println(getDesc);
+        Assert.assertTrue(getDesc.contains("The email and password you entered do not match."));
+        Assert.assertTrue(getDesc.contains("Do you want to reset your password?"));
     }
 
     public void clickYesBtnModal(){
