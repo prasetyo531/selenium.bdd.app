@@ -10,7 +10,7 @@ Feature: Login into account
   #ANDROID
   ##################################################################################
 
-  #FDBRMA-103
+  #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
   @Android @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
@@ -21,8 +21,10 @@ Feature: Login into account
     Then user will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |
-      |	  081284915951	     |
+      |    phonenumber        |
+      |	   081284915951	      |
+      |    6281284915951       |
+      |    +6281284915951       |
 
   #FDBRMA-111
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
