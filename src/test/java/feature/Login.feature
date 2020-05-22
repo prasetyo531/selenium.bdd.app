@@ -116,9 +116,9 @@ Feature: Login into account
     Then display msg "Please enter your correct phone number" is displayed under phone number field
 
     Examples:
-      | phonenumber              |
-      | 081702                   |
-      | 081702081702081702081702 |
+      |         phonenumber              |
+      |           081702                 |
+      |       081702081702081702081702   |
 
 
   ##################################################################################
