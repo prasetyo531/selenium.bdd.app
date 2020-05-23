@@ -22,17 +22,23 @@ public class RegisterSteps extends DriverFactory {
     @When("^user input correct otp from phone on otp screen to register$")
     public void user_input_correct_otp_from_phone_on_otp_screen_to_register() throws Throwable {
 
-        otpScreen.clickAllowReadMsg();
         otpScreen.comparePhoneReceiver();
+        otpScreen.clickAllowReadMsg();
         otpScreen.clickConfirmOtp();
     }
 
     @When("^user input correct otp from phone on otp screen from ios to register$")
     public void user_input_correct_otp_from_phone_on_otp_screen_from_ios_to_register() throws Throwable {
 
-        otpScreen.clickAllowReadMsg();
         //otpScreen.comparePhoneReceiver();
+        otpScreen.clickAllowReadMsg();
         otpScreen.clickConfirmOtp();
+    }
+
+    @Then("^user will direct to otp screen from phone to register$")
+    public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
+
+
     }
 
     //complete account

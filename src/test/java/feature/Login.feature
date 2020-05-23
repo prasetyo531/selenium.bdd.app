@@ -21,10 +21,10 @@ Feature: Login into account
     Then user will see modal account status on homescreen
 
     Examples:
-      |    phonenumber        |
-      |	   081284915951	      |
-      |    6281284915951       |
-      |    +6281284915951       |
+      |        phonenumber          |
+      |	       081284915951	        |
+      |        6281284915951        |
+      |       +6281284915951        |
 
   #FDBRMA-111
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -112,7 +112,7 @@ Feature: Login into account
       |           email                      |        password       |
       |	      duplicate01@duplicate.com	     |        test123        |
 
-   #FDBRMA-128 & FDBRMA-109
+  #FDBRMA-128 & FDBRMA-109
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using phone number. Input number less than 8 characters and more than 14 characters
     Given User navigates to onboarding screen by click next
@@ -131,8 +131,8 @@ Feature: Login into account
   #IOS
   ##################################################################################
 
-  #FDBRMA-103
-  @Ios @Login @Regression @RealAccount @RealDevices @IntegrationTest
+  #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
+  @Ios @Login @Staging @Regression @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
@@ -143,4 +143,6 @@ Feature: Login into account
 
     Examples:
       |   phonenumber        |
-      |	  087808192493	     |
+      |	  081284915951	     |
+      |	  6281284915951	     |
+      |	  +6281284915951	 |
