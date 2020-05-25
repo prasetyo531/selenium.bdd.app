@@ -37,7 +37,7 @@ public class CommonUtils {
 
     //Ios
     public static String UDID;
-    public static String APP;
+    public static String APPDIR;
     public static String AUTOMATION_NAME;
     public static String BUNDLEID;
 
@@ -56,7 +56,7 @@ public class CommonUtils {
         BASE_PKG = prop.getProperty("base.pkg");
         APPS_ACTIVITY = prop.getProperty("application.activity");
         APPIUM_PORT = prop.getProperty("appium.server.port");
-        AUTOMATION_INSTRUMENTATION=prop.getProperty("automation.instumentation");
+        AUTOMATION_INSTRUMENTATION=prop.getProperty("automation.instrumentation");
         DEVICE_NAME=prop.getProperty("device.name");
         BROWSER_NAME=prop.getProperty("browser.name");
         PLATFORM_NAME=prop.getProperty("platform.name");
@@ -74,7 +74,7 @@ public class CommonUtils {
         IMPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("implicit.wait"));
         DEFAULT_WAIT_TIME = Integer.parseInt(prop.getProperty("default.wait"));
         UDID = prop.getProperty("udid");
-        APP = prop.getProperty("application.app");
+        APPDIR = prop.getProperty("application.app");
         APPIUM_PORT = prop.getProperty("appium.server.port");
         AUTOMATION_NAME=prop.getProperty("automation.name");
         DEVICE_NAME=prop.getProperty("device.name");
@@ -108,14 +108,18 @@ public class CommonUtils {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, CommonUtils.PLATFORM_NAME);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CommonUtils.DEVICE_NAME);
         capabilities.setCapability(MobileCapabilityType.UDID, CommonUtils.UDID);
-        //capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, CommonUtils.AUTOMATION_INSTRUMENTATION);
-        //capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPLICATION_NAME);
         capabilities.setCapability("bundleId", CommonUtils.BUNDLEID);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, CommonUtils.NEW_COMMAND_TIMEOUT);
         capabilities.setCapability(DEVICE_READY_TIMEOUT, CommonUtils.DEVICE_TIMEOUT);
-//        capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
+        capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
         capabilities.setCapability("autoGrantPermissions", true);
-        //capabilities.setCapability("app", CommonUtils.APP);
+        capabilities.setCapability("autoDismissAlerts",true);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+        //reinstall
+        //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+        //capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPDIR);
+        //capabilities.setCapability("skipDeviceInitialization", false);
+        //capabilities.setCapability("skipServerInstallation", false);
     }
 
     public static AppiumDriver getAndroidDriver() throws MalformedURLException {
