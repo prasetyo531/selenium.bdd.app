@@ -114,7 +114,7 @@ public class CommonUtils {
         capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
         capabilities.setCapability("autoGrantPermissions", true);
         capabilities.setCapability("autoDismissAlerts",true);
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         //reinstall
         //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         //capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPDIR);

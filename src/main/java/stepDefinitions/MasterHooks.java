@@ -5,6 +5,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import utils.AppiumServer;
+import utils.CommonUtils;
 import utils.DriverFactory;
 
 import java.io.IOException;
@@ -28,6 +29,9 @@ public class MasterHooks extends DriverFactory {
                     System.out.println("need reset app");
                     break;
                 case "ios.properties":
+                    driver.removeApp(CommonUtils.BUNDLEID);
+                    driver.installApp(CommonUtils.APPDIR);
+                    driver.launchApp();
                     System.out.println("no need reset app");
                     break;
             }
