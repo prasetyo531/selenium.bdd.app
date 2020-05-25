@@ -43,7 +43,7 @@ Feature: Create account
 
   #FDBRMA-119
   @Ios @Register @Staging @Regression @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Register using new phone number
+  Scenario Outline: Register using new phone number, starts with 0
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
@@ -59,7 +59,7 @@ Feature: Create account
 
   #FDBRMA-120 #FDBRMA-121
   @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Register using new phone number
+  Scenario Outline: Register using new phone number, starts with 62
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
@@ -68,5 +68,18 @@ Feature: Create account
 
     Examples:
       |       phonenumber        |
-      |	     6281284909999	     |
+      |	     6287808192493	     |
       |	    +6281284909999	     |
+
+
+  @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
+  Scenario Outline: Register using new phone number, starts with +62
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then user will direct to otp screen from phone to register
+
+    Examples:
+      |       phonenumber        |
+      |	     +6287808192493	     |
