@@ -130,7 +130,7 @@ public class HomeScreen extends ActionBase {
         if (checkAccountStatusModal == true) {
             tapByElement(closeAccountStatusModal);
             System.out.println("account status modal is present");
-            verifyHomescreen();
+            verifyHomescreenIos();
         } else {
             System.out.println("account status modal is not present");
             verifyHomescreen();
@@ -145,6 +145,15 @@ public class HomeScreen extends ActionBase {
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (boolElem1 && boolElem2 && boolElem3);
+    }
+
+    public boolean verifyHomescreenIos() {
+
+        boolean boolElem2= isElementPresent(notifBtn);
+        boolean boolElem3= isElementPresent(searchBar);
+        //boolean boolElem5= isElementPresent(firstindextproductmatches);
+
+        return (boolElem2 && boolElem3);
     }
 
     public void verifyProductMatches() {

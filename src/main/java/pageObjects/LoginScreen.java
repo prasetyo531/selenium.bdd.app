@@ -21,6 +21,7 @@ public class LoginScreen extends ActionBase {
     public MobileElement txtWarningPhoneId;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
+    @iOSFindBy(id="id_password_login")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
@@ -28,15 +29,19 @@ public class LoginScreen extends ActionBase {
     public MobileElement nextLoginBtn;
 
     @AndroidFindBy(id="Navigate up")
+    @iOSFindBy(id="id_back_login")
     public MobileElement backArrow;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonChange")
+    @iOSFindBy(id="id_next_login")
     public MobileElement changeBtn;
 
     @AndroidFindBy(id="Show password")
+    @iOSFindBy(id="id_showpassword")
     public MobileElement unhidePassword;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonForgotPassword")
+    @iOSFindBy(id="id_forgotpassword")
     public MobileElement forgotPassword;
 
     @iOSFindBy(id="Done")
@@ -44,15 +49,18 @@ public class LoginScreen extends ActionBase {
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    @iOSFindBy(id="Identify your phone number")
     public MobileElement titleModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    @iOSFindBy(id="Identify your phone number")
     public MobileElement yesBtnModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
+    @iOSFindBy(id="Identify your phone number")
     public MobileElement noBtnModal;
 
     //String selectorUsernameEmailField = "type == 'UIAccessibilityTextFieldElement' AND value BEGINSWITH[c] 'Email, Username or phone number' AND visible == 1";

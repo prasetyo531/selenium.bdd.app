@@ -26,6 +26,20 @@ Feature: Login into account
       |        6281284915951        |
       |       +6281284915951        |
 
+  #FDBRMA-172
+  @Android @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
+  Scenario Outline: Login using phone number, input starts with 9812
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to login
+    And user clicks next button on login screen
+    When user input correct otp from phone on otp screen from android to login
+    Then user will see modal account status on homescreen
+
+    Examples:
+      |        phonenumber          |
+      |	        9812	            |
+
   #FDBRMA-111
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unverified phone number
@@ -80,7 +94,7 @@ Feature: Login into account
 
     Examples:
       |           email                  |        password       |
-      |	      ssonew10@mailinator.com	 |        test123        |
+      |	      verifyprod@mailinator.com	 |        test123        |
 
   #FDBRMA-112
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -146,3 +160,34 @@ Feature: Login into account
       |	  087808192493	     |
       |	  6287808192493	     |
       |	  +6287808192493	 |
+
+  #FDBRMA-104
+  @Ios @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
+  Scenario Outline: Login using verified email address
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then user will see modal account status on ios homescreen
+
+    Examples:
+      |          email                  |        password       |
+      |	   testflight@mailinator.com    |        test123        |
+
+
+  #FDBRMA-106
+  @Ios @Login @Production @Regression @RealAccount @RealDevices @UiTest
+  Scenario Outline: Login using registered email address
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then user will see modal account status on ios homescreen
+
+    Examples:
+      |           email                  |        password       |
+      |	      verifyprod@mailinator.com	 |        test123        |

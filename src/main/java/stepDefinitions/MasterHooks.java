@@ -29,9 +29,9 @@ public class MasterHooks extends DriverFactory {
                     System.out.println("need reset app");
                     break;
                 case "ios.properties":
-                    driver.removeApp(CommonUtils.BUNDLEID);
-                    driver.installApp(CommonUtils.APPDIR);
-                    driver.launchApp();
+//                    driver.removeApp(CommonUtils.BUNDLEID);
+//                    driver.installApp(CommonUtils.APPDIR);
+//                    driver.launchApp();
                     System.out.println("no need reset app");
                     break;
             }

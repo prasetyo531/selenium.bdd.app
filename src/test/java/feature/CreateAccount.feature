@@ -57,7 +57,7 @@ Feature: Create account
       |   phonenumber        |              email                 |      username        |
       |	  087808192493	     |    bddappregisterios@mailinator.com   |    bddappregisterios    |
 
-  #FDBRMA-120 #FDBRMA-121
+  #FDBRMA-120
   @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Register using new phone number, starts with 62
     Given User navigates to onboarding screen by swipe
@@ -69,9 +69,8 @@ Feature: Create account
     Examples:
       |       phonenumber        |
       |	     6287808192493	     |
-      |	    +6281284909999	     |
 
-
+  #FDBRMA-121
   @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Register using new phone number, starts with +62
     Given User navigates to onboarding screen by swipe
@@ -83,3 +82,18 @@ Feature: Create account
     Examples:
       |       phonenumber        |
       |	     +6287808192493	     |
+
+
+  #FDBRMA-213
+
+
+  #FDBRMA-122
+
+
+  #FDBRMA-123
+
+
+  #FDBRMA-124
+
+
+  #FDBRMA-214
