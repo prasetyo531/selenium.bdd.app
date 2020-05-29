@@ -64,6 +64,12 @@ public class LoginSteps extends DriverFactory {
     }
 
     /*  negative test    */
+    @Then("^display msg \"([^\"]*)\" is displayed under email username phone field$")
+    public void display_msg_is_displayed_under_email_username_phone_field(String message) {
+
+        loginScreen.assertTextWarningLogin(message);
+    }
+
     @Then("^display msg \"([^\"]*)\" is displayed under phone number field$")
     public void display_msg_is_displayed_under_phone_number_field(String message) {
 

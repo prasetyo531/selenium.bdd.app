@@ -1,12 +1,12 @@
 package runner;
 
 import com.cucumber.listener.Reporter;
-import pageObjects.ActionBase;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
+import pageObjects.ActionBase;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@Smoke, @RealAccount, @RealDevices, @IntegrationTest", "@Android, @Register", "@Android, @Login"},
+        tags = {"@Regression, @RealAccount, @Emulator, @UiTest","~@Ios", "~@Staging", "~@Smoke"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -24,7 +24,7 @@ import java.io.IOException;
                 "usage:test-output/cucumber/cucumber-usage.json"}
 )
 
-public class MainRunner extends AbstractTestNGCucumberTests {
+public class UITestRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {

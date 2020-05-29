@@ -8,8 +8,8 @@ Feature: Create account
   ##################################################################################
 
   #FDBRMA-119
-  @Android @Register @Staging @Regression @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Register using new phone number
+  @Android @Register @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
+  Scenario Outline: Register using new phone number starts with 0
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
@@ -24,8 +24,8 @@ Feature: Create account
       |	  081284915951	     |    bddappregisterandro@mailinator.com   |    bddappregisterandro    |
 
   #FDBRMA-120 #FDBRMA-121
-  @Android @Register @Staging @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Register using new phone number
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Register using new phone number starts with 62 and +62
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
@@ -35,7 +35,79 @@ Feature: Create account
     Examples:
       |       phonenumber        |
       |	    6281284919999	     |
-      |	    +6281284919999	     |
+      |	    +6281284919998	     |
+
+  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-136 #FDBRMA-212
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Signup input phone number with invalid format phone or email
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then display msg "This email or phone number is invalid" is displayed under phone number field
+
+    Examples:
+      |                 phonenumber                |
+      |	                     0	                   |
+      |	                   081702	               |
+      |	         081702081702081702081702          |
+      |	             wrongformatemail              |
+      |	          wrongformatemail@gmail           |
+      |	     wrongformatemail@gmail@gmail.com      |
+
+  #FDBRMA-136
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Signup input phone number with incorrect format email
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then display msg "Please enter your correct email address" is displayed under phone number field
+
+    Examples:
+      |                 phonenumber                |
+      |	              jzjsh++..-@test.com          |
+
+
+  #FDBRMA-214
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Signup input phone number starts without 0
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then display msg "Please enter your correct phone number" is displayed under phone number field
+
+    Examples:
+      |       phonenumber         |
+      |	      81284919990	      |
+
+  #FDBRMA-175
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Register using registered phone number
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then show modal identify your phone number
+
+    Examples:
+      | phonenumber |
+      | 08170223322 |
+
+  #FDBRMA-130
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Register using verified phone number
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then show modal verified phone number
+
+    Examples:
+      | phonenumber  |
+      | 087885221338 |
+
 
   ##################################################################################
   #IOS
@@ -58,9 +130,9 @@ Feature: Create account
       |	  087808192493	     |    bddappregisterios@mailinator.com   |    bddappregisterios    |
 
   #FDBRMA-120
-  @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
+  @Ios @Register @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Register using new phone number, starts with 62
-    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -71,9 +143,9 @@ Feature: Create account
       |	     6287808192493	     |
 
   #FDBRMA-121
-  @Ios @Register @Staging @Regression @RealAccount @RealDevices @UiTest
+  @Ios @Register @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Register using new phone number, starts with +62
-    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -82,18 +154,3 @@ Feature: Create account
     Examples:
       |       phonenumber        |
       |	     +6287808192493	     |
-
-
-  #FDBRMA-213
-
-
-  #FDBRMA-122
-
-
-  #FDBRMA-123
-
-
-  #FDBRMA-124
-
-
-  #FDBRMA-214

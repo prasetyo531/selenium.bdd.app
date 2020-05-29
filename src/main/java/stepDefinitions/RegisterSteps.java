@@ -27,18 +27,18 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
+    @Then("^user will direct to otp screen from phone to register$")
+    public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
+
+        otpScreen.comparePhoneReceiver();
+    }
+
     @When("^user input correct otp from phone on otp screen from ios to register$")
     public void user_input_correct_otp_from_phone_on_otp_screen_from_ios_to_register() throws Throwable {
 
         //otpScreen.comparePhoneReceiver();
         otpScreen.clickAllowReadMsg();
         otpScreen.clickConfirmOtp();
-    }
-
-    @Then("^user will direct to otp screen from phone to register$")
-    public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
-
-
     }
 
     //complete account
@@ -55,5 +55,20 @@ public class RegisterSteps extends DriverFactory {
     public void user_clicks_submit_button_on_complete_account_screen() throws Throwable {
 
         completeAccountScreen.clickSubmitCompleteAccount();
+    }
+
+    //modal register
+    @Then("^show modal identify your phone number$")
+    public void show_modal_identify_your_phone_number() throws Throwable {
+
+        registerScreen.errorTitlePhoneNumberNotVerifiedModal();
+        registerScreen.errorDescPhoneNumberNotVerifiedModal();
+    }
+
+    @Then("^show modal verified phone number$")
+    public void show_modal_verified_phone_number() throws Throwable {
+
+        registerScreen.errorTitlePhoneNumberIsVerifiedModal();
+        registerScreen.errorDescPhoneNumberIsVerifiedModal();
     }
 }

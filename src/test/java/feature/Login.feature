@@ -11,7 +11,7 @@ Feature: Login into account
   ##################################################################################
 
   #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
-  @Android @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
+  @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -32,9 +32,8 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
-    When user input correct otp from phone on otp screen from android to login
-    Then user will see modal account status on homescreen
+    And user clicks login button on login screen
+    Then display msg "Please enter your correct phone number" is displayed under email username phone field
 
     Examples:
       |        phonenumber          |
@@ -175,7 +174,6 @@ Feature: Login into account
     Examples:
       |          email                  |        password       |
       |	   testflight@mailinator.com    |        test123        |
-
 
   #FDBRMA-106
   @Ios @Login @Production @Regression @RealAccount @RealDevices @UiTest
