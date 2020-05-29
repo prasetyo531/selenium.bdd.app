@@ -37,7 +37,7 @@ Feature: Create account
       |	    6281284919999	     |
       |	    +6281284919998	     |
 
-  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-136 #FDBRMA-212
+  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-212
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input phone number with invalid format phone or email
     Given User navigates to onboarding screen by swipe
@@ -60,14 +60,13 @@ Feature: Create account
   Scenario Outline: Signup input phone number with incorrect format email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
+    Then user enters the "<email>" phonenumber to register
     And user clicks next button on register screen
     Then display msg "Please enter your correct email address" is displayed under phone number field
 
     Examples:
-      |                 phonenumber                |
-      |	              jzjsh++..-@test.com          |
-
+      |               email               |
+      |	          jzjsh++..-@test.com     |
 
   #FDBRMA-214
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -107,6 +106,12 @@ Feature: Create account
     Examples:
       | phonenumber  |
       | 087885221338 |
+
+  #FDBRMA-135
+
+  #FDBRMA-211
+
+  #FDBRMA-137
 
 
   ##################################################################################
