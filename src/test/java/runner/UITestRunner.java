@@ -16,7 +16,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@Regression, @RealAccount, @Emulator, @UiTest","~@Ios", "~@Staging", "~@Smoke"},
+        tags = {"@IosTest"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -33,5 +33,4 @@ public class UITestRunner extends AbstractTestNGCucumberTests {
     }
 }
 
-//@Regression, @RealAccount, @RealDevices, @IntegrationTest", "~@Android, ~@Login", "@Ios, @Login", "~@WIP
-//{"@Regression, @RealAccount, @RealDevices, @IntegrationTest", "@Ios", "@Login"},
+//@Regression, @RealAccount, @Emulator, @UiTest","~@Ios", "~@Staging", "~@Smoke

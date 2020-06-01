@@ -39,7 +39,7 @@ Feature: Create account
 
   #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-212
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input phone number with invalid format phone or email
+  Scenario Outline: Signup input with invalid format phone or email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
@@ -57,7 +57,7 @@ Feature: Create account
 
   #FDBRMA-136
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input phone number with incorrect format email
+  Scenario Outline: Signup input email with incorrect format email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" phonenumber to register
@@ -88,7 +88,7 @@ Feature: Create account
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
-    Then show modal identify your phone number
+    Then show modal identify your phone number android
 
     Examples:
       | phonenumber |
@@ -101,7 +101,7 @@ Feature: Create account
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
-    Then show modal verified phone number
+    Then show modal verified phone number android
 
     Examples:
       | phonenumber  |
@@ -134,7 +134,7 @@ Feature: Create account
       |   phonenumber        |              email                 |      username        |
       |	  087808192493	     |    bddappregisterios@mailinator.com   |    bddappregisterios    |
 
-  #FDBRMA-120
+  #FDBRMA-120 #FDBRMA-121
   @Ios @Register @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Register using new phone number, starts with 62
     Given User navigates to onboarding screen by click next
@@ -146,16 +146,31 @@ Feature: Create account
     Examples:
       |       phonenumber        |
       |	     6287808192493	     |
+      |	     +6287808192493	     |
 
-  #FDBRMA-121
+  #FDBRMA-175
   @Ios @Register @Production @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Register using new phone number, starts with +62
+  Scenario Outline: Register using registered phone number
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
-    Then user will direct to otp screen from phone to register
+    Then show modal identify your phone number ios
 
     Examples:
-      |       phonenumber        |
-      |	     +6287808192493	     |
+      |     phonenumber    |
+      |     08170223322   |
+
+  #FDBRMA-130
+  @Ios @Register @Production @Regression @RealAccount @RealDevices @UiTest
+  Scenario Outline: Register using verified phone number
+    Given User navigates to onboarding screen by click next
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then show modal verified phone number ios
+
+    Examples:
+      |     phonenumber    |
+      |     087885221338   |
+

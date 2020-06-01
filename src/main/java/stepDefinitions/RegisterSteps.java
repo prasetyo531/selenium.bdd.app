@@ -58,17 +58,29 @@ public class RegisterSteps extends DriverFactory {
     }
 
     //modal register
-    @Then("^show modal identify your phone number$")
-    public void show_modal_identify_your_phone_number() throws Throwable {
+    @Then("^show modal identify your phone number android$")
+    public void show_modal_identify_your_phone_number_android() throws Throwable {
 
         registerScreen.errorTitlePhoneNumberNotVerifiedModal();
         registerScreen.errorDescPhoneNumberNotVerifiedModal();
     }
 
-    @Then("^show modal verified phone number$")
-    public void show_modal_verified_phone_number() throws Throwable {
+    @Then("^show modal identify your phone number ios$")
+    public void show_modal_identify_your_phone_number_ios() throws Throwable {
+
+        registerScreen.errorTitlePhoneNumberNotVerifiedModal();
+    }
+
+    @Then("^show modal verified phone number android$")
+    public void show_modal_verified_phone_number_android() throws Throwable {
 
         registerScreen.errorTitlePhoneNumberIsVerifiedModal();
         registerScreen.errorDescPhoneNumberIsVerifiedModal();
+    }
+
+    @Then("^show modal verified phone number ios$")
+    public void show_modal_verified_phone_number_ios() throws Throwable {
+
+        registerScreen.errorTitlePhoneNumberIsVerifiedModalIos();
     }
 }

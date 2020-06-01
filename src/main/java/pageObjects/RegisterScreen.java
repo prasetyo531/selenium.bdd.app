@@ -26,8 +26,11 @@ public class RegisterScreen extends ActionBase {
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSFindBy(id="Identify your phone number")
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@value='Identify your phone number']")
     public MobileElement titleModal;
+
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@value='Phone number has been registered']")
+    public MobileElement titleModal2;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descModal;
@@ -71,6 +74,14 @@ public class RegisterScreen extends ActionBase {
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
+        System.out.println(getTitle);
+        Assert.assertEquals(getTitle,"Phone number has been registered");
+    }
+
+    public void errorTitlePhoneNumberIsVerifiedModalIos(){
+
+        isElementPresent(titleModal2);
+        String getTitle = titleModal2.getText();
         System.out.println(getTitle);
         Assert.assertEquals(getTitle,"Phone number has been registered");
     }
