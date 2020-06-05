@@ -110,6 +110,53 @@ Feature: Login into account
       |           email                      |        password       |
       |	      unregistered@unregistered.com	 |        test123        |
 
+  #FDBRMA-115
+  @FDBRMA-115
+  Scenario Outline: Login using wrong password of username
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then user enters the "<username>" email to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then pop up message should displayed
+
+    Examples:
+      | username | password  |
+      | putwid   | 123qwerty |
+
+  # FDBRMA-114
+  @FDBRMA-114
+  Scenario Outline: Login using wrong password of email address
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then user enters the "<username>" email to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then user see and close modal email is not registered
+
+    Examples:
+      | username                 | password  |
+      | testflight@mailinator.com | 123qwerty |
+
+
+   #FDBRMA-117
+  @FDBRMA-117
+  Scenario Outline: Login input username contains special character
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then user will see modal account status on homescreen
+
+    Examples:
+      |         email        |        password       |
+      |	      wong_pinky	 |        tuhanyesus        |
+
+
   #FDBRMA-173
   @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using email that registered to multiple account
@@ -139,6 +186,23 @@ Feature: Login into account
       |           081702                 |
       |       081702081702081702081702   |
 
+  #FDBRMA-275
+  @FDBRMA-275
+  Scenario Outline: Login using unverified phone number and then login using email that link to unverified phone
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to login
+    And user clicks next button on login screen
+    Then user see and click login on modal phone number is not verified
+    Then user changes inputed login field to "myjne001@gmail.com" to login
+    And user clicks next button on login screen
+    And user enters the "<password>" password on login screen
+    When user clicks login button on login screen
+    Then user will see modal account status on homescreen
+
+    Examples:
+      |      phonenumber         |   password   |
+      |	    0812849159510	     |   test123    |
 
   ##################################################################################
   #IOS

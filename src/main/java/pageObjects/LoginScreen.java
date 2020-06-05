@@ -56,11 +56,9 @@ public class LoginScreen extends ActionBase {
     public MobileElement descModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
-    @iOSFindBy(id="Identify your phone number")
     public MobileElement yesBtnModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
-    @iOSFindBy(id="Identify your phone number")
     public MobileElement noBtnModal;
 
     //String selectorUsernameEmailField = "type == 'UIAccessibilityTextFieldElement' AND value BEGINSWITH[c] 'Email, Username or phone number' AND visible == 1";
@@ -174,16 +172,33 @@ public class LoginScreen extends ActionBase {
         Assert.assertTrue(getDesc.contains("Do you want to reset your password?"));
     }
 
-    public void clickYesBtnModal(){
+    public void errorDescPasswordNotValidModal(){
+        isElementPresent(descModal);
+        String textInvalidPassword = descModal.getText();
+        Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
+        Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+    }
+
+    public void clickLoginBtnModal(){
 
         tapByElement(yesBtnModal);
     }
 
-    public void clickNoBtnModal(){
+    public void clickYesBtnPhoneUnregisteredModal(){
+
+        tapByElement(yesBtnModal);
+    }
+
+    public void clickRegisterBtnModal(){
 
         tapByElement(noBtnModal);
     }
 
+    public void inputNewChannelToLogin(String channel){
+
+        usernameEmailField.clear();
+        inputValue(usernameEmailField, channel);
+    }
 
 
 }

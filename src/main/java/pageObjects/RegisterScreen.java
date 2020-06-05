@@ -78,6 +78,14 @@ public class RegisterScreen extends ActionBase {
         Assert.assertEquals(getTitle,"Phone number has been registered");
     }
 
+    public void errorTitleEmailIsVerifiedModal(){
+
+        isElementPresent(titleModal);
+        String getTitle = titleModal.getText();
+        System.out.println(getTitle);
+        Assert.assertEquals(getTitle,"Email has been registered");
+    }
+
     public void errorTitlePhoneNumberIsVerifiedModalIos(){
 
         isElementPresent(titleModal2);
@@ -104,5 +112,13 @@ public class RegisterScreen extends ActionBase {
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Continue to login with this phone number?"));
+    }
+
+    public void errorDescEmailIsVerifiedModal(){
+
+        isElementPresent(descModal);
+        String getDesc = descModal.getText();
+        System.out.println(getDesc);
+        Assert.assertTrue(getDesc.contains("Continue to login with this email?"));
     }
 }

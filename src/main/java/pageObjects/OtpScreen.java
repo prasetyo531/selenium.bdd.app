@@ -60,6 +60,13 @@ public class OtpScreen extends ActionBase{
         Assert.assertTrue(labelReceiver.startsWith("+628"));
     }
 
+//    public void compareEmailReceiver() {
+//
+//        String labelReceiver = authReceiverLabel.getText();
+//        Assert.assertTrue(labelReceiver.contains("@"));
+//        Assert.assertTrue(labelReceiver.contains("."));
+//    }
+
     /***  ios ***/
     public void clickAllowReadMsgIos() {
 

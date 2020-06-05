@@ -13,6 +13,12 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.inputUsrEmailPhoneName(phonenumber);
     }
 
+    @Then("^user enters the \"([^\"]*)\" email to register$")
+    public void user_enters_the_something_email_to_register(String phonenumber) throws Throwable {
+
+        registerScreen.inputUsrEmailPhoneName(phonenumber);
+    }
+
     @And("^user clicks next button on register screen$")
     public void user_clicks_next_button_on_register_screen() throws Throwable {
 
@@ -31,6 +37,12 @@ public class RegisterSteps extends DriverFactory {
     public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
 
         otpScreen.comparePhoneReceiver();
+    }
+
+    @Then("^user will direct to otp screen from email to register$")
+    public void user_will_direct_to_otp_screen_from_email_to_register() throws Throwable {
+
+        otpScreen.compareEmailReceiver();
     }
 
     @When("^user input correct otp from phone on otp screen from ios to register$")
@@ -78,9 +90,17 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.errorDescPhoneNumberIsVerifiedModal();
     }
 
+    @Then("^show modal verified email android$")
+    public void show_modal_verified_email_android() throws Throwable {
+
+        registerScreen.errorTitleEmailIsVerifiedModal();
+        registerScreen.errorDescEmailIsVerifiedModal();
+    }
+
     @Then("^show modal verified phone number ios$")
     public void show_modal_verified_phone_number_ios() throws Throwable {
 
         registerScreen.errorTitlePhoneNumberIsVerifiedModalIos();
     }
+
 }

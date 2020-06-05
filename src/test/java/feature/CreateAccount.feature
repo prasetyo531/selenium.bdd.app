@@ -21,7 +21,7 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                      |      username            |
-      |	  081284915951	     |    bddappregisterandro@mailinator.com   |    bddappregisterandro    |
+      |	  081284915951	     |    bddappregisterphoneandroid@mailinator.com   |    bddappregisterandro    |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -54,6 +54,32 @@ Feature: Create account
       |	             wrongformatemail              |
       |	          wrongformatemail@gmail           |
       |	     wrongformatemail@gmail@gmail.com      |
+
+  #FDBRMA-130
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  Scenario Outline: Register using verified phone number
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
+    Then show modal verified phone number android
+
+    Examples:
+      | phonenumber  |
+      | 087885221338 |
+
+  #FDBRMA-135
+  @FDBRMA-135
+  Scenario Outline: Sign up by email address
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<email>" email to register
+    And user clicks next button on register screen
+    Then user will direct to otp screen from email to register
+
+    Examples:
+      |                      email                       |
+      |	   bddappregisterphoneandroid@mailinator.com     |
 
   #FDBRMA-136
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -94,25 +120,33 @@ Feature: Create account
       | phonenumber |
       | 08170223322 |
 
-  #FDBRMA-130
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Register using verified phone number
+  #FDBRMA-137
+  @FDBRMA-137
+  Scenario Outline: Register using verified email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
+    Then user enters the "<email>" email to register
     And user clicks next button on register screen
-    Then show modal verified phone number android
+    Then show modal verified email android
 
     Examples:
-      | phonenumber  |
-      | 087885221338 |
-
-  #FDBRMA-135
+      |          email            |
+      | testflight@mailinator.com |
 
   #FDBRMA-211
+  @FDBRMA-211
+  Scenario Outline: Signup input unregistered phone from login modal account not found
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<phonenumber>" phonenumber to login
+    And user clicks next button on login screen
+    Then user see and click yes on modal phone number is not registered
+    Then user enters the "<phonenumber>" phonenumber to register
+    And user clicks next button on register screen
 
-  #FDBRMA-137
-
+    Examples:
+      |     phonenumber      |       password        |
+      |	    6285678900987	 |        test123          |
 
   ##################################################################################
   #IOS

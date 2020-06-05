@@ -63,6 +63,25 @@ public class LoginSteps extends DriverFactory {
         otpScreen.clickConfirmOtpIos();
     }
 
+    /* phone number not verified */
+    @Then("^user see and click login on modal phone number is not verified$")
+    public void user_see_and_click_login_on_modal_phone_number_is_not_verified() throws Throwable {
+
+        loginScreen.clickLoginBtnModal();
+    }
+
+    @Then("^user see and click register on modal phone number is not verified$")
+    public void user_see_and_click_register_on_modal_phone_number_is_not_verified() throws Throwable {
+
+        loginScreen.clickRegisterBtnModal();
+    }
+
+    @Then("^user changes inputed login field to \"([^\"]*)\" to login$")
+    public void user_changes_inputed_login_field_to_something_to_login(String channel) throws Throwable {
+
+       loginScreen.inputNewChannelToLogin(channel);
+    }
+
     /*  negative test    */
     @Then("^display msg \"([^\"]*)\" is displayed under email username phone field$")
     public void display_msg_is_displayed_under_email_username_phone_field(String message) {
@@ -81,6 +100,14 @@ public class LoginSteps extends DriverFactory {
 
         loginScreen.errorTitlePhoneNumberNotRegisteredModal();
         loginScreen.errorDescPhoneNumberNotRegisteredModal();
+    }
+
+    @Then("^user see and click yes on modal phone number is not registered$")
+    public void user_see_and_click_yes_on_modal_phone_number_is_not_registered() throws Throwable {
+
+        loginScreen.errorTitlePhoneNumberNotRegisteredModal();
+        loginScreen.errorDescPhoneNumberNotRegisteredModal();
+        loginScreen.clickYesBtnPhoneUnregisteredModal();
     }
 
     @Then("^user see and close modal phone number is not verified$")
@@ -103,5 +130,13 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorTitleEmailDuplicateModal();
         loginScreen.errorDescEmailDuplicateModal();
     }
+
+    @Then("^pop up message should displayed$")
+    public void pop_up_message_should_displayed() {
+        loginScreen.errorDescPasswordNotValidModal();
+        loginScreen.clickRegisterBtnModal();
+    }
+
+
 
 }
