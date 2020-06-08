@@ -27,7 +27,7 @@ Feature: Login into account
       |       +6281284915951        |
 
   #FDBRMA-172
-  @Android @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using phone number, input starts with 9812
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -111,7 +111,7 @@ Feature: Login into account
       |	      unregistered@unregistered.com	 |        test123        |
 
   #FDBRMA-115
-  @FDBRMA-115
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of username
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
@@ -126,7 +126,7 @@ Feature: Login into account
       | putwid   | 123qwerty |
 
   # FDBRMA-114
-  @FDBRMA-114
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of email address
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
@@ -142,7 +142,7 @@ Feature: Login into account
 
 
    #FDBRMA-117
-  @FDBRMA-117
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login input username contains special character
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -187,7 +187,7 @@ Feature: Login into account
       |       081702081702081702081702   |
 
   #FDBRMA-275
-  @FDBRMA-275
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unverified phone number and then login using email that link to unverified phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

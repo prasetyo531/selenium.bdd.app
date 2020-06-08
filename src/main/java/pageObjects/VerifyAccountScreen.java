@@ -5,14 +5,21 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.util.List;
 
 public class VerifyAccountScreen extends ActionBase {
 
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonChangeEmail")
+    public MobileElement changeAuth;
+
+    @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
+    public MobileElement txtWarningEmailPhone;
+
     /***  email screen  ***/
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputEmail")
     public MobileElement fieldVerifyEmail;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonVerifyEmail")
@@ -22,7 +29,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement skipEmailBtn;
 
     /***  phone screen  ***/
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputPhone")
     public MobileElement fieldVerifyPhone;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonVerifyPhone")
@@ -116,8 +123,20 @@ public class VerifyAccountScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    public void clickChangeAuth(){
+
+        tapByElement(changeAuth);
+    }
+
+    /*  error msg underneath field   */
+    public void assertTextWarningLogin(String text){
+
+        String txtWarning = txtWarningEmailPhone.getText();
+        Assert.assertEquals(txtWarning, text);
+    }
+
     /***  email screen  ***/
-    public void inputFieldVerifyEmail(String email){
+    public void inputFieldVerifyEmail(String email) throws InterruptedException {
 
         inputValue(fieldVerifyEmail, email);
     }
@@ -133,9 +152,9 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  phone screen  ***/
-    public void inputFieldVerifyPhone(String email){
+    public void inputFieldVerifyPhone(String phone){
 
-        inputValue(fieldVerifyPhone, email);
+        inputValue(fieldVerifyPhone, phone);
     }
 
     public void clickVerifyPhoneNow(){

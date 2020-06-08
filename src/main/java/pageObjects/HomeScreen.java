@@ -14,6 +14,7 @@ public class HomeScreen extends ActionBase {
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
+
     /**********
      tab bar
      **********/
@@ -111,32 +112,6 @@ public class HomeScreen extends ActionBase {
     }
      */
 
-    public void verifyAccountStatusModal() {
-
-        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
-        if (checkAccountStatusModal == true) {
-            tapByElement(closeAccountStatusModal);
-            System.out.println("account status modal is present");
-            verifyHomescreen();
-        } else {
-            System.out.println("account status modal is not present");
-            verifyHomescreen();
-        }
-    }
-
-    public void verifyAccountStatusModalIos() {
-
-        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
-        if (checkAccountStatusModal == true) {
-            tapByElement(closeAccountStatusModal);
-            System.out.println("account status modal is present");
-            verifyHomescreenIos();
-        } else {
-            System.out.println("account status modal is not present");
-            verifyHomescreen();
-        }
-    }
-
     public boolean verifyHomescreen() {
 
         boolean boolElem1= isElementPresent(greetingText);
@@ -154,6 +129,49 @@ public class HomeScreen extends ActionBase {
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (boolElem2 && boolElem3);
+    }
+
+    public boolean verifyAccountStatusModal() {
+
+        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        if (checkAccountStatusModal == true) {
+            tapByElement(closeAccountStatusModal);
+            System.out.println("account status modal is present");
+            verifyHomescreen();
+        } else {
+            System.out.println("account status modal is not present");
+            verifyHomescreen();
+        }
+        return (checkAccountStatusModal && verifyHomescreen());
+    }
+
+
+    /*
+    public void verifyAccountStatusModal() {
+
+        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        if (checkAccountStatusModal) {
+            tapByElement(closeAccountStatusModal);
+            System.out.println("account status modal is present");
+            verifyHomescreen();
+        } else {
+            System.out.println("account status modal is not present");
+            verifyHomescreen();
+        }
+    }
+     */
+
+    public void verifyAccountStatusModalIos() {
+
+        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        if (checkAccountStatusModal == true) {
+            tapByElement(closeAccountStatusModal);
+            System.out.println("account status modal is present");
+            verifyHomescreenIos();
+        } else {
+            System.out.println("account status modal is not present");
+            verifyHomescreen();
+        }
     }
 
     public void verifyProductMatches() {

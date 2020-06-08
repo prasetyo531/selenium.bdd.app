@@ -16,7 +16,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@FDBRMA-115, @FDBRMA-114, @FDBRMA-117, @FDBRMA-275, @FDBRMA-137, @FDBRMA-211, @FDBRMA-135"},
+        tags = {"@Production, @Regression, @RealAccount, @Emulator, @UiTest", "~@Staging", "~@Smoke", "@Android, @Register", "@Android, @Login"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
