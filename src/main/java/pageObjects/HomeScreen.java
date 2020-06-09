@@ -207,6 +207,12 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
+    public HomeScreen clickAddPostHomeMenu() throws IOException {
+
+        tapByElement(plusTab);
+        tapByElement(addPostMenu);
+        return new HomeScreen(driver);
+    }
 
 
 }

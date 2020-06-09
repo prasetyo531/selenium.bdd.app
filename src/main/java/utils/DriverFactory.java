@@ -25,6 +25,7 @@ public class DriverFactory {
     public static HomeScreen homeScreen;
     public static VerifyAccountScreen verifyAccountScreen;
     public static AddReviewScreen addReviewScreen;
+    public static AddPostScreen addPostScreen;
     public static FeedScreen feedScreen;
 
     public AppiumDriver getDriver() throws IOException {
@@ -57,6 +58,7 @@ public class DriverFactory {
             homeScreen = new HomeScreen(driver);
             verifyAccountScreen = new VerifyAccountScreen(driver);
             addReviewScreen = new AddReviewScreen(driver);
+            addPostScreen = new AddPostScreen(driver);
             feedScreen = new FeedScreen(driver);
         }
         return driver;

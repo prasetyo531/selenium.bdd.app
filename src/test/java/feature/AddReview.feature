@@ -1,7 +1,6 @@
 Feature: User Add Review
 
   In order to perform sucessfull submit review
-  As user that have complete profile
   I should able to fill all option of add review process
 
   Background: User is Logged In
