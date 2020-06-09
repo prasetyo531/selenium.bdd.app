@@ -14,26 +14,9 @@ public class HomeScreen extends ActionBase {
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
-
-    /**********
-     tab bar
-     **********/
-    @AndroidFindBy(accessibility="Home")
-    public MobileElement homeTab;
-
-    @AndroidFindBy(accessibility="Feed")
-    public MobileElement feedTab;
-
-    @AndroidFindBy(accessibility="Discover")
-    public MobileElement discoverTab;
-
-    @AndroidFindBy(accessibility="com.fdbr.android:id/")
-    public MobileElement plusTab;
-
-    @AndroidFindBy(accessibility="com.fdbr.android:id/")
-    public MobileElement profileTab;
-
-    /*  account status  */
+    /***********
+     account status
+     ***********/
     @AndroidFindBy(id="com.fdbr.android:id/btnAction")
     @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
@@ -42,9 +25,9 @@ public class HomeScreen extends ActionBase {
     @iOSFindBy(id="icon close")
     public MobileElement closeAccountStatusModal;
 
-    /*
-    home screen
-     */
+    /************
+     home screen
+     ************/
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
     @iOSFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
@@ -90,6 +73,38 @@ public class HomeScreen extends ActionBase {
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Hair Type']")
     public MobileElement productMatchesHairType;
+
+    /**********
+     tab bar
+     **********/
+    @AndroidFindBy(id="com.fdbr.android:id/homeFragment")
+    public MobileElement homeTab;
+
+    @AndroidFindBy(id="com.fdbr.android:id/feedFragment")
+    public MobileElement feedTab;
+
+    @AndroidFindBy(id="com.fdbr.android:id/discoverFragment")
+    public MobileElement discoverTab;
+
+    @AndroidFindBy(id="com.fdbr.android:id/extra")
+    public MobileElement plusTab;
+
+    @AndroidFindBy(id="com.fdbr.android:id/profileFragment")
+    public MobileElement profileTab;
+
+    /********** plus box ***********/
+    @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
+    public MobileElement addReviewMenu;
+
+    @AndroidFindBy(id="com.fdbr.android:id/id_addpost")
+    public MobileElement addPostMenu;
+
+    @AndroidFindBy(id="com.fdbr.android:id/id_addproduct")
+    public MobileElement addProductMenu;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonCancel")
+    public MobileElement cancelMenu;
+
 
     // This is a constructor, as every page need a base driver to find android elements
     public HomeScreen(AppiumDriver driver) throws IOException {
@@ -183,6 +198,13 @@ public class HomeScreen extends ActionBase {
     public void clickAccountCompleteVerBtn(){
 
         tapByElement(accountCompleteVerBtn);
+    }
+
+    public HomeScreen clickAddReviewHomeMenu() throws IOException {
+
+        tapByElement(plusTab);
+        tapByElement(addReviewMenu);
+        return new HomeScreen(driver);
     }
 
 

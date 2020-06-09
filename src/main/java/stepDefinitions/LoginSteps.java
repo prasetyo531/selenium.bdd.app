@@ -23,26 +23,40 @@ public class LoginSteps extends DriverFactory {
         loginScreen.inputUsrEmailPhoneName(email);
     }
 
-    @Then("^user enters the \"([^\"]*)\" username on login screen$")
-    public void user_enters_the_something_username_on_login_screen(String username) throws Throwable {
+    @Then("^User enters the \"([^\"]*)\" username on login screen$")
+    public void User_enters_the_something_username_on_login_screen(String username) throws Throwable {
 
         loginScreen.inputUsrEmailPhoneName(username);
     }
 
-    @And("^user enters the \"([^\"]*)\" password on login screen$")
-    public void user_enters_the_something_password_on_login_screen(String password) throws Throwable {
+    @And("^User enters the \"([^\"]*)\" password on login screen$")
+    public void User_enters_the_something_password_on_login_screen(String password) throws Throwable {
 
         loginScreen.inputPassword(password);
     }
 
-    @And("^user clicks next button on login screen$")
-    public void user_clicks__next_button_on_login_screen() throws Throwable {
+    // *** hardcode login username
+    @Then("^User enters the username on login screen$")
+    public void user_enters_the_username_on_login_screen() throws Throwable {
+
+        loginScreen.inputHardcodeAuth();
+    }
+
+    @And("^User enters the password on login screen$")
+    public void user_enters_the_password_on_login_screen() throws Throwable {
+
+        loginScreen.inputHardcodePassword();
+    }
+    // hardcode password to login **
+
+    @And("^User clicks next button on login screen$")
+    public void User_clicks__next_button_on_login_screen() throws Throwable {
 
         loginScreen.clickNext();
     }
 
-    @When("^user clicks login button on login screen$")
-    public void user_clicks__login_button_on_login_screen() throws Throwable {
+    @When("^User clicks login button on login screen$")
+    public void User_clicks__login_button_on_login_screen() throws Throwable {
 
         loginScreen.clickLogin();
     }

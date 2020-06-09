@@ -81,6 +81,18 @@ public class LoginScreen extends ActionBase {
         inputValue(passwordField, password);
     }
 
+    // ** hardcode
+    public void inputHardcodeAuth() {
+
+        inputValue(usernameEmailField, "apkprod");
+    }
+
+    public void inputHardcodePassword() {
+
+        inputValue(passwordField, "test123");
+    }
+    // hardcode **
+
     public void clickNext() {
 
         tapByElement(nextLoginBtn);

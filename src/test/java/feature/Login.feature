@@ -16,7 +16,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
+    And User clicks next button on login screen
     When user input correct otp from phone on otp screen from android to login
     Then user will see modal account status on homescreen
 
@@ -32,7 +32,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks login button on login screen
+    And User clicks login button on login screen
     Then display msg "Please enter your correct phone number" is displayed under email username phone field
 
     Examples:
@@ -45,7 +45,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
+    And User clicks next button on login screen
     Then user see and close modal phone number is not verified
 
     Examples:
@@ -58,7 +58,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
+    And User clicks next button on login screen
     Then user see and close modal phone number is not registered
 
     Examples:
@@ -71,9 +71,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
@@ -86,9 +86,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
@@ -101,9 +101,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user see and close modal email is not registered
 
     Examples:
@@ -116,9 +116,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<username>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then pop up message should displayed
 
     Examples:
@@ -131,15 +131,14 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<username>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user see and close modal email is not registered
 
     Examples:
       | username                 | password  |
       | testflight@mailinator.com | 123qwerty |
-
 
    #FDBRMA-117
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -147,15 +146,14 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
       |         email        |        password       |
       |	      wong_pinky	 |        tuhanyesus        |
-
 
   #FDBRMA-173
   @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest
@@ -163,9 +161,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user see and close modal email is used to multiple account
 
     Examples:
@@ -178,7 +176,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks login button on login screen
+    And User clicks login button on login screen
     Then display msg "Please enter your correct phone number" is displayed under phone number field
 
     Examples:
@@ -192,12 +190,12 @@ Feature: Login into account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
+    And User clicks next button on login screen
     Then user see and click login on modal phone number is not verified
     Then user changes inputed login field to "myjne001@gmail.com" to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on homescreen
 
     Examples:
@@ -214,7 +212,7 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to login
-    And user clicks next button on login screen
+    And User clicks next button on login screen
     When user input correct otp from phone on otp screen from ios to login
     Then user will see modal account status on ios homescreen
 
@@ -230,9 +228,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on ios homescreen
 
     Examples:
@@ -245,9 +243,9 @@ Feature: Login into account
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    When user clicks login button on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
     Then user will see modal account status on ios homescreen
 
     Examples:

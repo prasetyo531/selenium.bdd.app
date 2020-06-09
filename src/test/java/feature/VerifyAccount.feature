@@ -138,7 +138,6 @@ Feature: Verify account
     And user change email and input "<email>" and click verify on verify email screen
     Then display msg "Please enter your correct email address" is displayed under verify email field
 
-
     Examples:
       |   username    |   password      |                 email                 |
       |	  vnsphl	  |   dora12345     |             wrongformatemail          |
