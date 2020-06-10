@@ -63,6 +63,6 @@ public class AddReviewSteps extends DriverFactory {
     public void user_will_see_congrats_screen_and_direct_to_review_detail_from_feed() throws Throwable {
 
         addReviewScreen.clickSeeMyReview();
-        feedScreen.checkIsOnFeed();
+        feedScreen.checkIsOnFeedAfterReview();
     }
 }

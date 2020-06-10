@@ -28,7 +28,7 @@ public class FeedScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public String checkIsOnFeed(){
+    public FeedScreen checkIsOnFeedAfterReview() throws IOException {
 
         isElementPresent(descReviewDetail);
         tapByElement(back);
@@ -36,6 +36,14 @@ public class FeedScreen extends ActionBase {
         isElementPresent(feedTitleToolbar);
         String title = feedTitleToolbar.getText();
         Assert.assertEquals(title, "Feed");
-        return title;
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen checkIsOnFeedAfterPost() throws IOException {
+
+        isElementPresent(feedTitleToolbar);
+        String title = feedTitleToolbar.getText();
+        Assert.assertEquals(title, "Feed");
+        return new FeedScreen(driver);
     }
 }
