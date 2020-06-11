@@ -20,8 +20,17 @@ Feature: User Add Post
     And User clicks submit post and choose yes to skip tagging product
     Then User will direct to feed where last post is at most top
 
-  @FDBRMA-56  @FDBRMA-65
+  @FDBRMA-56
   Scenario: Add post image only camera - Add post with tag product
+    Given User clicks add post from homescreen menu
+    When User take picture to add post
+    Then User enters caption of post
+    And User tag product and select from popular product
+    And User clicks submit post and choose yes to skip tagging product
+    Then User will direct to feed where last post is at most top
+
+ @FDBRMA-59 @FDBRMA-220
+  Scenario: Add post with tag product - Review product
     Given User clicks add post from homescreen menu
     When User take picture to add post
     Then User enters caption of post

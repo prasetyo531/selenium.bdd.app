@@ -27,6 +27,7 @@ public class DriverFactory {
     public static AddReviewScreen addReviewScreen;
     public static AddPostScreen addPostScreen;
     public static FeedScreen feedScreen;
+    public static DiscoverScreen discoverScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -60,6 +61,7 @@ public class DriverFactory {
             addReviewScreen = new AddReviewScreen(driver);
             addPostScreen = new AddPostScreen(driver);
             feedScreen = new FeedScreen(driver);
+            discoverScreen = new DiscoverScreen(driver);
         }
         return driver;
     }

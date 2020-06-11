@@ -24,5 +24,3 @@ Feature: User Add Review
     And user click submit review button
     Then user will see congrats screen and direct to review detail from feed
 
-
-
