@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 import utils.AppiumServer;
 
@@ -70,10 +71,11 @@ public class DiscoverScreen extends ActionBase {
 
         List<MobileElement> li = followBtn;
         System.out.println("after follow"+" "+li.size());
-        Boolean fol =  li.isEmpty();
+        Boolean fol = li.isEmpty();
         System.out.println(fol);
+        //it depends screen size
         if(fol==false){
-            AppiumServer.stop();
+            Assert.fail("follow btn still appear");
         }
         return new DiscoverScreen(driver);
     }
