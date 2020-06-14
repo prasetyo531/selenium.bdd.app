@@ -21,6 +21,7 @@ import java.io.*;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static io.appium.java_client.CommandExecutionHelper.execute;
