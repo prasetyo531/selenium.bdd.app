@@ -19,7 +19,7 @@ Feature: Discover
     Then User back to homescreen
 
   @FDBRMA-326
-  Scenario: Follow - check post detail
+  Scenario: Follow - check post detail on discover
     Given User clicks discover from homescreen menu
     When User clicks post on discover
     And User clicks button follow
@@ -28,5 +28,33 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
+#  @Wip @FDBRMA-290
+#  Scenario: Scroll post grid and list on hashtag detail
+#    Given User clicks discover from homescreen menu
+#    When User clicks trending hashtag
+#    Then User will direct to hashtag detail
+#    When User scroll post grid on hashtag detail
+#    And User clicks post on hashtag detail
+#    Then User scroll post list on hashtag detail
+#    And User back to post grid screen
+#    And User back to discover
+#    Then User back to homescreen
+#
+#  @Wip @FDBRMA-289
+#  Scenario Outline: Follow - check post detail on hashtag detail
+#    Given User clicks discover from homescreen menu
+#    When User clicks search hashtag and input "<hashtag>"
+#    When User clicks most top hashtag of hashtag result
+#    And User clicks post on hashtag detail
+#    And User clicks button follow
+#    And User back to post grid screen
+#    When User clicks post again and button follow is dissapear
+#    And User back to post grid screen
+#    And User back to discover
+#    Then User back to homescreen
+#
+#    Examples:
+#      |   hashtag        |
+#      |	  081284915951	     |
 
 

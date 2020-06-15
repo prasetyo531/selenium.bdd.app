@@ -23,11 +23,11 @@ public class TalkScreen extends ActionBase {
     }
 
     //find topic talk
-    public TalkScreen scrollTopicTalk(){
+    public TalkScreen scrollTopicTalk() throws IOException {
         try {
             for (int i = 0; i < 4; i++) {
-                isElementEnabled(topicList);
-                this.verticalSwipeByPercentages(topicList,0.4,0.01,0.5,500);
+                isElementEnabled((MobileElement) topicList);
+                this.verticalSwipeByPercentages((MobileElement) topicList,0.4,0.01,0.5,500);
                 topicList.get(i).click();
             }
         }catch (Exception e){

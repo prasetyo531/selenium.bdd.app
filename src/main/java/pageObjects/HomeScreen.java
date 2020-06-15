@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,30 +18,30 @@ public class HomeScreen extends ActionBase {
      account status
      ***********/
     @AndroidFindBy(id="com.fdbr.android:id/btnAction")
-    @iOSFindBy(id="COMPLETE VERIFY")
+    @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/btnClose")
-    @iOSFindBy(id="icon close")
+    @iOSXCUITFindBy(id="icon close")
     public MobileElement closeAccountStatusModal;
 
     /************
      home screen
      ************/
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
-    @iOSFindBy(id="Hello Beautiful")
+    @iOSXCUITFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
 
     @AndroidFindBy(id="com.fdbr.android:id/layoutAds")
-    @iOSFindBy(id="COMPLETE VERIFY")
+    @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement adsBanner;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
-    @iOSFindBy(id="ic notification")
+    @iOSXCUITFindBy(id="ic notification")
     public MobileElement notifBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
-    @iOSFindBy(id="Find product, article, brand or user here")
+    @iOSXCUITFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
     @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
@@ -73,6 +73,13 @@ public class HomeScreen extends ActionBase {
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Hair Type']")
     public MobileElement productMatchesHairType;
+
+    /*****
+    search result screen
+     *****/
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imageUser') and @index='0']")
+    public MobileElement firstResultUsersTab;
+
 
     /**********
      tab bar
@@ -223,6 +230,25 @@ public class HomeScreen extends ActionBase {
     public HomeScreen clickHomeMenu() throws IOException {
 
         tapByElement(homeTab);
+        return new HomeScreen(driver);
+    }
+
+    //search
+    public HomeScreen clickSearch() throws IOException {
+
+        tapByElement(searchBar);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen inputSearch(String fullname) throws IOException {
+
+        inputValue(searchBar, fullname);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickFirstElementSearch() throws IOException {
+
+        tapByElement(firstResultUsersTab);
         return new HomeScreen(driver);
     }
 
