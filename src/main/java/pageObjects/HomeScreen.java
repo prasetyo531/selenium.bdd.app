@@ -77,6 +77,18 @@ public class HomeScreen extends ActionBase {
     /*****
     search result screen
      *****/
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Users\"]")
+    public MobileElement usersTab;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Articles\"]")
+    public MobileElement articlesTab;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Brands\"]")
+    public MobileElement brandsTab;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Products\"]")
+    public MobileElement productsTab;
+
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imageUser') and @index='0']")
     public MobileElement firstResultUsersTab;
 
@@ -237,6 +249,13 @@ public class HomeScreen extends ActionBase {
     public HomeScreen clickSearch() throws IOException {
 
         tapByElement(searchBar);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickUsersTab() throws IOException {
+
+        isElementPresent(usersTab);
+        tapByElement(usersTab);
         return new HomeScreen(driver);
     }
 

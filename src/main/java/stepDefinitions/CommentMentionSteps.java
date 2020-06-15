@@ -12,6 +12,7 @@ public class CommentMentionSteps extends DriverFactory {
     public void user_clicks_search_something_users_on_homescreen(String fulname) throws Throwable {
 
         homeScreen.clickSearch();
+        homeScreen.clickUsersTab();
         homeScreen.inputSearch(fulname);
     }
 

@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -14,42 +14,42 @@ import java.io.IOException;
 public class LoginScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailUsernamePhone")
-    @iOSXCUITFindBy(id="Email, Username or phone number")
+    @iOSFindBy(id="Email, Username or phone number")
     public MobileElement usernameEmailField;
 
     @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
     public MobileElement txtWarningPhoneId;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    @iOSXCUITFindBy(id="id_password_login")
+    @iOSFindBy(id="id_password_login")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
-    @iOSXCUITFindBy(id="id_next_login")
+    @iOSFindBy(id="id_next_login")
     public MobileElement nextLoginBtn;
 
     @AndroidFindBy(id="Navigate up")
-    @iOSXCUITFindBy(id="id_back_login")
+    @iOSFindBy(id="id_back_login")
     public MobileElement backArrow;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonChange")
-    @iOSXCUITFindBy(id="id_next_login")
+    @iOSFindBy(id="id_next_login")
     public MobileElement changeBtn;
 
     @AndroidFindBy(id="Show password")
-    @iOSXCUITFindBy(id="id_showpassword")
+    @iOSFindBy(id="id_showpassword")
     public MobileElement unhidePassword;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonForgotPassword")
-    @iOSXCUITFindBy(id="id_forgotpassword")
+    @iOSFindBy(id="id_forgotpassword")
     public MobileElement forgotPassword;
 
-    @iOSXCUITFindBy(id="Done")
+    @iOSFindBy(id="Done")
     public MobileElement doneKeyboard;
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSXCUITFindBy(id="Identify your phone number")
+    @iOSFindBy(id="Identify your phone number")
     public MobileElement titleModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
