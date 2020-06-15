@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,41 +13,41 @@ import java.io.IOException;
 public class CompleteAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmail")
-    @iOSXCUITFindBy(id="id_compacc_email")
+    @iOSFindBy(id="id_compacc_email")
     public MobileElement emailField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPhone")
-    @iOSXCUITFindBy(id="id_compacc_phone")
+    @iOSFindBy(id="id_compacc_phone")
     public MobileElement phoneField;
 
     //bio options
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputUsername")
-    @iOSXCUITFindBy(id="id_compacc_username")
+    @iOSFindBy(id="id_compacc_username")
     public MobileElement usernameField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    @iOSXCUITFindBy(id="id_compacc_password")
+    @iOSFindBy(id="id_compacc_password")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
-    @iOSXCUITFindBy(id="id_showpassword")
+    @iOSFindBy(id="id_showpassword")
     public MobileElement showPasswordIcon;
 
     /*  dob   */
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputBirthDate")
-    @iOSXCUITFindBy(id=" Date of birth")
+    @iOSFindBy(id=" Date of birth")
     public MobileElement birthdayField;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_ok")
-    @iOSXCUITFindBy(id="Done")
+    @iOSFindBy(id="Done")
     public MobileElement birthdayYesDoneModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
-    @iOSXCUITFindBy(id="Cancel")
+    @iOSFindBy(id="Cancel")
     public MobileElement birthdayNoModal;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSubmit")
-    @iOSXCUITFindBy(id="id_compacc_submit")
+    @iOSFindBy(id="id_compacc_submit")
     public MobileElement submitField;
 
     public CompleteAccountScreen(AppiumDriver driver) throws IOException {

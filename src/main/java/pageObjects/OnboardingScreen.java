@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,14 +14,14 @@ public class OnboardingScreen extends ActionBase {
 
     /*  intro   */
     @AndroidFindBy(id="com.fdbr.android:id/buttonNext")
-    @iOSXCUITFindBy(id="NEXT")
+    @iOSFindBy(id="NEXT")
     public MobileElement nextIntroScreenBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/imageAds")
     public MobileElement splashScreenImage;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonGetStarted")
-    @iOSXCUITFindBy(id="Get Started")
+    @iOSFindBy(id="Get Started")
     public MobileElement getStartedBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonNext")
@@ -28,19 +29,19 @@ public class OnboardingScreen extends ActionBase {
 
     /*  onboarding screen */
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonLogin")
-    @iOSXCUITFindBy(id="LOGIN")
+    @iOSFindBy(id="LOGIN")
     public MobileElement loginBtn;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSignUp")
-    @iOSXCUITFindBy(id="SIGN UP")
+    @iOSFindBy(id="SIGN UP")
     public MobileElement signupBtn;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonTerms")
-    @iOSXCUITFindBy(id="SIGN UP")
+    @iOSFindBy(id="SIGN UP")
     public MobileElement labelTerms;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonPrivacy")
-    @iOSXCUITFindBy(id="SIGN UP")
+    @iOSFindBy(id="SIGN UP")
     public MobileElement labelPrivacy;
 
     // This is a constructor, as every page need a base driver to find android elements

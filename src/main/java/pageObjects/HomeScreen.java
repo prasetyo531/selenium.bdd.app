@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,30 +18,30 @@ public class HomeScreen extends ActionBase {
      account status
      ***********/
     @AndroidFindBy(id="com.fdbr.android:id/btnAction")
-    @iOSXCUITFindBy(id="COMPLETE VERIFY")
+    @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/btnClose")
-    @iOSXCUITFindBy(id="icon close")
+    @iOSFindBy(id="icon close")
     public MobileElement closeAccountStatusModal;
 
     /************
      home screen
      ************/
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
-    @iOSXCUITFindBy(id="Hello Beautiful")
+    @iOSFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
 
     @AndroidFindBy(id="com.fdbr.android:id/layoutAds")
-    @iOSXCUITFindBy(id="COMPLETE VERIFY")
+    @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement adsBanner;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
-    @iOSXCUITFindBy(id="ic notification")
+    @iOSFindBy(id="ic notification")
     public MobileElement notifBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
-    @iOSXCUITFindBy(id="Find product, article, brand or user here")
+    @iOSFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
     @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
@@ -92,7 +92,6 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imageUser') and @index='0']")
     public MobileElement firstResultUsersTab;
 
-
     /**********
      tab bar
      **********/
@@ -111,7 +110,9 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/profileFragment")
     public MobileElement profileTab;
 
-    /********** plus box ***********/
+    /**********
+     plus box
+     ***********/
     @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
     public MobileElement addReviewMenu;
 
