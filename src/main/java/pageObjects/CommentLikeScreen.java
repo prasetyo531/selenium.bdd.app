@@ -12,6 +12,9 @@ import java.io.IOException;
 
 public class CommentLikeScreen extends ActionBase {
 
+    public static Integer t1;
+    public static Integer t2;
+
     /***********
      post list
      ***********/
@@ -47,7 +50,7 @@ public class CommentLikeScreen extends ActionBase {
 
         String total1 = clickCommentIcon.getText();
         //parse to integer
-        int t1=Integer.parseInt(total1);
+        t1=Integer.parseInt(total1);
         System.out.println("get Total Comment Before"+" "+t1);
         return t1;
     }
@@ -56,13 +59,18 @@ public class CommentLikeScreen extends ActionBase {
 
         String total2 = clickCommentIcon.getText();
         //parse to integer
-        int t2=Integer.parseInt(total2);
+        t2=Integer.parseInt(total2);
         System.out.println("get Total Comment After"+" "+t2);
-        if(getTotalCommentBefore().equals(t2)){
-            Assert.fail("total should not same");
-            System.out.println("fail get Total Comment After"+" "+t2);
-        }
         return t2;
+    }
+
+    public void totalComm(){
+
+        System.out.println(t1+" "+t2);
+        if(t2.equals(t1)){
+            Assert.fail("total should not same"+" "+t1);
+            System.out.println("fail get Total Comment After"+" "+getTotalCommentAfter());
+        }
     }
 
     public CommentLikeScreen clickFirstPostProfile() throws IOException {

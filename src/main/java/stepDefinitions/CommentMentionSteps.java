@@ -47,6 +47,7 @@ public class CommentMentionSteps extends DriverFactory {
 
        commentLikeScreen.clickBack();
        commentLikeScreen.getTotalCommentAfter();
+       commentLikeScreen.totalComm();
     }
 
 }

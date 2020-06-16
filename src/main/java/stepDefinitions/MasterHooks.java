@@ -25,7 +25,7 @@ public class MasterHooks extends DriverFactory {
         try {
             switch (this.loadPropertyFile) {
                 case "android.properties":
-                    driver.resetApp();
+//                    driver.resetApp();
                     System.out.println("need reset app");
                     break;
                 case "ios.properties":
