@@ -52,4 +52,34 @@ public class DiscoverSteps extends DriverFactory {
         discoverScreen.checkFollowShouldDissapear();
     }
 
+    @When("^User clicks trending hashtag$")
+    public void user_clicks_trending_hashtag() throws Throwable {
+
+        discoverScreen.clickFirstHashtag();
+    }
+
+    @Then("^User scroll post grid on hashtag detail$")
+    public void user_scroll_post_grid_on_hashtag_detail() throws Throwable {
+
+        discoverScreen.scrollOnHashtag();
+    }
+
+    @And("^User clicks random post on hashtag detail$")
+    public void user_clicks_random_post_on_hashtag_detail() throws Throwable {
+
+        discoverScreen.clickRandomPost();
+    }
+
+    @Then("^User scroll post list on hashtag detail$")
+    public void user_scroll_post_list_on_hashtag_detail() throws Throwable {
+
+        discoverScreen.scrollPostList();
+    }
+
+    @And("^User back to post grid screen$")
+    public void user_back_to_post_grid_screen() throws Throwable {
+
+        discoverScreen.clickBack();
+    }
+
 }
