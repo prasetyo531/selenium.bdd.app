@@ -25,19 +25,19 @@ Feature: Comment and Mention
 
     Examples:
       |   fulname    |     commentmention        |
-      |	  restapps	 |    test comment @putwid   |
+      |	  restapps	 |    test comment post @putwid   |
 
   #staging
-  @Wip @FDBRMA-343
+  @FDBRMA-343
   Scenario Outline: Add comment and mention on review
     When User clicks search "<fulname>" users on homescreen
     And User select most top result
     When User clicks reviews tab on profile
     And User clicks review list on profile
     And user clicks comment icon
-    And User post  "<commentmention>" comment
+    And User post "<commentmention>" comment
     Then User back to review detail
 
     Examples:
       |   fulname            |     commentmention       |
-      |	  restapps	         |    test comment @putwid  |
+      |	  restapps	         |    test comment review @putwid  |

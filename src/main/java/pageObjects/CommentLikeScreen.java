@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,12 +15,15 @@ public class CommentLikeScreen extends ActionBase {
     public static Integer t1;
     public static Integer t2;
 
-    /***********
-     post list
-     ***********/
+    /*********** post list ***********/
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
-    @iOSXCUITFindBy(id="COMPLETE VERIFY")
+    @iOSFindBy(id="COMPLETE VERIFY")
     public MobileElement firstPostProfile;
+
+    /*********** review list ***********/
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
+    @iOSFindBy(id="COMPLETE VERIFY")
+    public MobileElement firstReviewProfile;
 
     @AndroidFindBy(id="com.fdbr.android:id/textCommentCounter")
     public MobileElement clickCommentIcon;
@@ -36,6 +39,7 @@ public class CommentLikeScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
     public MobileElement backToolbar;
+
 
     // This is a constructor, as every page need a base driver to find android elements
     public CommentLikeScreen(AppiumDriver driver) throws IOException {
@@ -80,6 +84,13 @@ public class CommentLikeScreen extends ActionBase {
         return new CommentLikeScreen(driver);
     }
 
+    public CommentLikeScreen clickFirstReviewProfile() throws IOException {
+
+        isElementPresent(firstReviewProfile);
+        tapByElement(firstReviewProfile);
+        return new CommentLikeScreen(driver);
+    }
+
     public CommentLikeScreen clickCommentIcon() throws IOException {
 
         isElementPresent(clickCommentIcon);
@@ -105,6 +116,5 @@ public class CommentLikeScreen extends ActionBase {
         tapByElement(backToolbar);
         return new CommentLikeScreen(driver);
     }
-
 
 }
