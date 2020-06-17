@@ -39,21 +39,20 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-#  @Wip @FDBRMA-289
-#  Scenario Outline: Follow - check post detail on hashtag detail
-#    Given User clicks discover from homescreen menu
-#    When User clicks search hashtag and input "<hashtag>"
-#    When User clicks most top hashtag of hashtag result
-#    And User clicks post on hashtag detail
-#    And User clicks button follow
-#    And User back to post grid screen
-#    When User clicks post again and button follow is dissapear
-#    And User back to post grid screen
-#    And User back to discover
-#    Then User back to homescreen
-#
-#    Examples:
-#      |   hashtag        |
-#      |	  081284915951	     |
+  @FDBRMA-289
+  Scenario Outline: Follow - check post detail on hashtag detail
+    Given User clicks discover from homescreen menu
+    When User clicks search hashtag and input "<hashtag>"
+    When User clicks most top hashtag of hashtag result
+    And User clicks random post on hashtag detail
+    And User clicks button follow
+    And User back to post grid screen
+    When User clicks post again and button follow is dissapear
+    And User back to post grid screen
+    Then User back to search hashtag screen
+
+    Examples:
+      |    hashtag        |
+      |	    skin	     |
 
 

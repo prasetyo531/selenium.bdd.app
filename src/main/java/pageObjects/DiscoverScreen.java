@@ -15,6 +15,9 @@ import java.util.Random;
 public class DiscoverScreen extends ActionBase {
 
     //android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imagePhoto') and @index='0']
+    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    public MobileElement iconSearchHashtag;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textHashtag') and @index='0']")
     public MobileElement firstTrendingHashtag;
 
@@ -41,6 +44,18 @@ public class DiscoverScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android:id/textLikeCounter")
     public MobileElement clickLikeIcon;
+
+    /******
+     search hashtag
+     ******/
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
+    public MobileElement searchHashtag;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[contains(@resource-id, 'com.fdbr.android:id/layoutHashtags') and @index='0']")
+    public MobileElement firstTrendingHashtagSearch;
+
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    public MobileElement hashtagBackBtn;
 
     /******
      hashtag detail
@@ -145,6 +160,7 @@ public class DiscoverScreen extends ActionBase {
 
     public DiscoverScreen clickRandomPost() throws IOException {
 
+        isElementPresent(postHashtagGrid);
         tapByElement(firstPostHashtag);
         return new DiscoverScreen(driver);
     }
@@ -160,4 +176,26 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
+    public DiscoverScreen inputKeywordHashtag(String hashtag) throws IOException {
+
+        tapByElement(iconSearchHashtag);
+        isElementEnabled(searchHashtag);
+
+        inputValue(searchHashtag, hashtag);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickFirstHashtagAfterSearch() throws IOException {
+
+        isElementPresent(firstTrendingHashtagSearch);
+        tapByElement(firstTrendingHashtagSearch);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen backToSearchHashtagScreen() throws IOException {
+
+        isElementPresent(backBtn);
+        tapByElement(backBtn);
+        return new DiscoverScreen(driver);
+    }
 }

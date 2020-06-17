@@ -48,7 +48,7 @@ public class DiscoverSteps extends DriverFactory {
     @When("^User clicks post again and button follow is dissapear$")
     public void user_clicks_post_again_and_button_follow_is_dissapear() throws Throwable {
 
-        discoverScreen.clickFirstPost();
+        discoverScreen.clickRandomPost();
         discoverScreen.checkFollowShouldDissapear();
     }
 
@@ -56,6 +56,12 @@ public class DiscoverSteps extends DriverFactory {
     public void user_clicks_trending_hashtag() throws Throwable {
 
         discoverScreen.clickFirstHashtag();
+    }
+
+    @When("^User clicks search hashtag and input \"([^\"]*)\"$")
+    public void user_clicks_search_hashtag_and_input_something(String hashtag) throws Throwable {
+
+        discoverScreen.inputKeywordHashtag(hashtag);
     }
 
     @Then("^User scroll post grid on hashtag detail$")
@@ -70,6 +76,12 @@ public class DiscoverSteps extends DriverFactory {
         discoverScreen.clickRandomPost();
     }
 
+    @When("^User clicks most top hashtag of hashtag result$")
+    public void user_clicks_most_top_hashtag_of_hashtag_result() throws Throwable {
+
+        discoverScreen.clickFirstHashtagAfterSearch();
+    }
+
     @Then("^User scroll post list on hashtag detail$")
     public void user_scroll_post_list_on_hashtag_detail() throws Throwable {
 
@@ -81,5 +93,12 @@ public class DiscoverSteps extends DriverFactory {
 
         discoverScreen.clickBack();
     }
+
+    @Then("^User back to search hashtag screen$")
+    public void user_back_to_search_hashtag_screen() throws Throwable {
+
+        discoverScreen.backToSearchHashtagScreen();
+    }
+
 
 }
