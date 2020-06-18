@@ -77,11 +77,13 @@ public class OnboardingScreen extends ActionBase {
 
     public void clickLoginBtn() {
 
+        isElementEnabled(loginBtn);
         tapByElement(loginBtn);
     }
 
     public void clickSignupBtn() {
 
+        isElementEnabled(signupBtn);
         tapByElement(signupBtn);
     }
 

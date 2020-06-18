@@ -12,7 +12,7 @@ Feature: User Add Post
     And User clicks login button on login screen
     Then user will see modal account status on homescreen
 
-  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
+#  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post image only camera - Add post without tag product
     Given User clicks add post from homescreen menu
     When User take picture to add post
@@ -20,7 +20,7 @@ Feature: User Add Post
     And User clicks submit post and choose yes to skip tagging product
     Then User will direct to feed where last post is at most top
 
-  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
+#  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post image only camera - Add post with tag product
     Given User clicks add post from homescreen menu
     When User take picture to add post
@@ -29,7 +29,7 @@ Feature: User Add Post
     And User clicks submit post and choose yes to skip tagging product
     Then User will direct to feed where last post is at most top
 
-  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
+#  @Android @AddPost @Production @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post with tag product - Review product
     Given User clicks add post from homescreen menu
     When User take picture to add post

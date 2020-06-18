@@ -12,7 +12,7 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then user will see modal account status on homescreen
 
-  @FDBRMA-24
+#  @Android @AddReview @Production @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add Review by select Popular Product
     Given User clicks add review from homescreen menu
     When User click one of popular product to review
