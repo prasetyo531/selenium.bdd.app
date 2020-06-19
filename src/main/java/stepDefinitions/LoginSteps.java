@@ -116,6 +116,12 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorDescPhoneNumberNotRegisteredModal();
     }
 
+    @Then("^User see and close modal phone number is not registered ios$")
+    public void User_see_and_close_modal_phone_number_is_not_registered_ios() throws Throwable {
+
+        loginScreen.errorTitlePhoneNumberNotRegisteredModalIos();
+    }
+
     @Then("^user see and click yes on modal phone number is not registered$")
     public void user_see_and_click_yes_on_modal_phone_number_is_not_registered() throws Throwable {
 
@@ -136,11 +142,25 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorTitlePhoneNumberNotVerifiedModal();
     }
 
-    @Then("^user see and close modal email is not registered$")
-    public void user_see_and_close_modal_email_is_not_registered() throws Throwable {
+    @Then("^User see and close modal email is not registered$")
+    public void User_see_and_close_modal_email_is_not_registered() throws Throwable {
 
         loginScreen.errorTitleEmailUsernameNotRegisteredModal();
         loginScreen.errorDescEmailNotRegisteredModal();
+    }
+
+    @Then("^User see and close modal username is not registered$")
+    public void User_see_and_close_modal_username_is_not_registered() throws Throwable {
+
+        loginScreen.errorTitleEmailUsernameNotRegisteredModal();
+        loginScreen.errorDescPasswordNotValidModal();
+    }
+
+    @Then("^User see and close modal username is not registered ios$")
+    public void User_see_and_close_modal_username_is_not_registered_ios() throws Throwable {
+
+        loginScreen.errorTitleEmailUsernameNotRegisteredModalIos();
+        //loginScreen.errorDescUsernamePasswordNotValidModalIos();
     }
 
     @Then("^user see and close modal email is used to multiple account$")
@@ -150,7 +170,7 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorDescEmailDuplicateModal();
     }
 
-    @Then("^pop up message should displayed$")
+    @Then("^pop up message shoul Then pop up message should displayedd displayed$")
     public void pop_up_message_should_displayed() {
         loginScreen.errorDescPasswordNotValidModal();
         loginScreen.clickRegisterBtnModal();

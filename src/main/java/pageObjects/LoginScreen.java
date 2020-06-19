@@ -52,8 +52,20 @@ public class LoginScreen extends ActionBase {
     @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Identify your phone number\"]")
     public MobileElement titleModal;
 
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Uh-oh! Account not found!\"]")
+    public MobileElement accountNotFoundIos;
+
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Phone number is not registered\"]")
+    public MobileElement titlePhoneNumberIsNotRegisteredIos;
+
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descModal;
+
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The username and password you entered do not match. Do you want to reset your password?\"]")
+    public MobileElement usernamePasswordNotValidIos;
+
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The email and password you entered do not match. Do you want to reset your password?\"]")
+    public MobileElement emailPasswordNotValidIos;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement yesBtnModal;
@@ -141,10 +153,24 @@ public class LoginScreen extends ActionBase {
         Assert.assertEquals(getTitle,"Phone number is not registered");
     }
 
+    public void errorTitlePhoneNumberNotRegisteredModalIos(){
+
+        isElementPresent(titlePhoneNumberIsNotRegisteredIos);
+        String getTitle = titlePhoneNumberIsNotRegisteredIos.getText();
+        Assert.assertEquals(getTitle,"Phone number is not registered");
+    }
+
     public void errorTitleEmailUsernameNotRegisteredModal(){
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
+        Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
+    }
+
+    public void errorTitleEmailUsernameNotRegisteredModalIos(){
+
+        isElementPresent(accountNotFoundIos);
+        String getTitle = accountNotFoundIos.getText();
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
     }
 
@@ -186,9 +212,26 @@ public class LoginScreen extends ActionBase {
     }
 
     public void errorDescPasswordNotValidModal(){
+
         isElementPresent(descModal);
         String textInvalidPassword = descModal.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
+        Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+    }
+
+    public void errorDescUsernamePasswordNotValidModalIos(){
+
+        isElementPresent(usernamePasswordNotValidIos);
+        String textInvalidPassword = usernamePasswordNotValidIos.getText();
+        Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
+        Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+    }
+
+    public void errorDescEmailPasswordNotValidModalIos(){
+
+        isElementPresent(emailPasswordNotValidIos);
+        String textInvalidPassword = emailPasswordNotValidIos.getText();
+        Assert.assertTrue(textInvalidPassword.contains("The email and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
     }
 
