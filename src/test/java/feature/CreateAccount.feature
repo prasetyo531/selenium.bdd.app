@@ -81,7 +81,7 @@ Feature: Create account
       |                      email                       |
       |	   bddappregisterphoneandroid99@mailinator.com     |
 
-  #FDBRMA-136
+  #FDBRMA-363
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input email with incorrect format email
 #    Given User navigates to onboarding screen by swipe

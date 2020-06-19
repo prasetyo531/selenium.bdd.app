@@ -15,7 +15,7 @@ Feature: Login into account
   Scenario Outline: Login using verified phone number
 #    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     When user input correct otp from phone on otp screen from android to login
     Then user will see modal account status on homescreen
@@ -31,7 +31,7 @@ Feature: Login into account
   Scenario Outline: Login using phone number, input starts with 9812
 #    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks login button on login screen
     Then display msg "Please enter your correct phone number" is displayed under email username phone field
 
@@ -44,7 +44,7 @@ Feature: Login into account
   Scenario Outline: Login using unverified phone number
 #    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then user see and close modal phone number is not verified
 
@@ -57,7 +57,7 @@ Feature: Login into account
   Scenario Outline: Login using unregistered phone number
 #    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then user see and close modal phone number is not registered
 
@@ -175,7 +175,7 @@ Feature: Login into account
   Scenario Outline: Login using phone number. Input number less than 8 characters and more than 14 characters
 #    Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks login button on login screen
     Then display msg "Please enter your correct phone number" is displayed under phone number field
 
@@ -189,7 +189,7 @@ Feature: Login into account
   Scenario Outline: Login using unverified phone number and then login using email that link to unverified phone
 #    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then user see and click login on modal phone number is not verified
     Then user changes inputed login field to "myjne001@gmail.com" to login
@@ -211,7 +211,7 @@ Feature: Login into account
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     When user input correct otp from phone on otp screen from ios to login
     Then user will see modal account status on ios homescreen
@@ -251,3 +251,29 @@ Feature: Login into account
     Examples:
       |           email                  |        password       |
       |	      verifyprod@mailinator.com	 |        test123        |
+
+  #FDBRMA-172
+  @FDBRMA-172iOS
+  Scenario Outline: Login using phone number, input starts with 9812
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to login
+    And User clicks login button on login screen
+#    Then User should not able to login
+
+    Examples:
+      |        phonenumber          |
+      |	        9812	            |
+
+  #FDBRMA-111
+  @FDBRMA-111iOS
+  Scenario Outline: Login using unverified phone number
+    Given User navigates to onboarding screen by click next
+    When User clicks login button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to login
+    And User clicks next button on login screen
+    Then user see and close modal phone number is not verified ios
+
+    Examples:
+      |   phonenumber        |
+      |	  0812849159510	     |

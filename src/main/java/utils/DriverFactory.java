@@ -11,7 +11,7 @@ public class DriverFactory {
     public static AppiumDriver driver;
 
     //set configuration
-    public static String loadPropertyFile = "android.properties";
+    public static String loadPropertyFile = "ios.properties";
 
     /****************
      Android & IOS Screen
@@ -34,21 +34,20 @@ public class DriverFactory {
     public AppiumDriver getDriver() throws IOException {
 
         try {
-            if (driver == null) {
 
-                AppiumServer.stop();
-                AppiumServer.start();
+            AppiumServer.stop();
+            AppiumServer.start();
 
-                if (loadPropertyFile.contains("ios")) {
-                    CommonUtils.loadIosConfigProp("ios.properties");
-                    CommonUtils.setIOSCapabilities();
-                    driver = CommonUtils.getIOSDriver();
-                } else if (loadPropertyFile.contains("android")) {
-                    CommonUtils.loadAndroidConfigProp("android.properties");
-                    CommonUtils.setAndroidCapabilities();
-                    driver = CommonUtils.getAndroidDriver();
-                }
+            if (loadPropertyFile.contains("ios")) {
+                CommonUtils.loadIosConfigProp("ios.properties");
+                CommonUtils.setIOSCapabilities();
+                driver = CommonUtils.getIOSDriver();
+            } else if (loadPropertyFile.contains("android")) {
+                CommonUtils.loadAndroidConfigProp("android.properties");
+                CommonUtils.setAndroidCapabilities();
+                driver = CommonUtils.getAndroidDriver();
             }
+
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {

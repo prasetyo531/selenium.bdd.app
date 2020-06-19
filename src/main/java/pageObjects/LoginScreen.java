@@ -49,7 +49,7 @@ public class LoginScreen extends ActionBase {
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSFindBy(id="Identify your phone number")
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Identify your phone number\"]")
     public MobileElement titleModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
@@ -118,6 +118,7 @@ public class LoginScreen extends ActionBase {
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your phone number");
     }
+
 
     public void errorTitleEmailDuplicateModal(){
 

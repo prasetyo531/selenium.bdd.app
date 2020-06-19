@@ -15,6 +15,7 @@ public class MasterHooks extends DriverFactory {
     @Before
     public void setUp() throws IOException, InterruptedException {
 
+        System.out.println("setUp");
         driver = getDriver();
 
         System.out.println("driver before : "+driver);
@@ -29,9 +30,11 @@ public class MasterHooks extends DriverFactory {
                     System.out.println("need reset app");
                     break;
                 case "ios.properties":
-//                    driver.removeApp(CommonUtils.BUNDLEID);
-//                    driver.installApp(CommonUtils.APPDIR);
-//                    driver.launchApp();
+                    Thread.sleep(700);
+                    driver.closeApp();
+                    driver.removeApp(CommonUtils.BUNDLEID);
+                    driver.installApp(CommonUtils.APPDIR);
+                    driver.launchApp();
                     System.out.println("no need reset app");
                     break;
             }
@@ -42,6 +45,7 @@ public class MasterHooks extends DriverFactory {
                 AppiumServer.stop();
             } if (driver != null) {
                 AppiumServer.stop();
+                System.out.println("end of test");
             }
         } catch (IOException e) {
             e.printStackTrace();

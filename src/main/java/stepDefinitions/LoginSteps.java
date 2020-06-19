@@ -10,8 +10,8 @@ import utils.DriverFactory;
 public class LoginSteps extends DriverFactory {
 
     //***   Login without input password   ****//
-    @Then("^user enters the \"([^\"]*)\" phonenumber to login$")
-    public void user_enters_the_something_phonenumber_to_login(String phonenumber) throws Throwable {
+    @Then("^User enters the \"([^\"]*)\" phonenumber to login$")
+    public void User_enters_the_something_phonenumber_to_login(String phonenumber) throws Throwable {
 
         loginScreen.inputUsrEmailPhoneName(phonenumber);
     }
@@ -128,7 +128,12 @@ public class LoginSteps extends DriverFactory {
     public void user_see_and_close_modal_phone_number_is_not_verified() throws Throwable {
 
         loginScreen.errorTitlePhoneNumberNotVerifiedModal();
-        loginScreen.errorDescPhoneNumberNotVerifiedModal();
+    }
+
+    @Then("^user see and close modal phone number is not verified ios$")
+    public void user_see_and_close_modal_phone_number_is_not_verified_ios() throws Throwable {
+
+        loginScreen.errorTitlePhoneNumberNotVerifiedModal();
     }
 
     @Then("^user see and close modal email is not registered$")

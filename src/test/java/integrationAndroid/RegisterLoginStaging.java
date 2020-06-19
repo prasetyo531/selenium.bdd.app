@@ -1,4 +1,4 @@
-package integrationRunner;
+package integrationAndroid;
 
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
