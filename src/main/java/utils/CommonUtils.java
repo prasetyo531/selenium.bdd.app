@@ -73,7 +73,7 @@ public class CommonUtils {
         IMPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("implicit.wait"));
         DEFAULT_WAIT_TIME = Integer.parseInt(prop.getProperty("default.wait"));
         UDID = prop.getProperty("udid");
-        APPDIR = prop.getProperty(System.getProperty("user.dir")+"application.app");
+        APPDIR = prop.getProperty("application.app");
         APPIUM_PORT = prop.getProperty("appium.server.port");
         AUTOMATION_NAME=prop.getProperty("automation.name");
         DEVICE_NAME=prop.getProperty("device.name");
