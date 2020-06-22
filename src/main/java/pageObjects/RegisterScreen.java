@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -13,34 +13,34 @@ import java.io.IOException;
 public class RegisterScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailPhone")
-    @iOSFindBy(id="id_reg_emailphone")
+    @iOSXCUITFindBy(id="id_reg_emailphone")
     public MobileElement emailPhoneField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
-    @iOSFindBy(id="id_next_register")
+    @iOSXCUITFindBy(id="id_next_register")
     public MobileElement nextLoginRegisterBtn;
 
     @AndroidFindBy(id="Navigate up")
-    @iOSFindBy(id="id_back_emailphone")
+    @iOSXCUITFindBy(id="id_back_emailphone")
     public MobileElement backArrow;
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@value='Identify your phone number']")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@value='Identify your phone number']")
     public MobileElement titleModal;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@value='Phone number has been registered']")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@value='Phone number has been registered']")
     public MobileElement titleModal2;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
-    @iOSFindBy(id="Identify your phone number")
+    @iOSXCUITFindBy(id="Identify your phone number")
     public MobileElement loginBtnModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
-    @iOSFindBy(id="Identify your phone number")
+    @iOSXCUITFindBy(id="Identify your phone number")
     public MobileElement createNewBtnModal;
 
     public RegisterScreen(AppiumDriver driver) throws IOException {

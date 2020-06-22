@@ -238,7 +238,7 @@ Feature: Login into account
       |	  +6287808192493	 |
 
   #FDBRMA-104
-  @Ios @Login @Production @Regression @RealAccount @RealDevices @IntegrationTest
+  @FDBRMA-104
   Scenario Outline: Login using verified email address
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
@@ -250,7 +250,7 @@ Feature: Login into account
 
     Examples:
       |          email                  |        password       |
-      |	   testflight@mailinator.com    |        test123        |
+      |	   putwid    |        123tester        |
 
   #FDBRMA-106
   @Ios @Login @Production @Regression @RealAccount @RealDevices @UiTest

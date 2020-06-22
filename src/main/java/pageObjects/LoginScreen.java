@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -14,57 +14,57 @@ import java.io.IOException;
 public class LoginScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailUsernamePhone")
-    @iOSFindBy(id="Email, Username or phone number")
+    @iOSXCUITFindBy(id="Email, Username or phone number")
     public MobileElement usernameEmailField;
 
     @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
     public MobileElement txtWarningPhoneId;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
-    @iOSFindBy(id="id_password_login")
+    @iOSXCUITFindBy(id="id_password_login")
     public MobileElement passwordField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonNext")
-    @iOSFindBy(id="id_next_login")
+    @iOSXCUITFindBy(id="id_next_login")
     public MobileElement nextLoginBtn;
 
     @AndroidFindBy(id="Navigate up")
-    @iOSFindBy(id="id_back_login")
+    @iOSXCUITFindBy(id="id_back_login")
     public MobileElement backArrow;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonChange")
-    @iOSFindBy(id="id_next_login")
+    @iOSXCUITFindBy(id="id_next_login")
     public MobileElement changeBtn;
 
     @AndroidFindBy(id="Show password")
-    @iOSFindBy(id="id_showpassword")
+    @iOSXCUITFindBy(id="id_showpassword")
     public MobileElement unhidePassword;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonForgotPassword")
-    @iOSFindBy(id="id_forgotpassword")
+    @iOSXCUITFindBy(id="id_forgotpassword")
     public MobileElement forgotPassword;
 
-    @iOSFindBy(id="Done")
+    @iOSXCUITFindBy(id="Done")
     public MobileElement doneKeyboard;
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Identify your phone number\"]")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Identify your phone number\"]")
     public MobileElement titleModal;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Uh-oh! Account not found!\"]")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Uh-oh! Account not found!\"]")
     public MobileElement accountNotFoundIos;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='Phone number is not registered']")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name='Phone number is not registered']")
     public MobileElement titlePhoneNumberIsNotRegisteredIos;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descModal;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The username and password you entered do not match. Do you want to reset your password?\"]")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The username and password you entered do not match. Do you want to reset your password?\"]")
     public MobileElement usernamePasswordNotValidIos;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The email and password you entered do not match. Do you want to reset your password?\"]")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"The email and password you entered do not match. Do you want to reset your password?\"]")
     public MobileElement emailPasswordNotValidIos;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")

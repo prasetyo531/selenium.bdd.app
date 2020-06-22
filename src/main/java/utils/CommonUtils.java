@@ -103,6 +103,9 @@ public class CommonUtils {
 
     public static void setIOSCapabilities() {
         //capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CommonUtils.BROWSER_NAME);
+        capabilities.setCapability("automationName", "XCUITest");
+        capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+        capabilities.setCapability("xcodeOrgId", "RUW882EMTM");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CommonUtils.PLATFORM_VERSION);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, CommonUtils.PLATFORM_NAME);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CommonUtils.DEVICE_NAME);

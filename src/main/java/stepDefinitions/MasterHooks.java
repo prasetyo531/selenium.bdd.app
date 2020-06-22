@@ -30,10 +30,10 @@ public class MasterHooks extends DriverFactory {
                     System.out.println("need reset app");
                     break;
                 case "ios.properties":
-                    Thread.sleep(700);
-                    driver.closeApp();
-                    driver.removeApp(CommonUtils.BUNDLEID);
-                    driver.installApp(CommonUtils.APPDIR);
+                    Thread.sleep(800);
+//                    driver.closeApp();
+//                    driver.removeApp(CommonUtils.BUNDLEID);
+//                    driver.installApp(CommonUtils.APPDIR);
                     driver.launchApp();
                     System.out.println("no need reset app");
                     break;

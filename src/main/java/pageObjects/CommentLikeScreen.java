@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,12 +17,12 @@ public class CommentLikeScreen extends ActionBase {
 
     /*********** post list ***********/
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
-    @iOSFindBy(id="COMPLETE VERIFY")
+    @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement firstPostProfile;
 
     /*********** review list ***********/
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
-    @iOSFindBy(id="COMPLETE VERIFY")
+    @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement firstReviewProfile;
 
     @AndroidFindBy(id="com.fdbr.android:id/textCommentCounter")
