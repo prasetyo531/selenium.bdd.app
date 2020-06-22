@@ -17,7 +17,7 @@ public class LoginScreen extends ActionBase {
     @iOSXCUITFindBy(id="Email, Username or phone number")
     public MobileElement usernameEmailField;
 
-    @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
+    @AndroidFindBy(id ="com.fdbr.android:id/textinput_error")
     public MobileElement txtWarningPhoneId;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputPassword")
@@ -49,13 +49,13 @@ public class LoginScreen extends ActionBase {
 
     /*  element modal login phone number and email */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
-    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Identify your phone number\"]")
+    @iOSXCUITFindBy(id="Identify your phone number")
     public MobileElement titleModal;
 
-    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Uh-oh! Account not found!\"]")
+    @iOSXCUITFindBy(xpath="id_modallogin")
     public MobileElement accountNotFoundIos;
 
-    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name='Phone number is not registered']")
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Phone number is not registered\"]")
     public MobileElement titlePhoneNumberIsNotRegisteredIos;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
@@ -147,32 +147,35 @@ public class LoginScreen extends ActionBase {
         Assert.assertEquals(getTitle,"Identify your email");
     }
 
-    public void errorTitlePhoneNumberNotRegisteredModal(){
+    public LoginScreen errorTitlePhoneNumberNotRegisteredModal(){
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
+        return new LoginScreen(driver);
     }
 
-    public void errorTitlePhoneNumberNotRegisteredModalIos(){
+    public LoginScreen errorTitlePhoneNumberNotRegisteredModalIos(){
 
         isElementPresent(titlePhoneNumberIsNotRegisteredIos);
         String getTitle = titlePhoneNumberIsNotRegisteredIos.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
+        return new LoginScreen(driver);
     }
 
-    public void errorTitleEmailUsernameNotRegisteredModal(){
+    public LoginScreen errorTitleEmailUsernameNotRegisteredModal(){
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
+        return new LoginScreen(driver);
     }
 
     public LoginScreen errorTitleEmailUsernameNotRegisteredModalIos() throws IOException {
 
         isElementPresent(accountNotFoundIos);
         String getTitle = accountNotFoundIos.getText();
-        Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
+        Assert.assertTrue(getTitle.contains("Uh-oh! Account not found!");
         return new LoginScreen(driver);
     }
 
@@ -257,6 +260,5 @@ public class LoginScreen extends ActionBase {
         usernameEmailField.clear();
         inputValue(usernameEmailField, channel);
     }
-
 
 }

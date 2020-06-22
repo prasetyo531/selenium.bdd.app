@@ -250,7 +250,7 @@ Feature: Login into account
 
     Examples:
       |          email                  |        password       |
-      |	   putwid    |        123tester        |
+      |	   testflight@mailinator.com    |        test123        |
 
   #FDBRMA-106
   @Ios @Login @Production @Regression @RealAccount @RealDevices @UiTest
