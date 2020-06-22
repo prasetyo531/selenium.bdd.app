@@ -136,8 +136,8 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorTitlePhoneNumberNotVerifiedModal();
     }
 
-    @Then("^user see and close modal phone number is not verified ios$")
-    public void user_see_and_close_modal_phone_number_is_not_verified_ios() throws Throwable {
+    @Then("^User see and close modal phone number is not verified ios$")
+    public void User_see_and_close_modal_phone_number_is_not_verified_ios() throws Throwable {
 
         loginScreen.errorTitlePhoneNumberNotVerifiedModal();
     }

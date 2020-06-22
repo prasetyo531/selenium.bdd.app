@@ -55,7 +55,7 @@ public class LoginScreen extends ActionBase {
     @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Uh-oh! Account not found!\"]")
     public MobileElement accountNotFoundIos;
 
-    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name=\"Phone number is not registered\"]")
+    @iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='Phone number is not registered']")
     public MobileElement titlePhoneNumberIsNotRegisteredIos;
 
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
@@ -110,9 +110,10 @@ public class LoginScreen extends ActionBase {
         tapByElement(nextLoginBtn);
     }
 
-    public void clickLogin() {
+    public LoginScreen clickLogin() throws IOException {
 
         tapByElement(nextLoginBtn);
+        return new LoginScreen(driver);
     }
 
     /*  error msg underneath field   */
@@ -124,13 +125,13 @@ public class LoginScreen extends ActionBase {
 
     /*  action modal phone number and email */
     /*  title modal */
-    public void errorTitlePhoneNumberNotVerifiedModal(){
+    public LoginScreen errorTitlePhoneNumberNotVerifiedModal() throws IOException {
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your phone number");
+        return new LoginScreen(driver);
     }
-
 
     public void errorTitleEmailDuplicateModal(){
 
@@ -167,11 +168,12 @@ public class LoginScreen extends ActionBase {
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
     }
 
-    public void errorTitleEmailUsernameNotRegisteredModalIos(){
+    public LoginScreen errorTitleEmailUsernameNotRegisteredModalIos() throws IOException {
 
         isElementPresent(accountNotFoundIos);
         String getTitle = accountNotFoundIos.getText();
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
+        return new LoginScreen(driver);
     }
 
     /*  content or description modal */

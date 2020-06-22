@@ -300,7 +300,7 @@ Feature: Login into account
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
-    Then user see and close modal phone number is not verified ios
+    Then User see and close modal phone number is not verified ios
 
     Examples:
       |   phonenumber        |
