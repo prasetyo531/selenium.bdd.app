@@ -20,34 +20,105 @@ public class VerifyAccountSteps extends DriverFactory {
         homeScreen.verifyAccountStatusModalIos();
     }
 
-    @When("^user click complete verify button on modal$")
-    public void user_click_complete_verify_button_on_modal() throws Throwable {
+    @When("^User click complete verify button on modal$")
+    public void User_click_complete_verify_button_on_modal() throws Throwable {
 
         homeScreen.clickAccountCompleteVerBtn();
     }
 
     //***   modal account status    ***
-    @And("^user change email and input \"([^\"]*)\" and click verify on verify email screen$")
-    public void user_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) throws Throwable {
+    @And("^User change email and input \"([^\"]*)\" and click verify on verify email screen$")
+    public void User_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) throws Throwable {
 
         verifyAccountScreen.clickChangeAuth();
-        Thread.sleep(2000);
         verifyAccountScreen.inputFieldVerifyEmail(email);
         verifyAccountScreen.clickVerifyEmailNow();
     }
 
-    @And("^user skip verify email$")
-    public void user_skip_verify_email() throws Throwable {
+    @And("^User skip verify email$")
+    public void User_skip_verify_email() throws Throwable {
 
         verifyAccountScreen.clickSkipEmail();
     }
 
-    @And("^user input \"([^\"]*)\" and click verify on verify phone screen$")
-    public void user_input_something_and_click_verify_on_verify_phone_screen(String phone) throws Throwable {
+    @And("^User input \"([^\"]*)\" and click verify on verify phone screen$")
+    public void User_input_something_and_click_verify_on_verify_phone_screen(String phone) throws Throwable {
 
-        Thread.sleep(2000);
         verifyAccountScreen.inputFieldVerifyPhone(phone);
         verifyAccountScreen.clickVerifyPhoneNow();
+    }
+
+    @Then("^User click skip button on verify email screen$")
+    public void user_click_skip_button_on_verify_email_screen() throws Throwable {
+
+        verifyAccountScreen.clickSkipEmail();
+    }
+
+    @And("^User click skip button on verify phone screen$")
+    public void user_click_skip_button_on_verify_phone_screen() throws Throwable {
+
+        verifyAccountScreen.clickSkipPhone();
+    }
+
+    @And("^User fill all mandatory field on personal info screen \"([^\"]*)\"$")
+    public void User_fill_all_mandatory_field_on_personal_info_screen_something(String fullname) throws Throwable {
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.inputFieldFullname(fullname)
+        verifyAccountScreen.getErrorFullname();
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.getErrorGender();
+        verifyAccountScreen.chooseGender();
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.getErrorLocation();
+        verifyAccountScreen.chooseLocation();
+
+        verifyAccountScreen.clickSavePersonalInfo();
+    }
+
+    @And("^User choose beauty profile on beauty profile screen$")
+    public void user_choose_beauty_profile_on_beauty_profile_screen() throws Throwable {
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.chooseSkinType();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.chooseSkinTone();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.skinUnderToneWarm():
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.hairTypeCurly():
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.chooseColoredHair();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.chooseHijaber();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+
+        verifyAccountScreen.verifySneakMsg();
+    }
+
+    @And("^User choose beauty profile on beauty concern screen$")
+    public void user_choose_beauty_profile_on_beauty_concern_screen() throws Throwable {
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.chooseSkinCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.chooseBodyCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.chooseHairCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+
+        verifyAccountScreen.verifySneakMsg();
     }
 
     //error msg

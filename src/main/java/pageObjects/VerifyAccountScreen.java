@@ -66,24 +66,33 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
     public MobileElement backLocationPersonalInfo;
 
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorGender")
+    public MobileElement errorMsgGender;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
+    public MobileElement errorMsgLocation;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='Ambon']")
+    public MobileElement ambonCity;
+
     /***  beauty profile screen  ***/
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement skinType;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
+    public MobileElement skinTypeCombination;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement skinTone;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    public MobileElement skinToneDark;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement skinUnderTone;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    public MobileElement skinUnderToneWarm;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement hairType;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement hairTypeCurly;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public List<MobileElement> coloredHair;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement coloredHairNo;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout")
-    public MobileElement isHijaber;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement isHijaberNo;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSaveBeautyProfile")
     public MobileElement buttonSaveBeautyProfile;
@@ -92,6 +101,9 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement skipBeautyProfile;
 
     /***  beauty concern screen  ***/
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/labelSubBodyConcern")
+    public MobileElement midScreenBodyCon;
+
     @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowSkinConcern")
     public List<MobileElement> skinCon;
 
@@ -114,6 +126,9 @@ public class VerifyAccountScreen extends ActionBase {
     //snackbar msg
     @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
     public MobileElement snackbarMsg;
+
+    @AndroidFindBy(id="com.fdbr.android:id/appBar")
+    public MobileElement sneakMsg;
 
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
@@ -138,58 +153,184 @@ public class VerifyAccountScreen extends ActionBase {
     /***  email screen  ***/
     public void inputFieldVerifyEmail(String email) throws InterruptedException {
 
+        isElementPresent(fieldVerifyEmail);
         inputValue(fieldVerifyEmail, email);
     }
 
-    public void clickVerifyEmailNow(){
+    public VerifyAccountScreen clickVerifyEmailNow() throws IOException {
 
         tapByElement(verifyNowEmailBtn);
+        return new VerifyAccountScreen(driver);
     }
 
-    public void clickSkipEmail(){
+    public VerifyAccountScreen clickSkipEmail() throws IOException {
 
         tapByElement(skipEmailBtn);
+        return new VerifyAccountScreen(driver);
     }
 
     /***  phone screen  ***/
-    public void inputFieldVerifyPhone(String phone){
+    public VerifyAccountScreen inputFieldVerifyPhone(String phone) throws IOException {
 
+        isElementPresent(fieldVerifyPhone);
         inputValue(fieldVerifyPhone, phone);
+        return new VerifyAccountScreen(driver);
     }
 
-    public void clickVerifyPhoneNow(){
+    public VerifyAccountScreen clickVerifyPhoneNow() throws IOException {
 
         tapByElement(verifyNowPhoneBtn);
+        return new VerifyAccountScreen(driver);
     }
 
-    public void clickSkipPhone(){
+    public VerifyAccountScreen clickSkipPhone() throws IOException {
 
         tapByElement(skipPhoneBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    /***  personal info screen  ***/
+    public VerifyAccountScreen inputFieldFullname(String fullname) throws IOException {
+
+        inputValue(fieldFullnamePersonalInfo, fullname);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseGender() throws IOException {
+
+        tapByElement(rbFemalePersonalInfo);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseLocation() throws IOException {
+
+        tapByElement(fieldlocationPersonalInfo);
+
+        isElementPresent(ambonCity);
+        tapByElement(ambonCity);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen clickSavePersonalInfo() throws IOException {
+
+        tapByElement(saveBtnPersonalInfo);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorFullname() throws IOException {
+
+        isElementPresent(errorMsgUnderField);
+        String txtErrorFullname = errorMsgUnderField.getText();
+        System.out.println(txtErrorFullname);
+        Assert.assertEquals(txtErrorFullname, "Please enter your full name");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorGender() throws IOException {
+
+        isElementPresent(errorMsgGender);
+        String txtErrorGender = errorMsgGender.getText();
+        System.out.println(txtErrorGender);
+        Assert.assertEquals(txtErrorGender, "Please enter your gender");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorLocation() throws IOException {
+
+        isElementPresent(errorMsgLocation);
+        String txtErrorLoc = errorMsgLocation.getText();
+        System.out.println(txtErrorLoc);
+        Assert.assertEquals(txtErrorLoc, "Please enter your location");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen skipPersonalInfo() throws IOException {
+
+        tapByElement(skipBtnPersonalInfo);
+        return new VerifyAccountScreen(driver);
     }
 
     /***  beauty profile  ***/
-    public void clickColoredHair(){
+    public VerifyAccountScreen clickSaveBeautyProf() throws IOException {
 
-        List<MobileElement> li = coloredHair;
-        li.get(1).click();
+        this.verticalSwipeByPercentages(skinTypeCombination,0.4,0.01,0.5,500);
+        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
+        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
+        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
+        tapByElement(buttonSaveBeautyProfile);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseSkinType() throws IOException {
+
+        tapByElement(skinTypeCombination);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseSkinTone() throws IOException {
+
+        tapByElement(skinToneDark);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseSkinUndertone() throws IOException {
+
+        tapByElement(skinUnderToneWarm);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseHairType() throws IOException {
+
+        tapByElement(hairTypeCurly);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseColoredHair() throws IOException {
+
+        tapByElement(coloredHairNo);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseHijaber() throws IOException {
+
+        tapByElement(isHijaberNo);
+        return new VerifyAccountScreen(driver);
     }
 
     /***  beauty concern  ***/
-    public void clickSkinCon(){
+    public VerifyAccountScreen clickSaveBeautyCon() throws IOException {
+
+        this.verticalSwipeByPercentages(midScreenBodyCon,0.4,0.01,0.5,500);
+        this.verticalSwipeByPercentages(midScreenBodyCon, 0.4,0.01,0.5,500);
+        tapByElement(btnSaveBeautyConcern);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseSkinCon() throws IOException {
 
         List<MobileElement> sc = skinCon;
         sc.get(1).click();
+        return new VerifyAccountScreen(driver);
     }
 
-    public void clickBodyCon(){
+    public VerifyAccountScreen chooseBodyCon(){
 
         List<MobileElement> bc = bodyCon;
         bc.get(1).click();
+        return new VerifyAccountScreen(driver);
     }
 
-    public void clickHairCon(){
+    public VerifyAccountScreen chooseHairCon(){
 
         List<MobileElement> hc = hairCon;
         hc.get(1).click();
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen verifySneakMsg(){
+
+       isElementPresent(sneakMsg);
+       String sm = sneakMsg.getText();
+       System.out.println(sm);
     }
 }

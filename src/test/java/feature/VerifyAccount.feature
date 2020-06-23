@@ -130,12 +130,12 @@ Feature: Verify account
   Scenario Outline: Verify Input With Invalid Format Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    And user change email and input "<email>" and click verify on verify email screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    And User change email and input "<email>" and click verify on verify email screen
     Then display msg "Please enter your correct email address" is displayed under verify email field
 
     Examples:
@@ -149,13 +149,13 @@ Feature: Verify account
   Scenario Outline: Verify Input With Invalid Format Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user clicks next button on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    And user skip verify email
-    And user input "<phone>" and click verify on verify phone screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    And User skip verify email
+    And User input "<phone>" and click verify on verify phone screen
     Then display msg "Please enter your correct phone number" is displayed under verify phone field
 
     Examples:
@@ -169,13 +169,20 @@ Feature: Verify account
   Scenario Outline: Verify profile as registered user, skip verify email and phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user click skip button on verify email screen
-    And user click skip button on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User click skip button on verify email screen
+    And User click skip button on verify phone screen
+    And User fill all mandatory field on personal info screen "<fullname>"
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty profile on beauty concern screen
+#    Then User will see congratulation modal
+
+    Examples:
+      |   fullname   |
+      |	  teststag	  |
+
+
+  Scenario Outline: Verify profile as registered user, skip verify email and phone
