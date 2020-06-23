@@ -52,38 +52,43 @@ public class OnboardingScreen extends ActionBase {
     }
 
     //intro screen
-    public void swipeAfterSplashScreen() throws IOException {
+    public OnboardingScreen swipeAfterSplashScreen() throws IOException {
 
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         this.horizontalSwipeByPercentage(splashScreenImage,0.9,0.01,0.5,500);
         this.horizontalSwipeByPercentage(splashScreenImage, 0.9,0.01,0.5,500);
+        return new OnboardingScreen(driver);
 
     }
 
-    public void clickNextIntroBtn() {
+    public OnboardingScreen clickNextIntroBtn() throws IOException {
 
         //tapByElement(nextIntroBtn);
         tapByElement(nextIntroScreenBtn);
         tapByElement(nextIntroScreenBtn);
+        return new OnboardingScreen(driver);
     }
 
-    public void clickGetStartedBtn() throws InterruptedException {
+    public OnboardingScreen clickGetStartedBtn() throws IOException {
 
         tapByElement(getStartedBtn);
+        return new OnboardingScreen(driver);
     }
 
 
-    public void clickLoginBtn() {
+    public OnboardingScreen clickLoginBtn() throws IOException {
 
         isElementEnabled(loginBtn);
         tapByElement(loginBtn);
+        return new OnboardingScreen(driver);
     }
 
-    public void clickSignupBtn() {
+    public OnboardingScreen clickSignupBtn() throws IOException {
 
         isElementEnabled(signupBtn);
         tapByElement(signupBtn);
+        return new OnboardingScreen(driver);
     }
 
 }

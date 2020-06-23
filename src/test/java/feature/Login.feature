@@ -104,7 +104,7 @@ Feature: Login into account
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then user see and close modal email is not registered
+    Then User see and close modal email is not registered
 
     Examples:
       |           email                      |        password       |

@@ -115,7 +115,6 @@ public class CommonUtils {
         capabilities.setCapability(DEVICE_READY_TIMEOUT, CommonUtils.DEVICE_TIMEOUT);
         capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
         capabilities.setCapability("autoGrantPermissions", true);
-        capabilities.setCapability("autoAcceptAlerts",false);
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         //reinstall
         //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);

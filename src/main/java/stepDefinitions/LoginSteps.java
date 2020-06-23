@@ -5,9 +5,12 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.DriverFactory;
 
 public class LoginSteps extends DriverFactory {
+
+    private static DesiredCapabilities capabilities = new DesiredCapabilities();
 
     //***   Login without input password   ****//
     @Then("^User enters the \"([^\"]*)\" phonenumber to login$")
@@ -59,6 +62,7 @@ public class LoginSteps extends DriverFactory {
     public void User_clicks__login_button_on_login_screen() throws Throwable {
 
         loginScreen.clickLogin();
+        capabilities.setCapability("autoDismissAlerts",true);
     }
 
     @When("^user input correct otp from phone on otp screen from android to login$")
