@@ -10,8 +10,6 @@ import utils.DriverFactory;
 
 public class LoginSteps extends DriverFactory {
 
-    private static DesiredCapabilities capabilities = new DesiredCapabilities();
-
     //***   Login without input password   ****//
     @Then("^User enters the \"([^\"]*)\" phonenumber to login$")
     public void User_enters_the_something_phonenumber_to_login(String phonenumber) throws Throwable {
@@ -62,7 +60,7 @@ public class LoginSteps extends DriverFactory {
     public void User_clicks__login_button_on_login_screen() throws Throwable {
 
         loginScreen.clickLogin();
-        capabilities.setCapability("autoDismissAlerts",true);
+        homeScreen.acceptAlertIos();
     }
 
     @When("^user input correct otp from phone on otp screen from android to login$")

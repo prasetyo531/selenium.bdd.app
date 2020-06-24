@@ -125,7 +125,7 @@ public class ActionBase extends DriverFactory {
     /**********************************************************************************
      Accept notif
      **********************************************************************************/
-    protected void acceptAlert() {
+    protected void acceptAlert() throws IOException {
         System.out.println("wait to dismiss dialog");
         WebDriverWait wait = new WebDriverWait(driver, 3);
         try {

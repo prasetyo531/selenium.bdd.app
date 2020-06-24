@@ -313,24 +313,25 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseBodyCon(){
+    public VerifyAccountScreen chooseBodyCon() throws IOException {
 
         List<MobileElement> bc = bodyCon;
         bc.get(1).click();
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseHairCon(){
+    public VerifyAccountScreen chooseHairCon() throws IOException {
 
         List<MobileElement> hc = hairCon;
         hc.get(1).click();
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen verifySneakMsg(){
+    public VerifyAccountScreen verifySneakMsg() throws IOException {
 
        isElementPresent(sneakMsg);
        String sm = sneakMsg.getText();
        System.out.println(sm);
+        return new VerifyAccountScreen(driver);
     }
 }

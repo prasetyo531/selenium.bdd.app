@@ -64,7 +64,7 @@ public class VerifyAccountSteps extends DriverFactory {
     public void User_fill_all_mandatory_field_on_personal_info_screen_something(String fullname) throws Throwable {
 
         verifyAccountScreen.clickSavePersonalInfo();
-        verifyAccountScreen.inputFieldFullname(fullname)
+        verifyAccountScreen.inputFieldFullname(fullname);
         verifyAccountScreen.getErrorFullname();
 
         verifyAccountScreen.clickSavePersonalInfo();
@@ -88,10 +88,10 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseSkinTone();
 
         verifyAccountScreen.clickSaveBeautyProf();
-        verifyAccountScreen.skinUnderToneWarm():
+        verifyAccountScreen.chooseSkinUndertone();
 
         verifyAccountScreen.clickSaveBeautyProf();
-        verifyAccountScreen.hairTypeCurly():
+        verifyAccountScreen.chooseHairType();
 
         verifyAccountScreen.clickSaveBeautyProf();
         verifyAccountScreen.chooseColoredHair();

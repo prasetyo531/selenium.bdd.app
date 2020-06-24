@@ -276,6 +276,12 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
+    public HomeScreen acceptAlertIos() throws IOException {
+
+        acceptAlert();
+        return new HomeScreen(driver);
+    }
+
 
 
 }
