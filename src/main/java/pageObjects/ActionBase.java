@@ -125,7 +125,16 @@ public class ActionBase extends DriverFactory {
     /**********************************************************************************
      Accept notif
      **********************************************************************************/
-    //public void acceptAlert(String action)
+    protected void acceptAlert() {
+        System.out.println("wait to dismiss dialog");
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        try {
+            wait.until(ExpectedConditions.alertIsPresent());
+            driver.switchTo().alert().accept();
+        } catch (Exception e) {
+            System.err.println("   no alert visible after "+ 3 +" sec.");
+        }
+    }
 
     /**********************************************************************************
      Tap by coordinates
