@@ -26,8 +26,8 @@ public class MasterHooks extends DriverFactory {
         try {
             switch (this.loadPropertyFile) {
                 case "android.properties":
-                    driver.resetApp();
-                    System.out.println("need reset app");
+//                    driver.resetApp();
+//                    System.out.println("need reset app");
                     break;
                 case "ios.properties":
                     Thread.sleep(800);

@@ -11,7 +11,7 @@ public class DriverFactory {
     public static AppiumDriver driver;
 
     //set configuration
-    public static String loadPropertyFile = "ios.properties";
+    public static String loadPropertyFile = "android.properties";
 
     /****************
      Android & IOS Screen

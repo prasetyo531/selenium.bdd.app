@@ -165,11 +165,12 @@ Feature: Verify account
       |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
 
 
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
+  @FDBRMA-250
   Scenario Outline: Verify profile as registered user, skip verify email and phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     When User click complete verify button on modal
@@ -177,12 +178,12 @@ Feature: Verify account
     And User click skip button on verify phone screen
     And User fill all mandatory field on personal info screen "<fullname>"
     And User choose beauty profile on beauty profile screen
-    And User choose beauty profile on beauty concern screen
+#    And User choose beauty profile on beauty concern screen
 #    Then User will see congratulation modal
 
     Examples:
-      |   fullname   |
-      |	  teststag	  |
+      |   username    |   password      |     fullname      |
+      |	  vnsphl14	  |   test123     |       vnsphldua     |
 
 
   Scenario Outline: Verify profile as registered user, skip verify email and phone

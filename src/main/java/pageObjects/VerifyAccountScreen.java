@@ -66,33 +66,57 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
     public MobileElement backLocationPersonalInfo;
 
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
+    public MobileElement errorMsgFullname;
+
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorGender")
     public MobileElement errorMsgGender;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textinput_error') and @text='Please enter your location']")
     public MobileElement errorMsgLocation;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='Ambon']")
     public MobileElement ambonCity;
 
     /***  beauty profile screen  ***/
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/scrollBeautyProfile")
+    public MobileElement contentBeautyProf;
+
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
     public MobileElement skinTypeCombination;
+
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinType")
+    public MobileElement errorMsgSkinType;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
     public MobileElement skinToneDark;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinTone")
+    public MobileElement errorMsgSkinTone;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement skinUnderToneWarm;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinUnderTone")
+    public MobileElement errorMsgSkinUndertone;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement hairTypeCurly;
+
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHairType")
+    public MobileElement errorMsgHairType;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement coloredHairNo;
 
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorColoredHair")
+    public MobileElement errorMsgColoredHair;
+
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement isHijaberNo;
+
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHijab")
+    public MobileElement errorMsgHijaber;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSaveBeautyProfile")
     public MobileElement buttonSaveBeautyProfile;
@@ -165,6 +189,7 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen clickSkipEmail() throws IOException {
 
+        isElementEnabled(skipEmailBtn);
         tapByElement(skipEmailBtn);
         return new VerifyAccountScreen(driver);
     }
@@ -185,6 +210,7 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen clickSkipPhone() throws IOException {
 
+        isElementEnabled(skipPhoneBtn);
         tapByElement(skipPhoneBtn);
         return new VerifyAccountScreen(driver);
     }
@@ -219,8 +245,8 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen getErrorFullname() throws IOException {
 
-        isElementPresent(errorMsgUnderField);
-        String txtErrorFullname = errorMsgUnderField.getText();
+        isElementPresent(errorMsgFullname);
+        String txtErrorFullname = errorMsgFullname.getText();
         System.out.println(txtErrorFullname);
         Assert.assertEquals(txtErrorFullname, "Please enter your full name");
         return new VerifyAccountScreen(driver);
@@ -253,10 +279,10 @@ public class VerifyAccountScreen extends ActionBase {
     /***  beauty profile  ***/
     public VerifyAccountScreen clickSaveBeautyProf() throws IOException {
 
-        this.verticalSwipeByPercentages(skinTypeCombination,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(skinTypeCombination, 0.4,0.01,0.5,500);
+        isElementPresent(contentBeautyProf);
+        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
         tapByElement(buttonSaveBeautyProfile);
         return new VerifyAccountScreen(driver);
     }
@@ -297,11 +323,66 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
+    public VerifyAccountScreen getErrorSkinType() throws IOException {
+
+        isElementPresent(errorMsgSkinType);
+        String txtErrorSkinType = errorMsgSkinType.getText();
+        System.out.println(txtErrorSkinType);
+        Assert.assertEquals(txtErrorSkinType, "Please choose your skin type");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorSkinTone() throws IOException {
+
+        isElementPresent(errorMsgSkinTone);
+        String txtErrorSkinTone = errorMsgSkinTone.getText();
+        System.out.println(txtErrorSkinTone);
+        Assert.assertEquals(txtErrorSkinTone, "Please choose your skin tone");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorSkinUndertone() throws IOException {
+
+        isElementPresent(errorMsgSkinUndertone);
+        String txtErrorSkinUndertone = errorMsgSkinUndertone.getText();
+        System.out.println(txtErrorSkinUndertone);
+        Assert.assertEquals(txtErrorSkinUndertone, "Please choose your skin undertone");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorHairType() throws IOException {
+
+        isElementPresent(errorMsgHairType);
+        String txtErrorHairType = errorMsgHairType.getText();
+        System.out.println(txtErrorHairType);
+        Assert.assertEquals(txtErrorHairType, "Please choose your hair type");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorColoredHair() throws IOException {
+
+        isElementPresent(errorMsgColoredHair);
+        String txtErrorColoredHair = errorMsgColoredHair.getText();
+        System.out.println(txtErrorColoredHair);
+        Assert.assertEquals(txtErrorColoredHair, "Please choose one");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorHijaber() throws IOException {
+
+        isElementPresent(errorMsgHijaber);
+        String txtErrorHijaber = errorMsgHijaber.getText();
+        System.out.println(txtErrorHijaber);
+        Assert.assertEquals(txtErrorHijaber, "Please choose one");
+        return new VerifyAccountScreen(driver);
+    }
+
     /***  beauty concern  ***/
     public VerifyAccountScreen clickSaveBeautyCon() throws IOException {
 
-        this.verticalSwipeByPercentages(midScreenBodyCon,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(midScreenBodyCon, 0.4,0.01,0.5,500);
+        isElementPresent(midScreenBodyCon);
+        verticalSwipeByPercentages(midScreenBodyCon,0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(midScreenBodyCon, 0.4,0.01,0.5,500);
         tapByElement(btnSaveBeautyConcern);
         return new VerifyAccountScreen(driver);
     }

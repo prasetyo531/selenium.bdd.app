@@ -76,27 +76,35 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseLocation();
 
         verifyAccountScreen.clickSavePersonalInfo();
+
+        //verifyAccountScreen.verifySneakMsg();
     }
 
     @And("^User choose beauty profile on beauty profile screen$")
     public void user_choose_beauty_profile_on_beauty_profile_screen() throws Throwable {
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinType();
         verifyAccountScreen.chooseSkinType();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinTone();
         verifyAccountScreen.chooseSkinTone();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinUndertone();
         verifyAccountScreen.chooseSkinUndertone();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHairType();
         verifyAccountScreen.chooseHairType();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorColoredHair();
         verifyAccountScreen.chooseColoredHair();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHijaber();
         verifyAccountScreen.chooseHijaber();
 
         verifyAccountScreen.clickSaveBeautyProf();
