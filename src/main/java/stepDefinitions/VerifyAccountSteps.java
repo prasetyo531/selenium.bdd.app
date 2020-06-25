@@ -26,6 +26,12 @@ public class VerifyAccountSteps extends DriverFactory {
         homeScreen.clickAccountCompleteVerBtn();
     }
 
+    @Then("^User will see progress bar verify on homescreen$")
+    public void user_will_see_progress_bar_verify_on_homescreen() throws Throwable {
+
+        homeScreen.checkProgressBarVerifyEmailPhone();
+    }
+
     //***   modal account status    ***
     @And("^User change email and input \"([^\"]*)\" and click verify on verify email screen$")
     public void User_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) throws Throwable {
@@ -109,24 +115,27 @@ public class VerifyAccountSteps extends DriverFactory {
 
         verifyAccountScreen.clickSaveBeautyProf();
 
-        verifyAccountScreen.verifySneakMsg();
+        //verifyAccountScreen.verifySneakMsg();
     }
 
-    @And("^User choose beauty profile on beauty concern screen$")
-    public void user_choose_beauty_profile_on_beauty_concern_screen() throws Throwable {
+    @And("^User choose beauty concern on beauty concern screen$")
+    public void User_choose_beauty_concern_on_beauty_concern_screen() throws Throwable {
 
         verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorSkinCon();
         verifyAccountScreen.chooseSkinCon();
 
         verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorBodyCon();
         verifyAccountScreen.chooseBodyCon();
 
         verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorHairCon();
         verifyAccountScreen.chooseHairCon();
 
         verifyAccountScreen.clickSaveBeautyCon();
 
-        verifyAccountScreen.verifySneakMsg();
+        //verifyAccountScreen.verifySneakMsg();
     }
 
     //error msg

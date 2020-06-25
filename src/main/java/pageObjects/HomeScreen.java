@@ -1,10 +1,13 @@
 package pageObjects;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
@@ -128,6 +131,17 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonCancel")
     public MobileElement cancelMenu;
 
+    /**********
+     verify user component
+     ***********/
+    @AndroidFindBy(id="com.fdbr.android:id/seekBarStatusUser")
+    public MobileElement progressBar;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textNeedVerify")
+    public MobileElement textNeedVerify;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonVerifyUser")
+    public MobileElement btnNeedVerify;
 
     // This is a constructor, as every page need a base driver to find android elements
     public HomeScreen(AppiumDriver driver) throws IOException {
@@ -210,7 +224,32 @@ public class HomeScreen extends ActionBase {
             System.out.println("account status modal is not present");
             verifyHomescreen();
         }
-//        capabilities.setCapability("autoAcceptAlerts",true);
+    }
+
+    public Boolean checkProgressBarVerifyEmailPhone(){
+
+        boolean e1= isElementPresent(progressBar);
+        boolean e2= isElementPresent(textNeedVerify);
+        boolean e3= isElementPresent(btnNeedVerify);
+        String txt = btnNeedVerify.getText().toString();
+        Assert.assertTrue(txt.equalsIgnoreCase("Verify"));
+        //boolean boolElem5= isElementPresent(firstindextproductmatches);
+
+        return (e1 && e2 && e3);
+
+    }
+
+    public Boolean checkProgressBarCompleteProfile(){
+
+        boolean e1= isElementPresent(progressBar);
+        boolean e2= isElementPresent(textNeedVerify);
+        boolean e3= isElementPresent(btnNeedVerify);
+        String txt = btnNeedVerify.getText().toString();
+        Assert.assertTrue(txt.equalsIgnoreCase("Complete"));
+        //boolean boolElem5= isElementPresent(firstindextproductmatches);
+
+        return (e1 && e2 && e3);
+
     }
 
     public void verifyProductMatches() {

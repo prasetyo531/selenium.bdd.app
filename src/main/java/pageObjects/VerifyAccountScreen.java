@@ -125,19 +125,28 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement skipBeautyProfile;
 
     /***  beauty concern screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/labelSubBodyConcern")
-    public MobileElement midScreenBodyCon;
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/scrollBeautyConcern")
+    public MobileElement contentScreenBodyCon;
 
-    @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowSkinConcern")
-    public List<MobileElement> skinCon;
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Black or White Heads']")
+    public MobileElement blackOrWhite;
 
-    @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowBodyConcern")
-    public List<MobileElement> bodyCon;
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinConcern")
+    public MobileElement errorSkinCon;
 
-    @AndroidFindBy(xpath="com.fdbr.android.beautyprofile:id/flowHairConcern")
-    public List<MobileElement> hairCon;
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Loose Skin']")
+    public MobileElement looseSkin;
 
-    @AndroidFindBy(id="com.fdbr.android.bseautyprofile:id/buttonSaveBeautyConcern")
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorBodyConcern")
+    public MobileElement errorBodyCon;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Grey Hair']")
+    public MobileElement greyHair;
+
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHairConcern")
+    public MobileElement errorHairCon;
+
+    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSaveBeautyConcern")
     public MobileElement btnSaveBeautyConcern;
 
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipBeautyConcern")
@@ -282,7 +291,6 @@ public class VerifyAccountScreen extends ActionBase {
         isElementPresent(contentBeautyProf);
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
         tapByElement(buttonSaveBeautyProfile);
         return new VerifyAccountScreen(driver);
     }
@@ -380,31 +388,58 @@ public class VerifyAccountScreen extends ActionBase {
     /***  beauty concern  ***/
     public VerifyAccountScreen clickSaveBeautyCon() throws IOException {
 
-        isElementPresent(midScreenBodyCon);
-        verticalSwipeByPercentages(midScreenBodyCon,0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(midScreenBodyCon, 0.4,0.01,0.5,500);
+        isElementPresent(contentScreenBodyCon);
+        verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
         tapByElement(btnSaveBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen chooseSkinCon() throws IOException {
 
-        List<MobileElement> sc = skinCon;
-        sc.get(1).click();
+        isElementPresent(blackOrWhite);
+        tapByElement(blackOrWhite);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorSkinCon() throws IOException {
+
+        isElementPresent(errorSkinCon);
+        String txtErrorSkinCon = errorSkinCon.getText();
+        System.out.println(txtErrorSkinCon);
+        Assert.assertEquals(txtErrorSkinCon, "Please enter your skin concern");
         return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen chooseBodyCon() throws IOException {
 
-        List<MobileElement> bc = bodyCon;
-        bc.get(1).click();
+       isElementPresent(looseSkin);
+       tapByElement(looseSkin);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorBodyCon() throws IOException {
+
+        isElementPresent(errorBodyCon);
+        String txtErrorBodyCon = errorBodyCon.getText();
+        System.out.println(txtErrorBodyCon);
+        Assert.assertEquals(txtErrorBodyCon, "Please enter your body concern");
         return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen chooseHairCon() throws IOException {
 
-        List<MobileElement> hc = hairCon;
-        hc.get(1).click();
+        isElementPresent(greyHair);
+        tapByElement(greyHair);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen getErrorHairCon() throws IOException {
+
+        isElementPresent(errorHairCon);
+        String txtErrorHairCon = errorHairCon.getText();
+        System.out.println(txtErrorHairCon);
+        Assert.assertEquals(txtErrorHairCon, "Please enter your hair concern");
         return new VerifyAccountScreen(driver);
     }
 

@@ -178,12 +178,12 @@ Feature: Verify account
     And User click skip button on verify phone screen
     And User fill all mandatory field on personal info screen "<fullname>"
     And User choose beauty profile on beauty profile screen
-#    And User choose beauty profile on beauty concern screen
-#    Then User will see congratulation modal
+    And User choose beauty concern on beauty concern screen
+    Then User will see progress bar verify on homescreen
 
     Examples:
       |   username    |   password      |     fullname      |
-      |	  vnsphl14	  |   test123     |       vnsphldua     |
+      |	  vnsphl23	  |   test123     |       vnsphldua     |
 
 
   Scenario Outline: Verify profile as registered user, skip verify email and phone
