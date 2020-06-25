@@ -164,7 +164,7 @@ Feature: Verify account
       |	  vnsphl	  |   dora12345     |    081702      |
       |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
 
-
+  #FDBRMA-250 #FDBRMA-251 #FDBRMA-252 #FDBRMA-255  #FDBRMA-366
   @FDBRMA-250
   Scenario Outline: Verify profile as registered user, skip verify email and phone
     Given User navigates to onboarding screen by swipe
