@@ -164,7 +164,27 @@ Feature: Verify account
       |	  vnsphl	  |   dora12345     |    081702      |
       |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
 
-  #FDBRMA-250 #FDBRMA-251 #FDBRMA-252 #FDBRMA-255  #FDBRMA-366
+
+  @FDBRMA-254
+  Scenario Outline: Save personal info input fullname contains special character
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User click skip button on verify email screen
+    And User click skip button on verify phone screen
+    When User fill all mandatory field on personal info screen "<fullname>"
+    Then User will see modal fullname only alphabet
+
+    Examples:
+      |   username        |   password      |     fullname      |
+      |	  verifywebprod	  |   test123     |       vnsphl2     |
+
+
+  #FDBRMA-250 #FDBRMA-251 #FDBRMA-252 #FDBRMA-255 #FDBRMA-366 #FDBRMA-256 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
   @FDBRMA-250
   Scenario Outline: Verify profile as registered user, skip verify email and phone
     Given User navigates to onboarding screen by swipe
@@ -183,7 +203,5 @@ Feature: Verify account
 
     Examples:
       |   username    |   password      |     fullname      |
-      |	  vnsphl23	  |   test123     |       vnsphldua     |
+      |	  vnsphl24	  |   test123     |       vnsphldua     |
 
-
-  Scenario Outline: Verify profile as registered user, skip verify email and phone

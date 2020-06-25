@@ -150,4 +150,10 @@ public class VerifyAccountSteps extends DriverFactory {
 
         verifyAccountScreen.assertTextWarningLogin(message);
     }
+
+    @Then("^User will see modal fullname only alphabet$")
+    public void user_will_see_modal_fullname_only_alphabet() throws Throwable {
+
+        verifyAccountScreen.getErrorModalFullname();
+    }
 }

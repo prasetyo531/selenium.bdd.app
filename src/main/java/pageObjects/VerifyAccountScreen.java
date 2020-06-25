@@ -45,6 +45,18 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputFullName")
     public MobileElement fieldFullnamePersonalInfo;
 
+    @AndroidFindBy(id="android:id/content")
+    public MobileElement modalErrorFullname;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModalErrorFullname;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descModalErrorFullname;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement okModalErrorFullname;
+
     @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/rbFemale")
     public MobileElement rbFemalePersonalInfo;
 
@@ -160,9 +172,6 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
     public MobileElement snackbarMsg;
 
-    @AndroidFindBy(id="com.fdbr.android:id/appBar")
-    public MobileElement sneakMsg;
-
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
 
@@ -231,6 +240,15 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
+    public Boolean getErrorModalFullname() throws IOException {
+
+        boolean modalError = isElementPresent(modalErrorFullname);
+        boolean titleModalError = isElementPresent(titleModalErrorFullname);
+        boolean descModalError = isElementPresent(descModalErrorFullname);
+        boolean okBtn = isElementPresent(okModalErrorFullname);
+        return (modalError && titleModalError && descModalError && okBtn );
+    }
+
     public VerifyAccountScreen chooseGender() throws IOException {
 
         tapByElement(rbFemalePersonalInfo);
@@ -276,6 +294,12 @@ public class VerifyAccountScreen extends ActionBase {
         String txtErrorLoc = errorMsgLocation.getText();
         System.out.println(txtErrorLoc);
         Assert.assertEquals(txtErrorLoc, "Please enter your location");
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen clikOkOnModalErrorMsg() throws IOException {
+
+        tapByElement(okModalErrorFullname);
         return new VerifyAccountScreen(driver);
     }
 
@@ -445,8 +469,8 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen verifySneakMsg() throws IOException {
 
-       isElementPresent(sneakMsg);
-       String sm = sneakMsg.getText();
+       isElementPresent(snackbarMsg);
+       String sm = snackbarMsg.getText();
        System.out.println(sm);
         return new VerifyAccountScreen(driver);
     }
