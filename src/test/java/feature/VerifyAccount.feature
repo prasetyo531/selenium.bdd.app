@@ -180,8 +180,9 @@ Feature: Verify account
     Then User will see modal fullname only alphabet
 
     Examples:
-      |   username        |   password      |     fullname      |
-      |	  verifywebprod	  |   test123     |       vnsphl2     |
+      |   username        |   password      |     fullname         |
+      |	  verifywebprod	  |   test123       |       vnsphl2        |
+      |	  verifywebprod	  |   test123       |       vnsph_satu     |
 
 
   #FDBRMA-250 #FDBRMA-251 #FDBRMA-252 #FDBRMA-255 #FDBRMA-366 #FDBRMA-256 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
@@ -203,5 +204,5 @@ Feature: Verify account
 
     Examples:
       |   username    |   password      |     fullname      |
-      |	  vnsphl24	  |   test123     |       vnsphldua     |
+      |	  vnsphl26	  |   test123     |       vnsphldua     |
 
