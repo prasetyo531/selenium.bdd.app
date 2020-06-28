@@ -35,3 +35,4 @@ public class RegressionRunner extends AbstractTestNGCucumberTests {
 
 //@Regression, @RealAccount, @RealDevices, @IntegrationTest", "~@Android, ~@Login", "@Ios, @Login", "~@WIP
 //{"@Regression, @RealAccount, @RealDevices, @IntegrationTest", "@Ios", "@Login"},
+//
