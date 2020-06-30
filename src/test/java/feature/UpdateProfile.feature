@@ -38,6 +38,28 @@ Feature: Update Profile
       |   username        |   password      |
       |	  bddbeautyid02	  |   test123       |
 
+  #FDBRMA-368
+  @FDBRMA-368
+  Scenario Outline: Update full name - input fullname contains special character
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User fill dob, fullname "<fullname>", gender, location, bio "<bio>"
+    When User clicks save to save all updated field
+    Then User will see modal fullname only alphabet
+
+    Examples:
+      |   username        |   password      |       fullname        |     bio       |
+      |	  bddbeautyid04	  |   test123       |     bddbeautyid04     |   pras pras pras  |
+      |	  bddbeautyid04	  |   test123       |     bdd_beauty_id     |   pras pras pras  |
+
   #FDBRMA-276
   @FDBRMA-276
   Scenario Outline: Input all Field on profile screen
@@ -57,4 +79,4 @@ Feature: Update Profile
 
     Examples:
       |   username        |   password      |       fullname        |     bio       |
-      |	  bddbeautyid03	  |   test123       |     bddbeautyid03     |   pras pras pras  |
+      |	  bddbeautyid04	  |   test123       |     bddbeautyid     |   pras pras pras  |

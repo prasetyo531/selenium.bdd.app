@@ -59,6 +59,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android:id/layoutDob")
     public MobileElement dobEditProfile;
 
+    @AndroidFindBy(id=" com.fdbr.android:id/inputDob")
+    public MobileElement inputedDob;
+
     @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
     public MobileElement dobCancel;
 
@@ -255,8 +258,8 @@ public class ProfileScreen extends ActionBase{
     /*  get inputed field profile screen */
     public ProfileScreen getTextDob() throws IOException {
 
-        isElementPresent(dobEditProfile);
-        String getDob = dobEditProfile.getText();
+        isElementPresent(inputedDob);
+        String getDob = inputedDob.getText();
         System.out.println("dob is"+" "+getDob);
         Assert.assertNotSame(null, getDob);
         return new ProfileScreen(driver);
