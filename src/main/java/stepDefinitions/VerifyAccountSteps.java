@@ -8,8 +8,8 @@ import utils.DriverFactory;
 
 public class VerifyAccountSteps extends DriverFactory {
 
-    @Then("^user will see modal account status on homescreen$")
-    public void user_will_see_modal_account_status_on_homescreen() throws Throwable {
+    @Then("^User will see modal account status on homescreen$")
+    public void User_will_see_modal_account_status_on_homescreen() throws Throwable {
 
         homeScreen.verifyAccountStatusModal();
     }
@@ -89,6 +89,8 @@ public class VerifyAccountSteps extends DriverFactory {
     @And("^User choose beauty profile on beauty profile screen$")
     public void user_choose_beauty_profile_on_beauty_profile_screen() throws Throwable {
 
+        verifyAccountScreen.checkTitleScreenBeautyProfile();
+
         verifyAccountScreen.clickSaveBeautyProf();
         verifyAccountScreen.getErrorSkinType();
         verifyAccountScreen.chooseSkinType();
@@ -120,6 +122,8 @@ public class VerifyAccountSteps extends DriverFactory {
 
     @And("^User choose beauty concern on beauty concern screen$")
     public void User_choose_beauty_concern_on_beauty_concern_screen() throws Throwable {
+
+        verifyAccountScreen.checkTitleScreenBeautyConcern();
 
         verifyAccountScreen.clickSaveBeautyCon();
         verifyAccountScreen.getErrorSkinCon();

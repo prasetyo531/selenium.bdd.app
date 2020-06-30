@@ -172,6 +172,10 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
     public MobileElement snackbarMsg;
 
+    //title screen
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
+    public MobileElement titleScreen;
+
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
 
@@ -319,6 +323,16 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
+    public VerifyAccountScreen clickSkipBeautyProfile() throws IOException {
+
+        isElementPresent(contentBeautyProf);
+        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        tapByElement(skipBeautyProfile);
+
+        return new VerifyAccountScreen(driver);
+    }
+
     public VerifyAccountScreen chooseSkinType() throws IOException {
 
         tapByElement(skinTypeCombination);
@@ -419,6 +433,15 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
+    public VerifyAccountScreen clickSkipBeautyCon() throws IOException {
+
+        isElementPresent(contentScreenBodyCon);
+        verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
+        tapByElement(btnSkipBeautyConcern);
+        return new VerifyAccountScreen(driver);
+    }
+
     public VerifyAccountScreen chooseSkinCon() throws IOException {
 
         isElementPresent(blackOrWhite);
@@ -472,6 +495,27 @@ public class VerifyAccountScreen extends ActionBase {
        isElementPresent(snackbarMsg);
        String sm = snackbarMsg.getText();
        System.out.println(sm);
+        return new VerifyAccountScreen(driver);
+    }
+
+    /***  get title screen  ***/
+    public VerifyAccountScreen checkTitleScreenBeautyProfile() throws IOException {
+
+        isElementPresent(titleScreen);
+        String title = titleScreen.getText();
+        System.out.println("title screen"+" "+title);
+        Assert.assertEquals(title, "Beauty Profile");
+
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen checkTitleScreenBeautyConcern() throws IOException {
+
+        isElementPresent(titleScreen);
+        String title = titleScreen.getText();
+        System.out.println("title screen"+" "+title);
+        Assert.assertEquals(title, "Beauty Concern");
+
         return new VerifyAccountScreen(driver);
     }
 }

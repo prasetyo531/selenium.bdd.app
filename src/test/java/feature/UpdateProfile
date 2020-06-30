@@ -1,0 +1,60 @@
+Feature: Update Profile
+
+  In order to perform sucessfull update profile
+  I should able to fill all option of add post process
+
+  #FDBRMA-328
+  @FDBRMA-328
+  Scenario Outline: Update beauty id on product matches
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    When User clicks complete my beautyId button
+    Then User will direct to Beauty Profile screen
+
+    Examples:
+      |   username        |   password      |
+      |	  bddbeautyid01	  |   test123       |
+
+  #FDBRMA-329
+  @FDBRMA-329
+  Scenario Outline: Update beauty id by click btn beauty summary box
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    When User clicks beautyId button on beauty box on profile
+    Then User will direct to Beauty Profile screen
+
+    Examples:
+      |   username        |   password      |
+      |	  bddbeautyid02	  |   test123       |
+
+  #FDBRMA-276
+  @FDBRMA-276
+  Scenario Outline: Input all Field on profile screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User fill dob, fullname "<fullname>", gender, location, bio "<bio>"
+    When User clicks save to save all updated field
+    Then User will see all inputed data "<fullname>", gender, location, "<bio>" are stored
+
+    Examples:
+      |   username        |   password      |       fullname        |     bio       |
+      |	  bddbeautyid03	  |   test123       |     bddbeautyid03     |   pras pras pras  |

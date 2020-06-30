@@ -4,13 +4,12 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.junit.Assert;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.AppiumServer;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 
 public class DiscoverScreen extends ActionBase {
 

@@ -62,6 +62,13 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/buttonCancel') and @text='Cancel']")
     public MobileElement cancel;
 
+
+    /**********
+     product matches
+     **********/
+    @AndroidFindBy(id="com.fdbr.android:id/buttonComplete")
+    public MobileElement btnCompleteBeautyID;
+
     @AndroidFindBy(xpath ="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[4]")
     public MobileElement firstindextproductmatches;
 
@@ -236,7 +243,6 @@ public class HomeScreen extends ActionBase {
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (e1 && e2 && e3);
-
     }
 
     public Boolean checkProgressBarCompleteProfile(){
@@ -249,7 +255,13 @@ public class HomeScreen extends ActionBase {
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (e1 && e2 && e3);
+    }
 
+    public void completeMyBeautyIdProductMatches() {
+
+        isElementPresent(btnCompleteBeautyID);
+        tapByElement(btnCompleteBeautyID);
+        System.out.println("product matches is present");
     }
 
     public void verifyProductMatches() {
@@ -277,15 +289,21 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
+    public HomeScreen clickHomeMenu() throws IOException {
+
+        tapByElement(homeTab);
+        return new HomeScreen(driver);
+    }
+
     public HomeScreen clickDiscoverHomeMenu() throws IOException {
 
         tapByElement(discoverTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickHomeMenu() throws IOException {
+    public HomeScreen clickProfileHomeMenu() throws IOException {
 
-        tapByElement(homeTab);
+        tapByElement(profileTab);
         return new HomeScreen(driver);
     }
 

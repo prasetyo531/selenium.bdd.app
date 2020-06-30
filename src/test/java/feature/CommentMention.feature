@@ -11,7 +11,7 @@ Feature: Comment and Mention
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
   #staging
   @FDBRMA-330
