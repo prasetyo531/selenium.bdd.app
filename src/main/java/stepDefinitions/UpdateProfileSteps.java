@@ -86,4 +86,22 @@ public class UpdateProfileSteps extends ActionBase {
         profileScreen.getTextBio(bio);
     }
 
+    @And("^User clicks update password$")
+    public void user_clicks_update_password() throws Throwable {
+
+        profileScreen.clickChangePassword();
+    }
+
+    @And("^User input \"([^\"]*)\" on old password field$")
+    public void user_input_something_on_old_password_field(String oldpassword) throws Throwable {
+
+        profileScreen.inputOldPassword(oldpassword);
+    }
+
+    @When("^User input new \"([^\"]*)\" invalid format on new password field$")
+    public void user_input_new_something_invalid_format_on_new_password_field(String newpassword) throws Throwable {
+
+        profileScreen.inputNewPassword(newpassword);
+    }
+
 }

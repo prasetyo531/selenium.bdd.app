@@ -79,4 +79,27 @@ Feature: Update Profile
 
     Examples:
       |   username        |   password      |       fullname        |     bio       |
-      |	  bddbeautyid04	  |   test123       |     bddbeautyid     |   pras pras pras  |
+      |	  bddbeautyid01	  |   test123       |     bddbeautyid     |   pras pras pras  |
+
+  #FDBRMA-286 #FDBRMA-287
+  @FDBRMA-286 @Bug
+  Scenario Outline: Update Password, Input password less than 6 characters and more than 25 characters
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User clicks update password
+    And User input "<oldpassword>" on old password field
+    When User input new "<newpassword>" invalid format on new password field
+    Then display msg "New password should be 6-25 characters in length" is displayed under phone number field
+
+    Examples:
+      |   username        |   password      |       oldpassword        |     newpassword       |
+      |	  apkprod	  |   test123       |     bddbeautyid          |          pwd          |
+      |	  apkprod	  |   test123       |     bddbeautyid          |  passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword |

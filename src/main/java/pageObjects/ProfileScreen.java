@@ -258,8 +258,8 @@ public class ProfileScreen extends ActionBase{
     /*  get inputed field profile screen */
     public ProfileScreen getTextDob() throws IOException {
 
-        isElementPresent(inputedDob);
-        String getDob = inputedDob.getText();
+        isElementPresent(dobEditProfile);
+        String getDob = dobEditProfile.getText();
         System.out.println("dob is"+" "+getDob);
         Assert.assertNotSame(null, getDob);
         return new ProfileScreen(driver);
@@ -294,5 +294,25 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    /*   change password   */
+    public ProfileScreen clickChangePassword() throws IOException {
+
+        tapByElement(changePassword);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen inputOldPassword(String oldpass) throws IOException {
+
+        isElementPresent(oldPassField);
+        inputValue(oldPassField, oldpass);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen inputNewPassword(String newpass) throws IOException {
+
+        isElementPresent(newPassField);
+        inputValue(newPassField, newpass);
+        return new ProfileScreen(driver);
+    }
 
 }

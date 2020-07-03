@@ -134,7 +134,7 @@ Feature: Login into account
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
     Examples:
       |         email        |        password       |
@@ -211,7 +211,7 @@ Feature: Login into account
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
     Examples:
       |      phonenumber         |   password   |
