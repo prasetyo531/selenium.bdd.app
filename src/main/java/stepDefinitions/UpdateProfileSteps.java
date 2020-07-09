@@ -83,7 +83,19 @@ public class UpdateProfileSteps extends ActionBase {
 
         profileScreen.getTextDob();
         profileScreen.getFullnameEditProfile(fullname);
+        profileScreen.getLocationEditProfile();
         profileScreen.getTextBio(bio);
+    }
+
+    @Then("^User will see all inputed data fullname, gender, location, bio are empty$")
+    public void user_will_see_all_inputed_data_fullname_gender_location_bio_are_empty() throws Throwable {
+
+        profileScreen.clickEditProfile();
+
+        profileScreen.getTextEmptyDob();
+        profileScreen.getFullnameEmptyEditProfile();
+        profileScreen.getLocationEmptyEditProfile();
+        profileScreen.getTextEmptyBio();
     }
 
     @And("^User clicks update password$")
@@ -102,6 +114,19 @@ public class UpdateProfileSteps extends ActionBase {
     public void user_input_new_something_invalid_format_on_new_password_field(String newpassword) throws Throwable {
 
         profileScreen.inputNewPassword(newpassword);
+    }
+
+    @When("^User clicks submit button to change password$")
+    public void user_clicks_submit_button_to_change_password() throws Throwable {
+
+        profileScreen.clickSubmitChangePassword();
+    }
+
+
+    @Then("^Display sneak msg \"([^\"]*)\"$")
+    public void Display_sneak_msg_something(String msg) throws Throwable {
+
+        profileScreen.getSneakMsgOldPassword(msg);
     }
 
 }

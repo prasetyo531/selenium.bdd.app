@@ -141,8 +141,14 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
     public MobileElement showPassIcon;
 
+    @AndroidFindBy(id="com.fdbr.android:id/buttonSubmit")
+    public MobileElement submitBtn;
+
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backArrowForgotPassScreen;
+
+    @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
+    public MobileElement sneakbarChangePassword;
 
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -294,6 +300,44 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen getTextEmptyDob() throws IOException {
+
+        isElementPresent(dobEditProfile);
+        String getDob = dobEditProfile.getText();
+        System.out.println("dob is"+" "+getDob);
+        Assert.assertSame(null, getDob);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen getFullnameEmptyEditProfile() throws IOException {
+
+        isElementPresent(fullnameField);
+        String getFullname = fullnameField.getText();
+        System.out.println("fullname is"+" "+getFullname);
+        Assert.assertSame(null, getFullname);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen getLocationEmptyEditProfile() throws IOException {
+
+        verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
+        isElementPresent(locationField);
+
+        String getLoc = locationField.getText();
+        System.out.println("loc is"+" "+getLoc);
+        Assert.assertSame(null, getLoc);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen getTextEmptyBio() throws IOException {
+
+        isElementPresent(fieldBio);
+        String getBio = fieldBio.getText();
+        System.out.println("dobiob is"+" "+getBio);
+        Assert.assertSame(null, getBio);
+        return new ProfileScreen(driver);
+    }
+
     /*   change password   */
     public ProfileScreen clickChangePassword() throws IOException {
 
@@ -312,6 +356,21 @@ public class ProfileScreen extends ActionBase{
 
         isElementPresent(newPassField);
         inputValue(newPassField, newpass);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickSubmitChangePassword() throws IOException {
+
+        isElementPresent(submitBtn);
+        tapByElement(submitBtn);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen getSneakMsgOldPassword(String text) throws IOException {
+
+        isElementPresent(sneakbarChangePassword);
+        String msg = sneakbarChangePassword.getText();
+        Assert.assertEquals(msg, text);
         return new ProfileScreen(driver);
     }
 

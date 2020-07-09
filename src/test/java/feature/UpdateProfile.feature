@@ -81,8 +81,54 @@ Feature: Update Profile
       |   username        |   password      |       fullname        |     bio       |
       |	  bddbeautyid01	  |   test123       |     bddbeautyid     |   pras pras pras  |
 
+  #FDBRMA-278
+  @FDBRMA-278 @Bug
+  Scenario Outline: Save profile using empty personal info, save without fill any field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    When User clicks save to save all updated field
+    Then User will see all inputed data fullname, gender, location, bio are empty
+
+    Examples:
+      |   username            |   password      |
+      |	  emptypersonal01	  |   test123       |
+
+
+  ##### Update Password #####
+
+  #FDBRMA-284
+  @FDBRMA-284
+  Scenario Outline: Update password - input wrong old password
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User clicks update password
+    And User input "<oldpassword>" on old password field
+    And User input new "<newpassword>" invalid format on new password field
+    When User clicks submit button to change password
+    Then Display sneak msg "Old Password Incorrect"
+
+    Examples:
+      |   username    |   password       |   oldpassword        |     newpassword       |
+      |	  apkprod	  |   test1234       |     test123          |     test1234          |
+
   #FDBRMA-286 #FDBRMA-287
-  @FDBRMA-286 @Bug
+  @Bug
   Scenario Outline: Update Password, Input password less than 6 characters and more than 25 characters
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -103,3 +149,4 @@ Feature: Update Profile
       |   username        |   password      |       oldpassword        |     newpassword       |
       |	  apkprod	  |   test123       |     bddbeautyid          |          pwd          |
       |	  apkprod	  |   test123       |     bddbeautyid          |  passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword |
+
