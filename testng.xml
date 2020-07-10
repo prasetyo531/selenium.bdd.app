@@ -7,9 +7,19 @@
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
 
-    <test name="maintest">
+<!--    <test name="maintest">-->
+<!--        <classes>-->
+<!--            <class name="integrationAndroid.RegisterLoginStaging"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="secondtest">
         <classes>
-            <class name="runner.MainRunner"/>
+            <class name="runner.RegressionRunner"/>
+        </classes>
+    </test>
+    <test name="thirdtest">
+        <classes>
+            <class name="regression.AllLogin"/>
         </classes>
     </test>
     <test name="curltest">

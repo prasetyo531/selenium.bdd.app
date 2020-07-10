@@ -10,14 +10,14 @@ Feature: Create account
   #FDBRMA-119
   @Android @Register @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Signup using new phone number starts with 0
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
     When user input correct otp from phone on otp screen to register
     Then user enters the "<email>", "<username>", password and select dob to register
     And user clicks submit button on complete account screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
     Examples:
       |   phonenumber        |              email                      |      username            |
@@ -26,7 +26,7 @@ Feature: Create account
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using new phone number starts with 62 and +62
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -40,7 +40,7 @@ Feature: Create account
   #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-212
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input with invalid format phone or email
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -58,7 +58,7 @@ Feature: Create account
   #FDBRMA-130
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using verified phone number
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -71,7 +71,7 @@ Feature: Create account
   #FDBRMA-135
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Sign up using new email address
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" email to register
     And user clicks next button on register screen
@@ -84,7 +84,7 @@ Feature: Create account
   #FDBRMA-363
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input email with incorrect format email
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" phonenumber to register
     And user clicks next button on register screen
@@ -97,7 +97,7 @@ Feature: Create account
   #FDBRMA-214
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input phone number starts without 0
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -110,7 +110,7 @@ Feature: Create account
   #FDBRMA-175
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using registered phone number
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<phonenumber>" phonenumber to register
     And user clicks next button on register screen
@@ -121,22 +121,22 @@ Feature: Create account
       | 08170223322 |
 
 
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest @WIP
   Scenario Outline: Signup using registered email
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" phonenumber to register
     And user clicks next button on register screen
-#    Then show modal email has been registered
+    Then show modal email has been registered
 
     Examples:
       |            email           |
-      | idelement01@mailinator.com |
+      | sprint46ios@mailinator.com |
 
   #FDBRMA-137
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using verified email
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" email to register
     And user clicks next button on register screen
@@ -149,9 +149,9 @@ Feature: Create account
   #FDBRMA-211
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input unregistered phone from login modal account not found
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to login
+    Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then user see and click yes on modal phone number is not registered
     Then user enters the "<phonenumber>" phonenumber to register
@@ -175,7 +175,7 @@ Feature: Create account
     When user input correct otp from phone on otp screen from ios to register
     Then user enters the "<email>", "<username>", password and select dob to register
     And user clicks submit button on complete account screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
     Examples:
       |   phonenumber        |              email                 |      username        |

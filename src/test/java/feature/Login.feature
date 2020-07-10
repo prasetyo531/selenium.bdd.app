@@ -13,7 +13,7 @@ Feature: Login into account
   #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
   @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
@@ -29,7 +29,7 @@ Feature: Login into account
   #FDBRMA-172
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using phone number, input starts with 9812
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks login button on login screen
@@ -42,7 +42,7 @@ Feature: Login into account
   #FDBRMA-111
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unverified phone number
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
@@ -55,7 +55,7 @@ Feature: Login into account
   #FDBRMA-110
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered phone number
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
@@ -68,7 +68,7 @@ Feature: Login into account
   #FDBRMA-104
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using verified email address
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -83,7 +83,7 @@ Feature: Login into account
   #FDBRMA-106
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using registered email address
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -98,7 +98,7 @@ Feature: Login into account
   #FDBRMA-112
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unregistered email address
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -113,7 +113,7 @@ Feature: Login into account
   #FDBRMA-365
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login with valid username and password
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -128,7 +128,7 @@ Feature: Login into account
    #FDBRMA-117
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login input username contains special character
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -143,7 +143,7 @@ Feature: Login into account
   #FDBRMA-128 & FDBRMA-109
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using phone number. Input number less than 8 characters and more than 14 characters
-#    Given User navigates to onboarding screen by click next
+    Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks login button on login screen
@@ -157,7 +157,7 @@ Feature: Login into account
   # FDBRMA-114
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of email address
-#    Given User navigates to onboarding screen by click next
+    Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<username>" email to login
     And User clicks next button on login screen
@@ -172,7 +172,7 @@ Feature: Login into account
    #FDBRMA-115
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of username
-#    Given User navigates to onboarding screen by click next
+    Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then user enters the "<username>" email to login
     And User clicks next button on login screen
@@ -187,7 +187,7 @@ Feature: Login into account
    #FDBRMA-173
   @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using email that registered to multiple account
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
     And User clicks next button on login screen
@@ -202,7 +202,7 @@ Feature: Login into account
   #FDBRMA-275
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using unverified phone number and then login using email that link to unverified phone
-#    Given User navigates to onboarding screen by swipe
+    Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
