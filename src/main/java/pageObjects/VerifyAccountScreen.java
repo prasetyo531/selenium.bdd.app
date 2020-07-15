@@ -176,6 +176,26 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement titleScreen;
 
+    //take picture
+    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_button")
+    public MobileElement permissionAllow;
+
+    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_deny_button")
+    public MobileElement permissionDeny;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonCapture")
+    public MobileElement capturePhoto;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonGallery")
+    public MobileElement gallery;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonDoneToolbar")
+    public MobileElement done;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRetakeToolbar")
+    public MobileElement retakePicture;
+
+
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
 
@@ -238,6 +258,31 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  personal info screen  ***/
+    public VerifyAccountScreen clickImg() throws IOException, InterruptedException {
+
+        tapByElement(imgPersonalInfo);
+        boolean permission =  isElementPresent(permissionAllow);
+        if(permission==true){
+            tapByElement(permissionAllow);
+            Thread.sleep(500);
+            tapByElement(permissionAllow);
+            tapByElement(capturePhoto);
+            tapByElement(done);
+        } else {
+            tapByElement(capturePhoto);
+            tapByElement(done);
+        }
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen captureSS() throws IOException, InterruptedException {
+
+        isElementPresent(fieldFullnamePersonalInfo);
+        captureScreenshot();
+        return new VerifyAccountScreen(driver);
+    }
+
+
     public VerifyAccountScreen inputFieldFullname(String fullname) throws IOException {
 
         inputValue(fieldFullnamePersonalInfo, fullname);

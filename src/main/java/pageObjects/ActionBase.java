@@ -7,6 +7,8 @@ import com.google.gson.JsonObject;
 import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -19,9 +21,7 @@ import utils.DriverFactory;
 
 import java.io.*;
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.NoSuchElementException;
 
 import static io.appium.java_client.CommandExecutionHelper.execute;
@@ -123,7 +123,7 @@ public class ActionBase extends DriverFactory {
     }
 
     /**********************************************************************************
-     Accept notif
+     Accept Alert
      **********************************************************************************/
     protected void acceptAlert() throws IOException {
         System.out.println("wait to dismiss dialog");
@@ -228,7 +228,8 @@ public class ActionBase extends DriverFactory {
                 .add(press)
                 .perform();
     }
-	/*
+
+    /*
 	https://seleniumbycharan.com/2016/08/07/finding-elements-using-locators-in-appium/
 	 */
 
@@ -268,9 +269,9 @@ public class ActionBase extends DriverFactory {
         };
     }
 
-    /**
+    /*****
      https://appiumpro.com/editions/64
-     */
+     *****/
     public void testToast(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -281,6 +282,11 @@ public class ActionBase extends DriverFactory {
 
         raiseToast(toastText);
         wait.until(toastMatches("^Catch.+!", true));
+    }
+
+    public static int randomElementPicker(MobileElement[] elements) {
+        Random r = new Random();
+        return r.nextInt(elements.length);
     }
 
     private static void copyFileUsingStream(File source, File dest) throws IOException {
@@ -303,6 +309,7 @@ public class ActionBase extends DriverFactory {
         }
     }
 
+
     /***EXTENT REPORT****************************************************************/
     public static String returnDateStamp(String fileExtension) {
         Date d = new Date();
@@ -316,7 +323,7 @@ public class ActionBase extends DriverFactory {
 
         screenshotName = returnDateStamp(".jpg");
 
-        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/report/" + screenshotName));
+        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/tc/" + screenshotName));
 
         Reporter.addStepLog("Taking a screenshot!");
         Reporter.addStepLog("<br>");

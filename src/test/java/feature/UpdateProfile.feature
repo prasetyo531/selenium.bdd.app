@@ -101,6 +101,24 @@ Feature: Update Profile
       |   username            |   password      |
       |	  emptypersonal01	  |   test123       |
 
+  #FDBRMA-283
+  @FDBRMA-283
+  Scenario Outline: Update beauty profile and concern on beauty id box
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    When User clicks beautyId button on beauty box on profile
+    Then User will direct to Beauty Profile screen
+
+    Examples:
+      |   username            |   password      |
+      |	  emptypersonal01	  |   test123       |
+
 
   ##### Update Password #####
 

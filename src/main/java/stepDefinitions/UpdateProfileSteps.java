@@ -24,6 +24,7 @@ public class UpdateProfileSteps extends ActionBase {
         verifyAccountScreen.clickSkipBeautyCon();
     }
 
+
     @And("^User clicks profile from homescreen menu$")
     public void user_clicks_profile_from_homescreen_menu() throws Throwable {
 
@@ -128,5 +129,4 @@ public class UpdateProfileSteps extends ActionBase {
 
         profileScreen.getSneakMsgOldPassword(msg);
     }
-
 }

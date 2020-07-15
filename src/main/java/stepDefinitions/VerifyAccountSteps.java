@@ -66,6 +66,12 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.clickSkipPhone();
     }
 
+    @When("^User take picture to complete personal info$")
+    public void user_take_picture_to_complete_personal_info() throws Throwable {
+
+        verifyAccountScreen.clickImg();
+    }
+
     @And("^User fill all mandatory field on personal info screen \"([^\"]*)\"$")
     public void User_fill_all_mandatory_field_on_personal_info_screen_something(String fullname) throws Throwable {
 
@@ -159,5 +165,11 @@ public class VerifyAccountSteps extends DriverFactory {
     public void user_will_see_modal_fullname_only_alphabet() throws Throwable {
 
         verifyAccountScreen.getErrorModalFullname();
+    }
+
+    @Then("^User will see image that has taken appear in thumbnail$")
+    public void user_will_see_image_that_has_taken_appear_in_thumbnail() throws Throwable {
+
+        verifyAccountScreen.captureSS();
     }
 }

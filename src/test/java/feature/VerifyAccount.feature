@@ -10,16 +10,16 @@ Feature: Verify account
   Scenario Outline: Verifiy Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user fill "<phone>" phone and verify on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User fill "<phone>" phone and verify on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   email        |   password    |       phone           |
@@ -30,16 +30,16 @@ Feature: Verify account
   Scenario Outline: Verifiy Inputed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user fill "<phone>" phone and verify on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User fill "<phone>" phone and verify on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   username        |   password    |       phone           |
@@ -50,16 +50,16 @@ Feature: Verify account
   Scenario Outline: Verifiy Changed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user fill "<phone>" phone and verify on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User fill "<phone>" phone and verify on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   username        |   password    |       phone           |
@@ -70,16 +70,16 @@ Feature: Verify account
   Scenario Outline: Verify Registered Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user clicks verify now button on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User clicks verify now button on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   username        |   password    |
@@ -90,16 +90,16 @@ Feature: Verify account
   Scenario Outline: Verify Inputed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user clicks verify now button on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User clicks verify now button on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   username        |   password    |
@@ -110,16 +110,16 @@ Feature: Verify account
   Scenario Outline: Verify Changed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<username>" username on login screen
-    And user enters the "<password>" password on login screen
-    And user clicks login button on login screen
-    When user click complete verify button on modal
-    Then user clicks verify now button on verify email screen
-    And user clicks verify now button on verify phone screen
-    And user fill all mandatory field on personal info screen
-    And user choose beauty profile on beauty profile screen
-    And user choose beauty profile on beauty concern screen
-    Then user will see congratulation modal
+    Then User enters the "<username>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User clicks verify now button on verify email screen
+    And User clicks verify now button on verify phone screen
+    And User fill all mandatory field on personal info screen
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
 
     Examples:
       |   username        |   password    |
@@ -164,6 +164,23 @@ Feature: Verify account
       |	  vnsphl	  |   dora12345     |    081702      |
       |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
 
+  @FDBRMA-253
+  Scenario Outline: Save personal info upload image profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User click skip button on verify email screen
+    And User click skip button on verify phone screen
+    When User take picture to complete personal info
+    Then User will see image that has taken appear in thumbnail
+
+    Examples:
+      |   username    |   password      |
+      |	  uploadimg01	  |   test123     |
 
   @FDBRMA-254
   Scenario Outline: Save personal info input fullname contains special character
