@@ -49,7 +49,7 @@ public class ActionBase extends DriverFactory {
 
     protected boolean isElementPresent(MobileElement mobileElement) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 20);
+            WebDriverWait wait = new WebDriverWait(driver, 50);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             System.out.println("element is present");
             return true;
@@ -61,7 +61,7 @@ public class ActionBase extends DriverFactory {
 
     protected boolean isElementEnabled(MobileElement mobileElement) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, 50);
             wait.until(ExpectedConditions.elementToBeClickable(mobileElement));
             System.out.println("element is present");
             return true;

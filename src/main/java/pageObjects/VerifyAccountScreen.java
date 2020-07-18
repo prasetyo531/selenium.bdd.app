@@ -2,12 +2,15 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class VerifyAccountScreen extends ActionBase {
@@ -73,7 +76,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement skipBtnPersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
-    public MobileElement inputLocationPersonalInfo;
+    public MobileElement searchLocationPersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
     public MobileElement backLocationPersonalInfo;
@@ -308,8 +311,20 @@ public class VerifyAccountScreen extends ActionBase {
 
         tapByElement(fieldlocationPersonalInfo);
 
+        isElementPresent(searchLocationPersonalInfo);
         isElementPresent(ambonCity);
         tapByElement(ambonCity);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen chooseRandomLocation(String provinsi) throws IOException {
+
+        tapByElement(fieldlocationPersonalInfo);
+
+        isElementPresent(searchLocationPersonalInfo);
+        isElementPresent((MobileElement) driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='"+provinsi+"']")));
+
+        tapByElement((MobileElement) driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='"+provinsi+"']")));
         return new VerifyAccountScreen(driver);
     }
 

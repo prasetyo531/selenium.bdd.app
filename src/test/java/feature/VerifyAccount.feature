@@ -179,8 +179,8 @@ Feature: Verify account
     Then User will see image that has taken appear in thumbnail
 
     Examples:
-      |   username    |   password      |
-      |	  uploadimg01	  |   test123     |
+      |   username    |   password      |   location    |
+      |	  uploadimg01	  |   test123     | Batam         |
 
   @FDBRMA-254
   Scenario Outline: Save personal info input fullname contains special character
@@ -214,12 +214,12 @@ Feature: Verify account
     When User click complete verify button on modal
     Then User click skip button on verify email screen
     And User click skip button on verify phone screen
-    And User fill all mandatory field on personal info screen "<fullname>"
+    And User fill all mandatory field on personal info screen "<fullname>" and "<location>"
     And User choose beauty profile on beauty profile screen
     And User choose beauty concern on beauty concern screen
     Then User will see progress bar verify on homescreen
 
     Examples:
-      |   username    |   password      |     fullname      |
-      |	  vnsphl26	  |   test123     |       vnsphldua     |
+      |   username    |   password      |     fullname      |    location    |
+      |	  vnsphl30	  |   test123     |       vnsphldua     |     Bima        |
 

@@ -92,6 +92,26 @@ public class VerifyAccountSteps extends DriverFactory {
         //verifyAccountScreen.verifySneakMsg();
     }
 
+    @And("^User fill all mandatory field on personal info screen \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void user_fill_all_mandatory_field_on_personal_info_screen_something_and_something(String fullname, String location) throws Throwable {
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.inputFieldFullname(fullname);
+        verifyAccountScreen.getErrorFullname();
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.getErrorGender();
+        verifyAccountScreen.chooseGender();
+
+        verifyAccountScreen.clickSavePersonalInfo();
+        verifyAccountScreen.getErrorLocation();
+        verifyAccountScreen.chooseRandomLocation(location);
+
+        verifyAccountScreen.clickSavePersonalInfo();
+
+        //verifyAccountScreen.verifySneakMsg();
+    }
+
     @And("^User choose beauty profile on beauty profile screen$")
     public void user_choose_beauty_profile_on_beauty_profile_screen() throws Throwable {
 
@@ -122,6 +142,7 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseHijaber();
 
         verifyAccountScreen.clickSaveBeautyProf();
+        Thread.sleep(500);
 
         //verifyAccountScreen.verifySneakMsg();
     }
@@ -144,6 +165,7 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseHairCon();
 
         verifyAccountScreen.clickSaveBeautyCon();
+        Thread.sleep(500);
 
         //verifyAccountScreen.verifySneakMsg();
     }

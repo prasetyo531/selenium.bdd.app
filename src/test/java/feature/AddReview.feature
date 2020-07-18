@@ -10,17 +10,65 @@ Feature: User Add Review
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then user will see modal account status on homescreen
+    Then User will see modal account status on homescreen
 
-#  @Android @AddReview @Production @Smoke @RealAccount @RealDevices @IntegrationTest
+  #FDBRMA-23
+  @Android @AddReview @Regression @IntegrationTest @WIP
+  Scenario: Add Review by select Category
+    Given User clicks menu category from homescreen menu
+    When User clicks one of category to find product
+    And User will clicks one of product on product category screen
+    When User clicks add review button on product detail screen
+    Then User choose overall rating
+    And User choose usage periode product
+    And User choose purchase point product
+    And User choose would recommend this product
+    And User fill in add review box that should contain than 200 char
+    And User clicks submit review button
+    Then User will see congrats screen and direct to review detail from feed
+
+  #FDBRMA-24
+  @Android @AddReview @Regression @IntegrationTest
   Scenario: Add Review by select Popular Product
     Given User clicks add review from homescreen menu
-    When User click one of popular product to review
+    When User clicks one of popular product to review
     Then User choose overall rating
-    And user choose usage periode product
-    And user choose purchase point product
-    And user choose would recommend this product
-    And user fill in add review box that should contain than 200 char
-    And user click submit review button
-    Then user will see congrats screen and direct to review detail from feed
+    And User choose usage periode product
+    And User choose purchase point product
+    And User choose would recommend this product
+    And User fill in add review box that should contain than 200 char
+    And User clicks submit review button
+    Then User will see congrats screen and direct to review detail from feed
+
+  #FDBRMA-25
+  @Android @AddReview @Regression @IntegrationTest @WIP
+  Scenario: Add Review Edit Previous Step
+    Given User clicks add review from homescreen menu
+    When User clicks one of popular product to review
+    Then User choose overall rating
+    And User choose usage periode product
+    And User choose purchase point product
+    And User choose would recommend this product
+    And User fill in add review box that should contain than 200 char
+    When User clicks previous screen
+    Then User edit choose overall rating
+    And User edit choose usage periode product
+    And User edit choose purchase point product
+    And User edit choose would recommend this product
+    And User edit fill in add review box that should contain than 200 char
+
+  #FDBRMA-219
+  @Android @AddReview @Regression @IntegrationTest
+  Scenario: Add Review input new purchase point
+    Given User clicks add review from homescreen menu
+    When User clicks one of popular product to review
+    Then User choose overall rating
+    And User choose usage periode product
+    And User choose new purchase point product
+    And User choose would recommend this product
+    And User fill in add review box that should contain than 200 char
+    And User clicks submit review button
+    Then User will see congrats screen and direct to review detail from feed
+
+
 

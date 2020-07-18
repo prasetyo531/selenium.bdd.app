@@ -13,4 +13,4 @@ Feature: User Add Product
     Then User will see modal account status on homescreen
 
   @Android @AddProduct @Smoke @RealAccount @RealDevices @IntegrationTest
-  Scenario: Add post image only camera - Add post without tag product
+  Scenario: Add prouduct
