@@ -278,10 +278,10 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen captureSS() throws IOException, InterruptedException {
+    public VerifyAccountScreen captureSS(String nama) throws IOException, InterruptedException {
 
         isElementPresent(fieldFullnamePersonalInfo);
-        captureScreenshot();
+        captureScreenshot(nama);
         return new VerifyAccountScreen(driver);
     }
 
@@ -576,6 +576,20 @@ public class VerifyAccountScreen extends ActionBase {
         System.out.println("title screen"+" "+title);
         Assert.assertEquals(title, "Beauty Concern");
 
+        return new VerifyAccountScreen(driver);
+    }
+
+    /* compare image */
+    public VerifyAccountScreen checkPercentage(String namafile1, String namafile2) throws IOException, InterruptedException {
+
+        compareImgIfUploaded(namafile1, namafile2);
+        Thread.sleep(300);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen deleteImageStored(String namafile1, String namafile2) throws IOException {
+
+        deleteFile(namafile1, namafile2);
         return new VerifyAccountScreen(driver);
     }
 }

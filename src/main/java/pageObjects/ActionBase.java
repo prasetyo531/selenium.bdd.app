@@ -19,7 +19,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DriverFactory;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.file.*;
 import java.time.Duration;
 import java.util.*;
 import java.util.NoSuchElementException;
@@ -310,7 +314,9 @@ public class ActionBase extends DriverFactory {
     }
 
 
-    /***EXTENT REPORT****************************************************************/
+    /*****************************************************************
+     EXTENT REPORT
+     *****************************************************************/
     public static String returnDateStamp(String fileExtension) {
         Date d = new Date();
         String date = d.toString().replace(":", "_").replace(" ", "_") + fileExtension;
@@ -322,6 +328,18 @@ public class ActionBase extends DriverFactory {
         File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
         screenshotName = returnDateStamp(".jpg");
+
+        FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/tc/" + screenshotName));
+
+        Reporter.addStepLog("Taking a screenshot!");
+        Reporter.addStepLog("<br>");
+        Reporter.addStepLog("<a target=\"_blank\", href="+ returnScreenshotName() + "><img src="+ returnScreenshotName()+ " height=200 width=300></img></a>");
+    }
+
+    public static void captureScreenshot(String name) throws IOException, InterruptedException {
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+        screenshotName = (name+".jpg");
 
         FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/output/tc/" + screenshotName));
 
@@ -344,6 +362,83 @@ public class ActionBase extends DriverFactory {
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
     }
 
+    /*****************************************************************
+     Compare Images
+     *****************************************************************/
+    public void compareImgIfUploaded(String nama1, String nama2){
+
+        BufferedImage imgA = null;
+        BufferedImage imgB = null;
+
+        try
+        {
+            File fileA = new File(System.getProperty("user.dir") + "/output/tc/"+nama1+".jpg");
+            File fileB = new File(System.getProperty("user.dir") + "/output/tc/"+nama2+".jpg");
+
+            imgA = ImageIO.read(fileA);
+            imgB = ImageIO.read(fileB);
+        }
+        catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        int width1 = imgA.getWidth();
+        int width2 = imgB.getWidth();
+        int height1 = imgA.getHeight();
+        int height2 = imgB.getHeight();
+
+        if ((width1 != width2) || (height1 != height2))
+            System.out.println("Error: Images dimensions"+
+                    " mismatch");
+        else
+        {
+            long difference = 0;
+            for (int y = 0; y < height1; y++)
+            {
+                for (int x = 0; x < width1; x++)
+                {
+                    int rgbA = imgA.getRGB(x, y);
+                    int rgbB = imgB.getRGB(x, y);
+                    int redA = (rgbA >> 16) & 0xff;
+                    int greenA = (rgbA >> 8) & 0xff;
+                    int blueA = (rgbA) & 0xff;
+                    int redB = (rgbB >> 16) & 0xff;
+                    int greenB = (rgbB >> 8) & 0xff;
+                    int blueB = (rgbB) & 0xff;
+                    difference += Math.abs(redA - redB);
+                    difference += Math.abs(greenA - greenB);
+                    difference += Math.abs(blueA - blueB);
+                }
+            }
+            double total_pixels = width1 * height1 * 3;
+            double avg_different_pixels = difference / total_pixels;
+            double percentage = (avg_different_pixels / 255) * 100;
+            System.out.println("Difference Percentage-->" +
+                    percentage);
+            if(percentage>=2.0){
+                Assert.fail("exceed standart Percentage");
+            }
+        }
+    }
+
+    public static void deleteFile(String nama1, String nama2) {
+        try {
+            Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "/output/tc/"+nama1+".jpg"));
+            Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "/output/tc/"+nama2+".jpg"));
+        }
+        catch(NoSuchFileException e) {
+            System.out.println("No such file/directory exists");
+        }
+        catch(DirectoryNotEmptyException e) {
+            System.out.println("Directory is not empty.");
+        }
+        catch(IOException e) {
+            System.out.println("Invalid permissions.");
+        }
+
+        System.out.println("Deletion successful.");
+    }
+
     public static void sendMessageToTelegram(String scenario,String status) throws IOException {
 
         String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";
@@ -364,5 +459,4 @@ public class ActionBase extends DriverFactory {
         Response response = httpRequest.post("/sendMessage");
         response.getBody().prettyPrint();
     }
-
 }

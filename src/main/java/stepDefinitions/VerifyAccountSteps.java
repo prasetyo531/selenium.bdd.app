@@ -69,6 +69,8 @@ public class VerifyAccountSteps extends DriverFactory {
     @When("^User take picture to complete personal info$")
     public void user_take_picture_to_complete_personal_info() throws Throwable {
 
+        //capture not allowed to change
+        verifyAccountScreen.captureSS("before-upload-photo-profile");
         verifyAccountScreen.clickImg();
     }
 
@@ -192,6 +194,10 @@ public class VerifyAccountSteps extends DriverFactory {
     @Then("^User will see image that has taken appear in thumbnail$")
     public void user_will_see_image_that_has_taken_appear_in_thumbnail() throws Throwable {
 
-        verifyAccountScreen.captureSS();
+        //capture not allowed to change
+        verifyAccountScreen.captureSS("after-upload-photo-profile");
+
+        verifyAccountScreen.checkPercentage("before-upload-photo-profile","after-upload-photo-profile");
+        verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
     }
 }

@@ -179,8 +179,8 @@ Feature: Verify account
     Then User will see image that has taken appear in thumbnail
 
     Examples:
-      |   username    |   password      |   location    |
-      |	  uploadimg01	  |   test123     | Batam         |
+      |   username    |   password      |
+      |	  vnsphl31	  |   test123     |
 
   @FDBRMA-254
   Scenario Outline: Save personal info input fullname contains special character
