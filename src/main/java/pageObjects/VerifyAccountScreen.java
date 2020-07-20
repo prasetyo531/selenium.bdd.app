@@ -15,37 +15,37 @@ import java.util.List;
 
 public class VerifyAccountScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonChangeEmail")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangeEmail")
     public MobileElement changeAuth;
 
     @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
     public MobileElement txtWarningEmailPhone;
 
     /***  email screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputEmail")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputEmail")
     public MobileElement fieldVerifyEmail;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonVerifyEmail")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyEmail")
     public MobileElement verifyNowEmailBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipVerifyEmail")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyEmail")
     public MobileElement skipEmailBtn;
 
     /***  phone screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputPhone")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPhone")
     public MobileElement fieldVerifyPhone;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonVerifyPhone")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyPhone")
     public MobileElement verifyNowPhoneBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipVerifyPhone")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyPhone")
     public MobileElement skipPhoneBtn;
 
     /***  personal info screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/imgProfilePicture")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/imgProfilePicture")
     public MobileElement imgPersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputFullName")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputFullName")
     public MobileElement fieldFullnamePersonalInfo;
 
     @AndroidFindBy(id="android:id/content")
@@ -60,19 +60,19 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement okModalErrorFullname;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/rbFemale")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/rbFemale")
     public MobileElement rbFemalePersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/rbMale")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/rbMale")
     public MobileElement rbMalePersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/inputLocation")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputLocation")
     public MobileElement fieldlocationPersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSavePersonalInfo")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSavePersonalInfo")
     public MobileElement saveBtnPersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipPersonalInfo")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipPersonalInfo")
     public MobileElement skipBtnPersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
@@ -84,7 +84,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
     public MobileElement errorMsgFullname;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorGender")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorGender")
     public MobileElement errorMsgGender;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textinput_error') and @text='Please enter your location']")
@@ -94,77 +94,77 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement ambonCity;
 
     /***  beauty profile screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/scrollBeautyProfile")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyProfile")
     public MobileElement contentBeautyProf;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
     public MobileElement skinTypeCombination;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinType")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinType")
     public MobileElement errorMsgSkinType;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
     public MobileElement skinToneDark;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinTone")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinTone")
     public MobileElement errorMsgSkinTone;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement skinUnderToneWarm;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinUnderTone")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinUnderTone")
     public MobileElement errorMsgSkinUndertone;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement hairTypeCurly;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHairType")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
     public MobileElement errorMsgHairType;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement coloredHairNo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorColoredHair")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorColoredHair")
     public MobileElement errorMsgColoredHair;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement isHijaberNo;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHijab")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHijab")
     public MobileElement errorMsgHijaber;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSaveBeautyProfile")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSaveBeautyProfile")
     public MobileElement buttonSaveBeautyProfile;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipBeautyProfile")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyProfile")
     public MobileElement skipBeautyProfile;
 
     /***  beauty concern screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/scrollBeautyConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyConcern")
     public MobileElement contentScreenBodyCon;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Black or White Heads']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Black or White Heads']")
     public MobileElement blackOrWhite;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorSkinConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinConcern")
     public MobileElement errorSkinCon;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Loose Skin']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Loose Skin']")
     public MobileElement looseSkin;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorBodyConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorBodyConcern")
     public MobileElement errorBodyCon;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beautyprofile:id/textView') and @text='Grey Hair']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Grey Hair']")
     public MobileElement greyHair;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/textErrorHairConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairConcern")
     public MobileElement errorHairCon;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSaveBeautyConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSaveBeautyConcern")
     public MobileElement btnSaveBeautyConcern;
 
-    @AndroidFindBy(id="com.fdbr.android.beautyprofile:id/buttonSkipBeautyConcern")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyConcern")
     public MobileElement btnSkipBeautyConcern;
 
     //error msg verify email and phone
@@ -180,22 +180,16 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement titleScreen;
 
     //take picture
-    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_button")
-    public MobileElement permissionAllow;
-
-    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_deny_button")
-    public MobileElement permissionDeny;
-
-    @AndroidFindBy(id="com.fdbr.android:id/buttonCapture")
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement capturePhoto;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonGallery")
     public MobileElement gallery;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonDoneToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRightCustom")
     public MobileElement done;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonRetakeToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakePicture;
 
 
@@ -264,17 +258,8 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickImg() throws IOException, InterruptedException {
 
         tapByElement(imgPersonalInfo);
-        boolean permission =  isElementPresent(permissionAllow);
-        if(permission==true){
-            tapByElement(permissionAllow);
-            Thread.sleep(500);
-            tapByElement(permissionAllow);
-            tapByElement(capturePhoto);
-            tapByElement(done);
-        } else {
-            tapByElement(capturePhoto);
-            tapByElement(done);
-        }
+        tapByElement(capturePhoto);
+        tapByElement(done);
         return new VerifyAccountScreen(driver);
     }
 
@@ -520,8 +505,8 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen chooseBodyCon() throws IOException {
 
-       isElementPresent(looseSkin);
-       tapByElement(looseSkin);
+        isElementPresent(looseSkin);
+        tapByElement(looseSkin);
         return new VerifyAccountScreen(driver);
     }
 
@@ -552,9 +537,9 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen verifySneakMsg() throws IOException {
 
-       isElementPresent(snackbarMsg);
-       String sm = snackbarMsg.getText();
-       System.out.println(sm);
+        isElementPresent(snackbarMsg);
+        String sm = snackbarMsg.getText();
+        System.out.println(sm);
         return new VerifyAccountScreen(driver);
     }
 

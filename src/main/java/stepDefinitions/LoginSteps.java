@@ -60,7 +60,8 @@ public class LoginSteps extends DriverFactory {
     public void User_clicks__login_button_on_login_screen() throws Throwable {
 
         loginScreen.clickLogin();
-        homeScreen.acceptAlertIos();
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
     }
 
     @When("^user input correct otp from phone on otp screen from android to login$")

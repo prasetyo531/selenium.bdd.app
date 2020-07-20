@@ -131,12 +131,12 @@ public class ActionBase extends DriverFactory {
      **********************************************************************************/
     protected void acceptAlert() throws IOException {
         System.out.println("wait to dismiss dialog");
-        WebDriverWait wait = new WebDriverWait(driver, 3);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         try {
             wait.until(ExpectedConditions.alertIsPresent());
             driver.switchTo().alert().accept();
         } catch (Exception e) {
-            System.err.println("   no alert visible after "+ 3 +" sec.");
+            System.err.println("no alert visible");
         }
     }
 
@@ -415,8 +415,8 @@ public class ActionBase extends DriverFactory {
             double percentage = (avg_different_pixels / 255) * 100;
             System.out.println("Difference Percentage-->" +
                     percentage);
-            if(percentage>=2.0){
-                Assert.fail("exceed standart Percentage");
+            if(percentage<=1.0){
+                Assert.fail("Below Standart Percentage");
             }
         }
     }
@@ -439,6 +439,9 @@ public class ActionBase extends DriverFactory {
         System.out.println("Deletion successful.");
     }
 
+    /*****************************************************************
+     Send msg to telegram
+     *****************************************************************/
     public static void sendMessageToTelegram(String scenario,String status) throws IOException {
 
         String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";

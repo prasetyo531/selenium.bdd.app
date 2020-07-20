@@ -198,6 +198,6 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.captureSS("after-upload-photo-profile");
 
         verifyAccountScreen.checkPercentage("before-upload-photo-profile","after-upload-photo-profile");
-        verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
+        //verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
     }
 }

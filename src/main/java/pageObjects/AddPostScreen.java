@@ -11,12 +11,6 @@ import java.io.IOException;
 
 public class AddPostScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.android.packageinstaller:id/permission_allow_button")
-    public MobileElement permissionAllow;
-
-    @AndroidFindBy(id="com.android.packageinstaller:id/permission_deny_button")
-    public MobileElement permissionDeny;
-
     @AndroidFindBy(id="com.fdbr.android:id/buttonCapture")
     public MobileElement captureBtn;
 
@@ -71,12 +65,6 @@ public class AddPostScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public AddPostScreen allowPermission() throws IOException {
-
-        tapByElement(permissionAllow);
-        return new AddPostScreen(driver);
-    }
-
     public AddPostScreen clickPhotoBtn() throws IOException {
 
         tapByElement(captureBtn);
@@ -91,8 +79,6 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen capturePhoto() throws IOException {
 
-        allowPermission();
-        allowPermission();
         clickPhotoBtn();
         clickDone();
         return new AddPostScreen(driver);

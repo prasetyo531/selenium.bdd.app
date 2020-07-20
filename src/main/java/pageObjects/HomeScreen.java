@@ -23,7 +23,7 @@ public class HomeScreen extends ActionBase {
     /***********
      account status
      ***********/
-    @AndroidFindBy(id="com.fdbr.android:id/btnAction")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
 
@@ -34,6 +34,12 @@ public class HomeScreen extends ActionBase {
     /************
      home screen
      ************/
+    @AndroidFindBy(id="com.android.packageinstaller:id/permission_allow_button")
+    public MobileElement permissionAllow;
+
+    @AndroidFindBy(id="com.android.packageinstaller:id/permission_deny_button")
+    public MobileElement permissionDeny;
+
     @AndroidFindBy(id="com.fdbr.android:id/labelHello")
     @iOSXCUITFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
@@ -158,6 +164,12 @@ public class HomeScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    public HomeScreen allowPermission() throws IOException {
+
+        tapByElement(permissionAllow);
+        return new HomeScreen(driver);
+    }
+
     /*
     public void verifyAccountStatusModal(){
         try {
@@ -272,6 +284,7 @@ public class HomeScreen extends ActionBase {
 
     public void clickAccountCompleteVerBtn(){
 
+        isElementPresent(accountCompleteVerBtn);
         tapByElement(accountCompleteVerBtn);
     }
 
@@ -333,7 +346,7 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
-    public HomeScreen acceptAlertIos() throws IOException {
+    public HomeScreen acceptAlertPermission() throws IOException {
 
         acceptAlert();
         return new HomeScreen(driver);
