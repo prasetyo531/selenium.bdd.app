@@ -22,6 +22,8 @@ public class DriverFactory {
     public static CompleteAccountScreen completeAccountScreen;
     public static OtpScreen otpScreen;
     public static HomeScreen homeScreen;
+    public static ProductCategoryScreen productCategoryScreen;
+    public static ProductListScreen productListScreen;
     public static VerifyAccountScreen verifyAccountScreen;
     public static AddReviewScreen addReviewScreen;
     public static AddPostScreen addPostScreen;
@@ -58,6 +60,8 @@ public class DriverFactory {
             completeAccountScreen = new CompleteAccountScreen(driver);
             otpScreen = new OtpScreen(driver);
             homeScreen = new HomeScreen(driver);
+            productCategoryScreen = new ProductCategoryScreen(driver);
+            productListScreen = new ProductListScreen(driver);
             verifyAccountScreen = new VerifyAccountScreen(driver);
             addReviewScreen = new AddReviewScreen(driver);
             addPostScreen = new AddPostScreen(driver);

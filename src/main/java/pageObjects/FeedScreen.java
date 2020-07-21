@@ -11,13 +11,13 @@ import java.io.IOException;
 
 public class FeedScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android:id/textTitleToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement feedTitleToolbar;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textReview")
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelText")
     public MobileElement descReviewDetail;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_back")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement back;
 
     // This is a constructor, as every page need a base driver to find android elements

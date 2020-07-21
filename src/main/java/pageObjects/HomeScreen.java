@@ -27,7 +27,7 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/btnClose")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonClose")
     @iOSXCUITFindBy(id="icon close")
     public MobileElement closeAccountStatusModal;
 
@@ -40,7 +40,7 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.android.packageinstaller:id/permission_deny_button")
     public MobileElement permissionDeny;
 
-    @AndroidFindBy(id="com.fdbr.android:id/labelHello")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     @iOSXCUITFindBy(id="Hello Beautiful")
     public MobileElement greetingText;
 
@@ -52,17 +52,23 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="ic notification")
     public MobileElement notifBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     @iOSXCUITFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelMenuName') and @text='Product Category']")
+    public MobileElement productCategoryMenu;
+
+    /************
+     plus button
+     ************/
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddReview")
     public MobileElement addReview;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_addpost")
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddPost")
     public MobileElement addPost;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_addproduct")
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddProduct")
     public MobileElement addProduct;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/buttonCancel') and @text='Cancel']")
@@ -72,25 +78,25 @@ public class HomeScreen extends ActionBase {
     /**********
      product matches
      **********/
-    @AndroidFindBy(id="com.fdbr.android:id/buttonComplete")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonComplete")
     public MobileElement btnCompleteBeautyID;
 
     @AndroidFindBy(xpath ="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[4]")
     public MobileElement firstindextproductmatches;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type, Skin Undertone']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.main:id/textMatch') and @text='Match: Skin Type, Skin Undertone']")
     public MobileElement productMatchesSkinTypeAndSkinUndertone;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type, Skin Tone']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.main:id/textMatch') and @text='Match: Skin Type, Skin Tone']")
     public MobileElement productMatchesSkinTypeAndSkinTone;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Tone']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.main:id/textMatch') and @text='Match: Skin Tone']")
     public MobileElement productMatchesSkinTone;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Skin Type']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.main:id/textMatch') and @text='Match: Skin Type']")
     public MobileElement productMatchesSkinType;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/textMatch') and @text='Match: Hair Type']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.main:id/textMatch') and @text='Match: Hair Type']")
     public MobileElement productMatchesHairType;
 
     /*****
@@ -108,52 +114,52 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Products\"]")
     public MobileElement productsTab;
 
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imageUser') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imageUser') and @index='0']")
     public MobileElement firstResultUsersTab;
 
     /**********
      tab bar
      **********/
-    @AndroidFindBy(id="com.fdbr.android:id/homeFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/homeFragment")
     public MobileElement homeTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/feedFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/feedFragment")
     public MobileElement feedTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/discoverFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/discoverFragment")
     public MobileElement discoverTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/extra")
+    @AndroidFindBy(id="com.fdbr.android.main:id/plus")
     public MobileElement plusTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/profileFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/profileFragment")
     public MobileElement profileTab;
 
     /**********
      plus box
      ***********/
-    @AndroidFindBy(id="com.fdbr.android:id/id_addreview")
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddReview")
     public MobileElement addReviewMenu;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_addpost")
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddPost")
     public MobileElement addPostMenu;
 
-    @AndroidFindBy(id="com.fdbr.android:id/id_addproduct")
+    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddProduct")
     public MobileElement addProductMenu;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonCancel")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonCancel")
     public MobileElement cancelMenu;
 
     /**********
      verify user component
      ***********/
-    @AndroidFindBy(id="com.fdbr.android:id/seekBarStatusUser")
+    @AndroidFindBy(id="com.fdbr.android.main:id/seekBarStatusUser")
     public MobileElement progressBar;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textNeedVerify")
+    @AndroidFindBy(id="com.fdbr.android.main:id/textNeedVerify")
     public MobileElement textNeedVerify;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonVerifyUser")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonVerifyUser")
     public MobileElement btnNeedVerify;
 
     // This is a constructor, as every page need a base driver to find android elements

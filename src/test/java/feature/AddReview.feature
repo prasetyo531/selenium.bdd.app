@@ -40,8 +40,7 @@ Feature: User Add Review
     And User clicks submit review button
     Then User will see congrats screen and direct to review detail from feed
 
-  #FDBRMA-25
-  @Android @AddReview @Regression @IntegrationTest @WIP
+  @FDBRMA-25
   Scenario: Add Review Edit Previous Step
     Given User clicks add review from homescreen menu
     When User clicks one of popular product to review
@@ -50,25 +49,30 @@ Feature: User Add Review
     And User choose purchase point product
     And User choose would recommend this product
     And User fill in add review box that should contain than 200 char
-    When User clicks previous screen
+    When User clicks previous screen until rating screen
     Then User edit choose overall rating
     And User edit choose usage periode product
     And User edit choose purchase point product
     And User edit choose would recommend this product
-    And User edit fill in add review box that should contain than 200 char
+    And User edit review box that should contain than 200 char
+    And User clicks submit review button
+    Then User will see congrats screen and review detail inputed last condition
 
-  #FDBRMA-219
-  @Android @AddReview @Regression @IntegrationTest
-  Scenario: Add Review input new purchase point
+  @FDBRMA-219
+  Scenario Outline: Add Review input new purchase point
     Given User clicks add review from homescreen menu
     When User clicks one of popular product to review
     Then User choose overall rating
     And User choose usage periode product
-    And User choose new purchase point product
+    And User choose new purchase point product "<source>"
     And User choose would recommend this product
     And User fill in add review box that should contain than 200 char
     And User clicks submit review button
     Then User will see congrats screen and direct to review detail from feed
+
+    Examples:
+      | source            |
+      | addreviewfreetext |
 
 
 

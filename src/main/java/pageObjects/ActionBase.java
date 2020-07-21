@@ -5,7 +5,10 @@ import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import io.appium.java_client.*;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -90,13 +93,14 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public void inputValue(MobileElement mobileElement, String value, MobileElement keyboard) {
+    public void inputValueEnter(MobileElement mobileElement, String value) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             mobileElement.clear();
-            mobileElement.setValue(value);
-            keyboard.click();
+            mobileElement.setValue(value+"\n");
+            ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+            driver.hideKeyboard();
             System.out.println("element is present");
         } catch (NoSuchElementException e) {
             System.out.println("element is not present");
@@ -363,7 +367,7 @@ public class ActionBase extends DriverFactory {
     }
 
     /*****************************************************************
-     Compare Images
+     Compare Images / Visual Test
      *****************************************************************/
     public void compareImgIfUploaded(String nama1, String nama2){
 
