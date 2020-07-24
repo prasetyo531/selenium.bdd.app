@@ -29,6 +29,12 @@ public class AddReviewScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
     public MobileElement firstPopularProduct;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
+    public MobileElement secondPopularProduct;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='2']")
+    public MobileElement thirdPopularProduct;
+
     @AndroidFindBy(id="Navigate up")
     public MobileElement back;
 
@@ -145,6 +151,23 @@ public class AddReviewScreen extends ActionBase {
 
         return new AddReviewScreen(driver);
     }
+
+    public AddReviewScreen chooseSecondPopularProduct() throws IOException {
+
+        isElementPresent(secondPopularProduct);
+        tapByElement(secondPopularProduct);
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen chooseThirdPopularProduct() throws IOException {
+
+        isElementPresent(thirdPopularProduct);
+        tapByElement(thirdPopularProduct);
+
+        return new AddReviewScreen(driver);
+    }
+
 
     /* add review screen */
     public AddReviewScreen clickNextScreen() throws IOException {

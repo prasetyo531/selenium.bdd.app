@@ -30,4 +30,10 @@ public class ProductListScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
+    public ProductListScreen clickFirstProduct() throws IOException {
+
+        tapByElement(firstProduct);
+        return new ProductListScreen(driver);
+    }
+
 }

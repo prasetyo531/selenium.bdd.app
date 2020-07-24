@@ -12,8 +12,7 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
-  #FDBRMA-23
-  @Android @AddReview @Regression @IntegrationTest @WIP
+  @FDBRMA-23
   Scenario: Add Review by select Category
     Given User clicks menu category from homescreen menu
     When User clicks one of category to find product
@@ -27,8 +26,7 @@ Feature: User Add Review
     And User clicks submit review button
     Then User will see congrats screen and direct to review detail from feed
 
-  #FDBRMA-24
-  @Android @AddReview @Regression @IntegrationTest
+  @FDBRMA-24
   Scenario: Add Review by select Popular Product
     Given User clicks add review from homescreen menu
     When User clicks one of popular product to review
@@ -43,7 +41,7 @@ Feature: User Add Review
   @FDBRMA-25
   Scenario: Add Review Edit Previous Step
     Given User clicks add review from homescreen menu
-    When User clicks one of popular product to review
+    When User clicks second of popular product to review
     Then User choose overall rating
     And User choose usage periode product
     And User choose purchase point product
@@ -61,7 +59,7 @@ Feature: User Add Review
   @FDBRMA-219
   Scenario Outline: Add Review input new purchase point
     Given User clicks add review from homescreen menu
-    When User clicks one of popular product to review
+    When User clicks any popular product to review
     Then User choose overall rating
     And User choose usage periode product
     And User choose new purchase point product "<source>"

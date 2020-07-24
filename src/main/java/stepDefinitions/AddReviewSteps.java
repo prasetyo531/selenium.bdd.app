@@ -12,13 +12,14 @@ public class AddReviewSteps extends DriverFactory {
     @Given("^User clicks menu category from homescreen menu$")
     public void user_clicks_menu_category_from_homescreen_menu() throws Throwable {
 
-        throw new PendingException();
+        homeScreen.findAndCloseFloatingImg();
+        homeScreen.clickProductCategory();
     }
 
     @When("^User clicks one of category to find product$")
     public void user_clicks_one_of_category_to_find_product() throws Throwable {
 
-        throw new PendingException();
+        productCategoryScreen.clickRandomMenuProductCat();
     }
 
     @Given("^User clicks add review from homescreen menu$")
@@ -31,6 +32,30 @@ public class AddReviewSteps extends DriverFactory {
     public void User_clicks_one_of_popular_product_to_review() throws Throwable {
 
         addReviewScreen.chooseFirstPopularProduct();
+    }
+
+    @When("^User clicks second of popular product to review$")
+    public void User_clicks_second_of_popular_product_to_review() throws Throwable {
+
+        addReviewScreen.chooseSecondPopularProduct();
+    }
+
+    @When("^User clicks any popular product to review$")
+    public void User_clicks_any_popular_product_to_review() throws Throwable {
+
+        addReviewScreen.chooseThirdPopularProduct();
+    }
+
+    @And("^User will clicks one of product on product category screen$")
+    public void user_will_clicks_one_of_product_on_product_category_screen() throws Throwable {
+
+        productListScreen.clickFirstProduct();
+    }
+
+    @When("^User clicks add review button on product detail screen$")
+    public void user_clicks_add_review_button_on_product_detail_screen() throws Throwable {
+
+        productDetailScreen.clickAddReviewBtn();
     }
 
     /*** add review screen ***/
@@ -128,7 +153,7 @@ public class AddReviewSteps extends DriverFactory {
     public void user_will_see_congrats_screen_and_review_detail_inputed_last_condition() throws Throwable {
 
         //checking last edited
-        //addReviewScreen.clickSeeEditMyReview();
+        addReviewScreen.clickSeeMyReview();
         addReviewScreen.compareFieldReview();
     }
 

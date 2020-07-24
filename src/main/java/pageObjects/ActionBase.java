@@ -6,12 +6,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.functions.ExpectedCondition;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -25,7 +22,6 @@ import utils.DriverFactory;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.time.Duration;
 import java.util.*;
@@ -277,9 +273,61 @@ public class ActionBase extends DriverFactory {
         };
     }
 
-    /*****
+    /**********************************************
+     *** Tap Random Element ***
+     **********************************************/
+    //xpath fullpath https://stackoverflow.com/questions/39036751/how-to-randomly-click-an-element-in-the-list-androidusing-seleniumappium
+    public static void clickRandomMenu(List<MobileElement> mobileElements){
+        try {
+            List<MobileElement> li = mobileElements;
+            System.out.println("there are "+" "+li.size()+""+"element");
+
+            ArrayList<MobileElement> arrayProductCat = new ArrayList<MobileElement>();
+            arrayProductCat.add(li.get(0));
+            arrayProductCat.add(li.get(1));
+            arrayProductCat.add(li.get(2));
+            arrayProductCat.add(li.get(3));
+            arrayProductCat.add(li.get(4));
+            arrayProductCat.add(li.get(5));
+            arrayProductCat.add(li.get(6));
+
+            Random rand = new Random();
+            int index = rand.nextInt(arrayProductCat.size()-1); // -1 because index will start from 0
+            arrayProductCat.get(index).click();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void clickRandomMenus(List<MobileElement> mobileElements){
+        try {
+            List<MobileElement> li = mobileElements;
+            int i = 0;
+            System.out.println("there are "+" "+li.size()+""+"element");
+
+            ArrayList<MobileElement> arrayProductCat = new ArrayList<MobileElement>();
+
+            while(i!=li.size()) {
+                arrayProductCat.add(li.get(i));
+                i++;
+            }
+            Random rand = new Random();
+            int index = rand.nextInt(arrayProductCat.size()-1); // -1 because index will start from 0
+            arrayProductCat.get(index).click();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //xpath smart search
+    public static int randomElementPicker(MobileElement[] elements) {
+        Random r = new Random();
+        return r.nextInt(elements.length);
+    }
+
+    /**********************************************
      https://appiumpro.com/editions/64
-     *****/
+     **********************************************/
     public void testToast(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -290,11 +338,6 @@ public class ActionBase extends DriverFactory {
 
         raiseToast(toastText);
         wait.until(toastMatches("^Catch.+!", true));
-    }
-
-    public static int randomElementPicker(MobileElement[] elements) {
-        Random r = new Random();
-        return r.nextInt(elements.length);
     }
 
     private static void copyFileUsingStream(File source, File dest) throws IOException {
@@ -327,7 +370,7 @@ public class ActionBase extends DriverFactory {
         return date;
     }
 
-    /*   not using on purspose since ss task by extent manager    */
+    /*   not using on purpose since ss task by extent manager    */
     public static void captureScreenshot() throws IOException, InterruptedException {
         File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 

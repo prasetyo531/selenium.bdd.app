@@ -56,8 +56,15 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelMenuName') and @text='Product Category']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
     public MobileElement productCategoryMenu;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/imageXb")
+    public MobileElement floatingImg;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/fabClose")
+    public MobileElement closeFloatingImg;
+
 
     /************
      plus button
@@ -238,7 +245,7 @@ public class HomeScreen extends ActionBase {
     }
      */
 
-    public void verifyAccountStatusModalIos() {
+    public HomeScreen verifyAccountStatusModalIos() throws IOException {
 
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
@@ -249,6 +256,7 @@ public class HomeScreen extends ActionBase {
             System.out.println("account status modal is not present");
             verifyHomescreen();
         }
+        return new HomeScreen(driver);
     }
 
     public Boolean checkProgressBarVerifyEmailPhone(){
@@ -275,23 +283,40 @@ public class HomeScreen extends ActionBase {
         return (e1 && e2 && e3);
     }
 
-    public void completeMyBeautyIdProductMatches() {
+    public HomeScreen findAndCloseFloatingImg() throws IOException {
+
+        isElementPresent(floatingImg);
+        tapByElement(closeFloatingImg);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen completeMyBeautyIdProductMatches() throws IOException {
 
         isElementPresent(btnCompleteBeautyID);
         tapByElement(btnCompleteBeautyID);
-        System.out.println("product matches is present");
+        System.out.println("complete my beautyId is present");
+        return new HomeScreen(driver);
     }
 
-    public void verifyProductMatches() {
+    public HomeScreen clickProductCategory() throws IOException {
+
+        isElementPresent(productCategoryMenu);
+        tapByElement(productCategoryMenu);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen verifyProductMatches() throws IOException {
 
         isElementPresent(firstindextproductmatches);
         System.out.println("product matches is present");
+        return new HomeScreen(driver);
     }
 
-    public void clickAccountCompleteVerBtn(){
+    public HomeScreen clickAccountCompleteVerBtn() throws IOException {
 
         isElementPresent(accountCompleteVerBtn);
         tapByElement(accountCompleteVerBtn);
+        return new HomeScreen(driver);
     }
 
     public HomeScreen clickAddReviewHomeMenu() throws IOException {
