@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.io.IOException;
 
@@ -31,11 +32,21 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonReview")
     public MobileElement addReviewBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.product:id/labelReview")
+    public MobileElement labelReviewBtn;
+
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonWishlist")
     public MobileElement wishlistBtn;
 
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonSeeMoreReview")
     public MobileElement seeMoreReviewBtn;
+
+    /* review detail */
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelText")
+    public MobileElement descReviewDetail;
+
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    public MobileElement back;
 
     public ProductDetailScreen(AppiumDriver driver) throws IOException {
 
@@ -57,6 +68,7 @@ public class ProductDetailScreen extends ActionBase {
     public ProductDetailScreen clickAddReviewBtn() throws IOException {
 
         isElementPresent(addReviewBtn);
+        isElementEnabled(addReviewBtn);
         tapByElement(addReviewBtn);
         return new ProductDetailScreen(driver);
     }
@@ -65,6 +77,18 @@ public class ProductDetailScreen extends ActionBase {
 
         isElementPresent(wishlistBtn);
         tapByElement(wishlistBtn);
+        return new ProductDetailScreen(driver);
+    }
+
+    public ProductDetailScreen checkIsOnProductDetailAfterReview() throws IOException {
+
+        isElementPresent(descReviewDetail);
+        tapByElement(back);
+
+        isElementPresent(labelReviewBtn);
+        String editRev = labelReviewBtn.getText();
+
+        Assert.assertEquals(editRev, "EDIT REVIEW");
         return new ProductDetailScreen(driver);
     }
 }

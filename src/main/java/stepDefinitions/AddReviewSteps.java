@@ -109,6 +109,13 @@ public class AddReviewSteps extends DriverFactory {
         feedScreen.checkIsOnFeedAfterReview();
     }
 
+    @Then("^User will see congrats screen and direct to review detail from product detail$")
+    public void User_will_see_congrats_screen_and_direct_to_review_detail_from_product_detail() throws Throwable {
+
+        addReviewScreen.clickSeeMyReview();
+        productDetailScreen.checkIsOnProductDetailAfterReview();
+    }
+
     //edit step
     @When("^User clicks previous screen until rating screen$")
     public void user_clicks_previous_screen_until_rating_screen() throws Throwable {
