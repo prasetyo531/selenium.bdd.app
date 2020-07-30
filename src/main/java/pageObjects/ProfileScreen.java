@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ProfileScreen extends ActionBase{
 
@@ -17,11 +18,24 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Reviews\"]")
     public MobileElement reviewsTab;
 
+    @AndroidFindBy(xpath="////android.widget.LinearLayout[@content-desc=\"Topics\"]")
+    public MobileElement topicsTab;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Talks\"]")
+    public MobileElement talksTab;
+
     @AndroidFindBy(id="com.fdbr.android:id/buttonUpdateBeautyId")
     public MobileElement updateBeautyIdBeautyBox;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
     public MobileElement settingIcon;
+
+    /* review or post list */
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
+    public List<MobileElement> listProductReviewsProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/imagePhoto")
+    public MobileElement listPhotoReviewsProfile;
 
     /****
      setting option
@@ -374,4 +388,13 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    /* review */
+    public ProfileScreen clickRandomReviewListProfile() throws IOException {
+
+        this.verticalSwipeByPercentages(listPhotoReviewsProfile, 0.4,0.01,0.5,500);
+        isElementPresent(listPhotoReviewsProfile);
+        clickRandomMenus(listProductReviewsProfile);
+
+        return new ProfileScreen(driver);
+    }
 }

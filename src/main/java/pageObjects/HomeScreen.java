@@ -127,19 +127,19 @@ public class HomeScreen extends ActionBase {
     /**********
      tab bar
      **********/
-    @AndroidFindBy(id="com.fdbr.android.main:id/homeFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/home")
     public MobileElement homeTab;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/feedFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/feed")
     public MobileElement feedTab;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/discoverFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/discover")
     public MobileElement discoverTab;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/plus")
     public MobileElement plusTab;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/profileFragment")
+    @AndroidFindBy(id="com.fdbr.android.main:id/profile")
     public MobileElement profileTab;
 
     /**********
@@ -336,6 +336,12 @@ public class HomeScreen extends ActionBase {
     public HomeScreen clickHomeMenu() throws IOException {
 
         tapByElement(homeTab);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickFeedMenu() throws IOException {
+
+        tapByElement(feedTab);
         return new HomeScreen(driver);
     }
 

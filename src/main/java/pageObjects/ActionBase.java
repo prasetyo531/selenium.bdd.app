@@ -281,7 +281,7 @@ public class ActionBase extends DriverFactory {
         try {
             List<MobileElement> li = mobileElements;
             int i = 0;
-            System.out.println("there are "+" "+li.size()+""+"element");
+            System.out.println("there are"+" "+li.size()+" "+"element");
 
             ArrayList<MobileElement> arrayProductCat = new ArrayList<MobileElement>();
 

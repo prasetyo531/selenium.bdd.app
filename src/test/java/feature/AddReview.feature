@@ -12,7 +12,7 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
-  @FDBRMA-23 @BUG @Production
+  @FDBRMA-23 @Production
   Scenario: Add Review by select Category
     Given User clicks menu category from homescreen menu
     When User clicks one of category to find product

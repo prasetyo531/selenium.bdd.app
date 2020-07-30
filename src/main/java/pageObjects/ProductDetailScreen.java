@@ -67,6 +67,7 @@ public class ProductDetailScreen extends ActionBase {
 
     public ProductDetailScreen clickAddReviewBtn() throws IOException {
 
+        isElementPresent(imgProduct);
         isElementPresent(addReviewBtn);
         isElementEnabled(addReviewBtn);
         tapByElement(addReviewBtn);

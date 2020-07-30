@@ -20,8 +20,20 @@ public class AddReviewScreen extends ActionBase {
 
     String reviewTxt = "review review review review review review review review review review review review review review review review review reviewreview review review review review reviewreview review review review review reviewreview review review review review review";
     String editReviewTxt = "edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review ";
+    String editSubmittedReviewTxt = "edit submitted review edit submitted review edit submitted review edit submitted review edit submitted review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review edit review submitted edit review edit submitted review edit review ";
 
     public String getReviewBeforeEditDesc;
+
+    /* submitted review */
+    public String getSubmittedRevDesc;
+    public String getSubmittedRevUsagePer;
+    public String getSubmittedRevProdFrom;
+    public String getSubmittedRevRecomm;
+
+    public String getNewestRevDesc;
+    public String getNewestRevUsagePer;
+    public String getNewestRevProdFrom;
+    public String getNewestRevRecomm;
 
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchBar;
@@ -123,6 +135,9 @@ public class AddReviewScreen extends ActionBase {
     public MobileElement seeMyReview;
 
     /*  review detail    */
+    @AndroidFindBy(id="com.fdbr.android.main:id/more")
+    public MobileElement moreBtn;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/labelText")
     public MobileElement descReviewDetail;
 
@@ -130,11 +145,20 @@ public class AddReviewScreen extends ActionBase {
     public MobileElement usagePeriod;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/textFrom")
-    public MobileElement fromProduct;
+    public MobileElement productFrom;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/textRecommended")
     public MobileElement recommended;
 
+    /*  more options */
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Edit Review']")
+    public MobileElement editReview;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Share Review']")
+    public MobileElement shareReview;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Cancel']")
+    public MobileElement cancelReview;
 
     // This is a constructor, as every page need a base driver to find android elements
     public AddReviewScreen(AppiumDriver driver) throws IOException {
@@ -371,7 +395,7 @@ public class AddReviewScreen extends ActionBase {
 
     public AddReviewScreen writeReview() throws IOException {
 
-        reviewdesc.setValue(reviewTxt);
+        inputValue(reviewdesc,reviewTxt);
 
         String getReviewDesc = reviewdesc.getText();
         System.out.println(getReviewDesc);
@@ -382,12 +406,13 @@ public class AddReviewScreen extends ActionBase {
 
         getReviewBeforeEditDesc = reviewdesc.getText();
 
-        reviewdesc.setValue(editReviewTxt);
+        inputValue(reviewdesc,editReviewTxt);
 
         return new AddReviewScreen(driver);
     }
 
     public AddReviewScreen clickSubmitReview() throws IOException {
+
         isElementEnabled(submitreview);
         tapByElement(submitreview);
         return new AddReviewScreen(driver);
@@ -407,13 +432,98 @@ public class AddReviewScreen extends ActionBase {
 
     public AddReviewScreen compareFieldReview() throws IOException {
 
+        isElementPresent(descReviewDetail);
+
         String u = usagePeriod.getText().toLowerCase();
-        String f = fromProduct.getText().toLowerCase();
+        String f = productFrom.getText().toLowerCase();
         String r = recommended.getText().toLowerCase();
         System.out.println(u+""+""+f+""+r);
         Assert.assertNotNull(u);
         Assert.assertNotNull(f);
         Assert.assertNotNull(r);
+
+        return new AddReviewScreen(driver);
+    }
+
+    /* edit submitted reviw */
+    public AddReviewScreen getDetailDescReview() throws IOException {
+
+        getSubmittedRevDesc = descReviewDetail.getText();
+
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen getDetailUsagePeriodReview() throws IOException {
+
+        getSubmittedRevUsagePer = usagePeriod.getText().toLowerCase();
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen getDetailProdFromReview() throws IOException {
+
+        getSubmittedRevProdFrom = productFrom.getText().toLowerCase();
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen getDetailRecommReview() throws IOException {
+
+        getSubmittedRevRecomm = recommended.getText().toLowerCase();
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen compareFieldBeforeEdited() throws IOException {
+
+        getDetailDescReview();
+        getDetailUsagePeriodReview();
+        getDetailProdFromReview();
+        getDetailRecommReview();
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen clickEditReview() throws IOException {
+
+        tapByElement(moreBtn);
+        tapByElement(editReview);
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen editSubmittedReview() throws IOException {
+
+        inputValue(reviewdesc,editSubmittedReviewTxt);
+
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen waitReviewDetail() throws IOException {
+
+        isElementPresent(descReviewDetail);
+
+        return new AddReviewScreen(driver);
+    }
+
+
+    public AddReviewScreen compareFieldAfterEdited() throws IOException {
+
+        getNewestRevDesc = descReviewDetail.getText().toLowerCase();
+        getNewestRevUsagePer = usagePeriod.getText().toLowerCase();
+        getNewestRevProdFrom = productFrom.getText().toLowerCase();
+        getNewestRevRecomm = recommended.getText().toLowerCase();
+
+        System.out.println(getSubmittedRevDesc+" "+getNewestRevDesc);
+        System.out.println(getSubmittedRevUsagePer+" "+getNewestRevUsagePer);
+        System.out.println(getSubmittedRevProdFrom+" "+getNewestRevProdFrom);
+        System.out.println(getSubmittedRevRecomm+" "+getNewestRevRecomm);
+
+        Assert.assertNotEquals(getSubmittedRevDesc, getNewestRevDesc);
+        Assert.assertNotEquals(getSubmittedRevUsagePer, getNewestRevUsagePer);
+        Assert.assertNotEquals(getSubmittedRevProdFrom, getNewestRevProdFrom);
+        Assert.assertNotEquals(getSubmittedRevRecomm, getNewestRevRecomm);
 
         return new AddReviewScreen(driver);
     }
