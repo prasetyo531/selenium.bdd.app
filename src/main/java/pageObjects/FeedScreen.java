@@ -15,6 +15,9 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement feedTitleToolbar;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Feed']")
+    public MobileElement labelFeed;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/labelText")
     public MobileElement descReviewDetail;
 
@@ -76,6 +79,7 @@ public class FeedScreen extends ActionBase {
 
     public FeedScreen checkIsOnFeedAfterPost() throws IOException {
 
+        isElementPresent(labelFeed);
         isElementPresent(feedTitleToolbar);
         String title = feedTitleToolbar.getText();
         Assert.assertEquals(title, "Feed");

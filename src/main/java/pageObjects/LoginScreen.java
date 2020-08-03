@@ -96,7 +96,7 @@ public class LoginScreen extends ActionBase {
     // ** hardcode
     public void inputHardcodeAuth() {
 
-        inputValue(usernameEmailField, "updateprofile01");
+        inputValue(usernameEmailField, "addpostbdd");
     }
 
     public void inputHardcodePassword() {

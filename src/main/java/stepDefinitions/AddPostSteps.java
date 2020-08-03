@@ -21,17 +21,39 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.capturePhoto();
     }
 
+    @When("^User pick picture from gallery add post$")
+    public void user_pick_picture_from_gallery_add_post() throws Throwable {
+
+       addPostScreen.selectPhotoFromGallery();
+    }
+
     @Then("^User enters caption of post$")
     public void user_enters_caption_of_post() throws Throwable {
 
         addPostScreen.fillCaption();
     }
 
+    @And("^User clicks submit post and choose not to skip tagging product$")
+    public void user_clicks_submit_post_and_choose_not_to_skip_tagging_product() throws Throwable {
+
+        addPostScreen.submitPostNoTag();
+        addPostScreen.clickNoSkipTag();
+    }
+
+    @Then("^User will direct to product list screen to tag product$")
+    public void user_will_direct_to_product_list_screen_to_tag_product() throws Throwable {
+
+        addPostScreen.waitProductList();
+    }
+
+
     @And("^User clicks submit post and choose yes to skip tagging product$")
     public void user_clicks_submit_post_and_choose_yes_to_skip_tagging_product() throws Throwable {
 
         addPostScreen.submitPostNoTag();
+        addPostScreen.clickSkipTag();
     }
+
 
     @Then("^User will direct to feed where last post is at most top$")
     public void user_will_direct_to_feed_where_last_post_is_at_most_top() throws Throwable {
@@ -44,7 +66,6 @@ public class AddPostSteps extends DriverFactory {
 
         addPostScreen.clickTagProduct();
         addPostScreen.chooseFirstPopularProduct();
-
     }
 
     @And("^User add review product in tag$")

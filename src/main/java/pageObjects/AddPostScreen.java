@@ -11,50 +11,60 @@ import java.io.IOException;
 
 public class AddPostScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonCapture")
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonDoneToolbar")
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonPicker")
+    public MobileElement galleryBtn;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRightCustom")
     public MobileElement doneBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonRetakeToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakeBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android.add:id/done")
     public MobileElement submitPostBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputCaption")
+    @AndroidFindBy(id="com.fdbr.android.add:id/inputCaption")
     public MobileElement inputCaptionField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/labelTagProducts")
+    @AndroidFindBy(id="com.fdbr.android.add:id/labelTagProducts")
     public MobileElement addProdPost;
 
-    @AndroidFindBy(id="com.fdbr.android:id/labelAddReview")
+    @AndroidFindBy(id="com.fdbr.android.add:id/labelAddReview")
     public MobileElement addReviewPost;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.TextView[4]")
+    @AndroidFindBy(id="com.fdbr.android:id/textIsReviewed")
     public MobileElement labelReviewed;
 
-    /***
-     search product
-     */
-    @AndroidFindBy(id="com.fdbr.android:id/buttonSearch")
-    public MobileElement searchIcon;
-
-    @AndroidFindBy(id=" com.fdbr.android:id/inputSearch")
+    /* search product */
+    @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchField;
 
-    /*
-    common element
-     */
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
+    /* common element */
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
     public MobileElement firstIndexProduct;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android.add:id/done")
     public MobileElement submitBtn;
+
+    /* first img in gallery */
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    public MobileElement firstIndexImg;
+
+    @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
+    public MobileElement doneCropBtn;
+
+    /* modal warning info */
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement useTagBtn;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
+    public MobileElement skipTagBtn;
 
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -71,6 +81,17 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen clickGalleryBtn() throws IOException {
+
+        tapByElement(galleryBtn);
+        isElementPresent(firstIndexImg);
+        tapByElement(firstIndexImg);
+
+        isElementPresent(doneCropBtn);
+        tapByElement(doneCropBtn);
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen clickDone() throws IOException {
 
         tapByElement(doneBtn);
@@ -80,6 +101,13 @@ public class AddPostScreen extends ActionBase {
     public AddPostScreen capturePhoto() throws IOException {
 
         clickPhotoBtn();
+        clickDone();
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen selectPhotoFromGallery() throws IOException {
+
+        clickGalleryBtn();
         clickDone();
         return new AddPostScreen(driver);
     }
@@ -100,7 +128,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen clickSubmitPost() throws IOException {
 
-        tapByElement(submitBtn);
+        tapByElement(submitPostBtn);
         return new AddPostScreen(driver);
     }
 
@@ -122,6 +150,13 @@ public class AddPostScreen extends ActionBase {
 
         isElementPresent(addProdPost);
         tapByElement(addProdPost);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen waitProductList() throws IOException {
+
+        isElementPresent(searchField);
+        isElementPresent(firstIndexProduct);
         return new AddPostScreen(driver);
     }
 
@@ -152,6 +187,27 @@ public class AddPostScreen extends ActionBase {
         Assert.assertTrue(label.equals("REVIEWED"));
 
         tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    /* modal warning info */
+    public AddPostScreen clickNoSkipTag() throws IOException {
+
+        isElementPresent(useTagBtn);
+        tapByElement(useTagBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen clickSkipTag() throws IOException {
+
+        isElementPresent(skipTagBtn);
+        tapByElement(skipTagBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkOnPostScreen () throws IOException {
+
+        isElementPresent(inputCaptionField);
         return new AddPostScreen(driver);
     }
 }
