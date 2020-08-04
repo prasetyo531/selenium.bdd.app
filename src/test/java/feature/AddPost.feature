@@ -2,6 +2,7 @@ Feature: User Add Post
 
   In order to perform sucessfull submit post
   I should able to fill all option of add post process
+  If user cancel post, user will direct to current menu
 
   Background: User is Logged In
     Given User navigates to onboarding screen by swipe
@@ -31,16 +32,17 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
   #FDBRMA-57 #FDBRMA-65
-  @Android @AddPost1 @Smoke @RealAccount @RealDevices @IntegrationTest
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post cancel tag post and cancel post
     Given User clicks add post from homescreen menu
     When User take picture to add post
     Then User enters caption of post
     When User cancel to tag product
-    Then User click back to cancel add post
+    And User click back to cancel add post
+    Then User will direct to current menu
 
   #FDBRMA-58 #FDBRMA-59
-  @Android @AddPost1 @Smoke @RealAccount @RealDevices @IntegrationTest
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post with tag product - Review product
     Given User clicks add post from homescreen menu
     When User take picture to add post
@@ -51,7 +53,7 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
   #FDBRMA-56 #FDBRMA-60
-  @Android @AddPost1 @Staging @RealAccount @RealDevices @IntegrationTest
+  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Add post - Tag reviewed product by search product
     Given User clicks add post from homescreen menu
     When User take picture to add post
@@ -62,5 +64,5 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
     Examples:
-      |    search        |
-      |	    Acnes	     |
+      |                 search               |
+      |	    nature republic aloe vera 92	 |

@@ -38,6 +38,12 @@ public class AddPostScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/textIsReviewed")
     public MobileElement labelReviewed;
 
+    @AndroidFindBy(id="com.fdbr.android.add:id/labelNumberOfProducts")
+    public MobileElement labelNumberProducts;
+
+    @AndroidFindBy(id="com.fdbr.android.add:id/labelNumberOfAddReview")
+    public MobileElement labelNumberReviewed;
+
     /* search product */
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchField;
@@ -59,12 +65,12 @@ public class AddPostScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
     public MobileElement doneCropBtn;
 
-    /* modal warning info */
+    /* modal warning info tag or cancel post */
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
-    public MobileElement useTagBtn;
+    public MobileElement yesBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
-    public MobileElement skipTagBtn;
+    public MobileElement noBtn;
 
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -126,6 +132,22 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen checkNumProd() throws IOException {
+
+        isElementPresent(labelNumberProducts);
+        String numProdLabel = labelNumberProducts.getText();
+        Assert.assertNotNull(numProdLabel);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkNumRev() throws IOException {
+
+        isElementPresent(labelNumberReviewed);
+        String numReviewedLabel = labelNumberReviewed.getText();
+        Assert.assertNotNull(numReviewedLabel);
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen clickSubmitPost() throws IOException {
 
         tapByElement(submitPostBtn);
@@ -173,6 +195,42 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen inputKeywordToSearch(String keyword) throws IOException {
+
+        tapByElement(searchField);
+        inputValue(searchField, keyword);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen selectFirstResult() throws IOException {
+
+        isElementPresent(firstIndexProduct);
+        tapByElement(firstIndexProduct);
+        tapByElement(submitBtn);
+        return new AddPostScreen(driver);
+    }
+
+
+
+    public AddPostScreen cancelTag() throws IOException {
+
+        tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen cancelPost() throws IOException {
+
+        tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen yesCancelPost() throws IOException {
+
+        tapByElement(yesBtn);
+
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen chooseFirstTaggedProduct() throws IOException {
 
         tapByElement(firstIndexProduct);
@@ -193,15 +251,15 @@ public class AddPostScreen extends ActionBase {
     /* modal warning info */
     public AddPostScreen clickNoSkipTag() throws IOException {
 
-        isElementPresent(useTagBtn);
-        tapByElement(useTagBtn);
+        isElementPresent(yesBtn);
+        tapByElement(yesBtn);
         return new AddPostScreen(driver);
     }
 
     public AddPostScreen clickSkipTag() throws IOException {
 
-        isElementPresent(skipTagBtn);
-        tapByElement(skipTagBtn);
+        isElementPresent(noBtn);
+        tapByElement(noBtn);
         return new AddPostScreen(driver);
     }
 

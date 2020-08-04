@@ -33,11 +33,40 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.fillCaption();
     }
 
+    @And("^User tag product and select by search product \"([^\"]*)\"$")
+    public void user_tag_product_and_select_by_search_product_something(String search) throws Throwable {
+
+        addPostScreen.clickTagProduct();
+        addPostScreen.inputKeywordToSearch(search);
+        addPostScreen.selectFirstResult();
+        addPostScreen.checkNumProd();
+    }
+
+    @And("^User will see tagged product has reviewed already$")
+    public void user_will_see_tagged_product_has_reviewed_already() throws Throwable {
+
+       addPostScreen.checkNumRev();
+    }
+
     @And("^User clicks submit post and choose not to skip tagging product$")
     public void user_clicks_submit_post_and_choose_not_to_skip_tagging_product() throws Throwable {
 
         addPostScreen.submitPostNoTag();
         addPostScreen.clickNoSkipTag();
+    }
+
+    @When("^User cancel to tag product$")
+    public void user_cancel_to_tag_product() throws Throwable {
+
+        addPostScreen.clickTagProduct();
+        addPostScreen.cancelTag();
+    }
+
+    @And("^User click back to cancel add post$")
+    public void user_click_back_to_cancel_add_post() throws Throwable {
+
+        addPostScreen.cancelPost();
+        addPostScreen.yesCancelPost();
     }
 
     @Then("^User will direct to product list screen to tag product$")
@@ -46,14 +75,12 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.waitProductList();
     }
 
-
     @And("^User clicks submit post and choose yes to skip tagging product$")
     public void user_clicks_submit_post_and_choose_yes_to_skip_tagging_product() throws Throwable {
 
         addPostScreen.submitPostNoTag();
         addPostScreen.clickSkipTag();
     }
-
 
     @Then("^User will direct to feed where last post is at most top$")
     public void user_will_direct_to_feed_where_last_post_is_at_most_top() throws Throwable {
@@ -66,6 +93,7 @@ public class AddPostSteps extends DriverFactory {
 
         addPostScreen.clickTagProduct();
         addPostScreen.chooseFirstPopularProduct();
+        addPostScreen.checkNumProd();
     }
 
     @And("^User add review product in tag$")
@@ -87,11 +115,18 @@ public class AddPostSteps extends DriverFactory {
         addReviewScreen.clickSubmitReview();
 
         addPostScreen.backToAddPostScreen();
+        addPostScreen.checkNumRev();
     }
 
     @And("^User clicks submit post with tag product$")
     public void user_clicks_submit_post_with_tag_product() throws Throwable {
 
         addPostScreen.submitPostTag();
+    }
+
+    @Then("^User will direct to current menu$")
+    public void user_will_direct_to_current_menu() throws Throwable {
+
+        homeScreen.verifyHomescreen();
     }
 }
