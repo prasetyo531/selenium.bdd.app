@@ -65,21 +65,20 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/fabClose")
     public MobileElement closeFloatingImg;
 
-
     /************
      plus button
      ************/
     @AndroidFindBy(id="com.fdbr.android.main:id/actionAddReview")
-    public MobileElement addReview;
+    public MobileElement addReviewMenu;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/actionAddPost")
-    public MobileElement addPost;
+    public MobileElement addPostMenu;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/actionAddProduct")
-    public MobileElement addProduct;
+    public MobileElement addProductMenu;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.debug:id/buttonCancel') and @text='Cancel']")
-    public MobileElement cancel;
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonCancel")
+    public MobileElement cancelMenu;
 
 
     /**********
@@ -141,21 +140,6 @@ public class HomeScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.main:id/profile")
     public MobileElement profileTab;
-
-    /**********
-     plus box
-     ***********/
-    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddReview")
-    public MobileElement addReviewMenu;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddPost")
-    public MobileElement addPostMenu;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/actionAddProduct")
-    public MobileElement addProductMenu;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonCancel")
-    public MobileElement cancelMenu;
 
     /**********
      verify user component
@@ -323,6 +307,13 @@ public class HomeScreen extends ActionBase {
 
         tapByElement(plusTab);
         tapByElement(addReviewMenu);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickAddProductHomeMenu() throws IOException {
+
+        tapByElement(plusTab);
+        tapByElement(addProductMenu);
         return new HomeScreen(driver);
     }
 

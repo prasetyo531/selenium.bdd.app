@@ -45,14 +45,14 @@ Feature: User Edit Review
     And User edit choose would recommend this product
     And User edit submitted review box that should contain than 200 char
     And User clicks submit review button
-    Then User would see review updated
+    Then User would directed to product detail screen
 
     Examples:
       |         email        |        password       |
       |	      postreviewbdd	 |        test123        |
 
   #FDBRMA-414 #FDBRMA-40
-  @EditReview @Staging
+  @EditReview1 @Staging
   Scenario Outline: Update review - from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

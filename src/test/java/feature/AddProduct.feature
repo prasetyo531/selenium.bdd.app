@@ -12,5 +12,15 @@ Feature: User Add Product
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
+  #FDBRMA-27
   @Android @AddProduct @Smoke @RealAccount @RealDevices @IntegrationTest
-  Scenario: Add prouduct
+  Scenario Outline: Add product by capture photo
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>"
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see drawer have same detail
+
+    Examples:
+      |                 productname               |    productshade               |
+      |	    nature republic aloe vera 92	      | nature republic aloe vera 92	 |

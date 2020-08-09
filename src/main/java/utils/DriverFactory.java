@@ -28,6 +28,7 @@ public class DriverFactory {
     public static ProductDetailScreen productDetailScreen;
     public static AddReviewScreen addReviewScreen;
     public static AddPostScreen addPostScreen;
+    public static AddProductScreen addProductScreen;
     public static FeedScreen feedScreen;
     public static DiscoverScreen discoverScreen;
     public static CommentLikeScreen commentLikeScreen;
@@ -67,6 +68,7 @@ public class DriverFactory {
             productDetailScreen = new ProductDetailScreen(driver);
             addReviewScreen = new AddReviewScreen(driver);
             addPostScreen = new AddPostScreen(driver);
+            addProductScreen = new AddProductScreen(driver);
             feedScreen = new FeedScreen(driver);
             discoverScreen = new DiscoverScreen(driver);
             commentLikeScreen = new CommentLikeScreen(driver);

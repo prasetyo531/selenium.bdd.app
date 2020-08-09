@@ -164,6 +164,11 @@ public class AddReviewSteps extends DriverFactory {
         addReviewScreen.compareFieldReview();
     }
 
+    @Then("^User would directed to product detail screen$")
+    public void user_would_directed_to_product_detail_screen() throws Throwable {
+
+        productDetailScreen.verifyProductDetail();
+    }
 
 
 }

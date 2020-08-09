@@ -297,6 +297,31 @@ public class ActionBase extends DriverFactory {
         }
     }
 
+    public static void clickRandomMultipleMenus(List<MobileElement> mobileElements){
+        try {
+            List<MobileElement> li = mobileElements;
+            int i = 0;
+            System.out.println("there are"+" "+li.size()+" "+"element");
+
+            ArrayList<MobileElement> arrayProductCat = new ArrayList<MobileElement>();
+
+            while(i!=li.size()) {
+                arrayProductCat.add(li.get(i));
+                i++;
+            }
+            Random rand = new Random();
+            int index = rand.nextInt(arrayProductCat.size()-1); // -1 because index will start from 0
+            arrayProductCat.get(index).click();
+
+            while(li.isEmpty()){
+                System.out.println("there are"+" "+li.size()+" "+"element");
+                break;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     //xpath smart search
     public static int randomElementPicker(MobileElement[] elements) {
         Random r = new Random();
