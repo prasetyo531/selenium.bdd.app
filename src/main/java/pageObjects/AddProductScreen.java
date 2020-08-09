@@ -135,7 +135,7 @@ public class AddProductScreen extends ActionBase {
 
         tapByElement(productCatField);
         isElementPresent(firstResultProdCat);
-        
+
         /*
         tapByElement(firstResultProdCat);
         tapByElement(firstResultProdCat);
