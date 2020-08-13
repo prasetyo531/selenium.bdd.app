@@ -1,8 +1,10 @@
 Feature: User Edit Review
 
-  In order to perform sucessfull submit review
+  In order to perform sucessfull edit review
   I should able to fill all option of add review process
   Update purchase point using new input
+
+  Precondition : set all field to only choose first field
 
   #FDBRMA-39 #FDBRMA-41
   @EditReview @Staging
@@ -14,8 +16,8 @@ Feature: User Edit Review
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
-    Given User clicks reviewed product from feed menu
-    When User clicks edit review on review detail
+    When User clicks reviewed product from feed menu
+    And User clicks edit review on review detail
     Then User edit choose overall rating
     And User edit choose usage periode product
     And User edit choose purchase point product
@@ -49,10 +51,10 @@ Feature: User Edit Review
 
     Examples:
       |         email        |        password       |
-      |	      postreviewbdd	 |        test123        |
+      |	      postreviewbdd01	 |        test123        |
 
   #FDBRMA-414 #FDBRMA-40
-  @EditReview1 @Staging
+  @EditReview @Staging
   Scenario Outline: Update review - from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -61,8 +63,8 @@ Feature: User Edit Review
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
-    Given User clicks reviewed product from profile menu
-    When User clicks edit review on review detail
+    When User clicks reviewed product from profile menu
+    And User clicks edit review on review detail
     Then User edit choose overall rating
     And User edit choose usage periode product
     And User edit choose purchase point product

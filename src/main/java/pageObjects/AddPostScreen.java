@@ -66,6 +66,9 @@ public class AddPostScreen extends ActionBase {
     public MobileElement doneCropBtn;
 
     /* modal warning info tag or cancel post */
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descText;
+
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement yesBtn;
 
@@ -126,9 +129,10 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen fillHashtag() throws IOException {
+    public AddPostScreen fillCaptionWithHashtag(String hashtag) throws IOException {
 
-        inputValue(inputCaptionField, "caption test @qatest");
+        tapByElement(inputCaptionField);
+        inputValue(inputCaptionField, "caption test with hashtag"+" "+hashtag);
         return new AddPostScreen(driver);
     }
 
@@ -210,8 +214,6 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-
-
     public AddPostScreen cancelTag() throws IOException {
 
         tapByElement(backBtn);
@@ -221,6 +223,20 @@ public class AddPostScreen extends ActionBase {
     public AddPostScreen cancelPost() throws IOException {
 
         tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen getTextModalAddPost() throws IOException {
+
+        String txt = descText.getText();
+        Assert.assertTrue(txt.equals("Are you sure want to stop adding new post?"));
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen getTextModalEditPost() throws IOException {
+
+        String txt = descText.getText();
+        Assert.assertTrue(txt.equals("Are you sure want to stop Editing post?"));
         return new AddPostScreen(driver);
     }
 
@@ -268,4 +284,5 @@ public class AddPostScreen extends ActionBase {
         isElementPresent(inputCaptionField);
         return new AddPostScreen(driver);
     }
+
 }

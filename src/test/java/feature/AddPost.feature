@@ -31,15 +31,15 @@ Feature: User Add Post
     And User clicks submit post and choose yes to skip tagging product
     Then User will direct to feed where last post is at most top
 
-  #FDBRMA-57 #FDBRMA-65
+  #FDBRMA-57 #FDBRMA-65 #FDBRMA-317
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario: Add post cancel tag post and cancel post
     Given User clicks add post from homescreen menu
     When User take picture to add post
     Then User enters caption of post
-    When User cancel to tag product
-    And User click back to cancel add post
-    Then User will direct to current menu
+    And User cancel to tag product
+    When User click back to cancel add post
+    Then User will see confirm modal to cancel add post
 
   #FDBRMA-58 #FDBRMA-59
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest

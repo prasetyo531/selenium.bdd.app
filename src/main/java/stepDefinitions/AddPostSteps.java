@@ -55,18 +55,17 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.clickNoSkipTag();
     }
 
-    @When("^User cancel to tag product$")
+    @And("^User cancel to tag product$")
     public void user_cancel_to_tag_product() throws Throwable {
 
         addPostScreen.clickTagProduct();
         addPostScreen.cancelTag();
     }
 
-    @And("^User click back to cancel add post$")
+    @When("^User click back to cancel add post$")
     public void user_click_back_to_cancel_add_post() throws Throwable {
 
         addPostScreen.cancelPost();
-        addPostScreen.yesCancelPost();
     }
 
     @Then("^User will direct to product list screen to tag product$")
@@ -124,9 +123,11 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.submitPostTag();
     }
 
-    @Then("^User will direct to current menu$")
-    public void user_will_direct_to_current_menu() throws Throwable {
+    @Then("^User will see confirm modal to cancel add post$")
+    public void user_will_see_confirm_modal_to_cancel_add_post() throws Throwable {
 
+        addPostScreen.getTextModalAddPost();
+        addPostScreen.yesCancelPost();
         homeScreen.verifyHomescreen();
     }
 }

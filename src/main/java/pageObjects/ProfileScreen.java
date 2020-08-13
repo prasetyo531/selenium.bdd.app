@@ -34,6 +34,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
     public List<MobileElement> listProductReviewsProfile;
 
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto') and @index='0']")
+    public MobileElement firstPostProfile;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/imagePhoto")
     public MobileElement listPhotoReviewsProfile;
 
@@ -394,6 +397,16 @@ public class ProfileScreen extends ActionBase{
         this.verticalSwipeByPercentages(listPhotoReviewsProfile, 0.4,0.01,0.5,500);
         isElementPresent(listPhotoReviewsProfile);
         clickRandomMenus(listProductReviewsProfile);
+
+        return new ProfileScreen(driver);
+    }
+
+    /* post */
+    public ProfileScreen clickFirstPostProfile() throws IOException {
+
+        this.verticalSwipeByPercentages(postsTab, 0.4,0.01,0.5,500);
+        isElementPresent(firstPostProfile);
+        tapByElement(firstPostProfile);
 
         return new ProfileScreen(driver);
     }

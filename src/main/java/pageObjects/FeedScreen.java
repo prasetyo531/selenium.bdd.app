@@ -24,11 +24,33 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/textReadMore")
     public MobileElement readMoreDetail;
 
+    @AndroidFindBy(id="com.fdbr.android:id/buttonMore")
+    public MobileElement readMorePost;
+
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement back;
 
     @AndroidFindBy(id="com.fdbr.android:id/labelProductTags")
     public MobileElement iconTags;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLove")
+    public MobileElement iconLove;
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
+    public MobileElement titleOwnUserFeeds;
+
+    @AndroidFindBy(id="com.fdbr.android:id/labelCaption")
+    public MobileElement firstCaptionOwnUserFeeds;
+
+    /* more btn */
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Delete']")
+    public MobileElement deleteOption;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Edit']")
+    public MobileElement editOption;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Share']")
+    public MobileElement shareOption;
 
     /* modal tagged product */
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
@@ -49,6 +71,13 @@ public class FeedScreen extends ActionBase {
 
         isElementPresent(readMoreDetail);
         tapByElement(readMoreDetail);
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen clickReadMorePost() throws IOException {
+
+        isElementPresent(readMorePost);
+        tapByElement(readMorePost);
         return new FeedScreen(driver);
     }
 
@@ -85,4 +114,35 @@ public class FeedScreen extends ActionBase {
         Assert.assertEquals(title, "Feed");
         return new FeedScreen(driver);
     }
+
+    public FeedScreen checkIsonOwnFeeds() throws IOException {
+
+        isElementPresent(titleOwnUserFeeds);
+        String title = titleOwnUserFeeds.getText();
+        System.out.println(title);
+        //org.junit.Assert.assertTrue(title.contains("Feeds"));
+        return new FeedScreen(driver);
+    }
+
+    /*  edit submitted post */
+    public FeedScreen clickEditPost() throws IOException {
+
+        isElementPresent(editOption);
+        tapByElement(editOption);
+
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen checkCaptionEditedWithHashtag(String hashtag) throws IOException {
+
+        this.verticalSwipeByPercentages(iconLove, 0.2,0.01,0.2,500);
+
+        isElementPresent(firstCaptionOwnUserFeeds);
+        String caption = firstCaptionOwnUserFeeds.getText();
+        org.junit.Assert.assertTrue(caption.contains(hashtag));
+
+        return new FeedScreen(driver);
+    }
+
+
 }

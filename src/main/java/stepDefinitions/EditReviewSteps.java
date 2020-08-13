@@ -9,14 +9,14 @@ import utils.DriverFactory;
 
 public class EditReviewSteps extends DriverFactory {
 
-    @Given("^User clicks reviewed product from feed menu$")
+    @When("^User clicks reviewed product from feed menu$")
     public void user_clicks_reviewed_product_from_feed_menu() throws Throwable {
 
         homeScreen.clickFeedMenu();
         feedScreen.clickReadMoreReview();
     }
 
-    @When("^User clicks edit review on review detail$")
+    @And("^User clicks edit review on review detail$")
     public void user_clicks_edit_review_on_review_detail() throws Throwable {
 
         addReviewScreen.compareFieldBeforeEdited();
@@ -53,7 +53,7 @@ public class EditReviewSteps extends DriverFactory {
         productDetailScreen.clickAddReviewBtn();
     }
 
-    @Given("^User clicks reviewed product from profile menu$")
+    @When("^User clicks reviewed product from profile menu$")
     public void user_clicks_reviewed_product_from_profile_menu() throws Throwable {
 
         homeScreen.clickProfileHomeMenu();

@@ -445,7 +445,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    /* edit submitted reviw */
+    /* edit submitted review */
     public AddReviewScreen getDetailDescReview() throws IOException {
 
         getSubmittedRevDesc = descReviewDetail.getText();
