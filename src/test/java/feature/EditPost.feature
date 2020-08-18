@@ -44,7 +44,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345      |    #cobaskin     |   tint    |
 
   #FDBRMA-353
-  @EditPost @Staging @WIP
+  @EditPostRemoveTag @Staging
   Scenario Outline: Edit post - Remove tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -54,16 +54,16 @@ Feature: User Edit Post
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
     When User clicks edit post from feed menu
-    Then User enters caption of post contains hashtag "<hashtag>"
+    Then User takeout tagged product
     When User clicks submit edit post
     Then User directed to feed and see post updated without tagged product
 
     Examples:
-      |         email    |        password       |       hashtag    |
-      |	      apkprod	 |        test123        |    #cobaskincare  |
+      |         email        |        password       |
+      |	      testflight	 |        test123        |
 
   #FDBRMA-315
-  @EditPost @Staging @WIP
+  @EditPostRemoveTag @Staging
   Scenario Outline: Edit post - Remove tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -73,13 +73,13 @@ Feature: User Edit Post
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
     When User clicks edit post from profile menu
-    Then User enters caption of post contains hashtag "<hashtag>"
+    Then User takeout tagged product
     When User clicks submit edit post
     Then User directed to own user feed and see post updated without tagged product
 
     Examples:
-      |              email           |        password       |       hashtag    |
-      |	      removeposttagprofile	 |        test123        |    #cobaskincare  |
+      |      email       |        password       |
+      |	    apkprod20	 |        test123        |
 
   #FDBRMA-318
   @EditPost @Staging @WIP

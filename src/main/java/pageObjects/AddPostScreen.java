@@ -5,11 +5,16 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AddPostScreen extends ActionBase {
+
+    By numrev = By.id("com.fdbr.android.add:id/labelNumberOfAddReview");
 
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
@@ -47,6 +52,9 @@ public class AddPostScreen extends ActionBase {
     /* search product */
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchField;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelName') and @index='0']")
+    public MobileElement firstTaggedProd;
 
     /* common element */
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
@@ -144,6 +152,16 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen checkNumRevShouldNull() throws IOException {
+
+        //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
+        Boolean numreview = driver.findElements(numrev).size() > 0;
+        if(numreview == true){
+            Assert.fail("element add review should not present");
+        }
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen checkNumRev() throws IOException {
 
         isElementPresent(labelNumberReviewed);
@@ -217,6 +235,13 @@ public class AddPostScreen extends ActionBase {
     public AddPostScreen cancelTag() throws IOException {
 
         tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen removeTaggedProduct() throws IOException {
+
+        tapByElement(firstTaggedProd);
+        tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 

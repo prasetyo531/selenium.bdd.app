@@ -31,10 +31,23 @@ public class EditPostSteps extends DriverFactory {
         addPostScreen.fillCaptionWithHashtag(hashtag);
     }
 
+    @Then("^User takeout tagged product$")
+    public void user_takeout_tagged_product() throws Throwable {
+
+        addPostScreen.clickTagProduct();
+        addPostScreen.waitProductList();
+
+        addPostScreen.removeTaggedProduct();
+
+        addPostScreen.checkNumRevShouldNull();
+    }
+
+
     @When("^User clicks submit edit post$")
     public void user_clicks_submit_edit_post() throws Throwable {
 
         addPostScreen.clickSubmitPost();
+        addPostScreen.clickSkipTag();
     }
 
     @Then("^User directed to feed and see post updated with \"([^\"]*)\"$")
@@ -49,6 +62,20 @@ public class EditPostSteps extends DriverFactory {
 
         feedScreen.checkIsonOwnFeeds();
         feedScreen.checkCaptionEditedWithHashtag(hashtag);
+    }
+
+    @Then("^User directed to feed and see post updated without tagged product$")
+    public void user_directed_to_feed_and_see_post_updated_without_tagged_product() throws Throwable {
+
+        feedScreen.checkIsOnFeedAfterPost();
+        feedScreen.checkNoTaggedProductLeftFeed();
+    }
+
+    @Then("^User directed to own user feed and see post updated without tagged product$")
+    public void user_directed_to_own_user_feed_and_see_post_updated_without_tagged_product() throws Throwable {
+
+        feedScreen.checkIsonOwnFeeds();
+        feedScreen.checkNoTaggedProductLeftOwnFeed();
     }
 
 

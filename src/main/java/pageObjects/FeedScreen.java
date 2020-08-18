@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -11,6 +12,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class FeedScreen extends ActionBase {
+
+    By iconProdTag = By.id("com.fdbr.android:id/labelProductTags");
 
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement feedTitleToolbar;
@@ -144,5 +147,24 @@ public class FeedScreen extends ActionBase {
         return new FeedScreen(driver);
     }
 
+    public FeedScreen checkNoTaggedProductLeftFeed() throws IOException {
+
+        //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
+        Boolean icontag = driver.findElements(iconProdTag).size() > 0;
+        if (icontag==true){
+            org.junit.Assert.fail("icon tags should not appear");
+        }
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen checkNoTaggedProductLeftOwnFeed() throws IOException {
+
+        //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
+        Boolean icontag = driver.findElements(iconProdTag).size() > 0;
+        if (icontag==true){
+            org.junit.Assert.fail("icon tags should not appear");
+        }
+        return new FeedScreen(driver);
+    }
 
 }
