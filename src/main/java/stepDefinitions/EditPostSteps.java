@@ -47,8 +47,15 @@ public class EditPostSteps extends DriverFactory {
     public void user_clicks_submit_edit_post() throws Throwable {
 
         addPostScreen.clickSubmitPost();
+    }
+
+    @When("^User clicks submit edit post without tag$")
+    public void user_clicks_submit_edit_post_without_tag() throws Throwable {
+
+        addPostScreen.clickSubmitPost();
         addPostScreen.clickSkipTag();
     }
+
 
     @Then("^User directed to feed and see post updated with \"([^\"]*)\"$")
     public void user_directed_to_feed_and_see_post_updated_with_something(String hashtag) throws Throwable {
@@ -74,8 +81,16 @@ public class EditPostSteps extends DriverFactory {
     @Then("^User directed to own user feed and see post updated without tagged product$")
     public void user_directed_to_own_user_feed_and_see_post_updated_without_tagged_product() throws Throwable {
 
+
         feedScreen.checkIsonOwnFeeds();
         feedScreen.checkNoTaggedProductLeftOwnFeed();
+    }
+
+    @Then("^User will see confirm modal to cancel edit post$")
+    public void user_will_see_confirm_modal_to_cancel_edit_post() throws Throwable {
+
+        addPostScreen.getTextModalEditPost();
+        addPostScreen.yesCancelPost();
     }
 
 

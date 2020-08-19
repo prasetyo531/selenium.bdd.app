@@ -44,7 +44,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345      |    #cobaskin     |   tint    |
 
   #FDBRMA-353
-  @EditPostRemoveTag @Staging
+  @EditPost1 @Staging
   Scenario Outline: Edit post - Remove tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -55,7 +55,7 @@ Feature: User Edit Post
     Then User will see modal account status on homescreen
     When User clicks edit post from feed menu
     Then User takeout tagged product
-    When User clicks submit edit post
+    When User clicks submit edit post without tag
     Then User directed to feed and see post updated without tagged product
 
     Examples:
@@ -63,7 +63,7 @@ Feature: User Edit Post
       |	      testflight	 |        test123        |
 
   #FDBRMA-315
-  @EditPostRemoveTag @Staging
+  @EditPost @Staging
   Scenario Outline: Edit post - Remove tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -74,7 +74,7 @@ Feature: User Edit Post
     Then User will see modal account status on homescreen
     When User clicks edit post from profile menu
     Then User takeout tagged product
-    When User clicks submit edit post
+    When User clicks submit edit post without tag
     Then User directed to own user feed and see post updated without tagged product
 
     Examples:
@@ -82,7 +82,7 @@ Feature: User Edit Post
       |	    apkprod20	 |        test123        |
 
   #FDBRMA-318
-  @EditPost @Staging @WIP
+  @EditPost
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -98,4 +98,4 @@ Feature: User Edit Post
 
     Examples:
       |         email        |        password       |       hashtag    |
-      |	      editpostfeed	 |        test123        |    cobaskincare  |
+      |	      apkprod20	 |        test123        |    cobaskincare  |
