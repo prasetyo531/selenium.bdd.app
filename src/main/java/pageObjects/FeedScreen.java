@@ -1,18 +1,14 @@
 package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileCommand;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.MobileSelector;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
-import java.util.List;
 
 public class FeedScreen extends ActionBase {
 

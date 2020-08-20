@@ -6,11 +6,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
-import java.util.List;
 
 public class AddPostScreen extends ActionBase {
 
