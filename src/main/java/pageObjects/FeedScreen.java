@@ -61,12 +61,15 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Share']")
     public MobileElement shareOption;
 
-    /* confirmation modal */
+    /* confirmation modal report and delete */
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
     public MobileElement titleModal;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Not Relevant']")
     public MobileElement notRelevantOption;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Cancel']")
+    public MobileElement cancelDelete;
 
     /* modal tagged product */
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
@@ -136,7 +139,7 @@ public class FeedScreen extends ActionBase {
         isElementPresent(titleOwnUserFeeds);
         String title = titleOwnUserFeeds.getText();
         System.out.println(title);
-        //org.junit.Assert.assertTrue(title.contains("Feeds"));
+        Assert.assertTrue(title.contains("Feeds"));
         return new FeedScreen(driver);
     }
 
@@ -192,6 +195,8 @@ public class FeedScreen extends ActionBase {
     public FeedScreen chooseReasonNotRelevant() throws IOException {
 
         isElementPresent(titleModal);
+        String titleModalReport = titleModal.getText();
+        Assert.assertTrue(titleModalReport.equals("What's your reason for reporting Post?"));
         isElementPresent(notRelevantOption);
         tapByElement(notRelevantOption);
 
@@ -211,6 +216,26 @@ public class FeedScreen extends ActionBase {
 
         isElementPresent(shareOption);
         tapByElement(shareOption);
+
+        return new FeedScreen(driver);
+    }
+
+    /*  delete submitted post */
+    public FeedScreen clickDeletePost() throws IOException {
+
+        isElementPresent(deleteOption);
+        tapByElement(deleteOption);
+
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen chooseNoDeletePost() throws IOException {
+
+        isElementPresent(titleModal);
+        String titleModalReport = titleModal.getText();
+        Assert.assertTrue(titleModalReport.equals("Sure want to delete Post?"));
+        isElementPresent(cancelDelete);
+        tapByElement(cancelDelete);
 
         return new FeedScreen(driver);
     }

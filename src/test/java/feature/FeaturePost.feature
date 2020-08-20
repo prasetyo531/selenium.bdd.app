@@ -35,11 +35,12 @@ Feature: User Check Post
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
-#    When User clicks share post from feed menu
-#    Then User will see option which app to taking share
-#    When User clicks delete post from feed menu
-#    Then User will see confirmation dialog to delete post
+    And User clicks profile menu and select post
+    When User clicks share post from profile menu
+    Then User will see option which app to taking share
+    When User clicks delete post from profile menu
+    Then User will see confirmation dialog to delete post
 
     Examples:
       |         email        |        password   |
-      |	      apkprod20	 |        test123        |
+      |	      apkprod20	     |        test123        |

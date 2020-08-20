@@ -24,6 +24,7 @@ public class OthersScreen extends ActionBase {
     public OthersScreen findDrawerOptionShare() throws IOException {
 
         isElementPresent(drawerShare);
+        driver.navigate().back();
         return new OthersScreen(driver);
     }
 }

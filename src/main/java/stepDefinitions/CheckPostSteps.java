@@ -36,4 +36,33 @@ public class CheckPostSteps extends DriverFactory {
 
         othersScreen.findDrawerOptionShare();
     }
+
+    @And("^User clicks profile menu and select post$")
+    public void user_clicks_profile_menu_and_select_post() throws Throwable {
+
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickFirstPostProfile();
+    }
+
+    @When("^User clicks share post from profile menu$")
+    public void user_clicks_share_post_from_profile_menu() throws Throwable {
+
+        feedScreen.checkIsonOwnFeeds();
+        feedScreen.clickReadMorePost();
+        feedScreen.clickSharePost();
+    }
+
+    @When("^User clicks delete post from profile menu$")
+    public void user_clicks_delete_post_from_profile_menu() throws Throwable {
+
+        feedScreen.clickReadMorePost();
+        feedScreen.clickDeletePost();
+    }
+
+    @Then("^User will see confirmation dialog to delete post$")
+    public void user_will_see_confirmation_dialog_to_delete_post() throws Throwable {
+
+        feedScreen.chooseNoDeletePost();
+    }
+
 }
