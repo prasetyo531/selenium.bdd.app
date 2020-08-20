@@ -1,11 +1,14 @@
 package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileCommand;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.MobileSelector;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -49,11 +52,21 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Delete']")
     public MobileElement deleteOption;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Report']")
+    public MobileElement reportOption;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Edit']")
     public MobileElement editOption;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Share']")
     public MobileElement shareOption;
+
+    /* confirmation modal */
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModal;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Not Relevant']")
+    public MobileElement notRelevantOption;
 
     /* modal tagged product */
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
@@ -164,6 +177,41 @@ public class FeedScreen extends ActionBase {
         if (icontag==true){
             org.junit.Assert.fail("icon tags should not appear");
         }
+        return new FeedScreen(driver);
+    }
+
+    /*  report submitted post */
+    public FeedScreen clickReportPost() throws IOException {
+
+        isElementPresent(reportOption);
+        tapByElement(reportOption);
+
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen chooseReasonNotRelevant() throws IOException {
+
+        isElementPresent(titleModal);
+        isElementPresent(notRelevantOption);
+        tapByElement(notRelevantOption);
+
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen findToastAfterReport() throws IOException {
+
+        //WebDriverWait wait = new WebDriverWait(driver, 2);
+        toastMatches("Thank you for reporting this postttttt", false);
+
+        return new FeedScreen(driver);
+    }
+
+    /*  share submitted post */
+    public FeedScreen clickSharePost() throws IOException {
+
+        isElementPresent(shareOption);
+        tapByElement(shareOption);
+
         return new FeedScreen(driver);
     }
 

@@ -240,7 +240,7 @@ public class ActionBase extends DriverFactory {
     /**********************************************
      *** TOAST MESSAGE ***
      **********************************************/
-    private void raiseToast(String text) {
+    public void raiseToast(String text) {
         ImmutableMap<String, Object> scriptArgs = ImmutableMap.of(
                 "target", "application",
                 "methods", Arrays.asList(ImmutableMap.of(
@@ -252,10 +252,11 @@ public class ActionBase extends DriverFactory {
                 ))
         );
 
-        driver.executeScript("mobile: backdoor", scriptArgs);
+        driver.executeScript("mobile: isToastVisible", scriptArgs);
     }
 
     public static ExpectedCondition<Boolean> toastMatches(String matchText, Boolean isRegexp) {
+        //false = exact toast string
         return new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {

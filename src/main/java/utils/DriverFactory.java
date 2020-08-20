@@ -34,6 +34,7 @@ public class DriverFactory {
     public static CommentLikeScreen commentLikeScreen;
     public static ProfileScreen profileScreen;
     public static TalkScreen talkScreen;
+    public static OthersScreen othersScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -74,6 +75,7 @@ public class DriverFactory {
             commentLikeScreen = new CommentLikeScreen(driver);
             profileScreen = new ProfileScreen(driver);
             talkScreen = new TalkScreen(driver);
+            othersScreen = new OthersScreen(driver);
         }
         return driver;
     }

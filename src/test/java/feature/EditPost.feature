@@ -4,7 +4,7 @@ Feature: User Edit Post
   I should able to fill all option of add post process
 
   #FDBRMA-312 #FDBRMA-313 #FDBRMA-314
-  @EditPost1 @Production
+  @EditPost @Production
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -24,7 +24,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345        |    #cobaskin   |     lips	  |
 
   #FDBRMA-350 #FDBRMA-351 #FDBRMA-352
-  @EditPost1 @Production
+  @EditPost @Production
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -44,7 +44,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345      |    #cobaskin     |   tint    |
 
   #FDBRMA-353
-  @EditPost1 @Staging
+  @EditPost @Staging
   Scenario Outline: Edit post - Remove tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -82,7 +82,7 @@ Feature: User Edit Post
       |	    apkprod20	 |        test123        |
 
   #FDBRMA-318
-  @EditPost
+  @CheckPost
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

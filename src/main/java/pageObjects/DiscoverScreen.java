@@ -29,8 +29,11 @@ public class DiscoverScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/swipeRepoList")
     public MobileElement postList;
 
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto') and @index='0']")
+    public MobileElement firstPostDiscover;
+
     /******
-     post detai
+     post detail
      *******/
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
     public MobileElement backBtn;
@@ -104,6 +107,13 @@ public class DiscoverScreen extends ActionBase {
     }
 
     public DiscoverScreen clickFirstPost() throws IOException {
+
+        isElementEnabled(firstPostDiscover);
+        tapByElement(firstPostDiscover);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickPostList() throws IOException {
 
         isElementEnabled(postList);
         tapByElement(postList);

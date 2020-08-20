@@ -130,4 +130,11 @@ public class AddPostSteps extends DriverFactory {
         addPostScreen.yesCancelPost();
         homeScreen.verifyHomescreen();
     }
+
+    @And("^User clicks discover from homescreen menu and select post$")
+    public void user_clicks_discover_from_homescreen_menu_and_select_post() throws Throwable {
+
+        homeScreen.clickDiscoverHomeMenu();
+        discoverScreen.clickFirstPost();
+    }
 }
