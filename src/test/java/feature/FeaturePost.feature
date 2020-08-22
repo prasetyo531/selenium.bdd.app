@@ -17,7 +17,8 @@ Feature: User Check Post
     Then User will see modal account status on homescreen
     And User clicks discover from homescreen menu and select post
     When User clicks report post from feed menu
-    Then User will see option which reason to reporting post
+    And User will see option which reason to reporting post
+    Then User will see toast msg after report post
     When User clicks share post from feed menu
     Then User will see option which app to taking share
 

@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -85,7 +86,16 @@ public class AddProductScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
 
-    /* capture photo btn */
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonPicker")
+    public MobileElement galleryBtn;
+
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    public MobileElement firstIndexImg;
+
+    @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
+    public MobileElement doneCropBtn;
+
+    /* capture drawer layout */
     @AndroidFindBy(id="com.fdbr.android.main:id/bottomSheet")
     public MobileElement drawerLayout;
 
@@ -103,6 +113,16 @@ public class AddProductScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonNext")
     public MobileElement skipBtn;
+
+    /* error pop up modal */
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titlePopUp;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descPopUp;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement okPopUp;
 
     // This is a constructor, as every page need a base driver to find android elements
     public AddProductScreen(AppiumDriver driver) throws IOException {
@@ -208,6 +228,20 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
+    public AddPostScreen choosePhotoFromGallery() throws IOException {
+
+        tapByElement(galleryBtn);
+        isElementPresent(firstIndexImg);
+        tapByElement(firstIndexImg);
+
+        isElementPresent(doneCropBtn);
+        tapByElement(doneCropBtn);
+
+        isElementPresent(doneBtn);
+        tapByElement(doneBtn);
+        return new AddPostScreen(driver);
+    }
+
     public AddProductScreen submitAddProduct() throws IOException {
 
         tapByElement(addProductBtn);
@@ -277,5 +311,52 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
+    //action drawer
+    public AddProductScreen okErrorShouldUsingImg() throws IOException {
 
+        isElementPresent(titlePopUp);
+        isElementPresent(descPopUp);
+        isElementPresent(okPopUp);
+
+        String errorDesc = descPopUp.getText();
+        Assert.assertTrue(errorDesc.equals("Please choose Product Image"));
+        tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen okErrorShouldChooseBrandName() throws IOException {
+
+        isElementPresent(titlePopUp);
+        isElementPresent(descPopUp);
+        isElementPresent(okPopUp);
+
+        String errorDesc = descPopUp.getText();
+        Assert.assertTrue(errorDesc.equals("Please choose Brand Name"));
+        tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen okErrorShouldChooseProductCategory() throws IOException {
+
+        isElementPresent(titlePopUp);
+        isElementPresent(descPopUp);
+        isElementPresent(okPopUp);
+
+        String errorDesc = descPopUp.getText();
+        Assert.assertTrue(errorDesc.equals("Please choose Product Category"));
+        tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen okErrorShouldChooseProductName() throws IOException {
+
+        isElementPresent(titlePopUp);
+        isElementPresent(descPopUp);
+        isElementPresent(okPopUp);
+
+        String errorDesc = descPopUp.getText();
+        Assert.assertTrue(errorDesc.equals("Please choose Product Name"));
+        tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
 }

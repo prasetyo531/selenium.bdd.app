@@ -95,12 +95,12 @@ public class LoginScreen extends ActionBase {
     // ** hardcode
     public void inputHardcodeAuth() {
 
-        inputValue(usernameEmailField, "addpostbdd");
+        inputValue(usernameEmailField, "vnsphl");
     }
 
     public void inputHardcodePassword() {
 
-        inputValue(passwordField, "test123");
+        inputValue(passwordField, "dora12345");
     }
     // hardcode **
 

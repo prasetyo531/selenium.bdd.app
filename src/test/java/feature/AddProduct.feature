@@ -12,7 +12,7 @@ Feature: User Add Product
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
-  #FDBRMA-27
+  #FDBRMA-267
   @Android @AddProduct @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Add product by capture photo
     Given User clicks add product from homescreen menu
@@ -22,5 +22,69 @@ Feature: User Add Product
     Then User will see drawer have same detail
 
     Examples:
-      |                 productname               |    productshade               |
-      |	    nature republic aloe vera 92	      | nature republic aloe vera 92	 |
+      |       productname                 |       productshade               |
+      |	    product capture photo	      |   product capture photo shade	 |
+
+  #FDBRMA-423
+  @Android @AddProduct @WIP
+  Scenario Outline: Add product using upload image
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>"
+    And User select image to add product
+    When User clicks submit add product
+    Then User will see drawer have same detail
+
+    Examples:
+      |       productname                 |       productshade               |
+      |	    product from gallery	      |   product from gallery shade	 |
+
+  #FDBRMA-268
+  @Android @AddProduct @WIP
+  Scenario Outline: Add product without attach image
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>"
+    When User clicks submit add product
+    Then User will see error popup for not using image to add product
+
+    Examples:
+      |       productname                 |       productshade               |
+      |	    product capture photo	      |   product capture photo shade	 |
+
+  #FDBRMA-371
+  @Android @AddProduct @WIP
+  Scenario Outline: Add product without specify brand name
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>" except brand name
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see toast msg to select brand name
+
+    Examples:
+      |       productname                 |       productshade               |
+      |	    product capture photo	      |   product capture photo shade	 |
+
+  #FDBRMA-273
+  @Android @AddProduct @WIP
+  Scenario Outline: Add product without specify category
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>" except category
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see toast msg to select category
+
+    Examples:
+      |       productname                 |       productshade               |
+      |	    product capture photo	      |   product capture photo shade	 |
+
+  #FDBRMA-372
+  @Android @AddProduct @WIP
+  Scenario Outline: Add product without fill product name
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productshade>" except product name
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see toast msg to fill product name
+
+    Examples:
+      |       productshade               |
+      |   product capture photo shade	 |

@@ -15,10 +15,14 @@ public class CheckPostSteps extends DriverFactory {
         feedScreen.clickReportPost();
     }
 
-    @Then("^User will see option which reason to reporting post$")
+    @And("^User will see option which reason to reporting post$")
     public void user_will_see_option_which_reason_to_reporting_post() throws Throwable {
 
         feedScreen.chooseReasonNotRelevant();
+    }
+
+    @Then("^User will see toast msg after report post$")
+    public void user_will_see_toast_msg_after_report_post() throws Throwable {
 
         //toast success report
         feedScreen.findToastAfterReport();
