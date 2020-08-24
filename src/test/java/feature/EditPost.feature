@@ -82,7 +82,7 @@ Feature: User Edit Post
       |	    apkprod20	 |        test123        |
 
   #FDBRMA-318
-  @EditPost
+  @EditPost1
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

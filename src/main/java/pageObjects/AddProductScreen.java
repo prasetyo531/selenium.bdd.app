@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -79,6 +80,8 @@ public class AddProductScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.add:id/layoutParent') and @index='1']")
     public MobileElement secondResultProdCat;
 
+    By qtyProdCat = By.xpath("//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.add:id/layoutParent')]");
+
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.add:id/layoutParent')]")
     public List<MobileElement> listProdCat;
 
@@ -89,7 +92,7 @@ public class AddProductScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonPicker")
     public MobileElement galleryBtn;
 
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.FrameLayout[contains(@resource-id, 'com.android.documentsui:id/thumbnail') and @index='1']")
     public MobileElement firstIndexImg;
 
     @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
@@ -170,7 +173,11 @@ public class AddProductScreen extends ActionBase {
             Thread.sleep(100);
             clickRandomMenus(listProdCat);
             Thread.sleep(100);
-            if(productNameField.isDisplayed()){
+
+            Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
+            if(numreview == true){
+                clickRandomMenus(listProdCat);
+            } else {
                 break;
             }
         }
@@ -230,6 +237,9 @@ public class AddProductScreen extends ActionBase {
 
     public AddPostScreen choosePhotoFromGallery() throws IOException {
 
+        tapByElement(photoThumbnail);
+
+        isElementPresent(galleryBtn);
         tapByElement(galleryBtn);
         isElementPresent(firstIndexImg);
         tapByElement(firstIndexImg);
