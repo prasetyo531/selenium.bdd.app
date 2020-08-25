@@ -6,6 +6,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.KeyInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -14,8 +17,13 @@ import java.util.List;
 public class AddProductScreen extends ActionBase {
 
     public String getSelectedBrand;
+    public String getSelectedProdCat;
     public String getSelectedProdName;
     public String getSelectedProdShade;
+
+    public String getEditedBrand;
+    public String getEditedProdCat;
+    public String getEditedProdName;
 
     public String getSubmittedBrand;
     public String getSubmittedProdName;
@@ -69,6 +77,9 @@ public class AddProductScreen extends ActionBase {
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstResultBrand;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='1']")
+    public MobileElement secondResultBrand;
 
     @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     public MobileElement searchBrand;
@@ -154,6 +165,28 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
+    public AddProductScreen chooseBrandName(String Brand) throws IOException {
+
+        tapByElement(brandField);
+
+        //search
+        isElementPresent(searchBrand);
+        searchBrand.sendKeys(Brand);
+
+        KeyInput keyboard = new KeyInput("keyboard");
+        Sequence sendKeys = new Sequence(keyboard, 0);
+
+        sendKeys.addAction(keyboard.createKeyDown(Keys.SHIFT.getCodePoint()));
+        sendKeys.addAction(keyboard.createKeyDown("c".codePointAt(0)));
+
+        isElementPresent(firstResultBrand);
+        tapByElement(firstResultBrand);
+
+        getSelectedBrand = brandField.getText();
+        System.out.println(getSelectedBrand);
+        return new AddProductScreen(driver);
+    }
+
     public AddProductScreen chooseProdCat() throws IOException, InterruptedException {
 
         tapByElement(productCatField);
@@ -184,12 +217,100 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
+    public AddProductScreen editSelectedBrandName() throws IOException {
+
+        //this.verticalSwipeByPercentages(productDescField,0.01,0.4,0.5,500);
+
+        getSelectedBrand = brandField.getText();
+        System.out.println(getSelectedBrand);
+
+
+        tapByElement(brandField);
+        tapByElement(secondResultBrand);
+
+        getEditedBrand = brandField.getText();
+        System.out.println(getEditedBrand);
+        Assert.assertNotEquals(getSelectedBrand, getEditedBrand);
+        return new AddProductScreen(driver);
+    }
+
+
+    public AddProductScreen editSelectedProductCat() throws IOException, InterruptedException {
+
+//        this.verticalSwipeByPercentages(productDescField,0.01,0.4,0.5,500);
+
+        getSelectedProdCat = productCatField.getText();
+        System.out.println(getSelectedProdCat);
+
+        tapByElement(productCatField);
+        isElementPresent(firstResultProdCat);
+
+        /*
+        tapByElement(firstResultProdCat);
+        tapByElement(firstResultProdCat);
+        tapByElement(firstResultProdCat);
+        tapByElement(firstResultProdCat);
+         */
+
+        clickRandomMenus(listProdCat);
+
+        boolean isListPresent = secondResultProdCat.isDisplayed();
+        while(isListPresent==true) {
+            Thread.sleep(100);
+            clickRandomMenus(listProdCat);
+            Thread.sleep(100);
+
+            Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
+            if(numreview == true){
+                clickRandomMenus(listProdCat);
+            } else {
+                break;
+            }
+        }
+
+        getEditedProdCat = productCatField.getText();
+        System.out.println(getEditedProdCat);
+        Assert.assertNotEquals(getSelectedProdCat, getEditedProdCat);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen fillProductName() throws IOException {
+
+        //tapByElement(productNameField);
+        inputValue(productNameField, "hardcode add product");
+        getSelectedProdName = productNameField.getText();
+        System.out.println(getSelectedProdName);
+        return new AddProductScreen(driver);
+    }
+
     public AddProductScreen fillProductName(String name) throws IOException {
 
         //tapByElement(productNameField);
         inputValue(productNameField, name);
         getSelectedProdName = productNameField.getText();
         System.out.println(getSelectedProdName);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen editInputedProductName(String name) throws IOException {
+
+        getSelectedProdName = productNameField.getText();
+        System.out.println(getSelectedProdName);
+
+        inputValue(productNameField, name);
+        getEditedProdName = productNameField.getText();
+        System.out.println(getEditedProdName);
+
+        Assert.assertNotEquals(getSelectedProdName, getEditedProdName);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen fillProductShade() throws IOException {
+
+        //tapByElement(productShadeField);
+        inputValue(productShadeField, "hardcode shade add product");
+        getSelectedProdShade = productShadeField.getText();
+        System.out.println(getSelectedProdShade);
         return new AddProductScreen(driver);
     }
 
@@ -293,11 +414,27 @@ public class AddProductScreen extends ActionBase {
         return brand;
     }
 
+    public boolean isEditedBrandSame() throws IOException {
+
+        getBrandDrawer();
+
+        boolean brand = getEditedBrand.equals(getSubmittedBrand);
+        return brand;
+    }
+
     public boolean isProdNameSame() throws IOException {
 
         getProdNameDrawer();
 
         boolean name = getSelectedProdName.equals(getSubmittedProdName);
+        return name;
+    }
+
+    public boolean isEditedProdNameSame() throws IOException {
+
+        getProdNameDrawer();
+
+        boolean name = getEditedProdName.equals(getSubmittedProdName);
         return name;
     }
 
@@ -309,6 +446,7 @@ public class AddProductScreen extends ActionBase {
         return shade;
     }
 
+    // action on drawer
     public AddProductScreen clickReview() throws IOException {
 
         tapByElement(reviewBtn);
@@ -321,7 +459,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    //action drawer
+    //error modal
     public AddProductScreen okErrorShouldUsingImg() throws IOException {
 
         isElementPresent(titlePopUp);
@@ -367,6 +505,30 @@ public class AddProductScreen extends ActionBase {
         String errorDesc = descPopUp.getText();
         Assert.assertTrue(errorDesc.equals("Please choose Product Name"));
         tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen okErrorShouFillProductNameLessThan3MoreThan100() throws IOException {
+
+        isElementPresent(titlePopUp);
+        isElementPresent(descPopUp);
+        isElementPresent(okPopUp);
+
+        String errorDesc = descPopUp.getText();
+        Assert.assertTrue(errorDesc.equals("Please input product name , Product name must be 3 to 100 characters"));
+        tapByElement(okPopUp);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen scrollToTop() throws IOException {
+
+        this.verticalSwipeByPercentages(photoThumbnail,0.3,0.6,0.20,500);
+        return new AddProductScreen(driver);
+    }
+
+    public AddProductScreen scrollToBottom() throws IOException {
+
+        this.verticalSwipeByPercentages(productDescField,0.4,0.01,0.5,500);
         return new AddProductScreen(driver);
     }
 }

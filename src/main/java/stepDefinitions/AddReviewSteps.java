@@ -164,6 +164,21 @@ public class AddReviewSteps extends DriverFactory {
         addReviewScreen.compareFieldReview();
     }
 
+    @And("^Fill all field then submit add review$")
+    public void fill_all_field_then_submit_add_review() throws Throwable {
+
+        addReviewScreen.fillRatingAddReview();
+        addReviewScreen.setStepperDurationofUser();
+
+        addReviewScreen.clickEcommerce();
+        addReviewScreen.setTokopedia();
+
+        addReviewScreen.choosePositiveRecommendation();
+        addReviewScreen.writeReview();
+
+        addReviewScreen.clickSubmitReview();
+    }
+
     @Then("^User would directed to product detail screen$")
     public void user_would_directed_to_product_detail_screen() throws Throwable {
 

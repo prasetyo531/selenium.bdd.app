@@ -12,21 +12,24 @@ Feature: User Add Product
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
-  #FDBRMA-267
-  @Android @AddProduct1 @Smoke @Staging @IntegrationTest
-  Scenario Outline: Add product by capture photo
+  #FDBRMA-267 #FDBRMA-274
+  @Android @AddProduct @Smoke @Staging @IntegrationTest
+  Scenario Outline: Add product by capture photo - Add Review
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"
     And User take picture to add product
     When User clicks submit add product
     Then User will see drawer have same detail
+    When User clicks add review button after add product submitted
+    And Fill all field then submit add review
+    Then User will see congrats screen and direct to review detail from feed
 
     Examples:
       |       productname                 |       productshade               |
       |	    product capture photo	      |   product capture photo shade	 |
 
   #FDBRMA-423
-  @Android @AddProduct1 @Smoke @Staging
+  @Android @AddProduct @Smoke @Staging
   Scenario Outline: Add product using upload image
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"
@@ -39,7 +42,7 @@ Feature: User Add Product
       |	    product from gallery	      |   product from gallery shade	 |
 
   #FDBRMA-268
-  @Android @AddProduct1 @WIP
+  @Android @AddProduct
   Scenario Outline: Add product without attach image
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"
@@ -51,7 +54,7 @@ Feature: User Add Product
       |	    product capture photo	      |   product capture photo shade	 |
 
   #FDBRMA-371
-  @Android @AddProduct1 @WIP
+  @Android @AddProduct
   Scenario Outline: Add product without specify brand name
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>" except brand name
@@ -64,7 +67,7 @@ Feature: User Add Product
       |	    product capture photo	      |   product capture photo shade	 |
 
   #FDBRMA-273
-  @Android @AddProduct @WIP
+  @Android @AddProduct
   Scenario Outline: Add product without specify category
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>" except category
@@ -77,7 +80,7 @@ Feature: User Add Product
       |	    product capture photo	      |   product capture photo shade	 |
 
   #FDBRMA-372
-  @Android @AddProduct @WIP
+  @Android @AddProduct
   Scenario Outline: Add product without fill product name
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productshade>" except product name
@@ -88,3 +91,48 @@ Feature: User Add Product
     Examples:
       |       productshade               |
       |   product capture photo shade	 |
+
+  #FDBRMA-384
+  @Android @AddProduct
+  Scenario Outline: Add product input product name less than 3 - more than 100
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>"
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see toast msg to fill product name in format
+
+    Examples:
+      |       productname                |
+      |           tr                	 |
+      |     100charjkjsankdhasdhaksdhakshdkahsdkjahsdkjhasdkjhaksdjhakjsdhkajhsdkjahsdkjahsdkjashdkjhkjsahdkjasha    |
+
+  #FDBRMA-376
+  @Android @AddProduct
+  Scenario Outline: Add product - search brand
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen and select brand by search "<brand>"
+    And User take picture to add product
+    When User clicks submit add product
+    Then User will see drawer have same detail
+
+    Examples:
+      |       brand               |
+      |      Nature Republi	  |
+
+  #FDBRMA-272 #FDBRMA-271
+  @Android @AddProductTest @WIP
+  Scenario Outline: Add product - edit product root category
+    Given User clicks add product from homescreen menu
+    When User fill all field on add product screen "<productname>" and "<productshade>"
+    When User change brand name
+    And User change product category
+    And User input to change product name "<changeproductname>"
+    And User take picture to add product
+    When User clicks submit edit add product
+    Then User will see drawer have updated detail
+
+    Examples:
+      |       productname                 |       productshade               |      changeproductname               |
+      |	    product capture photo	      |   product capture photo shade	 |    changed product capture photo     |
+
+
