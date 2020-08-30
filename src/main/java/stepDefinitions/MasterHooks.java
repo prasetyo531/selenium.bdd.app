@@ -9,8 +9,10 @@ import utils.CommonUtils;
 import utils.DriverFactory;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class MasterHooks extends DriverFactory {
+
 
     @Before
     public void setUp() throws IOException, InterruptedException {
@@ -26,8 +28,11 @@ public class MasterHooks extends DriverFactory {
         try {
             switch (this.loadPropertyFile) {
                 case "android.properties":
+                    driver.closeApp();
                     driver.resetApp();
                     System.out.println("need reset app");
+                    ProcessBuilder processBuilder = new ProcessBuilder();
+                    processBuilder.command("bash", "-c", "kill $(lsof -t -i :4725)");
                     break;
                 case "ios.properties":
                     Thread.sleep(800);
@@ -43,6 +48,7 @@ public class MasterHooks extends DriverFactory {
                 //ActionBase.captureScreenshot();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
                 AppiumServer.stop();
+
             } if (driver != null) {
                 AppiumServer.stop();
                 System.out.println("end of test");

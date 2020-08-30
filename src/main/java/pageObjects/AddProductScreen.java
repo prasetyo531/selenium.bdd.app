@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import javafx.scene.input.KeyCodeCombination;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -171,13 +172,7 @@ public class AddProductScreen extends ActionBase {
 
         //search
         isElementPresent(searchBrand);
-        searchBrand.sendKeys(Brand);
-
-        KeyInput keyboard = new KeyInput("keyboard");
-        Sequence sendKeys = new Sequence(keyboard, 0);
-
-        sendKeys.addAction(keyboard.createKeyDown(Keys.SHIFT.getCodePoint()));
-        sendKeys.addAction(keyboard.createKeyDown("c".codePointAt(0)));
+        inputValueEnter(searchBrand, Brand);
 
         isElementPresent(firstResultBrand);
         tapByElement(firstResultBrand);
@@ -224,8 +219,8 @@ public class AddProductScreen extends ActionBase {
         getSelectedBrand = brandField.getText();
         System.out.println(getSelectedBrand);
 
-
         tapByElement(brandField);
+        isElementPresent(secondResultBrand);
         tapByElement(secondResultBrand);
 
         getEditedBrand = brandField.getText();
@@ -237,7 +232,7 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen editSelectedProductCat() throws IOException, InterruptedException {
 
-//        this.verticalSwipeByPercentages(productDescField,0.01,0.4,0.5,500);
+        this.verticalSwipeByPercentages(productNameField,0.3,0.6,0.20,500);
 
         getSelectedProdCat = productCatField.getText();
         System.out.println(getSelectedProdCat);

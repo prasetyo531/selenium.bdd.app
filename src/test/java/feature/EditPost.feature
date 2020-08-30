@@ -24,7 +24,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345        |    #cobaskin   |     lips	  |
 
   #FDBRMA-350 #FDBRMA-351 #FDBRMA-352
-  @EditPost @Production
+  @EditPostDemo @Production
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -63,7 +63,7 @@ Feature: User Edit Post
       |	      testflight	 |        test123        |
 
   #FDBRMA-315
-  @EditPost @Staging
+  @EditPostDemo @Staging
   Scenario Outline: Edit post - Remove tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -82,7 +82,7 @@ Feature: User Edit Post
       |	    apkprod20	 |        test123        |
 
   #FDBRMA-318
-  @EditPost1
+  @EditPostDemo
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

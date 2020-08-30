@@ -9,6 +9,7 @@ public class DriverFactory {
 
     //grid
     public static AppiumDriver driver;
+    public static Process process;
 
     //set configuration
     public static String loadPropertyFile = "android.properties";
@@ -35,6 +36,9 @@ public class DriverFactory {
     public static ProfileScreen profileScreen;
     public static TalkScreen talkScreen;
     public static OthersScreen othersScreen;
+
+    public String cmd = "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/killport.sh";
+    public String[] cmdx = { "sh", "killport.sh", "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/"};
 
     public AppiumDriver getDriver() throws IOException {
 

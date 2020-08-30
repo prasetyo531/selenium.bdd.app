@@ -133,6 +133,7 @@ public class AddProductSteps extends DriverFactory {
     public void user_clicks_submit_edit_add_product() throws Throwable {
 
         addProductScreen.scrollToBottom();
+        Thread.sleep(1500);
         addProductScreen.submitAddProduct();
     }
 
