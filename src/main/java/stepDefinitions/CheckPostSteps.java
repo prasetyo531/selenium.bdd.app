@@ -69,4 +69,23 @@ public class CheckPostSteps extends DriverFactory {
         feedScreen.chooseNoDeletePost();
     }
 
+    @When("^User clicks tag icon in post from feed menu$")
+    public void user_clicks_tag_icon_in_post_from_feed_menu() throws Throwable {
+
+        homeScreen.clickFeedMenu();
+
+        feedScreen.clickPostTagProduct();
+    }
+
+    @Then("^User will see personal rating and review for product$")
+    public void user_will_see_personal_rating_and_review_for_product() throws Throwable {
+
+        modalPostTagProductScreen.checkElementPresentTaggedProductReviewPost();
+    }
+
+    @Then("^User will see overall rating for product$")
+    public void user_will_see_overall_rating_for_product() throws Throwable {
+
+        modalPostTagProductScreen.checkElementPresentTaggedProductPost();
+    }
 }

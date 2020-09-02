@@ -36,6 +36,7 @@ public class DriverFactory {
     public static ProfileScreen profileScreen;
     public static TalkScreen talkScreen;
     public static OthersScreen othersScreen;
+    public static ModalPostTagProductScreen modalPostTagProductScreen;
 
     public String cmd = "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/killport.sh";
     public String[] cmdx = { "sh", "killport.sh", "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/"};
@@ -80,6 +81,7 @@ public class DriverFactory {
             profileScreen = new ProfileScreen(driver);
             talkScreen = new TalkScreen(driver);
             othersScreen = new OthersScreen(driver);
+            modalPostTagProductScreen = new ModalPostTagProductScreen(driver);
         }
         return driver;
     }

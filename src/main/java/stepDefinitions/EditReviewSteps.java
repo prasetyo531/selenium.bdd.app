@@ -48,7 +48,7 @@ public class EditReviewSteps extends DriverFactory {
         homeScreen.clickFeedMenu();
 
         feedScreen.clickIconTagsPost();
-        feedScreen.clickProductDetailBtn();
+        modalPostTagProductScreen.clickViewProductDetailBtn();
         //product detail
         productDetailScreen.clickAddReviewBtn();
     }

@@ -13,7 +13,7 @@ Feature: User Add Product
     Then User will see modal account status on homescreen
 
   #FDBRMA-267 #FDBRMA-274
-  @Android @AddProduct1 @Smoke @Staging @IntegrationTest
+  @Android @AddProduct @Smoke @Staging @IntegrationTest
   Scenario Outline: Add product by capture photo - Add Review
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"
@@ -29,7 +29,7 @@ Feature: User Add Product
       |	    product capture photo	      |   product capture photo shade	 |
 
   #FDBRMA-423
-  @Android @AddProduct1 @Smoke @Staging
+  @Android @AddProduct @Smoke @Staging
   Scenario Outline: Add product using upload image
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"
@@ -107,7 +107,7 @@ Feature: User Add Product
       |     100charjkjsankdhasdhaksdhakshdkahsdkjahsdkjhasdkjhaksdjhakjsdhkajhsdkjahsdkjahsdkjashdkjhkjsahdkjasha    |
 
   #FDBRMA-376
-  @Android @AddProduct
+  @Android @AddProduct @Bug
   Scenario Outline: Add product - search brand
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen and select brand by search "<brand>"
@@ -120,7 +120,7 @@ Feature: User Add Product
       |      Nature Republic	  |
 
   #FDBRMA-272 #FDBRMA-271 #FDBRMA-424
-  @Android @AddProduct2
+  @Android @AddProduct
   Scenario Outline: Add product - edit brand name - edit product root category - edit product name
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"

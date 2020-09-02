@@ -23,6 +23,9 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/labelText")
     public MobileElement descReviewDetail;
 
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView")
+    public MobileElement firstPostFeed;
+
     @AndroidFindBy(id="com.fdbr.android:id/textReadMore")
     public MobileElement readMoreDetail;
 
@@ -67,19 +70,19 @@ public class FeedScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Cancel']")
     public MobileElement cancelDelete;
 
-    /* modal tagged product */
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
-    public MobileElement iconClose;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonProductDetail")
-    public MobileElement productDetailBtn;
-
     // This is a constructor, as every page need a base driver to find android elements
     public FeedScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
+    }
+
+    public FeedScreen clickPostTagProduct() throws IOException {
+
+        isElementPresent(firstPostFeed);
+        tapByElement(firstPostFeed);
+        return new FeedScreen(driver);
     }
 
     public FeedScreen clickReadMoreReview() throws IOException {
@@ -100,13 +103,6 @@ public class FeedScreen extends ActionBase {
 
         isElementPresent(iconTags);
         tapByElement(iconTags);
-        return new FeedScreen(driver);
-    }
-
-    public FeedScreen clickProductDetailBtn() throws IOException {
-
-        isElementPresent(productDetailBtn);
-        tapByElement(productDetailBtn);
         return new FeedScreen(driver);
     }
 
