@@ -22,9 +22,9 @@ Feature: Login into account
 
     Examples:
       |        phonenumber          |
-      |	       081284915951	        |
-      |        6281284915951        |
-      |       +6281284915951        |
+      |	       085212688725	        |
+      |        6285212688725        |
+      |       +6285212688725        |
 
   #FDBRMA-172
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest

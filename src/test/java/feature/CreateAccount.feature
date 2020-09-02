@@ -21,7 +21,7 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                      |      username            |
-      |	  081284915951	     |    bddappregisterphoneandroid@mailinator.com   |    bddappregisterandro    |
+      |	  085212688725	     |    bddappregisterphoneandroid@mailinator.com   |    bddappregisterandro    |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest

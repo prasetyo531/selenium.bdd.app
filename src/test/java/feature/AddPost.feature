@@ -53,7 +53,7 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
   #FDBRMA-56 #FDBRMA-60
-  @Android @AddPost1 @Staging @RealAccount @RealDevices @IntegrationTest
+  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Add post - Tag reviewed product by search product
     Given User clicks add post from homescreen menu
     When User take picture to add post

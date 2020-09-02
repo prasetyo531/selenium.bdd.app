@@ -90,6 +90,13 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.errorDescPhoneNumberIsVerifiedModal();
     }
 
+    @Then("^show modal email has been registered$")
+    public void show_email_has_been_registered() throws Throwable {
+
+        registerScreen.errorTitleEmailIsVerifiedModal();
+        registerScreen.errorDescEmailIsVerifiedModal();
+    }
+
     @Then("^show modal verified email android$")
     public void show_modal_verified_email_android() throws Throwable {
 

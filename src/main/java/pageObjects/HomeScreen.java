@@ -160,6 +160,7 @@ public class HomeScreen extends ActionBase {
 
     public HomeScreen allowPermission() throws IOException {
 
+        isElementPresent(permissionAllow);
         tapByElement(permissionAllow);
         return new HomeScreen(driver);
     }
