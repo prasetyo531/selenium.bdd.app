@@ -47,7 +47,7 @@ Feature: User Check Post
       |	      apkprod20	     |        test123        |
 
   #FDBRMA-421
-  @CheckPostTest
+  @CheckPost
   Scenario Outline: Check tagged post with user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -64,7 +64,7 @@ Feature: User Check Post
       |	      apkprod19	     |        test123    |
 
   #FDBRMA-422
-  @CheckPostTest
+  @CheckPost
   Scenario Outline: Check tagged post without user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

@@ -9,7 +9,7 @@
 
 <!--    <test name="maintest">-->
 <!--        <classes>-->
-<!--            <class name="integrationAndroid.RegisterLoginStaging"/>-->
+<!--            <class name="integrationTestAndroid.RegisterLoginStaging"/>-->
 <!--        </classes>-->
 <!--    </test>-->
     <test name="secondtest">

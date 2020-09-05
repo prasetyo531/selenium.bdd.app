@@ -1,4 +1,4 @@
-package integrationAndroid;
+package integrationTestAndroid;
 
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
@@ -16,7 +16,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"~@UiTest", "~@WIP", "~@AddPost", "~@AddProduct", "@Smoke, @RealAccount, @RealDevices, @IntegrationTest", "@Register, @Android", "@Login, @Android"},
+        tags = {"~@Ios","~@UiTest", "~@WIP", "~@AddPost", "~@AddProduct", "@Smoke, @RealAccount, @RealDevices, @IntegrationTest", "@Register, @Android", "@Login, @Android"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3

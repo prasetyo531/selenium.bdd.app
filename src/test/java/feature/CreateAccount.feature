@@ -121,7 +121,7 @@ Feature: Create account
       | 08170223322 |
 
 
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest @WIP
+  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using registered email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
