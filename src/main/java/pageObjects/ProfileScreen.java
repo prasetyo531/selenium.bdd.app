@@ -80,7 +80,7 @@ public class ProfileScreen extends ActionBase{
     public MobileElement inputedDob;
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
-    public MobileElement dobCancel;
+    public MobileElement editCancel;
 
     //previous month
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.NumberPicker[1]/android.widget.Button[1]")
@@ -361,6 +361,8 @@ public class ProfileScreen extends ActionBase{
     /*   change password   */
     public ProfileScreen clickChangePassword() throws IOException {
 
+        this.verticalSwipeByPercentages(locationField,0.4,0.01,0.5,500);
+
         tapByElement(changePassword);
         return new ProfileScreen(driver);
     }
@@ -390,7 +392,7 @@ public class ProfileScreen extends ActionBase{
 
         isElementPresent(sneakbarChangePassword);
         String msg = sneakbarChangePassword.getText();
-        Assert.assertEquals(msg, text);
+        Assert.assertEquals(text, msg);
         return new ProfileScreen(driver);
     }
 

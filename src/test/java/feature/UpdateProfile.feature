@@ -122,6 +122,29 @@ Feature: Update Profile
 
   ##### Update Password #####
 
+  #FDBRMA-277
+  @FDBRMA-277
+  Scenario Outline: Update password
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User clicks update password
+    And User input "<oldpassword>" on old password field
+    And User input new "<newpassword>" invalid format on new password field
+    When User clicks submit button to change password
+    Then Display sneak msg "Change Password Success!"
+
+    Examples:
+      |   username    |   password       |   oldpassword        |     newpassword       |
+      |	  matches00	  |   test123       |     test123          |     test1234          |
+
   #FDBRMA-284
   @FDBRMA-284
   Scenario Outline: Update password - input wrong old password
@@ -143,7 +166,7 @@ Feature: Update Profile
 
     Examples:
       |   username    |   password       |   oldpassword        |     newpassword       |
-      |	  vnsphl27	  |   test123       |     test123          |     test1234          |
+      |	  matches01	  |   test123       |     test1234          |     test123          |
 
   #FDBRMA-286 #FDBRMA-287
   @FDBRMA-286
@@ -161,7 +184,7 @@ Feature: Update Profile
     And User clicks update password
     And User input "<oldpassword>" on old password field
     When User input new "<newpassword>" invalid format on new password field
-    Then display msg "New password should be 6-25 characters in length" is displayed under phone number field
+    Then Display sneak msg "Password should be 6-25 characters in length"
 
     Examples:
       |   username        |   password      |       oldpassword        |     newpassword       |
@@ -208,7 +231,7 @@ Feature: Update Profile
     And User input "<oldpassword>" on old password field
     And User input new "<newpassword>" invalid format on new password field
     When User clicks submit button to change password
-    Then Display sneak msg "Password should not same with old password"
+    Then Display sneak msg "Your password cannot include your username"
 
     Examples:
       |   username    |   password       |   oldpassword        |     newpassword       |

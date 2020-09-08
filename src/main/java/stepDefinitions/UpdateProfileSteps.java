@@ -115,6 +115,8 @@ public class UpdateProfileSteps extends ActionBase {
     public void user_input_new_something_invalid_format_on_new_password_field(String newpassword) throws Throwable {
 
         profileScreen.inputNewPassword(newpassword);
+
+        profileScreen.clickSubmitChangePassword();
     }
 
     @When("^User clicks submit button to change password$")

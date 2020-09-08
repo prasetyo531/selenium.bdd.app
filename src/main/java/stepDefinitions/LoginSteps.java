@@ -106,12 +106,6 @@ public class LoginSteps extends DriverFactory {
         loginScreen.assertTextWarningLogin(message);
     }
 
-    @Then("^display msg \"([^\"]*)\" is displayed under phone number field$")
-    public void display_msg_is_displayed_under_phone_number_field(String message) {
-
-        loginScreen.assertTextWarningLogin(message);
-    }
-
     @Then("^user see and close modal phone number is not registered$")
     public void user_see_and_close_modal_phone_number_is_not_registered() throws Throwable {
 
