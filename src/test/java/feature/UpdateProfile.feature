@@ -143,10 +143,10 @@ Feature: Update Profile
 
     Examples:
       |   username    |   password       |   oldpassword        |     newpassword       |
-      |	  apkprod	  |   test1234       |     test123          |     test1234          |
+      |	  vnsphl27	  |   test123       |     test123          |     test1234          |
 
   #FDBRMA-286 #FDBRMA-287
-  @Bug
+  @FDBRMA-286
   Scenario Outline: Update Password, Input password less than 6 characters and more than 25 characters
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -165,6 +165,52 @@ Feature: Update Profile
 
     Examples:
       |   username        |   password      |       oldpassword        |     newpassword       |
-      |	  apkprod	  |   test123       |     bddbeautyid          |          pwd          |
-      |	  apkprod	  |   test123       |     bddbeautyid          |  passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword |
+      |	  campaigntest	  |   test123       |     bddbeautyid          |          pwd          |
+      |	  campaigntest	  |   test123       |     bddbeautyid          |  passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword |
+
+  #FDBRMA-427
+  @FDBRMA-427
+  Scenario Outline: Update password - input new password same as old password
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User clicks update password
+    And User input "<oldpassword>" on old password field
+    And User input new "<newpassword>" invalid format on new password field
+    When User clicks submit button to change password
+    Then Display sneak msg "Password should not same with old password"
+
+    Examples:
+      |   username    |   password       |   oldpassword        |     newpassword       |
+      |	  campaigntest	  |   test123       |     test123          |     test123          |
+
+   #FDBRMA-426
+  @FDBRMA-426
+  Scenario Outline: Update password - input password contains username
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    And User clicks update password
+    And User input "<oldpassword>" on old password field
+    And User input new "<newpassword>" invalid format on new password field
+    When User clicks submit button to change password
+    Then Display sneak msg "Password should not same with old password"
+
+    Examples:
+      |   username    |   password       |   oldpassword        |     newpassword       |
+      |	  campaigntest	  |   test123       |     test123          |     campaigntest          |
 

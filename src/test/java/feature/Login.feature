@@ -154,7 +154,7 @@ Feature: Login into account
       |           081702                 |
       |       081702081702081702081702   |
 
-  # FDBRMA-114
+  #FDBRMA-114
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of email address
     Given User navigates to onboarding screen by click next
@@ -169,7 +169,8 @@ Feature: Login into account
       | username                 | password  |
       | testflight@mailinator.com | 123qwerty |
 
-   #FDBRMA-115
+  #this test relate to change password
+  #FDBRMA-115 #FDBRMA-285
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using wrong password of username
     Given User navigates to onboarding screen by click next
@@ -181,8 +182,9 @@ Feature: Login into account
     Then User see and close modal username is not registered
 
     Examples:
-      | username | password  |
-      | putwid   | 123qwerty |
+      |   username   |  password  |
+      |    putwid    | 123qwerty  |
+      |  vnsphl27  | test123   |
 
    #FDBRMA-173
   @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest

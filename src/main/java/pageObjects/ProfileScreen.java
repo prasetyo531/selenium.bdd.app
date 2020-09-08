@@ -18,16 +18,16 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Reviews\"]")
     public MobileElement reviewsTab;
 
-    @AndroidFindBy(xpath="////android.widget.LinearLayout[@content-desc=\"Topics\"]")
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Topics\"]")
     public MobileElement topicsTab;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Talks\"]")
     public MobileElement talksTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonUpdateBeautyId")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonUpdateBeautyId")
     public MobileElement updateBeautyIdBeautyBox;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android.main:id/setting")
     public MobileElement settingIcon;
 
     /* review or post list */
@@ -43,56 +43,59 @@ public class ProfileScreen extends ActionBase{
     /****
      setting option
      ****/
-    @AndroidFindBy(id="com.fdbr.android:id/buttonEditProfile")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Edit Profile']")
     public MobileElement editProfile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonInviteFriends")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Invite Friends']")
     public MobileElement inviteFriends;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonFeedback")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Feedback']")
     public MobileElement feedback;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonRateOurApp")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Rate Our App']")
     public MobileElement rateOurApp;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonPrivacyPolicy")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Privacy Policy']")
     public MobileElement privacyPolicy;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonLogOut")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Log Out']")
     public MobileElement logout;
 
     /****
      edit profile
      ****/
-    @AndroidFindBy(id="com.fdbr.android:id/imageBack")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement cancelEditprofile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textSave")
+    @AndroidFindBy(id="com.fdbr.android.main:id/textSave")
     public MobileElement saveEditprofile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/viewChooseImage")
+    @AndroidFindBy(id="com.fdbr.android.main:id/viewChooseImage")
     public MobileElement uploadImgBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/layoutDob")
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutDob")
     public MobileElement dobEditProfile;
 
-    @AndroidFindBy(id=" com.fdbr.android:id/inputDob")
+    @AndroidFindBy(id=" com.fdbr.android.main:id/inputDob")
     public MobileElement inputedDob;
 
-    @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement dobCancel;
 
     //previous month
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.NumberPicker[1]/android.widget.Button[1]")
     public MobileElement MonthDob;
 
+    @AndroidFindBy(id="com.fdbr.android:id/btn_cancel")
+    public MobileElement dobCancel;
+
     @AndroidFindBy(id="com.fdbr.android:id/btn_ok")
     public MobileElement dobOk;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputName")
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputName")
     public MobileElement fullnameField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/tvItemSpinner")
+    @AndroidFindBy(id="com.fdbr.android.main:id/tvItemSpinner")
     public MobileElement genderField;
 
     @AndroidFindBy(id="//android.widget.CheckedTextView[contains(@resource-id,'android:id/text1') and @text='Female']")
@@ -101,25 +104,25 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id,'android:id/text1') and @text='Male']")
     public MobileElement rbMalePersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android:id/layoutLocation")
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutLocation")
     public MobileElement locationField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchLocField;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='Balikpapan']")
     public MobileElement balikpapan;
 
-    @AndroidFindBy(id="com.fdbr.android:id/layoutUpdatePassword")
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
     public MobileElement changePassword;
 
-    @AndroidFindBy(id="com.fdbr.android:id/layoutBeautyProfile")
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyProfile")
     public MobileElement beautyProfEditProfile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/layoutBeautyProfile")
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyConcern")
     public MobileElement concernProfEditProfile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputBio")
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputBio")
     public MobileElement fieldBio;
 
     /****
@@ -134,31 +137,31 @@ public class ProfileScreen extends ActionBase{
     /****
      capture img
      ****/
-    @AndroidFindBy(id="com.fdbr.android:id/buttonCapture")
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backArrow;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonRetakeToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakeBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonDoneToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRightCustom")
     public MobileElement doneArrow;
 
     /****
      change password
      ****/
-    @AndroidFindBy(id="com.fdbr.android:id/inputOldPassword")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/inputOldPassword")
     public MobileElement oldPassField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputNewPassword")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/inputNewPassword")
     public MobileElement newPassField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/text_input_end_icon")
     public MobileElement showPassIcon;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonSubmit")
+    @AndroidFindBy(id="com.fdbr.android.auth:id/buttonSubmit")
     public MobileElement submitBtn;
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
