@@ -200,13 +200,17 @@ public class HomeScreen extends ActionBase {
     public boolean verifyAccountStatusModal() {
 
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
-        if (checkAccountStatusModal == true) {
-            tapByElement(closeAccountStatusModal);
-            System.out.println("account status modal is present");
-            verifyHomescreen();
-        } else {
-            System.out.println("account status modal is not present");
-            verifyHomescreen();
+        try {
+            if (checkAccountStatusModal == true) {
+                tapByElement(closeAccountStatusModal);
+                System.out.println("account status modal is present");
+                verifyHomescreen();
+            } else {
+                System.out.println("account status modal is not present");
+                verifyHomescreen();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
         return (checkAccountStatusModal && verifyHomescreen());
     }

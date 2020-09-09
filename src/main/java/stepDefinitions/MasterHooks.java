@@ -13,6 +13,7 @@ import java.time.Duration;
 
 public class MasterHooks extends DriverFactory {
 
+    Runtime rt = Runtime.getRuntime();
 
     @Before
     public void setUp() throws IOException, InterruptedException {
@@ -31,8 +32,8 @@ public class MasterHooks extends DriverFactory {
                     driver.closeApp();
                     driver.resetApp();
                     System.out.println("need reset app");
-                    ProcessBuilder processBuilder = new ProcessBuilder();
-                    processBuilder.command("bash", "-c", "kill $(lsof -t -i :4725)");
+                    Process proc = rt.exec("kill -9 5271");
+                    proc.getErrorStream();
                     break;
                 case "ios.properties":
                     Thread.sleep(800);

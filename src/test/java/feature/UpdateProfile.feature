@@ -183,7 +183,7 @@ Feature: Update Profile
     And User clicks edit profile
     And User clicks update password
     And User input "<oldpassword>" on old password field
-    When User input new "<newpassword>" invalid format on new password field
+    When User input new "<newpassword>" invalid format on new password field and then submit
     Then Display sneak msg "Password should be 6-25 characters in length"
 
     Examples:
@@ -214,7 +214,7 @@ Feature: Update Profile
       |   username    |   password       |   oldpassword        |     newpassword       |
       |	  campaigntest	  |   test123       |     test123          |     test123          |
 
-   #FDBRMA-426
+  #FDBRMA-426
   @FDBRMA-426
   Scenario Outline: Update password - input password contains username
     Given User navigates to onboarding screen by swipe

@@ -99,6 +99,7 @@ public class CommonUtils {
         //https://appiumpro.com/editions/50 - if false will install from android properties
         capabilities.setCapability("skipDeviceInitialization", true);
         capabilities.setCapability("skipServerInstallation", true);
+        capabilities.setCapability("noReset", true);
     }
 
     public static void setIOSCapabilities() {
