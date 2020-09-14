@@ -16,7 +16,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@FDBRMA-277, @FDBRMA-284, @FDBRMA-426, @FDBRMA-427, @FDBRMA-286"},
+        tags = {"@FDBRMA-19, @FDBRMA-20, @FDBRMA-254, @FDBRMA-429, @FDBRMA-251"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -24,7 +24,7 @@ import java.io.IOException;
                 "usage:test-output/cucumber/cucumber-usage.json"}
 )
 
-public class LocalRunner extends AbstractTestNGCucumberTests {
+public class UiTestVerifyAccount extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {

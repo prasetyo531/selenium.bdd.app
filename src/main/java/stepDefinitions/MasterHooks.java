@@ -32,8 +32,7 @@ public class MasterHooks extends DriverFactory {
                     driver.closeApp();
                     driver.resetApp();
                     System.out.println("need reset app");
-                    Process proc = rt.exec("kill -9 5271");
-                    proc.getErrorStream();
+                    //Process proc = rt.exec("pkill java");
                     break;
                 case "ios.properties":
                     Thread.sleep(800);

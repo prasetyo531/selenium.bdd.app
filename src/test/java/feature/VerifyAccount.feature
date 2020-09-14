@@ -5,9 +5,12 @@ Feature: Verify account
   User should have real number
   User should fill personal info, beauty profile and concern
 
-  #FDBRMA-221
+
+ ### verify email ###
+
+  #FDBRMA-221 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verifiy Registered Email
+  Scenario Outline: Verify Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -25,9 +28,9 @@ Feature: Verify account
       |   email        |   password    |       phone           |
       |	  bddregister	  |   test123     |     081284915951      |
 
-  #FDBRMA-222
+  #FDBRMA-222 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verifiy Inputed Email
+  Scenario Outline: Verify Inputed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -45,9 +48,9 @@ Feature: Verify account
       |   username        |   password    |       phone           |
       |	  bddregister	  |   test123     |     081284915951      |
 
-  #FDBRMA-223
+  #FDBRMA-223 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verifiy Changed Email
+  Scenario Outline: Verify Changed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -65,7 +68,10 @@ Feature: Verify account
       |   username        |   password    |       phone           |
       |	  bddregister	  |   test123     |     081284915951      |
 
-  #FDBRMA-227
+
+  ### verify phone ###
+
+  #FDBRMA-227 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
   Scenario Outline: Verify Registered Phone
     Given User navigates to onboarding screen by swipe
@@ -85,7 +91,7 @@ Feature: Verify account
       |   username        |   password    |
       |	  bddregister	  |   test123     |
 
-  #FDBRMA-228
+  #FDBRMA-228 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
   Scenario Outline: Verify Inputed Phone
     Given User navigates to onboarding screen by swipe
@@ -105,7 +111,7 @@ Feature: Verify account
       |   username        |   password    |
       |	  bddregister	  |   test123     |
 
-  #FDBRMA-229
+  #FDBRMA-229 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
   Scenario Outline: Verify Changed Phone
     Given User navigates to onboarding screen by swipe
@@ -124,6 +130,9 @@ Feature: Verify account
     Examples:
       |   username        |   password    |
       |	  bddregister	  |   test123     |
+
+
+  ### UI VALIDATION ###
 
   #FDBRMA-19
   @FDBRMA-19
@@ -164,26 +173,12 @@ Feature: Verify account
       |	  vnsphl	  |   dora12345     |    081702      |
       |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
 
-  @FDBRMA-253
-  Scenario Outline: Save personal info upload image profile
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User clicks next button on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User click skip button on verify email screen
-    And User click skip button on verify phone screen
-    When User take picture to complete personal info
-    Then User will see image that has taken appear in thumbnail
 
-    Examples:
-      |   username    |   password      |
-      |	  vnsphl31	  |   test123     |
+  ### PERSONAL INFO SCREEN ###
 
+  #FDBRMA-254
   @FDBRMA-254
-  Scenario Outline: Save personal info input fullname contains special character
+  Scenario Outline: Save personal info input fullname contains integer or special character
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -201,10 +196,9 @@ Feature: Verify account
       |	  verifywebprod	  |   test123       |       vnsphl2        |
       |	  verifywebprod	  |   test123       |       vnsph_satu     |
 
-
-  #FDBRMA-250 #FDBRMA-251 #FDBRMA-252 #FDBRMA-255 #FDBRMA-366 #FDBRMA-256 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @FDBRMA-250
-  Scenario Outline: Verify profile as registered user, skip verify email and phone
+  #FDBRMA-429 #FDBRMA-250
+  @FDBRMA-429
+  Scenario Outline: Save personal using photo from gallery
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -214,12 +208,31 @@ Feature: Verify account
     When User click complete verify button on modal
     Then User click skip button on verify email screen
     And User click skip button on verify phone screen
-    And User fill all mandatory field on personal info screen "<fullname>" and "<location>"
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see progress bar verify on homescreen
+    When User take picture to complete personal info
+    Then User will see image that has taken appear in thumbnail
 
     Examples:
-      |   username    |   password      |     fullname      |    location    |
-      |	  vnsphl30	  |   test123     |       vnsphldua     |     Bima        |
+      |   username    |   password      |
+      |	  vnsphl31	  |   test123     |
 
+  #FDBRMA-251 #FDBRMA-255 #FDBRMA-366
+  @FDBRMA-251
+  Scenario Outline: Complete personal info - fill without input fullname - select gender - select location
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User click skip button on verify email and verify phone screen
+    When User click save personal info without fill fullname
+    Then User will see error msg to fill username "Please enter your full name"
+    When User click save personal info without choose gender
+    Then User will see error msg to choose gender "Please enter your gender"
+    When User click save personal info without choose location
+    Then User will see error msg to choose gender "Please enter your location"
+
+    Examples:
+      |   username    |   password      |
+      |	  vnsphl30	  |   test123     |

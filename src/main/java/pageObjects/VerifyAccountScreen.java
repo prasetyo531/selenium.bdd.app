@@ -12,6 +12,9 @@ import java.io.IOException;
 
 public class VerifyAccountScreen extends ActionBase {
 
+    @AndroidFindBy(id = "com.fdbr.android.beauty:id/close")
+    public MobileElement closeStep;
+
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangeEmail")
     public MobileElement changeAuth;
 
@@ -19,8 +22,11 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement txtWarningEmailPhone;
 
     /***  email screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputEmail")
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
     public MobileElement fieldVerifyEmail;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/labelEmail")
+    public MobileElement inputedEmail;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyEmail")
     public MobileElement verifyNowEmailBtn;
@@ -29,11 +35,14 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement skipEmailBtn;
 
     /***  phone screen  ***/
-    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPhone")
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
     public MobileElement fieldVerifyPhone;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyPhone")
     public MobileElement verifyNowPhoneBtn;
+
+//    @AndroidFindBy(id="com.fdbr.android.beauty:id/labelEmail")
+//    public MobileElement inputedPhone;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyPhone")
     public MobileElement skipPhoneBtn;
