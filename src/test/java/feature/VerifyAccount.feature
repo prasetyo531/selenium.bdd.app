@@ -5,7 +5,6 @@ Feature: Verify account
   User should have real number
   User should fill personal info, beauty profile and concern
 
-
  ### verify email ###
 
   #FDBRMA-221 #FDBRMA-250
@@ -25,7 +24,7 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |   email        |   password    |       phone           |
+      |   username        |   password    |       phone           |
       |	  bddregister	  |   test123     |     081284915951      |
 
   #FDBRMA-222 #FDBRMA-250
@@ -176,9 +175,9 @@ Feature: Verify account
 
   ### PERSONAL INFO SCREEN ###
 
-  #FDBRMA-254
+  #FDBRMA-254 @FDBRMA-251 #FDBRMA-366
   @FDBRMA-254
-  Scenario Outline: Save personal info input fullname contains integer or special character
+  Scenario Outline: Save personal info input fullname contains integer or special character - input without fullname, gender and location
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -208,31 +207,9 @@ Feature: Verify account
     When User click complete verify button on modal
     Then User click skip button on verify email screen
     And User click skip button on verify phone screen
-    When User take picture to complete personal info
+    When User use picture from gallery to complete personal info
     Then User will see image that has taken appear in thumbnail
 
     Examples:
       |   username    |   password      |
-      |	  vnsphl31	  |   test123     |
-
-  #FDBRMA-251 #FDBRMA-255 #FDBRMA-366
-  @FDBRMA-251
-  Scenario Outline: Complete personal info - fill without input fullname - select gender - select location
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User clicks next button on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User click skip button on verify email and verify phone screen
-    When User click save personal info without fill fullname
-    Then User will see error msg to fill username "Please enter your full name"
-    When User click save personal info without choose gender
-    Then User will see error msg to choose gender "Please enter your gender"
-    When User click save personal info without choose location
-    Then User will see error msg to choose gender "Please enter your location"
-
-    Examples:
-      |   username    |   password      |
-      |	  vnsphl30	  |   test123     |
+      |	  newnew01	  |   test123     |

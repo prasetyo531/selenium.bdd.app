@@ -23,6 +23,9 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/layoutContentRating")
     public MobileElement contentRating;
 
+    @AndroidFindBy(id="com.fdbr.android.product:id/layoutReviewUser")
+    public MobileElement contentPercentageReview;
+
     @AndroidFindBy(id="com.fdbr.android.product:id/labelBrandName")
     public MobileElement labelBrandName;
 
@@ -90,6 +93,25 @@ public class ProductDetailScreen extends ActionBase {
         String editRev = labelReviewBtn.getText();
 
         Assert.assertEquals(editRev, "EDIT REVIEW");
+
         return new ProductDetailScreen(driver);
     }
+
+    public ProductDetailScreen scrollFindSeeMoreReviews() throws IOException {
+
+        isElementPresent(contentPercentageReview);
+        this.verticalSwipeByPercentages(contentPercentageReview,0.8,0.01,0.5,500);
+
+        return new ProductDetailScreen(driver);
+    }
+
+    public ProductDetailScreen clickSeeMoreReviews() throws IOException {
+
+        isElementPresent(seeMoreReviewBtn);
+        tapByElement(seeMoreReviewBtn);
+
+        return new ProductDetailScreen(driver);
+    }
+
+
 }

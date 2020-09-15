@@ -189,14 +189,21 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement capturePhoto;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonGallery")
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonPicker")
     public MobileElement gallery;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonRightCustom")
-    public MobileElement done;
+    public MobileElement doneBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakePicture;
+
+    /* first img in gallery */
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    public MobileElement firstIndexImg;
+
+    @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
+    public MobileElement doneCropBtn;
 
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -261,11 +268,35 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  personal info screen  ***/
-    public VerifyAccountScreen clickImg() throws IOException, InterruptedException {
+    public VerifyAccountScreen clickCaptureImg() throws IOException, InterruptedException {
 
+        isElementPresent(imgPersonalInfo);
         tapByElement(imgPersonalInfo);
+
         tapByElement(capturePhoto);
-        tapByElement(done);
+
+        isElementPresent(doneBtn);
+        tapByElement(doneBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen clickGalleryBtn() throws IOException {
+
+        isElementPresent(imgPersonalInfo);
+        tapByElement(imgPersonalInfo);
+
+        tapByElement(gallery);
+        isElementPresent(firstIndexImg);
+        tapByElement(firstIndexImg);
+
+        tapByElement(firstIndexImg);
+
+        isElementPresent(doneCropBtn);
+        tapByElement(doneCropBtn);
+
+        isElementPresent(doneBtn);
+        tapByElement(doneBtn);
+
         return new VerifyAccountScreen(driver);
     }
 

@@ -5,8 +5,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.ActionBase;
+import utils.DriverFactory;
 
-public class UpdateProfileSteps extends ActionBase {
+public class UpdateProfileSteps extends DriverFactory {
 
     @When("^User clicks complete my beautyId button$")
     public void user_clicks_complete_my_beautyid_button() throws Throwable {
@@ -23,7 +24,6 @@ public class UpdateProfileSteps extends ActionBase {
         verifyAccountScreen.checkTitleScreenBeautyConcern();
         verifyAccountScreen.clickSkipBeautyCon();
     }
-
 
     @And("^User clicks profile from homescreen menu$")
     public void user_clicks_profile_from_homescreen_menu() throws Throwable {

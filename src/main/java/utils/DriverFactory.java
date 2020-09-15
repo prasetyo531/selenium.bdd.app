@@ -34,12 +34,10 @@ public class DriverFactory {
     public static DiscoverScreen discoverScreen;
     public static CommentLikeScreen commentLikeScreen;
     public static ProfileScreen profileScreen;
+    public static ReviewListScreen reviewListScreen;
     public static TalkScreen talkScreen;
     public static OthersScreen othersScreen;
     public static ModalPostTagProductScreen modalPostTagProductScreen;
-
-    public String cmd = "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/killport.sh";
-    public String[] cmdx = { "sh", "killport.sh", "/Users/fdn-prasetyo/Documents/Automation/fdn.bdd.android/src/main/java/utils/"};
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -79,6 +77,7 @@ public class DriverFactory {
             discoverScreen = new DiscoverScreen(driver);
             commentLikeScreen = new CommentLikeScreen(driver);
             profileScreen = new ProfileScreen(driver);
+            reviewListScreen = new ReviewListScreen(driver);
             talkScreen = new TalkScreen(driver);
             othersScreen = new OthersScreen(driver);
             modalPostTagProductScreen = new ModalPostTagProductScreen(driver);

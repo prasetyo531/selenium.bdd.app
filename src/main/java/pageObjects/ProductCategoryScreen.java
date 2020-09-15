@@ -20,7 +20,7 @@ public class ProductCategoryScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelMenuName') and @text='SkinCare']")
     public MobileElement productCategorySkincare;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
     public MobileElement firstPopularProduct;
 
     @AndroidFindBy(id="com.fdbr.android:id/itemMenuParent")
@@ -51,6 +51,13 @@ public class ProductCategoryScreen extends ActionBase {
     public ProductCategoryScreen clickRandomMenuProductCat() throws IOException {
 
         clickRandomMenus(listroductCat);
+
+        return new ProductCategoryScreen(driver);
+    }
+
+    public ProductCategoryScreen clickFirstPopularProduct() throws IOException {
+
+        tapByElement(firstPopularProduct);
 
         return new ProductCategoryScreen(driver);
     }

@@ -74,15 +74,21 @@ public class VerifyAccountSteps extends DriverFactory {
 
         //capture not allowed to change
         verifyAccountScreen.captureSS("before-upload-photo-profile");
-        verifyAccountScreen.clickImg();
+        verifyAccountScreen.clickCaptureImg();
+    }
+
+    @When("^User use picture from gallery to complete personal info$")
+    public void user_use_picture_from_gallery_to_complete_personal_info() throws Throwable {
+
+        verifyAccountScreen.clickGalleryBtn();
     }
 
     @And("^User fill all mandatory field on personal info screen \"([^\"]*)\"$")
     public void User_fill_all_mandatory_field_on_personal_info_screen_something(String fullname) throws Throwable {
 
         verifyAccountScreen.clickSavePersonalInfo();
-        verifyAccountScreen.inputFieldFullname(fullname);
         verifyAccountScreen.getErrorFullname();
+        verifyAccountScreen.inputFieldFullname(fullname);
 
         verifyAccountScreen.clickSavePersonalInfo();
         verifyAccountScreen.getErrorGender();
@@ -147,7 +153,6 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseHijaber();
 
         verifyAccountScreen.clickSaveBeautyProf();
-        Thread.sleep(500);
 
         //verifyAccountScreen.verifySneakMsg();
     }
@@ -170,7 +175,6 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.chooseHairCon();
 
         verifyAccountScreen.clickSaveBeautyCon();
-        Thread.sleep(500);
 
         //verifyAccountScreen.verifySneakMsg();
     }
@@ -203,4 +207,5 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.checkPercentage("before-upload-photo-profile","after-upload-photo-profile");
         //verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
     }
+
 }
