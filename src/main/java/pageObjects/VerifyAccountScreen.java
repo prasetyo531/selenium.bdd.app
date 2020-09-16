@@ -581,8 +581,9 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  get title screen  ***/
-    public VerifyAccountScreen checkTitleScreenBeautyProfile() throws IOException {
+    public VerifyAccountScreen checkTitleScreenBeautyProfile() throws IOException, InterruptedException {
 
+        //Thread.sleeps(200);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);
@@ -591,8 +592,9 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen checkTitleScreenBeautyConcern() throws IOException {
+    public VerifyAccountScreen checkTitleScreenBeautyConcern() throws IOException, InterruptedException {
 
+        //Thread.sleep(200);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);

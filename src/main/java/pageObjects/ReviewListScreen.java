@@ -119,6 +119,7 @@ public class ReviewListScreen extends ActionBase {
 
         isElementPresent(firstReviewList);
         uname2 = firstReviewList.getText();
+        System.out.println("username nya adalah"+" "+uname1+" "+uname2);
         Assert.assertNotSame(uname1, uname2);
 
         return new ReviewListScreen(driver);

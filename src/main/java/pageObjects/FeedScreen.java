@@ -198,7 +198,8 @@ public class FeedScreen extends ActionBase {
     public FeedScreen findToastAfterReport() throws IOException {
 
         //WebDriverWait wait = new WebDriverWait(driver, 2);
-        toastMatches("Thank you for reporting this postttttt", false);
+        //its not check text equals expected text
+        toastMatches("Thank you for reporting this post", false);
 
         return new FeedScreen(driver);
     }

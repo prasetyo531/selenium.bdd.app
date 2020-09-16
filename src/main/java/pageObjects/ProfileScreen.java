@@ -67,7 +67,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement cancelEditprofile;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/textSave")
+    @AndroidFindBy(id="com.fdbr.android.main:id/save")
     public MobileElement saveEditprofile;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/viewChooseImage")
@@ -117,22 +117,91 @@ public class ProfileScreen extends ActionBase{
     public MobileElement changePassword;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyProfile")
-    public MobileElement beautyProfEditProfile;
+    public MobileElement updateBeautyProfile;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyConcern")
-    public MobileElement concernProfEditProfile;
+    public MobileElement updateBeautyConcern;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/inputBio")
     public MobileElement fieldBio;
 
-    /****
-     permission
-     ****/
-    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_button")
-    public MobileElement allowBtn;
+    /***  beauty profile screen  ***/
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyProfile")
+    public MobileElement contentBeautyProf;
 
-    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_deny_button")
-    public MobileElement denyBtn;
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
+    public MobileElement skinTypeCombination;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinType")
+    public MobileElement errorMsgSkinType;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    public MobileElement skinToneDark;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinTone")
+    public MobileElement errorMsgSkinTone;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement skinUnderToneWarm;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinUnderTone")
+    public MobileElement errorMsgSkinUndertone;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement hairTypeCurly;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
+    public MobileElement errorMsgHairType;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement coloredHairNo;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorColoredHair")
+    public MobileElement errorMsgColoredHair;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    public MobileElement isHijaberNo;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHijab")
+    public MobileElement errorMsgHijaber;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSaveBeautyProfile")
+    public MobileElement buttonSaveBeautyProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyProfile")
+    public MobileElement skipBeautyProfile;
+
+    /***  beauty concern screen  ***/
+    //title screen
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
+    public MobileElement titleScreen;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyConcern")
+    public MobileElement contentScreenBodyCon;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Black or White Heads']")
+    public MobileElement blackOrWhite;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinConcern")
+    public MobileElement errorSkinCon;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Loose Skin']")
+    public MobileElement looseSkin;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorBodyConcern")
+    public MobileElement errorBodyCon;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textView') and @text='Grey Hair']")
+    public MobileElement greyHair;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairConcern")
+    public MobileElement errorHairCon;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSaveBeautyConcern")
+    public MobileElement btnSaveBeautyConcern;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyConcern")
+    public MobileElement btnSkipBeautyConcern;
 
     /****
      capture img
@@ -212,15 +281,24 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen clickBackSetting() throws IOException {
+
+        isElementPresent(backArrow);
+        tapByElement(backArrow);
+        return new ProfileScreen(driver);
+    }
+
     /*  edit profile screen */
     public ProfileScreen clickSaveProfile() throws IOException {
 
+        isElementPresent(saveEditprofile);
         tapByElement(saveEditprofile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickCancelEditProfile() throws IOException {
 
+        isElementPresent(cancelEditprofile);
         tapByElement(cancelEditprofile);
         return new ProfileScreen(driver);
     }
@@ -279,7 +357,118 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    /*  change password screen */
+
+    public ProfileScreen clickUpdateBeautyProfile() throws IOException {
+
+        isElementPresent(fullnameField);
+        this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
+
+        tapByElement(updateBeautyProfile);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickUpdateBeautyConcern() throws IOException {
+
+        isElementPresent(fullnameField);
+        this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
+
+        tapByElement(updateBeautyConcern);
+        return new ProfileScreen(driver);
+    }
+
+    /* choose beauty profile */
+    public ProfileScreen chooseSkinType() throws IOException {
+
+        tapByElement(skinTypeCombination);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseSkinTone() throws IOException {
+
+        tapByElement(skinToneDark);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseSkinUndertone() throws IOException {
+
+        this.verticalSwipeByPercentages(skinUnderToneWarm,0.4,0.01,0.5,500);
+        tapByElement(skinUnderToneWarm);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseHairType() throws IOException {
+
+        this.verticalSwipeByPercentages(hairTypeCurly,0.4,0.01,0.5,500);
+        tapByElement(hairTypeCurly);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseColoredHair() throws IOException {
+
+        tapByElement(coloredHairNo);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseHijaber() throws IOException {
+
+        this.verticalSwipeByPercentages(isHijaberNo,0.4,0.01,0.5,500);
+        tapByElement(isHijaberNo);
+        tapByElement(isHijaberNo);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickSaveBeautyProf() throws IOException {
+
+        tapByElement(buttonSaveBeautyProfile);
+        return new ProfileScreen(driver);
+    }
+
+    /* choose beauty concern */
+    public ProfileScreen chooseSkinCon() throws IOException {
+
+        isElementPresent(contentScreenBodyCon);
+        tapByElement(blackOrWhite);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseBodyCon() throws IOException {
+
+        verticalSwipeByPercentages(contentScreenBodyCon, 0.8,0.01,0.5,500);
+        isElementPresent(looseSkin);
+        tapByElement(looseSkin);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen chooseHairCon() throws IOException {
+
+        isElementPresent(greyHair);
+        tapByElement(greyHair);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickSaveBeautyCon() throws IOException {
+
+        tapByElement(btnSaveBeautyConcern);
+        return new ProfileScreen(driver);
+    }
+
+    public void checkTitleScreenBeautyProfile() throws IOException {
+
+        //Thread.sleep(200);
+        isElementPresent(titleScreen);
+        String title = titleScreen.getText();
+        System.out.println("title screen"+" "+title);
+        org.testng.Assert.assertEquals(title, "Beauty Profile");
+    }
+
+    public void checkTitleScreenBeautyConcern() throws IOException {
+
+        //Thread.sleep(200);
+        isElementPresent(titleScreen);
+        String title = titleScreen.getText();
+        System.out.println("title screen"+" "+title);
+        org.testng.Assert.assertEquals(title, "Beauty Concern");
+    }
 
     /*  get inputed field profile screen */
     public ProfileScreen getTextDob() throws IOException {
@@ -355,6 +544,24 @@ public class ProfileScreen extends ActionBase{
         String getBio = fieldBio.getText();
         System.out.println("dobiob is"+" "+getBio);
         Assert.assertSame(null, getBio);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen findToastAfterUpdateBeautyProfile() throws IOException {
+
+        //WebDriverWait wait = new WebDriverWait(driver, 2);
+        //its not check text equals expected text
+        toastMatches("Beauty Profile Updated", false);
+
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen findToastAfterUpdateBeautyConcern() throws IOException {
+
+        //WebDriverWait wait = new WebDriverWait(driver, 2);
+        //its not check text equals expected text
+        toastMatches("Beauty Concern Updated", false);
+
         return new ProfileScreen(driver);
     }
 

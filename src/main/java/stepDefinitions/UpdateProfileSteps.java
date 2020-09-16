@@ -15,7 +15,7 @@ public class UpdateProfileSteps extends DriverFactory {
         homeScreen.completeMyBeautyIdProductMatches();
     }
 
-    @Then("^User will direct to Beauty Profile screen$")
+    @Then("^User will direct to beauty profile screen$")
     public void user_will_direct_to_beauty_profile_screen() throws Throwable {
 
         verifyAccountScreen.checkTitleScreenBeautyProfile();
@@ -23,6 +23,12 @@ public class UpdateProfileSteps extends DriverFactory {
 
         verifyAccountScreen.checkTitleScreenBeautyConcern();
         verifyAccountScreen.clickSkipBeautyCon();
+    }
+
+    @Then("^User will direct to beauty concern screen$")
+    public void user_will_direct_to_beauty_concern_screen() throws Throwable {
+
+        verifyAccountScreen.checkTitleScreenBeautyConcern();
     }
 
     @And("^User clicks profile from homescreen menu$")
@@ -99,6 +105,76 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.getTextEmptyBio();
     }
 
+    @When("^User click update beauty profile and user fill all option$")
+    public void user_click_update_beauty_profile_and_user_fill_all_option() throws Throwable {
+
+        profileScreen.clickUpdateBeautyProfile();
+
+//        verifyAccountScreen.checkTitleScreenBeautyProfile();
+
+        profileScreen.chooseSkinType();
+
+        profileScreen.chooseSkinTone();
+
+        profileScreen.chooseSkinUndertone();
+
+        profileScreen.chooseHairType();
+
+        profileScreen.chooseColoredHair();
+
+        profileScreen.chooseHijaber();
+
+        profileScreen.clickSaveBeautyProf();
+    }
+
+    @When("^User click update beauty concern and user fill all option$")
+    public void user_click_update_beauty_concern_and_user_fill_all_option() throws Throwable {
+
+        profileScreen.clickUpdateBeautyConcern();
+
+//        verifyAccountScreen.checkTitleScreenBeautyConcern();
+
+        profileScreen.chooseSkinCon();
+
+        profileScreen.chooseBodyCon();
+
+        profileScreen.chooseHairCon();
+
+        profileScreen.clickSaveBeautyCon();
+    }
+
+    @Then("^User will see toast msg to inform beauty profile updated$")
+    public void user_will_see_toast_msg_to_inform_beauty_profile_updated() throws Throwable {
+
+        profileScreen.findToastAfterUpdateBeautyProfile();
+    }
+
+    @Then("^User will see toast msg to inform beauty concern updated$")
+    public void user_will_see_toast_msg_to_inform_beauty_concern_updated() throws Throwable {
+
+        profileScreen.findToastAfterUpdateBeautyConcern();
+    }
+
+    @And("^User clicks save on edit profile screen$")
+    public void user_clicks_save_on_edit_profile_screen() throws Throwable {
+
+        profileScreen.clickSaveProfile();
+
+        profileScreen.clickBackSetting();
+    }
+
+    @Then("^User will direct automatically to beauty concern screen$")
+    public void user_will_direct_automatically_to_beauty_concern_screen() throws Throwable {
+
+        profileScreen.checkTitleScreenBeautyConcern();
+    }
+
+    @Then("^User will direct automatically to beauty profile screen$")
+    public void user_will_direct_automatically_to_beauty_profile_screen() throws Throwable {
+
+        profileScreen.checkTitleScreenBeautyProfile();
+    }
+
     @And("^User clicks update password$")
     public void user_clicks_update_password() throws Throwable {
 
@@ -130,7 +206,6 @@ public class UpdateProfileSteps extends DriverFactory {
 
         profileScreen.clickSubmitChangePassword();
     }
-
 
     @Then("^Display sneak msg \"([^\"]*)\"$")
     public void Display_sneak_msg_something(String msg) throws Throwable {

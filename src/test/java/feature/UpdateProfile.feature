@@ -1,7 +1,8 @@
 Feature: Update Profile
 
   In order to perform sucessfull update profile
-  I should able to fill all option of add post process
+  if user update beauty profile, product matches and beauty box direct to beauty concern
+  if user update beauty concern, product matches and beauty box direct to beauty profile
 
   #FDBRMA-328
   @FDBRMA-328
@@ -14,7 +15,7 @@ Feature: Update Profile
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
     When User clicks complete my beautyId button
-    Then User will direct to Beauty Profile screen
+    Then User will direct to beauty profile screen
 
     Examples:
       |   username        |   password      |
@@ -32,7 +33,7 @@ Feature: Update Profile
     Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu
     When User clicks beautyId button on beauty box on profile
-    Then User will direct to Beauty Profile screen
+    Then User will direct to beauty profile screen
 
     Examples:
       |   username        |   password      |
@@ -99,7 +100,7 @@ Feature: Update Profile
 
     Examples:
       |   username            |   password      |
-      |	  emptypersonal01	  |   test123       |
+      |	  emptypersonal03	  |   test123       |
 
   #FDBRMA-283
   @FDBRMA-283
@@ -113,11 +114,57 @@ Feature: Update Profile
     Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu
     When User clicks beautyId button on beauty box on profile
-    Then User will direct to Beauty Profile screen
+    Then User will direct to beauty profile screen
 
     Examples:
       |   username            |   password      |
-      |	  emptypersonal01	  |   test123       |
+      |	  emptypersonal04	  |   test123       |
+
+  #FDBRMA-279
+  @FDBRMA-279 @WIP
+  Scenario Outline: Update beauty profile and then click save on its own screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    When User click update beauty profile and user fill all option
+    Then User will see toast msg to inform beauty profile updated
+    And User clicks save on edit profile screen
+    When User clicks beautyId button on beauty box on profile
+    Then User will direct automatically to beauty concern screen
+
+    Examples:
+      |   username                |   password      |
+      |	  emptybeautyprofile03	  |   test123       |
+
+  #FDBRMA-280
+  @FDBRMA-280 @WIP
+  Scenario Outline: Update beauty concern and then click save on its own screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    And User clicks setting icon
+    And User clicks edit profile
+    When User click update beauty concern and user fill all option
+    Then User will see toast msg to inform beauty concern updated
+    And User clicks save on edit profile screen
+    When User clicks beautyId button on beauty box on profile
+    Then User will direct automatically to beauty profile screen
+
+    Examples:
+      |   username                |   password      |
+      |	  emptybeautyprofile04	  |   test123       |
 
 
   ##### Update Password #####
