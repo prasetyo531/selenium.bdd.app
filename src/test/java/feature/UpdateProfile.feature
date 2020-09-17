@@ -141,7 +141,7 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptybeautyprofile03	  |   test123       |
+      |	  emptybeautyprofile05	  |   test123       |
 
   #FDBRMA-280
   @FDBRMA-280 @WIP
@@ -164,7 +164,7 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptybeautyprofile04	  |   test123       |
+      |	  emptybeautyprofile06	  |   test123       |
 
 
   ##### Update Password #####

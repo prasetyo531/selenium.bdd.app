@@ -56,7 +56,7 @@ public class ActionBase extends DriverFactory {
 
     protected boolean isElementPresent(MobileElement mobileElement) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 50);
+            WebDriverWait wait = new WebDriverWait(driver, 80);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             System.out.println("element is present");
             return true;

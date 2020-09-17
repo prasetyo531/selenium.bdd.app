@@ -153,7 +153,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
     public MobileElement errorMsgHairType;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
     public MobileElement coloredHairNo;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorColoredHair")
@@ -413,7 +413,6 @@ public class ProfileScreen extends ActionBase{
 
         this.verticalSwipeByPercentages(isHijaberNo,0.4,0.01,0.5,500);
         tapByElement(isHijaberNo);
-        tapByElement(isHijaberNo);
         return new ProfileScreen(driver);
     }
 
@@ -452,18 +451,18 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public void checkTitleScreenBeautyProfile() throws IOException {
+    public void checkTitleScreenBeautyProfile() throws InterruptedException {
 
-        //Thread.sleep(200);
+        Thread.sleep(2000);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);
         org.testng.Assert.assertEquals(title, "Beauty Profile");
     }
 
-    public void checkTitleScreenBeautyConcern() throws IOException {
+    public void checkTitleScreenBeautyConcern() throws InterruptedException {
 
-        //Thread.sleep(200);
+        Thread.sleep(2000);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);

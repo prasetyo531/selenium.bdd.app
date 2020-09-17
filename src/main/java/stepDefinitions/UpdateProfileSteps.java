@@ -159,7 +159,7 @@ public class UpdateProfileSteps extends DriverFactory {
     public void user_clicks_save_on_edit_profile_screen() throws Throwable {
 
         profileScreen.clickSaveProfile();
-
+        Thread.sleep(1000);
         profileScreen.clickBackSetting();
     }
 
