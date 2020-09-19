@@ -120,8 +120,8 @@ Feature: Update Profile
       |   username            |   password      |
       |	  emptypersonal04	  |   test123       |
 
-  #FDBRMA-279
-  @FDBRMA-279 @WIP
+  #FDBRMA-279 #FDBRMA-281
+  @FDBRMA-279
   Scenario Outline: Update beauty profile and then click save on its own screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -141,10 +141,10 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptybeautyprofile05	  |   test123       |
+      |	  emptybeautyprofile07	  |   test123       |
 
-  #FDBRMA-280
-  @FDBRMA-280 @WIP
+  #FDBRMA-280 #FDBRMA-282
+  @FDBRMA-280
   Scenario Outline: Update beauty concern and then click save on its own screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -164,7 +164,7 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptybeautyprofile06	  |   test123       |
+      |	  emptybeautyprofile08	  |   test123       |
 
 
   ##### Update Password #####

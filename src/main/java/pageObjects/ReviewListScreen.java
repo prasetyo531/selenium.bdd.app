@@ -172,7 +172,7 @@ public class ReviewListScreen extends ActionBase {
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen chooseFilterSkinType() throws IOException {
+    public ReviewListScreen chooseFilterSkinType() throws IOException, InterruptedException {
 
         //choosing skin type
         tapByElement(skinTypeOption);
@@ -185,6 +185,7 @@ public class ReviewListScreen extends ActionBase {
         tapByElement(addFilterBtn);
 
         //check label selected should present on filter
+        Thread.sleep(2000);
         isElementPresent(labelFilterSelected2);
 
 
