@@ -100,5 +100,23 @@ public class DiscoverSteps extends DriverFactory {
         discoverScreen.backToSearchHashtagScreen();
     }
 
+    @When("^User clicks search hashtag and click trending hashtag$")
+    public void user_clicks_search_hashtag_and_click_trending_hashtag() throws Throwable {
+
+        discoverScreen.clickSearchIcon();
+        discoverScreen.clickFirstHashtagOnSearch();
+    }
+
+    @Then("^User will directed to hashtag detail$")
+    public void user_will_directed_to_hashtag_detail() throws Throwable {
+
+        discoverScreen.checkHashtagDetail();
+    }
+
+    @Then("^User scroll hashtag list on search result hashtag$")
+    public void user_scroll_hashtag_list_on_search_result_hashtag() throws Throwable {
+
+        discoverScreen.scrollHashtagResult();
+    }
 
 }

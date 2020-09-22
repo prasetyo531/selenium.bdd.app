@@ -28,17 +28,6 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-  @FDBRMA-290
-  Scenario: Scroll post grid and list on hashtag detail
-    Given User clicks discover from homescreen menu
-    When User clicks trending hashtag
-    Then User scroll post grid on hashtag detail
-    And User clicks random post on hashtag detail
-    Then User scroll post list on hashtag detail
-    And User back to post grid screen
-    And User back to discover
-    Then User back to homescreen
-
   @FDBRMA-289
   Scenario Outline: Follow - check post detail on hashtag detail
     Given User clicks discover from homescreen menu
@@ -55,4 +44,29 @@ Feature: Discover
       |    hashtag        |
       |	    skin	     |
 
+  @FDBRMA-290
+  Scenario: Scroll post grid and list on hashtag detail
+    Given User clicks discover from homescreen menu
+    When User clicks trending hashtag
+    Then User scroll post grid on hashtag detail
+    And User clicks random post on hashtag detail
+    Then User scroll post list on hashtag detail
+    And User back to post grid screen
+    And User back to discover
+    Then User back to homescreen
 
+  @FDBRMA-291
+  Scenario: Click popular hashtag on search screen
+    Given User clicks discover from homescreen menu
+    When User clicks search hashtag and click trending hashtag
+    Then User will directed to hashtag detail
+
+  @FDBRMA-292
+  Scenario Outline: Search result, choose hashtag through scroll
+    Given User clicks discover from homescreen menu
+    When User clicks search hashtag and input "<hashtag>"
+    Then User scroll hashtag list on search result hashtag
+
+    Examples:
+      |    hashtag        |
+      |	    skin	     |

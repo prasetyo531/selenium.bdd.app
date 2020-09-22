@@ -197,8 +197,9 @@ public class HomeScreen extends ActionBase {
         return (boolElem2 && boolElem3);
     }
 
-    public boolean verifyAccountStatusModal() {
+    public boolean verifyAccountStatusModal() throws InterruptedException {
 
+        Thread.sleep(2000);
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         try {
             if (checkAccountStatusModal == true) {
@@ -381,7 +382,5 @@ public class HomeScreen extends ActionBase {
         acceptAlert();
         return new HomeScreen(driver);
     }
-
-
 
 }

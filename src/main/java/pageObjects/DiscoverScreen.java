@@ -13,16 +13,16 @@ import java.util.List;
 public class DiscoverScreen extends ActionBase {
 
     //android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imagePhoto') and @index='0']
-    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android.main:id/search")
     public MobileElement iconSearchHashtag;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textHashtag') and @index='0']")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]")
     public MobileElement firstTrendingHashtag;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textHashtag') and @index='1']")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]")
     public MobileElement secondTrendingHashtag;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textHashtag') and @index='2']")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]")
     public MobileElement thirdTrendingHashtag;
 
     @AndroidFindBy(id="com.fdbr.android:id/swipeRepoList")
@@ -49,10 +49,13 @@ public class DiscoverScreen extends ActionBase {
     /******
      search hashtag
      ******/
+    @AndroidFindBy(id="com.fdbr.android.main:id/header")
+    public MobileElement titlePopularNow;
+
     @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchHashtag;
 
-    @AndroidFindBy(xpath="//android.widget.LinearLayout[contains(@resource-id, 'com.fdbr.android:id/layoutHashtags') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[contains(@resource-id, 'com.fdbr.android.main:id/layoutHashtags') and @index='1']")
     public MobileElement firstTrendingHashtagSearch;
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
@@ -61,10 +64,10 @@ public class DiscoverScreen extends ActionBase {
     /******
      hashtag detail
      ******/
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imagePhoto') and @index='0']")
+    @AndroidFindBy(xpath="//androidx.recyclerview.widget.RecyclerView[contains(@resource-id, 'com.fdbr.android.main:id/listDiscover') and @index='0']")
     public MobileElement postHashtagGrid;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.ImageView")
     public MobileElement firstPostHashtag;
 
     @AndroidFindBy(id="com.fdbr.android:id/listFeeds")
@@ -195,8 +198,29 @@ public class DiscoverScreen extends ActionBase {
 
     public DiscoverScreen clickFirstHashtagAfterSearch() throws IOException {
 
+        tapByElement(firstTrendingHashtagSearch);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickSearchIcon() throws IOException {
+
+        tapByElement(iconSearchHashtag);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickFirstHashtagOnSearch() throws IOException {
+
+        isElementPresent(titlePopularNow);
         isElementPresent(firstTrendingHashtagSearch);
         tapByElement(firstTrendingHashtagSearch);
+        return new DiscoverScreen(driver);
+    }
+
+
+    public DiscoverScreen scrollHashtagResult() throws IOException {
+
+        isElementPresent(firstTrendingHashtagSearch);
+        verticalSwipeByPercentages(firstTrendingHashtagSearch, 0.8,0.01,0.5,500);
         return new DiscoverScreen(driver);
     }
 
@@ -204,6 +228,12 @@ public class DiscoverScreen extends ActionBase {
 
         isElementPresent(backBtn);
         tapByElement(backBtn);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen checkHashtagDetail() throws IOException {
+
+        isElementPresent(firstPostHashtag);
         return new DiscoverScreen(driver);
     }
 }

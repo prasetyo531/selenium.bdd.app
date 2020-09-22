@@ -32,7 +32,7 @@ public class MasterHooks extends DriverFactory {
                     driver.closeApp();
                     driver.resetApp();
                     System.out.println("need reset app");
-                    //Process proc = rt.exec("pkill java");
+                    //AppiumServer.killPort();
                     break;
                 case "ios.properties":
                     Thread.sleep(800);
@@ -48,7 +48,6 @@ public class MasterHooks extends DriverFactory {
                 //ActionBase.captureScreenshot();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
                 AppiumServer.stop();
-
             } if (driver != null) {
                 AppiumServer.stop();
                 System.out.println("end of test");
