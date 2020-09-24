@@ -100,6 +100,20 @@ public class DiscoverSteps extends DriverFactory {
         discoverScreen.backToSearchHashtagScreen();
     }
 
+    @When("^User click random post then like post$")
+    public void user_click_random_post_then_like_post() throws Throwable {
+
+        discoverScreen.clickRandomPost();
+        discoverScreen.clickLike();
+    }
+
+    @And("^User post comment \"([^\"]*)\"$")
+    public void user_post_comment_something(String comment) throws Throwable {
+
+        discoverScreen.clickComment();
+        discoverScreen.addComment(comment);
+    }
+
     @When("^User clicks search hashtag and click trending hashtag$")
     public void user_clicks_search_hashtag_and_click_trending_hashtag() throws Throwable {
 
@@ -117,6 +131,13 @@ public class DiscoverSteps extends DriverFactory {
     public void user_scroll_hashtag_list_on_search_result_hashtag() throws Throwable {
 
         discoverScreen.scrollHashtagResult();
+    }
+
+    @Then("^User will see counter like and comment increased$")
+    public void user_will_see_counter_like_and_comment_increased() throws Throwable {
+
+        discoverScreen.checkCounterLike();
+        discoverScreen.checkCounterComment();
     }
 
 }

@@ -28,7 +28,7 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-  @FDBRMA-289
+  @FDBRMA-289 @FDBRMA-303
   Scenario Outline: Follow - check post detail on hashtag detail
     Given User clicks discover from homescreen menu
     When User clicks search hashtag and input "<hashtag>"
@@ -55,11 +55,18 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-  @FDBRMA-291
-  Scenario: Click popular hashtag on search screen
+  @FDBRMA-291 @FDBRMA-301 @FDBRMA-302 @WIP
+  Scenario Outline: Click popular hashtag on search screen - Click Like and Comment post on hashtag screen
     Given User clicks discover from homescreen menu
     When User clicks search hashtag and click trending hashtag
     Then User will directed to hashtag detail
+    When User click random post then like post
+    And User post comment "<comment>"
+    Then User will see counter like and comment increased
+
+    Examples:
+      |           comment            |
+      |	    wah aku mau juga	     |
 
   @FDBRMA-292
   Scenario Outline: Search result, choose hashtag through scroll

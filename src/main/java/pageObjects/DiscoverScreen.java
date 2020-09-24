@@ -12,6 +12,12 @@ import java.util.List;
 
 public class DiscoverScreen extends ActionBase {
 
+    public static String counterLikeBefore;
+    public static String counterLikeAfter;
+
+    public static String counterCommentBefore;
+    public static String counterCommentAfter;
+
     //android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imagePhoto') and @index='0']
     @AndroidFindBy(id="com.fdbr.android.main:id/search")
     public MobileElement iconSearchHashtag;
@@ -34,17 +40,27 @@ public class DiscoverScreen extends ActionBase {
     /******
      post detail
      *******/
-    @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backBtn;
 
-    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android:id/buttonFollow') and @index='3']")
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android:id/buttonFollow') and @index='2']")
     public List<MobileElement> followBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textCommentCounter")
-    public MobileElement clickCommentIcon;
+    @AndroidFindBy(id="com.fdbr.android:id/buttonComment")
+    public MobileElement commentIcon;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textLikeCounter")
-    public MobileElement clickLikeIcon;
+    @AndroidFindBy(id="com.fdbr.android.comment:id/inputComment")
+    public MobileElement commentField;
+
+    @AndroidFindBy(id="com.fdbr.android.comment:id/buttonPost")
+    public MobileElement postComment;
+
+    @AndroidFindBy(id="com.fdbr.android.comment:id/parent")
+    public MobileElement commentList;
+
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLove")
+    public MobileElement likeIcon;
 
     /******
      search hashtag
@@ -178,7 +194,7 @@ public class DiscoverScreen extends ActionBase {
 
     public DiscoverScreen scrollPostList() throws IOException {
 
-        isElementPresent(clickCommentIcon);
+        isElementPresent(commentIcon);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
@@ -216,7 +232,6 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-
     public DiscoverScreen scrollHashtagResult() throws IOException {
 
         isElementPresent(firstTrendingHashtagSearch);
@@ -234,6 +249,54 @@ public class DiscoverScreen extends ActionBase {
     public DiscoverScreen checkHashtagDetail() throws IOException {
 
         isElementPresent(firstPostHashtag);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickLike() throws IOException {
+
+        isElementPresent(likeIcon);
+        counterLikeBefore = likeIcon.getText();
+
+        tapByElement(likeIcon);
+        counterLikeAfter = likeIcon.getText();
+
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen clickComment() throws IOException {
+
+        isElementPresent(commentIcon);
+        counterCommentBefore = commentIcon.getText();
+
+        tapByElement(commentIcon);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen addComment(String comment) throws IOException, InterruptedException {
+
+        inputValue(commentField, comment);
+        tapByElement(postComment);
+
+        Thread.sleep(1000);
+        isElementPresent(commentList);
+
+        tapByElement(backBtn);
+
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen checkCounterLike() throws IOException {
+
+        Assert.assertNotSame(counterLikeAfter, counterLikeBefore);
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen checkCounterComment() throws IOException {
+
+        isElementPresent(commentIcon);
+        counterCommentAfter = commentIcon.getText();
+
+        Assert.assertNotSame(counterCommentAfter, counterCommentBefore);
         return new DiscoverScreen(driver);
     }
 }
