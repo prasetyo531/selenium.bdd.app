@@ -9,19 +9,19 @@ import utils.DriverFactory;
 
 public class AddPostSteps extends DriverFactory {
 
-    @Given("^User clicks add post from homescreen menu$")
+    @When("^User clicks add post from homescreen menu$")
     public void user_clicks_add_post_from_homescreen_menu() throws Throwable {
 
         homeScreen.clickAddPostHomeMenu();
     }
 
-    @When("^User take picture to add post$")
+    @And("^User take picture to add post$")
     public void user_take_picture_to_add_post() throws Throwable {
 
         addPostScreen.capturePhoto();
     }
 
-    @When("^User pick picture from gallery add post$")
+    @And("^User pick picture from gallery add post$")
     public void user_pick_picture_from_gallery_add_post() throws Throwable {
 
        addPostScreen.selectPhotoFromGallery();

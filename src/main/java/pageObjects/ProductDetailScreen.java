@@ -35,7 +35,7 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonReview")
     public MobileElement addReviewBtn;
 
-    @AndroidFindBy(id="com.fdbr.android.product:id/labelReview")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelReview') and @index='0']")
     public MobileElement labelReviewBtn;
 
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonWishlist")

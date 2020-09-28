@@ -99,3 +99,23 @@ Feature: User Edit Post
     Examples:
       |         email        |        password       |       hashtag    |
       |	      apkprod20	 |        test123        |    cobaskincare  |
+
+  #FDBRMA-62
+  @Android @EditPost @Staging @RealAccount @RealDevices @IntegrationTest @WIP
+  Scenario Outline: Add post - remove reviewed product from tag until only one product in tag
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    When User clicks edit post from feed menu
+    Then User enters caption of post contains hashtag "<hashtag>"
+    And User remove multiple product from tag
+    When User clicks submit edit post
+    Then User will direct to feed
+
+    Examples:
+      |         email        |        password       |         search               |
+      |	      onlypostbdd	 |        test123        |            lip               |

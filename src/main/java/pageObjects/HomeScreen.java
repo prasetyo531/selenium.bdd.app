@@ -132,7 +132,7 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/navigationDiscover")
     public MobileElement discoverTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/plusMenu")
+    @AndroidFindBy(id="com.fdbr.android.main:id/plus")
     public MobileElement plusTab;
 
     @AndroidFindBy(id="com.fdbr.android:id/navigationProfile")
