@@ -58,6 +58,12 @@ public class AddPostScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
     public MobileElement firstIndexProduct;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
+    public MobileElement secondIndexProduct;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='2']")
+    public MobileElement threeIndexProduct;
+
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backBtn;
 
@@ -135,36 +141,17 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen fillCustomCaption(String caption) throws IOException {
+
+        tapByElement(inputCaptionField);
+        inputValue(inputCaptionField, caption);
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen fillCaptionWithHashtag(String hashtag) throws IOException {
 
         tapByElement(inputCaptionField);
         inputValue(inputCaptionField, "caption test with hashtag"+" "+hashtag);
-        return new AddPostScreen(driver);
-    }
-
-    public AddPostScreen checkNumProd() throws IOException {
-
-        isElementPresent(labelNumberProducts);
-        String numProdLabel = labelNumberProducts.getText();
-        Assert.assertNotNull(numProdLabel);
-        return new AddPostScreen(driver);
-    }
-
-    public AddPostScreen checkNumRevShouldNull() throws IOException {
-
-        //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
-        Boolean numreview = driver.findElements(numrev).size() > 0;
-        if(numreview == true){
-            Assert.fail("element add review should not present");
-        }
-        return new AddPostScreen(driver);
-    }
-
-    public AddPostScreen checkNumRev() throws IOException {
-
-        isElementPresent(labelNumberReviewed);
-        String numReviewedLabel = labelNumberReviewed.getText();
-        Assert.assertNotNull(numReviewedLabel);
         return new AddPostScreen(driver);
     }
 
@@ -205,6 +192,14 @@ public class AddPostScreen extends ActionBase {
     public AddPostScreen chooseFirstPopularProduct() throws IOException {
 
         tapByElement(firstIndexProduct);
+        tapByElement(submitBtn);
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen chooseTwoPopularProduct() throws IOException {
+
+        tapByElement(firstIndexProduct);
+        tapByElement(secondIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
@@ -277,6 +272,13 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen chooseSecondTaggedProduct() throws IOException {
+
+        tapByElement(secondIndexProduct);
+        tapByElement(submitBtn);
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen backToAddPostScreen() throws IOException {
 
         isElementPresent(labelReviewed);
@@ -284,6 +286,53 @@ public class AddPostScreen extends ActionBase {
         Assert.assertTrue(label.equals("REVIEWED"));
 
         tapByElement(backBtn);
+        return new AddPostScreen(driver);
+    }
+
+    /* check label after tag product */
+    public AddPostScreen checkNumProd() throws IOException {
+
+        isElementPresent(labelNumberProducts);
+        String numProdLabel = labelNumberProducts.getText();
+        Assert.assertNotNull(numProdLabel);
+        Assert.assertTrue(numProdLabel.contains("Product"));
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkNumRev() throws IOException {
+
+        isElementPresent(labelNumberReviewed);
+        String numReviewedLabel = labelNumberReviewed.getText();
+        Assert.assertNotNull(numReviewedLabel);
+        Assert.assertTrue(numReviewedLabel.contains("Review"));
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkLabelMultipleTag() throws IOException {
+
+        isElementPresent(labelNumberProducts);
+        String numProdLabel = labelNumberProducts.getText();
+        Assert.assertNotNull(numProdLabel);
+        Assert.assertTrue(numProdLabel.contains("Products"));
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkLabelMultipleReview() throws IOException {
+
+        isElementPresent(labelNumberReviewed);
+        String numReviewedLabel = labelNumberReviewed.getText();
+        Assert.assertNotNull(numReviewedLabel);
+        Assert.assertTrue(numReviewedLabel.contains("Reviews"));
+        return new AddPostScreen(driver);
+    }
+
+    public AddPostScreen checkNumRevShouldNull() throws IOException {
+
+        //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
+        Boolean numreview = driver.findElements(numrev).size() > 0;
+        if(numreview == true){
+            Assert.fail("element add review should not present");
+        }
         return new AddPostScreen(driver);
     }
 

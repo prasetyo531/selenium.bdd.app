@@ -123,19 +123,19 @@ public class HomeScreen extends ActionBase {
     /**********
      tab bar
      **********/
-    @AndroidFindBy(id="com.fdbr.android:id/navigationHome")
+    @AndroidFindBy(id="com.fdbr.android.main:id/home")
     public MobileElement homeTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/navigationFeed")
+    @AndroidFindBy(id="com.fdbr.android.main:id/feed")
     public MobileElement feedTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/navigationDiscover")
+    @AndroidFindBy(id="com.fdbr.android.main:id/discover")
     public MobileElement discoverTab;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/plus")
     public MobileElement plusTab;
 
-    @AndroidFindBy(id="com.fdbr.android:id/navigationProfile")
+    @AndroidFindBy(id="com.fdbr.android.main:id/profile")
     public MobileElement profileTab;
 
     /**********

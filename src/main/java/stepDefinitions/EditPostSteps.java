@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
@@ -42,6 +43,16 @@ public class EditPostSteps extends DriverFactory {
         addPostScreen.checkNumRevShouldNull();
     }
 
+    @And("^User remove multiple product from tag$")
+    public void user_remove_multiple_product_from_tag() throws Throwable {
+
+        addPostScreen.clickTagProduct();
+        addPostScreen.waitProductList();
+
+        addPostScreen.removeTaggedProduct();
+        addPostScreen.checkNumProd();
+        addPostScreen.checkNumRev();
+    }
 
     @When("^User clicks submit edit post$")
     public void user_clicks_submit_edit_post() throws Throwable {
@@ -91,6 +102,12 @@ public class EditPostSteps extends DriverFactory {
 
         addPostScreen.getTextModalEditPost();
         addPostScreen.yesCancelPost();
+    }
+
+    @Then("^User will direct to feed$")
+    public void user_will_direct_to_feed() throws Throwable {
+
+        feedScreen.checkIsOnFeedAfterPost();
     }
 
 

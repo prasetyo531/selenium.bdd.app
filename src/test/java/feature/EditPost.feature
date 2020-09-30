@@ -100,9 +100,9 @@ Feature: User Edit Post
       |         email        |        password       |       hashtag    |
       |	      apkprod20	 |        test123        |    cobaskincare  |
 
-  #FDBRMA-62
-  @Android @EditPost @Staging @RealAccount @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Add post - remove reviewed product from tag until only one product in tag
+  #FDBRMA-62 run setelah add post #FDBRMA-61
+  @FDBRMA-62
+  Scenario Outline: Edit post - remove reviewed product from tag until only one product in tag
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
@@ -117,5 +117,5 @@ Feature: User Edit Post
     Then User will direct to feed
 
     Examples:
-      |         email        |        password       |         search               |
-      |	      onlypostbdd	 |        test123        |            lip               |
+      |         email            |        password       |                hashtag                 |
+      |	      bddtestaddpost02	 |        test123        |        edit post tag only 1 product    |
