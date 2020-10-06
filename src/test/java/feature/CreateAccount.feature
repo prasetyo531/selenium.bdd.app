@@ -12,24 +12,24 @@ Feature: Create account
   Scenario Outline: Signup using new phone number starts with 0
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     When user input correct otp from phone on otp screen to register
     Then user enters the "<email>", "<username>", password and select dob to register
     And user clicks submit button on complete account screen
     Then User will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email                      |      username            |
-      |	  085212688725	     |    bddappregisterphoneandroid@mailinator.com   |    bddappregisterandro    |
+      |   phonenumber        |              email          |      username     |
+      |	  081284915951	     |    realotp@mailinator.com   |     realotp01     |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup using new phone number starts with 62 and +62
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then user will direct to otp screen from phone to register
 
     Examples:
@@ -42,8 +42,8 @@ Feature: Create account
   Scenario Outline: Signup input with invalid format phone or email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then display msg "This email or phone number is invalid" is displayed under phone number field
 
     Examples:
@@ -60,8 +60,8 @@ Feature: Create account
   Scenario Outline: Signup using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then show modal verified phone number android
 
     Examples:
@@ -74,7 +74,7 @@ Feature: Create account
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" email to register
-    And user clicks next button on register screen
+    And User clicks next button on register screen
     Then user will direct to otp screen from email to register
 
     Examples:
@@ -86,8 +86,8 @@ Feature: Create account
   Scenario Outline: Signup input email with incorrect format email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<email>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<email>" phonenumber to register
+    And User clicks next button on register screen
     Then display msg "Please enter your correct email address" is displayed under phone number field
 
     Examples:
@@ -99,8 +99,8 @@ Feature: Create account
   Scenario Outline: Signup input phone number starts without 0
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then display msg "Please enter your correct phone number" is displayed under phone number field
 
     Examples:
@@ -112,8 +112,8 @@ Feature: Create account
   Scenario Outline: Signup using registered phone number
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then show modal identify your phone number android
 
     Examples:
@@ -125,8 +125,8 @@ Feature: Create account
   Scenario Outline: Signup using registered email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<email>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<email>" phonenumber to register
+    And User clicks next button on register screen
     Then show modal email has been registered
 
     Examples:
@@ -139,7 +139,7 @@ Feature: Create account
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then user enters the "<email>" email to register
-    And user clicks next button on register screen
+    And User clicks next button on register screen
     Then show modal verified email android
 
     Examples:
@@ -154,12 +154,61 @@ Feature: Create account
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then user see and click yes on modal phone number is not registered
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
 
     Examples:
       |     phonenumber      |
       |	    6285678900987	 |
+
+  #FDBRMA-119 #FDBRMA-144
+  @Android @bypassotp
+  Scenario Outline: Signup using new phone number starts with 0
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When user input bypass otp from phone on otp screen to register
+    Then user enters the "<email>", "<username>", password and select dob to register
+    And user clicks submit button on complete account screen
+    Then User will see modal account status on homescreen
+
+    Examples:
+      |   phonenumber        |              email               |      username     |
+      |	  081501209990	     |    bypassotp_02@mailinator.com   |    bypassotp02    |
+
+
+  # Verification Screen #
+
+  #FDBRMA-143 #FDBRMA-148
+  @Android @bypassotp
+  Scenario Outline: Input Wrong verification code - Resend code
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When User input wrong otp code
+    Then Display error msg "You entered invalid code"
+    When User click resend code
+    Then Error msg will dissapear
+
+    Examples:
+      |   phonenumber        |
+      |	  081501209990	     |
+
+  #FDBRMA-145  #FDBRMA-215
+  @Android @bypassotp
+  Scenario Outline: Resend code more than 3 times
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When User click resend code 3 times
+    Then Display error msg "You have reached a limit for sending code. Please try again in 58 minutes"
+    When User input wrong otp code
+    Then Display error msg "You entered invalid code"
+    When User click resend code 3 times
+    Then Display error msg "You have reached a limit for sending code. Please try again in 58 minutes"
 
   ##################################################################################
   #IOS
@@ -170,8 +219,8 @@ Feature: Create account
   Scenario Outline: Register using new phone number, starts with 0
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     When user input correct otp from phone on otp screen from ios to register
     Then user enters the "<email>", "<username>", password and select dob to register
     And user clicks submit button on complete account screen
@@ -186,8 +235,8 @@ Feature: Create account
   Scenario Outline: Register using new phone number, starts with 62
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then user will direct to otp screen from phone to register
 
     Examples:
@@ -200,8 +249,8 @@ Feature: Create account
   Scenario Outline: Register using registered phone number
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then show modal identify your phone number ios
 
     Examples:
@@ -213,8 +262,8 @@ Feature: Create account
   Scenario Outline: Register using verified phone number
     Given User navigates to onboarding screen by click next
     When User clicks register button on onboarding screen
-    Then user enters the "<phonenumber>" phonenumber to register
-    And user clicks next button on register screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
     Then show modal verified phone number ios
 
     Examples:

@@ -130,6 +130,6 @@ Feature: User Add Post
 
     Examples:
       |         email        |     password      |            caption            |     search      |
-      |	   bddtestaddpost02	 |      test123      |    try&review post dari #qa   |      lip        |
+      |	   bddtestaddpost03	 |      test123      |    try&review post dari #qa   |      lip        |
 
 

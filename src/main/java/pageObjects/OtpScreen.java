@@ -30,10 +30,36 @@ public class OtpScreen extends ActionBase{
     @iOSXCUITFindBy(id="Resend now")
     public MobileElement resendCodeLabel;
 
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelCountDownTimer")
+    @iOSXCUITFindBy(id="Resend now")
+    public MobileElement countdownTimer;
+
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelWarningInputOtp")
+    @iOSXCUITFindBy(id="Resend now")
+    public MobileElement errorMsgOtp;
+
     @AndroidFindBy(id="com.fdbr.android.auth:id/buttonConfirm")
     @iOSXCUITFindBy(id="id_otp_confirm")
     public MobileElement confirmOtpBtn;
 
+    /* otp box*/
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[1]")
+    public MobileElement box1;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[2]")
+    public MobileElement box2;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[3]")
+    public MobileElement box3;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[4]")
+    public MobileElement box4;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[5]")
+    public MobileElement box5;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[6]")
+    public MobileElement box6;
 
     public OtpScreen(AppiumDriver driver) throws IOException {
 
@@ -48,9 +74,32 @@ public class OtpScreen extends ActionBase{
         tapByElement(allowReadOtpBtn);
     }
 
-    public void clickConfirmOtp() {
+    public OtpScreen getCounter() throws IOException {
+
+        isElementPresent(countdownTimer);
+        String counter = countdownTimer.getText();
+        Assert.assertTrue(counter.contains("00:2"));
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen clickConfirmOtp() throws IOException {
 
         tapByElement(confirmOtpBtn);
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen fillByPassOtp() throws IOException {
+
+        inputValue(box1,"1");
+        inputValue(box2,"1");
+        inputValue(box3,"1");
+        inputValue(box4,"1");
+        inputValue(box5,"1");
+        inputValue(box6,"1");
+
+        return new OtpScreen(driver);
     }
 
     //get String phone android
@@ -59,13 +108,6 @@ public class OtpScreen extends ActionBase{
         String labelReceiver = authReceiverLabel.getText();
         Assert.assertTrue(labelReceiver.startsWith("+628"));
     }
-
-//    public void compareEmailReceiver() {
-//
-//        String labelReceiver = authReceiverLabel.getText();
-//        Assert.assertTrue(labelReceiver.contains("@"));
-//        Assert.assertTrue(labelReceiver.contains("."));
-//    }
 
     /***  ios ***/
     public void clickAllowReadMsgIos() {

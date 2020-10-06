@@ -7,8 +7,8 @@ import utils.DriverFactory;
 
 public class RegisterSteps extends DriverFactory {
 
-    @Then("^user enters the \"([^\"]*)\" phonenumber to register$")
-    public void user_enters_the_something_phonenumber_to_register(String phonenumber) throws Throwable {
+    @Then("^User enters the \"([^\"]*)\" phonenumber to register$")
+    public void User_enters_the_something_phonenumber_to_register(String phonenumber) throws Throwable {
 
         registerScreen.inputUsrEmailPhoneName(phonenumber);
     }
@@ -19,10 +19,17 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.inputUsrEmailPhoneName(phonenumber);
     }
 
-    @And("^user clicks next button on register screen$")
-    public void user_clicks_next_button_on_register_screen() throws Throwable {
+    @And("^User clicks next button on register screen$")
+    public void User_clicks_next_button_on_register_screen() throws Throwable {
 
         registerScreen.clickNext();
+    }
+
+    //error msg underfield
+    @Then("^display msg \"([^\"]*)\" is displayed under phone number field$")
+    public void display_msg_something_is_displayed_under_phone_number_field(String msg) throws Throwable {
+
+        registerScreen.assertTextWarningLogin(msg);
     }
 
     @When("^user input correct otp from phone on otp screen to register$")
@@ -30,6 +37,15 @@ public class RegisterSteps extends DriverFactory {
 
         otpScreen.comparePhoneReceiver();
         otpScreen.clickAllowReadMsg();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @When("^user input bypass otp from phone on otp screen to register$")
+    public void user_input_bypass_otp_from_phone_on_otp_screen_to_register() throws Throwable {
+
+        otpScreen.getCounter();
+        otpScreen.comparePhoneReceiver();
+        otpScreen.fillByPassOtp();
         otpScreen.clickConfirmOtp();
     }
 
@@ -109,5 +125,6 @@ public class RegisterSteps extends DriverFactory {
 
         registerScreen.errorTitlePhoneNumberIsVerifiedModalIos();
     }
+
 
 }

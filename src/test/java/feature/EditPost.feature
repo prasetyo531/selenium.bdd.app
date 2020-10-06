@@ -118,4 +118,4 @@ Feature: User Edit Post
 
     Examples:
       |         email            |        password       |                hashtag                 |
-      |	      bddtestaddpost02	 |        test123        |        edit post tag only 1 product    |
+      |	      bddtestaddpost03	 |        test123        |        edit post tag only 1 product    |
