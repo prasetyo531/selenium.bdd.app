@@ -7,7 +7,7 @@ Feature: Create account
   #ANDROID
   ##################################################################################
 
-  #FDBRMA-119
+  #FDBRMA-119 #FDBRMA-142
   @Android @Register @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Signup using new phone number starts with 0
     Given User navigates to onboarding screen by swipe
@@ -161,9 +161,9 @@ Feature: Create account
       |     phonenumber      |
       |	    6285678900987	 |
 
-  #FDBRMA-119 #FDBRMA-144
+  #FDBRMA-119 #FDBRMA-142
   @Android @bypassotp
-  Scenario Outline: Signup using new phone number starts with 0
+  Scenario Outline: Signup using new phone number starts with 0 - by pass otp
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to register
@@ -180,35 +180,42 @@ Feature: Create account
 
   # Verification Screen #
 
-  #FDBRMA-143 #FDBRMA-148
-  @Android @bypassotp
+  #FDBRMA-143 #FDBRMA-144 #FDBRMA-148 #FDBRMA-178 #FDBRMA-179 #FDBRMA-182
+  @FDBRMA-143
   Scenario Outline: Input Wrong verification code - Resend code
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<phonenumber>" phonenumber to register
+    Then User enters the "<auth>" phonenumber to register
     And User clicks next button on register screen
     When User input wrong otp code
     Then Display error msg "You entered invalid code"
     When User click resend code
-    Then Error msg will dissapear
+    Then Error msg will stay still
 
     Examples:
-      |   phonenumber        |
-      |	  081501209990	     |
+      |       auth        |
+      |	  08150125012	  |
+      |   wrongotp_01@test.com   |
 
-  #FDBRMA-145  #FDBRMA-215
-  @Android @bypassotp
-  Scenario Outline: Resend code more than 3 times
+  #FDBRMA-145 #FDBRMA-215 #FDBRMA-180 #FDBRMA-181
+  @FDBRMA-145 @WIP
+  Scenario Outline: Resend code more than 4 times
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<phonenumber>" phonenumber to register
+    Then User enters the "<auth>" phonenumber to register
     And User clicks next button on register screen
-    When User click resend code 3 times
-    Then Display error msg "You have reached a limit for sending code. Please try again in 58 minutes"
-    When User input wrong otp code
+    When User click resend code 4 times
+    Then Display error msg suspend "You have reached a limit for sending code. Please try again in"
+    When User input wrong otp code after suspended
     Then Display error msg "You entered invalid code"
-    When User click resend code 3 times
-    Then Display error msg "You have reached a limit for sending code. Please try again in 58 minutes"
+    When User click resend code
+    Then Display error msg suspend "You have reached a limit for sending code. Please try again in"
+
+    Examples:
+      |       auth        |
+      |	  08180248024	  |
+      |   wrongotp_002@test.com   |
+
 
   ##################################################################################
   #IOS

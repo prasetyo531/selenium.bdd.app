@@ -68,12 +68,22 @@ public class OtpScreen extends ActionBase{
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    /***  android ***/
+    /*******
+     android
+     *******/
     public void clickAllowReadMsg() {
 
         tapByElement(allowReadOtpBtn);
     }
 
+    //get String phone android
+    public void comparePhoneReceiver() {
+
+        String labelReceiver = authReceiverLabel.getText();
+        Assert.assertTrue(labelReceiver.startsWith("+628"));
+    }
+
+    //get counter time
     public OtpScreen getCounter() throws IOException {
 
         isElementPresent(countdownTimer);
@@ -83,12 +93,13 @@ public class OtpScreen extends ActionBase{
         return new OtpScreen(driver);
     }
 
-    public OtpScreen clickConfirmOtp() throws IOException {
+    public OtpScreen getLabelToResendCode() throws IOException {
 
-        tapByElement(confirmOtpBtn);
+        isElementPresent(resendCodeLabel);
 
         return new OtpScreen(driver);
     }
+
 
     public OtpScreen fillByPassOtp() throws IOException {
 
@@ -102,11 +113,57 @@ public class OtpScreen extends ActionBase{
         return new OtpScreen(driver);
     }
 
-    //get String phone android
-    public void comparePhoneReceiver() {
+    public OtpScreen fillWrongOtp() throws IOException {
 
-        String labelReceiver = authReceiverLabel.getText();
-        Assert.assertTrue(labelReceiver.startsWith("+628"));
+        inputValue(box1,"1");
+        inputValue(box2,"2");
+        inputValue(box3,"3");
+        inputValue(box4,"4");
+        inputValue(box5,"5");
+        inputValue(box6,"6");
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen clickResendCode() throws IOException {
+
+        tapByElement(resendCodeLabel);
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen clickConfirmOtp() throws IOException {
+
+        tapByElement(confirmOtpBtn);
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen assertTextErrorOtp(String text) throws IOException {
+
+        String txtWarning = errorMsgOtp.getText();
+        Assert.assertEquals(txtWarning, text);
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen assertTextErrorSuspendOtp(String text) throws IOException {
+
+        String txtWarning = errorMsgOtp.getText();
+        Assert.assertTrue(txtWarning.contains(text));
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen assertErrorOtpAfterResendCode() throws IOException {
+
+        Boolean errorMsg = errorMsgOtp.isDisplayed();
+        System.out.println(errorMsg);
+        //it depends screen size
+        if(errorMsg==false){
+            Assert.fail("error msg is dissapear");
+        }
+        return new OtpScreen(driver);
     }
 
     /***  ios ***/

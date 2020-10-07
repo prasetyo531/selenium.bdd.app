@@ -32,6 +32,7 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.assertTextWarningLogin(msg);
     }
 
+    //otp screen
     @When("^user input correct otp from phone on otp screen to register$")
     public void user_input_correct_otp_from_phone_on_otp_screen_to_register() throws Throwable {
 
@@ -67,6 +68,59 @@ public class RegisterSteps extends DriverFactory {
         //otpScreen.comparePhoneReceiver();
         otpScreen.clickAllowReadMsg();
         otpScreen.clickConfirmOtp();
+    }
+
+    @When("^User input wrong otp code$")
+    public void user_input_wrong_otp_code() throws Throwable {
+
+        otpScreen.getCounter();
+        otpScreen.fillWrongOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @When("^User input wrong otp code after suspended$")
+    public void user_input_wrong_otp_code_after_suspended() throws Throwable {
+
+        otpScreen.getLabelToResendCode();
+        otpScreen.fillWrongOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @Then("^Display error msg \"([^\"]*)\"$")
+    public void display_error_msg_something(String msg) throws Throwable {
+
+        otpScreen.assertTextErrorOtp(msg);
+    }
+
+    @Then("^Display error msg suspend \"([^\"]*)\"$")
+    public void display_error_msg_suspend_something(String msg) throws Throwable {
+
+        otpScreen.assertTextErrorSuspendOtp(msg);
+    }
+
+    @When("^User click resend code$")
+    public void user_click_resend_code() throws Throwable {
+
+        otpScreen.clickResendCode();
+    }
+
+    @When("^User click resend code 4 times$")
+    public void user_click_resend_code_4_times() throws Throwable {
+
+        Thread.sleep(31000);
+        otpScreen.clickResendCode();
+        Thread.sleep(31000);
+        otpScreen.clickResendCode();
+        Thread.sleep(31000);
+        otpScreen.clickResendCode();
+        Thread.sleep(31000);
+        otpScreen.clickResendCode();
+    }
+
+    @Then("^Error msg will stay still$")
+    public void error_msg_will_stay_still() throws Throwable {
+
+        otpScreen.assertErrorOtpAfterResendCode();
     }
 
     //complete account
