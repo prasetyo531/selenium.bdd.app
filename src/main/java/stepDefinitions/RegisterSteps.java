@@ -50,6 +50,16 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
+    @When("^user input bypass otp from email on otp screen to register$")
+    public void user_input_bypass_otp_from_email_on_otp_screen_to_register() throws Throwable {
+
+        otpScreen.getCounter();
+        otpScreen.compareEmailReceiver();
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+
     @Then("^user will direct to otp screen from phone to register$")
     public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
 
@@ -115,6 +125,7 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickResendCode();
         Thread.sleep(31000);
         otpScreen.clickResendCode();
+        System.out.println("so status will be suspend");
     }
 
     @Then("^Error msg will stay still$")
@@ -124,10 +135,19 @@ public class RegisterSteps extends DriverFactory {
     }
 
     //complete account
-    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register$")
-    public void user_enters_the_something_something_password_and_select_dob_to_register(String email, String username) throws Throwable {
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by phone$")
+    public void user_enters_the_something_something_password_and_select_dob_to_register_by_phone(String email, String username) throws Throwable {
 
         completeAccountScreen.inputEmail(email);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by email$")
+    public void user_enters_the_something_something_password_and_select_dob_to_register_by_email(String phone, String username) throws Throwable {
+
+        completeAccountScreen.inputPhone(phone);
         completeAccountScreen.inputUsername(username);
         completeAccountScreen.inputPassword();
         completeAccountScreen.inputBirthday();

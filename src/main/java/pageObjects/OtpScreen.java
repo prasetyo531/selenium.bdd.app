@@ -141,6 +141,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen assertTextErrorOtp(String text) throws IOException {
 
+        isElementPresent(errorMsgOtp);
         String txtWarning = errorMsgOtp.getText();
         Assert.assertEquals(txtWarning, text);
 
@@ -149,6 +150,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen assertTextErrorSuspendOtp(String text) throws IOException {
 
+        isElementPresent(errorMsgOtp);
         String txtWarning = errorMsgOtp.getText();
         Assert.assertTrue(txtWarning.contains(text));
 

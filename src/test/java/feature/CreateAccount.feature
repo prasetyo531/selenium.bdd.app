@@ -7,7 +7,7 @@ Feature: Create account
   #ANDROID
   ##################################################################################
 
-  #FDBRMA-119 #FDBRMA-142
+  #FDBRMA-119 #FDBRMA-142 #FDBRMA-155
   @Android @Register @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Signup using new phone number starts with 0
     Given User navigates to onboarding screen by swipe
@@ -15,7 +15,7 @@ Feature: Create account
     Then User enters the "<phonenumber>" phonenumber to register
     And User clicks next button on register screen
     When user input correct otp from phone on otp screen to register
-    Then user enters the "<email>", "<username>", password and select dob to register
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
     And user clicks submit button on complete account screen
     Then User will see modal account status on homescreen
 
@@ -67,19 +67,6 @@ Feature: Create account
     Examples:
       | phonenumber  |
       | 087885221338 |
-
-  #FDBRMA-135
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Sign up using new email address
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then user enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then user will direct to otp screen from email to register
-
-    Examples:
-      |                      email                       |
-      |	   bddappregisterphoneandroid99@mailinator.com     |
 
   #FDBRMA-363
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -161,22 +148,37 @@ Feature: Create account
       |     phonenumber      |
       |	    6285678900987	 |
 
-  #FDBRMA-119 #FDBRMA-142
-  @Android @bypassotp
+  #FDBRMA-119 #FDBRMA-142 #FDBRMA-155
+  @FDBRMA-119 @bypassotp
   Scenario Outline: Signup using new phone number starts with 0 - by pass otp
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to register
     And User clicks next button on register screen
     When user input bypass otp from phone on otp screen to register
-    Then user enters the "<email>", "<username>", password and select dob to register
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
     And user clicks submit button on complete account screen
     Then User will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email               |      username     |
-      |	  081501209990	     |    bypassotp_02@mailinator.com   |    bypassotp02    |
+      |   phonenumber        |              email                    |      username     |
+      |	  081301209990	     |    bypassotpnumber01@mailinator.com   |    bypassotpnumber01    |
 
+  #FDBRMA-135 #FDBRMA-177 #FDBRMA-189
+  @FDBRMA-135 @bypassotp
+  Scenario Outline: Sign up using new email address - by pass otp
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then user enters the "<email>" email to register
+    And User clicks next button on register screen
+    When user input bypass otp from email on otp screen to register
+    Then user enters the "<phone>", "<username>", password and select dob to register by email
+    And user clicks submit button on complete account screen
+    Then User will see modal account status on homescreen
+
+    Examples:
+      |            email                      |       phone         |       username       |
+      |	   bypassotpemail01@mailinator.com   |    081201209990     |     bypassotpemail01  |
 
   # Verification Screen #
 
@@ -198,8 +200,8 @@ Feature: Create account
       |   wrongotp_01@test.com   |
 
   #FDBRMA-145 #FDBRMA-215 #FDBRMA-180 #FDBRMA-181
-  @FDBRMA-145 @WIP
-  Scenario Outline: Resend code more than 4 times
+  @FDBRMA-145
+  Scenario Outline: Resend code more than 3 times
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<auth>" phonenumber to register
@@ -213,8 +215,8 @@ Feature: Create account
 
     Examples:
       |       auth        |
-      |	  08180248024	  |
-      |   wrongotp_002@test.com   |
+      |	  08180125012	  |
+      |   wrongotp_001@test.com   |
 
 
   ##################################################################################
@@ -229,7 +231,7 @@ Feature: Create account
     Then User enters the "<phonenumber>" phonenumber to register
     And User clicks next button on register screen
     When user input correct otp from phone on otp screen from ios to register
-    Then user enters the "<email>", "<username>", password and select dob to register
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
     And user clicks submit button on complete account screen
     Then User will see modal account status on homescreen
 
