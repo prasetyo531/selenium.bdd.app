@@ -18,9 +18,15 @@ public class OtpScreen extends ActionBase{
     @iOSXCUITFindBy(id="suggestion")
     public MobileElement allowReadOtpBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelVerifyPhoneOrEmail")
+    public MobileElement tittleScreenVerify;
+
     @AndroidFindBy(id="com.fdbr.android.auth:id/labelAuthReceiver")
     @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[contains(text(),'Enter the 6 digit code we have sent to')]")
     public MobileElement authReceiverLabel;
+
+    @AndroidFindBy(id="com.fdbr.android.auth:id/labelWrong")
+    public MobileElement labelBeforeTapToChange;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/labelTapToChange")
     @iOSXCUITFindBy(id="Haven't receive the code? Resend now")
@@ -77,10 +83,50 @@ public class OtpScreen extends ActionBase{
     }
 
     //get String phone android
-    public void comparePhoneReceiver() {
+    public OtpScreen comparePhoneReceiver() throws IOException {
+
+        String titleReceiver = tittleScreenVerify.getText();
+        Assert.assertTrue(titleReceiver.equals("Verifying Number"));
 
         String labelReceiver = authReceiverLabel.getText();
         Assert.assertTrue(labelReceiver.startsWith("+628"));
+
+        String labelwn = labelBeforeTapToChange.getText();
+        Assert.assertTrue(labelwn.equals("Wrong number?"));
+
+        return new OtpScreen(driver);
+    }
+
+    //get phone
+    public OtpScreen compareEmailReceiver() throws IOException {
+
+        String titleReceiver = tittleScreenVerify.getText();
+        Assert.assertTrue(titleReceiver.equals("Verifying Email"));
+
+        //https://mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher;
+
+        String labelReceiver = authReceiverLabel.getText();
+        matcher = pattern.matcher(labelReceiver);
+        matcher.matches();
+
+        String labelwe = labelBeforeTapToChange.getText();
+        Assert.assertTrue(labelwe.equals("Wrong email?"));
+        //Assert.assertTrue(labelReceiver.contains(".com"));
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen tapToChangeFromPhoneToEmail() throws IOException {
+
+       tapByElement(tapToChangeLabel);
+
+        return new OtpScreen(driver);
     }
 
     //get counter time
@@ -184,23 +230,6 @@ public class OtpScreen extends ActionBase{
 
         String labelReceiver = authReceiverLabel.getText();
         Assert.assertTrue(labelReceiver.contains("+628"));
-    }
-
-    //get phone
-    public void compareEmailReceiver() {
-
-        //https://mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
-        final String EMAIL_PATTERN =
-                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher;
-
-        String labelReceiver = authReceiverLabel.getText();
-        matcher = pattern.matcher(labelReceiver);
-        matcher.matches();
-        //Assert.assertTrue(labelReceiver.contains(".com"));
     }
 
 }

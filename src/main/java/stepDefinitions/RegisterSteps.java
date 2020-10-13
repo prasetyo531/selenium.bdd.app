@@ -7,16 +7,22 @@ import utils.DriverFactory;
 
 public class RegisterSteps extends DriverFactory {
 
+    @Then("^User enters the \"([^\"]*)\" to register$")
+    public void user_enters_the_something_to_register(String auth) throws Throwable {
+
+        registerScreen.inputUsrEmailPhoneName(auth);
+    }
+
     @Then("^User enters the \"([^\"]*)\" phonenumber to register$")
     public void User_enters_the_something_phonenumber_to_register(String phonenumber) throws Throwable {
 
         registerScreen.inputUsrEmailPhoneName(phonenumber);
     }
 
-    @Then("^user enters the \"([^\"]*)\" email to register$")
-    public void user_enters_the_something_email_to_register(String phonenumber) throws Throwable {
+    @Then("^User enters the \"([^\"]*)\" email to register$")
+    public void User_enters_the_something_email_to_register(String email) throws Throwable {
 
-        registerScreen.inputUsrEmailPhoneName(phonenumber);
+        registerScreen.inputUsrEmailPhoneName(email);
     }
 
     @And("^User clicks next button on register screen$")
@@ -59,7 +65,6 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
-
     @Then("^user will direct to otp screen from phone to register$")
     public void user_will_direct_to_otp_screen_from_phone_to_register() throws Throwable {
 
@@ -70,6 +75,38 @@ public class RegisterSteps extends DriverFactory {
     public void user_will_direct_to_otp_screen_from_email_to_register() throws Throwable {
 
         otpScreen.compareEmailReceiver();
+    }
+
+    @When("^User clicks tap to change auth and input email \"([^\"]*)\"$")
+    public void user_clicks_tap_to_change_auth_and_input_email_something(String email) throws Throwable {
+
+        otpScreen.comparePhoneReceiver();
+        otpScreen.tapToChangeFromPhoneToEmail();
+
+        registerScreen.inputUsrEmailPhoneName(email);
+        registerScreen.clickNext();
+    }
+
+    @When("^User clicks tap to change auth and input phone \"([^\"]*)\"$")
+    public void user_clicks_tap_to_change_auth_and_input_phone_something(String email) throws Throwable {
+
+        otpScreen.compareEmailReceiver();
+        otpScreen.tapToChangeFromPhoneToEmail();
+
+        registerScreen.inputUsrEmailPhoneName(email);
+        registerScreen.clickNext();
+    }
+
+    @Then("^User direct to verify email screen$")
+    public void user_direct_to_verify_email_screen() throws Throwable {
+
+        otpScreen.compareEmailReceiver();
+    }
+
+    @Then("^User direct to verify phone screen$")
+    public void user_direct_to_verify_phone_screen() throws Throwable {
+
+        otpScreen.comparePhoneReceiver();
     }
 
     @When("^user input correct otp from phone on otp screen from ios to register$")

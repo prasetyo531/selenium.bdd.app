@@ -42,12 +42,12 @@ Feature: Create account
   Scenario Outline: Signup input with invalid format phone or email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<phonenumber>" phonenumber to register
+    Then User enters the "<auth>" to register
     And User clicks next button on register screen
     Then display msg "This email or phone number is invalid" is displayed under phone number field
 
     Examples:
-      |                 phonenumber                |
+      |                     auth                   |
       |	                     0	                   |
       |	                   081702	               |
       |	         081702081702081702081702          |
@@ -73,7 +73,7 @@ Feature: Create account
   Scenario Outline: Signup input email with incorrect format email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<email>" phonenumber to register
+    Then User enters the "<email>" email to register
     And User clicks next button on register screen
     Then display msg "Please enter your correct email address" is displayed under phone number field
 
@@ -112,7 +112,7 @@ Feature: Create account
   Scenario Outline: Signup using registered email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<email>" phonenumber to register
+    Then User enters the "<email>" email to register
     And User clicks next button on register screen
     Then show modal email has been registered
 
@@ -125,7 +125,7 @@ Feature: Create account
   Scenario Outline: Signup using verified email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<email>" email to register
+    Then User enters the "<email>" email to register
     And User clicks next button on register screen
     Then show modal verified email android
 
@@ -162,14 +162,14 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                    |      username     |
-      |	  081301209990	     |    bypassotpnumber01@mailinator.com   |    bypassotpnumber01    |
+      |	  081301209991	     |    bypassotpnumber02@mailinator.com   |    bypassotpnumber02    |
 
   #FDBRMA-135 #FDBRMA-177 #FDBRMA-189
   @FDBRMA-135 @bypassotp
   Scenario Outline: Sign up using new email address - by pass otp
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then user enters the "<email>" email to register
+    Then User enters the "<email>" email to register
     And User clicks next button on register screen
     When user input bypass otp from email on otp screen to register
     Then user enters the "<phone>", "<username>", password and select dob to register by email
@@ -178,16 +178,16 @@ Feature: Create account
 
     Examples:
       |            email                      |       phone         |       username       |
-      |	   bypassotpemail01@mailinator.com   |    081201209990     |     bypassotpemail01  |
+      |	   bypassotpemail03@mailinator.com   |    081201209991     |     bypassotpemail03  |
 
-  # Verification Screen #
+  ### Verification Screen ###
 
   #FDBRMA-143 #FDBRMA-144 #FDBRMA-148 #FDBRMA-178 #FDBRMA-179 #FDBRMA-182
   @FDBRMA-143
   Scenario Outline: Input Wrong verification code - Resend code
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<auth>" phonenumber to register
+    Then User enters the "<auth>" to register
     And User clicks next button on register screen
     When User input wrong otp code
     Then Display error msg "You entered invalid code"
@@ -204,7 +204,7 @@ Feature: Create account
   Scenario Outline: Resend code more than 3 times
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<auth>" phonenumber to register
+    Then User enters the "<auth>" to register
     And User clicks next button on register screen
     When User click resend code 4 times
     Then Display error msg suspend "You have reached a limit for sending code. Please try again in"
@@ -217,6 +217,36 @@ Feature: Create account
       |       auth        |
       |	  08180125012	  |
       |   wrongotp_001@test.com   |
+
+  #FDBRMA-154
+  @FDBRMA-154
+  Scenario Outline: Tap to change number - input email
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phone>" phonenumber to register
+    And User clicks next button on register screen
+    When User clicks tap to change auth and input email "<email>"
+    Then User direct to verify email screen
+
+    Examples:
+      |       phone        |    email     |
+      |	  081284915950	   |  taptochangemail01@mailinator.com  |
+
+  #FDBRMA-188
+  @FDBRMA-188
+  Scenario Outline: Tap to change email - input phone
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<email>" email to register
+    And User clicks next button on register screen
+    When User clicks tap to change auth and input phone "<phone>"
+    Then User direct to verify phone screen
+
+    Examples:
+      |                   email                |    phone     |
+      |	  taptochangemail02@mailinator.com	   |  081284915992  |
+
+  ### Complete Account Screen ###
 
 
   ##################################################################################
