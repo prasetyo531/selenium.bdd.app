@@ -6,6 +6,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.io.IOException;
 
@@ -32,7 +33,7 @@ public class CompleteAccountScreen extends ActionBase {
     @iOSXCUITFindBy(id="id_showpassword")
     public MobileElement showPasswordIcon;
 
-    /*  dob   */
+    //dob
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputBirthDate")
     @iOSXCUITFindBy(id=" Date of birth")
     public MobileElement birthdayField;
@@ -49,6 +50,11 @@ public class CompleteAccountScreen extends ActionBase {
     @iOSXCUITFindBy(id="id_compacc_submit")
     public MobileElement submitField;
 
+    //error msg
+    @AndroidFindBy(id="com.fdbr.android:id/textinput_error")
+    @iOSXCUITFindBy(id="id_compacc_submit")
+    public MobileElement errorMsg;
+
     public CompleteAccountScreen(AppiumDriver driver) throws IOException {
 
         this.driver = driver;
@@ -56,34 +62,54 @@ public class CompleteAccountScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public void inputEmail(String email){
+    public CompleteAccountScreen inputEmail(String email) throws IOException {
 
         inputValue(emailField, email);
+
+        return new CompleteAccountScreen(driver);
     }
 
-    public void inputPhone(String phone){
+    public CompleteAccountScreen inputPhone(String phone) throws IOException {
 
         inputValue(phoneField, phone);
+
+        return new CompleteAccountScreen(driver);
     }
 
-    public void inputUsername(String username){
+    public CompleteAccountScreen inputUsername(String username) throws IOException {
 
         inputValue(usernameField, username);
+
+        return new CompleteAccountScreen(driver);
     }
 
-    public void inputPassword(){
+    public CompleteAccountScreen inputPassword() throws IOException {
 
         inputValue(passwordField, "test123");
+
+        return new CompleteAccountScreen(driver);
     }
 
-    public void inputBirthday(){
+    public CompleteAccountScreen inputBirthday() throws IOException {
 
         tapByElement(birthdayField);
         tapByElement(birthdayYesDoneModal);
+
+        return new CompleteAccountScreen(driver);
     }
 
-    public void clickSubmitCompleteAccount(){
+    public CompleteAccountScreen clickSubmitCompleteAccount() throws IOException {
 
         tapByElement(submitField);
+
+        return new CompleteAccountScreen(driver);
+    }
+
+    public CompleteAccountScreen getErrorMsg(String msg) throws IOException {
+
+        String error = errorMsg.getText();
+        Assert.assertTrue(error.equals(msg));
+
+        return new CompleteAccountScreen(driver);
     }
 }

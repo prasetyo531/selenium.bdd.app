@@ -190,6 +190,22 @@ public class RegisterSteps extends DriverFactory {
         completeAccountScreen.inputBirthday();
     }
 
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob but input incorrect format email$")
+    public void user_enters_the_something_something_password_and_select_dob_but_input_incorrect_format_email(String email, String username) throws Throwable {
+
+        completeAccountScreen.inputEmail(email);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
+    @Then("^User will see error msg \"([^\"]*)\" underneath email field$")
+    public void user_will_see_error_msg_something_underneath_email_field(String errormsg) throws Throwable {
+
+        completeAccountScreen.getErrorMsg(errormsg);
+    }
+
+
     @And("^user clicks submit button on complete account screen$")
     public void user_clicks_submit_button_on_complete_account_screen() throws Throwable {
 

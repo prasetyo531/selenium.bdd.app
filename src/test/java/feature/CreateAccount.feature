@@ -248,6 +248,55 @@ Feature: Create account
 
   ### Complete Account Screen ###
 
+  #FDBRMA-158
+  @Android @DemoPras
+  Scenario Outline: Submit input incorrect email address format
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When user input bypass otp from phone on otp screen to register
+    Then user enters the "<email>", "<username>", password and select dob but input incorrect format email
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Please enter your correct email address" underneath email field
+
+    Examples:
+      |   phonenumber        |        email            |      username      |
+      |	  081301200158	     |    taptochangemail02    |    withoutemail    |
+
+  #FDBRMA-161 #FDBRMA-162
+  @Android @DemoPras
+  Scenario Outline: Submit input incorrect username format - less than 3 - more than 25
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When user input bypass otp from phone on otp screen to register
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Username should be 3-25 characters in length" underneath email field
+
+    Examples:
+      |   phonenumber        |              email                    |      username     |
+      |	  081301200161	     |    wrongusernameformat@mailinator.com   |    un    |
+      |	  081301200161	     |    wrongusernameformat@mailinator.com   |    unasdfgthlowsdfrtflsxcdsasdf    |
+
+  #FDBRMA-163
+  @Android @DemoPras
+  Scenario Outline: Submit input incorrect username format - contains special char
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to register
+    And User clicks next button on register screen
+    When user input bypass otp from phone on otp screen to register
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Please use alphabets, numbers, and '_' symbol only" underneath email field
+
+    Examples:
+      |   phonenumber        |              email                    |      username     |
+      |	  081301200163	     |    wrongusernameformat@mailinator.com   |    usern@m3    |
+
 
   ##################################################################################
   #IOS
