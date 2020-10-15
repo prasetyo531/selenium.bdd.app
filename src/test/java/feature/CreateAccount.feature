@@ -266,7 +266,7 @@ Feature: Create account
 
   #FDBRMA-161 #FDBRMA-162
   @Android @DemoPras
-  Scenario Outline: Submit input incorrect username format - less than 3 - more than 25
+  Scenario Outline: Submit input incorrect username format - less than 3 - more than 25 - register by phone
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to register
@@ -278,11 +278,28 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                    |      username     |
-      |	  081301200161	     |    wrongusernameformat@mailinator.com   |    un    |
-      |	  081301200161	     |    wrongusernameformat@mailinator.com   |    unasdfgthlowsdfrtflsxcdsasdf    |
+      |	  081301200161	     |    wrongusernameformat01@mailinator.com   |    un    |
+      |	  081301200161	     |    wrongusernameformat01@mailinator.com   |    unasdfgthlowsdfrtflsxcdsasdf    |
+
+  #FDBRMA-200 #FDBRMA-201
+  @Android @DemoPras1
+  Scenario Outline: Submit input incorrect username format - less than 3 - more than 25 - register by email
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<email>" email to register
+    And User clicks next button on register screen
+    When user input bypass otp on otp screen to register
+    Then user enters the "<phone>", "<username>", password and select dob to register by email
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Username should be 3-25 characters in length" underneath username field
+
+    Examples:
+      |            email                      |       phone         |       username       |
+      |	   wrongusernameformat02@mailinator.com   |    081201209200      |     un          |
+      |	   wrongusernameformat02@mailinator.com   |    081201209200      |     unasdfgthlowsdfrtflsxcdsasdf  |
 
   #FDBRMA-163
-  @Android @DemoPras1
+  @Android @DemoPras
   Scenario Outline: Submit input incorrect username format - contains special char
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -310,8 +327,8 @@ Feature: Create account
     Then User will see error msg "Your password cannot include your username" underneath password field
 
     Examples:
-      |         phone                |              email              |      username     |    password     |
-      |	       081301200164	           |    passusersama01@mailinator.com    |      password1        |    password1    |
+      |         phone             |                email                |      username     |    password     |
+      |	       081301200164	      |    passusersama01@mailinator.com    |      password1    |    password1    |
 
   #FDBRMA-203
   @Android @DemoPras
@@ -329,12 +346,39 @@ Feature: Create account
       |         email                   |     phone           |      username     |    password     |
       |	  passusersama02@mailinator.com	|    081301200203    |      password2        |    password2    |
 
+  #FDBRMA-165
+  @Android @DemoPras1 @DataStaging
+  Scenario Outline: Submit input registered username - register by phone
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phone>" to register
+    And User clicks next button on register screen
+    When user input bypass otp on otp screen to register
+    Then user enters the "<email>" but input registered "<username>" to register by phone
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Username has been taken" underneath username field
 
-#  #FDBRMA-165
-#  @Android @DemoPras @Wip
-#  Scenario Outline: Submit input registered username
-#
-#
+    Examples:
+      |       phone        |    email                        |      username         |
+      |	  081284915165	   |  registereduser@mailinator.com  |      datatnr01         |
+
+  #FDBRMA-204
+  @Android @DemoPras1 @DataStaging @Wip
+  Scenario Outline: Submit input registered username - register by email
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<email>" email to register
+    And User clicks next button on register screen
+    When user input bypass otp on otp screen to register
+    Then user enters the "<phone>", but input registered "<username>" to register by email
+    And user clicks submit button on complete account screen
+    Then User will see error msg "Username has been taken" underneath username field
+
+    Examples:
+      |         email                   |     phone          |      username     |
+      |	  registereduser@mailinator.com	|    081301200204    |      datatnr01    |
+
+
 #  #FDBRMA-167 #FDBRMA-168
 #  @Android @DemoPras @Wip
 #  Scenario Outline: Submit input password less than 6 - more than 25

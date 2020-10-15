@@ -178,6 +178,25 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
+    @Then("^user enters the \"([^\"]*)\" but input registered \"([^\"]*)\" to register by phone$")
+    public void user_enters_the_something_but_input_registered_something_to_register_by_phone(String email, String username) throws Throwable {
+
+        completeAccountScreen.inputEmail(email);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
+    @Then("^user enters the \"([^\"]*)\", but input registered \"([^\"]*)\" to register by email$")
+    public void user_enters_the_something_but_input_registered_something_to_register_by_email(String phone, String username) throws Throwable {
+
+        completeAccountScreen.inputPhone(phone);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
+
     //complete account
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by phone$")
     public void user_enters_the_something_something_password_and_select_dob_to_register_by_phone(String email, String username) throws Throwable {
