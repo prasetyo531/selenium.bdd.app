@@ -171,6 +171,13 @@ public class RegisterSteps extends DriverFactory {
         otpScreen.assertErrorOtpAfterResendCode();
     }
 
+    @When("^user input bypass otp on otp screen to register$")
+    public void user_input_bypass_otp_on_otp_screen_to_register() throws Throwable {
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
     //complete account
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by phone$")
     public void user_enters_the_something_something_password_and_select_dob_to_register_by_phone(String email, String username) throws Throwable {
@@ -205,11 +212,40 @@ public class RegisterSteps extends DriverFactory {
         completeAccountScreen.getErrorMsg(errormsg);
     }
 
+    @Then("^User will see error msg \"([^\"]*)\" underneath username field$")
+    public void user_will_see_error_msg_something_underneath_username_field(String errormsg) throws Throwable {
+
+        completeAccountScreen.getErrorMsg(errormsg);
+    }
+
+    @Then("^User will see error msg \"([^\"]*)\" underneath password field$")
+    public void user_will_see_error_msg_something_underneath_password_field(String errormsg) throws Throwable {
+
+        completeAccountScreen.getErrorMsg(errormsg);
+    }
 
     @And("^user clicks submit button on complete account screen$")
     public void user_clicks_submit_button_on_complete_account_screen() throws Throwable {
 
         completeAccountScreen.clickSubmitCompleteAccount();
+    }
+
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", but fill \"([^\"]*)\" same with username to register by phone$")
+    public void user_enters_the_something_something_but_fill_something_same_with_username_to_register_by_phone(String email, String username, String password) throws Throwable {
+
+        completeAccountScreen.inputEmail(email);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword(password);
+        completeAccountScreen.inputBirthday();
+    }
+
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", but fill \"([^\"]*)\" same with username to register by email$")
+    public void user_enters_the_something_something_but_fill_something_same_with_username_to_register_by_email(String phone, String username, String password) throws Throwable {
+
+        completeAccountScreen.inputPhone(phone);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword(password);
+        completeAccountScreen.inputBirthday();
     }
 
     //modal register

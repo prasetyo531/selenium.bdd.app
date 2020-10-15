@@ -90,6 +90,13 @@ public class CompleteAccountScreen extends ActionBase {
         return new CompleteAccountScreen(driver);
     }
 
+    public CompleteAccountScreen inputPassword(String password) throws IOException {
+
+        inputValue(passwordField, password);
+
+        return new CompleteAccountScreen(driver);
+    }
+
     public CompleteAccountScreen inputBirthday() throws IOException {
 
         tapByElement(birthdayField);
