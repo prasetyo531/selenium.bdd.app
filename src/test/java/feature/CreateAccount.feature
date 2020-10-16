@@ -219,7 +219,7 @@ Feature: Create account
       |   wrongotp_001@test.com   |
 
   #FDBRMA-154
-  @FDBRMA-154
+  @FDBRMA-154 @DemoPras1
   Scenario Outline: Tap to change number - input email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -233,7 +233,7 @@ Feature: Create account
       |	  081284915950	   |  taptochangemail01@mailinator.com  |
 
   #FDBRMA-188
-  @FDBRMA-188
+  @FDBRMA-188 @DemoPras1
   Scenario Outline: Tap to change email - input phone
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -249,7 +249,7 @@ Feature: Create account
   ### Complete Account Screen ###
 
   #FDBRMA-158
-  @Android @DemoPras
+  @Android @DemoPras1
   Scenario Outline: Submit input incorrect email address format
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -265,7 +265,7 @@ Feature: Create account
       |	  081301200158	     |    taptochangemail02    |    withoutemail    |
 
   #FDBRMA-161 #FDBRMA-162
-  @Android @DemoPras
+  @Android @DemoPras1
   Scenario Outline: Submit input incorrect username format - less than 3 - more than 25 - register by phone
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -282,7 +282,7 @@ Feature: Create account
       |	  081301200161	     |    wrongusernameformat01@mailinator.com   |    unasdfgthlowsdfrtflsxcdsasdf    |
 
   #FDBRMA-200 #FDBRMA-201
-  @Android @DemoPras1
+  @Android @DemoPras
   Scenario Outline: Submit input incorrect username format - less than 3 - more than 25 - register by email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -299,7 +299,7 @@ Feature: Create account
       |	   wrongusernameformat02@mailinator.com   |    081201209200      |     unasdfgthlowsdfrtflsxcdsasdf  |
 
   #FDBRMA-163
-  @Android @DemoPras
+  @Android @DemoPras1
   Scenario Outline: Submit input incorrect username format - contains special char
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -312,10 +312,10 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                    |      username     |
-      |	  081301200163	     |    wrongusernameformat@mailinator.com   |    usern@m3    |
+      |	  081301200163	     |    wrongusernameformat03@mailinator.com   |    usern@m3    |
 
   #FDBRMA-164
-  @Android @DemoPras
+  @Android @DemoPras1
   Scenario Outline: Submit input password same with username
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -363,7 +363,7 @@ Feature: Create account
       |	  081284915165	   |  registereduser@mailinator.com  |      datatnr01         |
 
   #FDBRMA-204
-  @Android @DemoPras1 @DataStaging @Wip
+  @Android @DemoPras @DataStaging
   Scenario Outline: Submit input registered username - register by email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -378,12 +378,22 @@ Feature: Create account
       |         email                   |     phone          |      username     |
       |	  registereduser@mailinator.com	|    081301200204    |      datatnr01    |
 
+  #FDBRMA-167 #FDBRMA-168
+  @Android @DemoPras1 @DataStaging
+  Scenario Outline: Submit input password less than 6 - more than 25 - register by phone
+    Given User navigates to onboarding screen by swipe
+    When User clicks register button on onboarding screen
+    Then User enters the "<phone>" to register
+    And User clicks next button on register screen
+    When user input bypass otp on otp screen to register
+    Then user enters the "<email>", "<username>" but input wrong format "<password>" password to register by phone
+#    And user clicks submit button on complete account screen
+    Then User will see error msg "Password should be 6-25 characters in length" underneath password field
 
-#  #FDBRMA-167 #FDBRMA-168
-#  @Android @DemoPras @Wip
-#  Scenario Outline: Submit input password less than 6 - more than 25
-
-
+    Examples:s
+      |       phone        |    email                        |            username             |    password    |
+      |	  081384915167	   |  wrongformatpass01@mailinator.com  |      wrongformatpass         |   abcd         |
+      |	  081384915168	   |  wrongformatpass02@mailinator.com  |      wrongformatpass         |   abcd1234abcd1234abcd1234abcd    |
 
   ##################################################################################
   #IOS

@@ -196,6 +196,15 @@ public class RegisterSteps extends DriverFactory {
         completeAccountScreen.inputBirthday();
     }
 
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\" but input wrong format \"([^\"]*)\" password to register by phone$")
+    public void user_enters_the_something_something_but_input_wrong_format_something_password_to_register_by_phone(String email, String username, String password) throws Throwable {
+
+        completeAccountScreen.inputEmail(email);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword(password);
+        completeAccountScreen.inputBirthday();
+    }
+
 
     //complete account
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by phone$")
