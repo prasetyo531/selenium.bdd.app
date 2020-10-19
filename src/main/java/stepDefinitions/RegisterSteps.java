@@ -205,6 +205,14 @@ public class RegisterSteps extends DriverFactory {
         completeAccountScreen.inputBirthday();
     }
 
+    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\" but input wrong format \"([^\"]*)\" password to register by email$")
+    public void user_enters_the_something_something_but_input_wrong_format_something_password_to_register_by_email(String phone, String username, String password) throws Throwable {
+
+        completeAccountScreen.inputEmail(phone);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword(password);
+        completeAccountScreen.inputBirthday();
+    }
 
     //complete account
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by phone$")
@@ -225,6 +233,24 @@ public class RegisterSteps extends DriverFactory {
         completeAccountScreen.inputBirthday();
     }
 
+    @Then("^user enters the registered \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by email$")
+    public void user_enters_the_registered_something_something_password_and_select_dob_to_register_by_email(String phone, String username) throws Throwable {
+
+        completeAccountScreen.inputPhone(phone);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
+    @Then("^user enters the verified \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by email$")
+    public void user_enters_the_verified_something_something_password_and_select_dob_to_register_by_email(String phone, String username) throws Throwable {
+
+        completeAccountScreen.inputPhone(phone);
+        completeAccountScreen.inputUsername(username);
+        completeAccountScreen.inputPassword();
+        completeAccountScreen.inputBirthday();
+    }
+
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob but input incorrect format email$")
     public void user_enters_the_something_something_password_and_select_dob_but_input_incorrect_format_email(String email, String username) throws Throwable {
 
@@ -236,6 +262,12 @@ public class RegisterSteps extends DriverFactory {
 
     @Then("^User will see error msg \"([^\"]*)\" underneath email field$")
     public void user_will_see_error_msg_something_underneath_email_field(String errormsg) throws Throwable {
+
+        completeAccountScreen.getErrorMsg(errormsg);
+    }
+
+    @Then("^User will see error msg \"([^\"]*)\" underneath phone field$")
+    public void user_will_see_error_msg_something_underneath_phone_field(String errormsg) throws Throwable {
 
         completeAccountScreen.getErrorMsg(errormsg);
     }
