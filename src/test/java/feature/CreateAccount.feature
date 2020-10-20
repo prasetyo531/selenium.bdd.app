@@ -365,7 +365,7 @@ Feature: Create account
       |	   phoneformatmore14@mailinator.com   |    08128780012901 |     phoneformatmore14  |
 
   #FDBRMA-196 #cek db dulu
-  @Android @DemoPras @DataStaging @completeAccount
+  @Android @DataStaging @completeAccount
   Scenario Outline: Submit input registered phone number
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -377,11 +377,11 @@ Feature: Create account
     Then User will see modal account status on homescreen
 
     Examples:
-      |            email                     |    phone          |       username        |
-      |	   registeredphone@mailinator.com    |    6281320180251      |     registeredphone  |
+      |            email                        |    phone          |       username        |
+      |	   registeredphone01@mailinator.com    |    6281320180251      |     registeredphone01  |
 
   #FDBRMA-364
-  @Android @DemoPras @DataStaging @completeAccount
+  @Android @DataStaging @completeAccount
   Scenario Outline: Submit input verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -414,7 +414,7 @@ Feature: Create account
       |	   wrongusernameformat02@mailinator.com   |    081201209200      |     unasdfgthlowsdfrtflsxcdsasdf  |
 
   #FDBRMA-202
-  @Android @DemoPras1 @DataStaging @completeAccount
+  @Android @DemoPras @DataStaging @completeAccount
   Scenario Outline: Submit input incorrect username format - contains special char
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen

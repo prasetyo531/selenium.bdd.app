@@ -208,7 +208,7 @@ public class RegisterSteps extends DriverFactory {
     @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\" but input wrong format \"([^\"]*)\" password to register by email$")
     public void user_enters_the_something_something_but_input_wrong_format_something_password_to_register_by_email(String phone, String username, String password) throws Throwable {
 
-        completeAccountScreen.inputEmail(phone);
+        completeAccountScreen.inputPhone(phone);
         completeAccountScreen.inputUsername(username);
         completeAccountScreen.inputPassword(password);
         completeAccountScreen.inputBirthday();
