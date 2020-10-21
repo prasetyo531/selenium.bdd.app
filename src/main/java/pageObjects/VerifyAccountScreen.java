@@ -34,6 +34,15 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyEmail")
     public MobileElement skipEmailBtn;
 
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModalSuccessVerifyEmail;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descModalSuccessVerifyEmail;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement nextButtonModalVerifyEmail;
+
     /***  phone screen  ***/
     @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
     public MobileElement fieldVerifyPhone;
@@ -46,6 +55,15 @@ public class VerifyAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyPhone")
     public MobileElement skipPhoneBtn;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModalSuccessVerifyPhone;
+
+    @AndroidFindBy(id="com.fdbr.android:id/textDescription")
+    public MobileElement descModalSuccessVerifyPhone;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
+    public MobileElement nextButtonModalVerifyPhone;
 
     /***  personal info screen  ***/
     @AndroidFindBy(id="com.fdbr.android.beauty:id/imgProfilePicture")
@@ -81,7 +99,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipPersonalInfo")
     public MobileElement skipBtnPersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchLocationPersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
@@ -96,7 +114,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textinput_error') and @text='Please enter your location']")
     public MobileElement errorMsgLocation;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='Ambon']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textCityName') and @text='Ambon']")
     public MobileElement ambonCity;
 
     /***  beauty profile screen  ***/
@@ -198,6 +216,16 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakePicture;
 
+    //modal successfully complete profile
+    @AndroidFindBy(id="com.fdbr.android.main:id/imageCompleteProfile")
+    public MobileElement imgModalSuccessComplete;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/tvSubtitle")
+    public MobileElement descModalSuccessComplete;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/btnClose")
+    public MobileElement closeModalSuccessComplete;
+
     /* first img in gallery */
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
     public MobileElement firstIndexImg;
@@ -243,6 +271,29 @@ public class VerifyAccountScreen extends ActionBase {
 
         isElementEnabled(skipEmailBtn);
         tapByElement(skipEmailBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    /***  modal success verify email and phone  ***/
+    public VerifyAccountScreen checkVerifiedSuccessEmail(String email) throws IOException {
+
+        isElementPresent(titleModalSuccessVerifyEmail);
+        isElementPresent(descModalSuccessVerifyEmail);
+        String content = descModalSuccessVerifyEmail.getText();
+        Assert.assertTrue(content.contains(email));
+
+        tapByElement(nextButtonModalVerifyEmail);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen checkVerifiedSuccessPhone(String phone) throws IOException {
+
+        isElementPresent(titleModalSuccessVerifyPhone);
+        isElementPresent(descModalSuccessVerifyPhone);
+        String content = descModalSuccessVerifyPhone.getText();
+        Assert.assertTrue(content.contains(phone));
+
+        tapByElement(nextButtonModalVerifyPhone);
         return new VerifyAccountScreen(driver);
     }
 
@@ -306,7 +357,6 @@ public class VerifyAccountScreen extends ActionBase {
         captureScreenshot(nama);
         return new VerifyAccountScreen(driver);
     }
-
 
     public VerifyAccountScreen inputFieldFullname(String fullname) throws IOException {
 
@@ -599,6 +649,17 @@ public class VerifyAccountScreen extends ActionBase {
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);
         Assert.assertEquals(title, "Beauty Concern");
+
+        return new VerifyAccountScreen(driver);
+    }
+
+    /***  modal successfully complete profile  ***/
+    public VerifyAccountScreen checkModalSuccessfullyCompleteProfile() throws IOException, InterruptedException {
+
+        Thread.sleep(500);
+        isElementPresent(imgModalSuccessComplete);
+        isElementPresent(descModalSuccessComplete);
+        tapByElement(closeModalSuccessComplete);
 
         return new VerifyAccountScreen(driver);
     }

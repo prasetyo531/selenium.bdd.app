@@ -44,6 +44,38 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.clickVerifyEmailNow();
     }
 
+    @Then("^User clicks verify now button on verify email screen bypass otp$")
+    public void user_clicks_verify_now_button_on_verify_email_screen_bypass_otp() throws Throwable {
+
+        verifyAccountScreen.clickVerifyEmailNow();
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @And("^User clicks verify now button on verify phone screen bypass otp$")
+    public void user_clicks_verify_now_button_on_verify_phone_screen_bypass_otp() throws Throwable {
+
+        verifyAccountScreen.clickVerifyPhoneNow();
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @Then("^User will see success msg verified by email contains \"([^\"]*)\"$")
+    public void user_will_see_success_msg_verified_by_email_contains_something(String email) throws Throwable {
+
+        Thread.sleep(1000);
+        verifyAccountScreen.checkVerifiedSuccessEmail(email);
+    }
+
+    @Then("^User will see success msg verified by phone contains \"([^\"]*)\"$")
+    public void user_will_see_success_msg_verified_by_phone_contains_something(String phone) throws Throwable {
+
+        Thread.sleep(1000);
+        verifyAccountScreen.checkVerifiedSuccessPhone(phone);
+    }
+
     @And("^User skip verify email$")
     public void User_skip_verify_email() throws Throwable {
 
@@ -81,6 +113,16 @@ public class VerifyAccountSteps extends DriverFactory {
     public void user_use_picture_from_gallery_to_complete_personal_info() throws Throwable {
 
         verifyAccountScreen.clickGalleryBtn();
+    }
+
+    @And("^User complete data on personal info screen \"([^\"]*)\"$")
+    public void user_complete_data_on_personal_info_screen_something(String fullname) throws Throwable {
+
+        verifyAccountScreen.inputFieldFullname(fullname);
+        verifyAccountScreen.chooseGender();
+        verifyAccountScreen.chooseLocation();
+
+        verifyAccountScreen.clickSavePersonalInfo();
     }
 
     @And("^User fill all mandatory field on personal info screen \"([^\"]*)\"$")
@@ -177,6 +219,12 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.clickSaveBeautyCon();
 
         //verifyAccountScreen.verifySneakMsg();
+    }
+
+    @Then("^User will see congratulation modal$")
+    public void user_will_see_congratulation_modal() throws Throwable {
+
+        verifyAccountScreen.checkModalSuccessfullyCompleteProfile();
     }
 
     //error msg

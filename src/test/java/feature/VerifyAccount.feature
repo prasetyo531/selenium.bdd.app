@@ -7,25 +7,27 @@ Feature: Verify account
 
  ### verify email ###
 
-  #FDBRMA-221 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Registered Email
+  #FDBRMA-221 #FDBRMA-227
+  @Android @Smoke @Profile @RealDevices @IntegrationTest @demoVerify
+  Scenario Outline: Verify Registered Email - Registered Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
+    Then User enters the "<email>" username on login screen
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User fill "<phone>" phone and verify on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
+    And User clicks verify now button on verify email screen bypass otp
+    Then User will see success msg verified by email contains "<email>"
+    And User clicks verify now button on verify phone screen bypass otp
+    Then User will see success msg verified by phone contains "<phone>"
+#    And User complete data on personal info screen "<fullname>"
+#    And User choose beauty profile on beauty profile screen
+#    And User choose beauty concern on beauty concern screen
     Then User will see congratulation modal
 
     Examples:
-      |   username        |   password    |       phone           |
-      |	  bddregister	  |   test123     |     081284915951      |
+      |             email             |   password    |       phone           |     fullname    |
+      |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
   #FDBRMA-222 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP

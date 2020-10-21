@@ -33,6 +33,7 @@ public class LoginSteps extends DriverFactory {
     @And("^User enters the \"([^\"]*)\" password on login screen$")
     public void User_enters_the_something_password_on_login_screen(String password) throws Throwable {
 
+        loginScreen.clickNext();
         loginScreen.inputPassword(password);
     }
 

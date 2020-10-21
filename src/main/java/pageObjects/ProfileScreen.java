@@ -110,8 +110,8 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchLocField;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textCityName') and @text='Balikpapan']")
-    public MobileElement balikpapan;
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textCityName') and @text='Ambon']")
+    public MobileElement ambon;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
     public MobileElement changePassword;
@@ -345,8 +345,8 @@ public class ProfileScreen extends ActionBase{
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         tapByElement(locationField);
 
-        isElementPresent(balikpapan);
-        tapByElement(balikpapan);
+        isElementPresent(ambon);
+        tapByElement(ambon);
         return new ProfileScreen(driver);
     }
 
