@@ -22,11 +22,14 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement txtWarningEmailPhone;
 
     /***  email screen  ***/
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputEmail")
     public MobileElement fieldVerifyEmail;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/labelEmail")
     public MobileElement inputedEmail;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangeEmail")
+    public MobileElement changeEmailBtn;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyEmail")
     public MobileElement verifyNowEmailBtn;
@@ -44,17 +47,20 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement nextButtonModalVerifyEmail;
 
     /***  phone screen  ***/
-    @AndroidFindBy(id="com.fdbr.android:id/textinput_placeholder")
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPhone")
     public MobileElement fieldVerifyPhone;
 
-    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyPhone")
-    public MobileElement verifyNowPhoneBtn;
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/labelPhone")
+    public MobileElement inputedPhone;
 
-//    @AndroidFindBy(id="com.fdbr.android.beauty:id/labelEmail")
-//    public MobileElement inputedPhone;
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangePhone")
+    public MobileElement changePhoneBtn;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipVerifyPhone")
     public MobileElement skipPhoneBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyPhone")
+    public MobileElement verifyNowPhoneBtn;
 
     @AndroidFindBy(id="com.fdbr.android:id/textTitle")
     public MobileElement titleModalSuccessVerifyPhone;
@@ -64,6 +70,25 @@ public class VerifyAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement nextButtonModalVerifyPhone;
+
+    /***  modal change password screen  ***/
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/tvTitle")
+    public MobileElement titleModalPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/tvSubtitle")
+    public MobileElement subtitleModalPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPassword")
+    public MobileElement fieldPassword;
+
+    @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
+    public MobileElement unhideIcon;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnConfirm")
+    public MobileElement btnConfirmPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnClose")
+    public MobileElement closeModalPassword;
 
     /***  personal info screen  ***/
     @AndroidFindBy(id="com.fdbr.android.beauty:id/imgProfilePicture")
@@ -233,6 +258,8 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
     public MobileElement doneCropBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/imgVerifyStep")
+    public MobileElement stepper;
 
     // This is a constructor, as every page need a base driver to find android elements
     public VerifyAccountScreen(AppiumDriver driver) throws IOException {
@@ -240,6 +267,12 @@ public class VerifyAccountScreen extends ActionBase {
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
+    }
+
+    public VerifyAccountScreen checkStepper() throws IOException {
+
+        isElementPresent(stepper);
+        return new VerifyAccountScreen(driver);
     }
 
     public void clickChangeAuth(){
@@ -255,10 +288,19 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  email screen  ***/
-    public void inputFieldVerifyEmail(String email) throws InterruptedException {
+    public VerifyAccountScreen tapToChangeEmail(String email) throws InterruptedException, IOException {
+
+        isElementPresent(changeEmailBtn);
+        tapByElement(changeEmailBtn);
+        inputValue(fieldVerifyEmail, email);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen inputFieldVerifyEmail(String email) throws InterruptedException, IOException {
 
         isElementPresent(fieldVerifyEmail);
         inputValue(fieldVerifyEmail, email);
+        return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen clickVerifyEmailNow() throws IOException {
@@ -271,6 +313,35 @@ public class VerifyAccountScreen extends ActionBase {
 
         isElementEnabled(skipEmailBtn);
         tapByElement(skipEmailBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    /***  phone screen  ***/
+    public VerifyAccountScreen tapToChangePhone(String phone) throws InterruptedException, IOException {
+
+        isElementPresent(changePhoneBtn);
+        tapByElement(changePhoneBtn);
+        inputValue(fieldVerifyPhone, phone);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen inputFieldVerifyPhone(String phone) throws IOException {
+
+        isElementPresent(fieldVerifyPhone);
+        inputValue(fieldVerifyPhone, phone);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen clickVerifyPhoneNow() throws IOException {
+
+        tapByElement(verifyNowPhoneBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen clickSkipPhone() throws IOException {
+
+        isElementEnabled(skipPhoneBtn);
+        tapByElement(skipPhoneBtn);
         return new VerifyAccountScreen(driver);
     }
 
@@ -297,24 +368,20 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    /***  phone screen  ***/
-    public VerifyAccountScreen inputFieldVerifyPhone(String phone) throws IOException {
+    /***  modal confirmation password  ***/
+    public VerifyAccountScreen inputPasswordToChangeEmail() throws IOException {
 
-        isElementPresent(fieldVerifyPhone);
-        inputValue(fieldVerifyPhone, phone);
+        isElementPresent(titleModalPassword);
+        inputValue(fieldPassword, "test123");
+        tapByElement(btnConfirmPassword);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickVerifyPhoneNow() throws IOException {
+    public VerifyAccountScreen inputPasswordToChangePhone() throws IOException {
 
-        tapByElement(verifyNowPhoneBtn);
-        return new VerifyAccountScreen(driver);
-    }
-
-    public VerifyAccountScreen clickSkipPhone() throws IOException {
-
-        isElementEnabled(skipPhoneBtn);
-        tapByElement(skipPhoneBtn);
+        isElementPresent(titleModalPassword);
+        inputValue(fieldPassword, "test123");
+        tapByElement(btnConfirmPassword);
         return new VerifyAccountScreen(driver);
     }
 

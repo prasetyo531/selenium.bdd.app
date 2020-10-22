@@ -23,7 +23,7 @@ public class VerifyAccountSteps extends DriverFactory {
         homeScreen.verifyAccountStatusModalIos();
     }
 
-    @When("^User click complete verify button on modal$")
+    @And("^User click complete verify button on modal$")
     public void User_click_complete_verify_button_on_modal() throws Throwable {
 
         homeScreen.clickAccountCompleteVerBtn();
@@ -44,7 +44,35 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.clickVerifyEmailNow();
     }
 
-    @Then("^User clicks verify now button on verify email screen bypass otp$")
+    @Then("^User will see verifiy process$")
+    public void user_will_see_verifiy_process() throws Throwable {
+
+        verifyAccountScreen.checkStepper();
+    }
+
+    @When("^User change email \"([^\"]*)\" to verify email bypass otp$")
+    public void user_change_email_something_to_verify_email_bypass_otp(String newemail) throws Throwable {
+
+        verifyAccountScreen.tapToChangeEmail(newemail);
+        verifyAccountScreen.clickVerifyEmailNow();
+        verifyAccountScreen.inputPasswordToChangeEmail();
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @When("^User change phone \"([^\"]*)\" to verify phone bypass otp$")
+    public void user_change_phone_something_to_verify_phone_bypass_otp(String newphone) throws Throwable {
+
+        verifyAccountScreen.tapToChangePhone(newphone);
+        verifyAccountScreen.clickVerifyPhoneNow();
+        verifyAccountScreen.inputPasswordToChangePhone();
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @When("^User clicks verify now button on verify email screen bypass otp$")
     public void user_clicks_verify_now_button_on_verify_email_screen_bypass_otp() throws Throwable {
 
         verifyAccountScreen.clickVerifyEmailNow();
@@ -53,7 +81,7 @@ public class VerifyAccountSteps extends DriverFactory {
         otpScreen.clickConfirmOtp();
     }
 
-    @And("^User clicks verify now button on verify phone screen bypass otp$")
+    @When("^User clicks verify now button on verify phone screen bypass otp$")
     public void user_clicks_verify_now_button_on_verify_phone_screen_bypass_otp() throws Throwable {
 
         verifyAccountScreen.clickVerifyPhoneNow();

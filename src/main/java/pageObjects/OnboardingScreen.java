@@ -56,6 +56,7 @@ public class OnboardingScreen extends ActionBase {
 
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
+        isElementPresent(splashScreenImage);
         this.horizontalSwipeByPercentage(splashScreenImage,0.9,0.01,0.5,500);
         this.horizontalSwipeByPercentage(splashScreenImage, 0.9,0.01,0.5,500);
         return new OnboardingScreen(driver);

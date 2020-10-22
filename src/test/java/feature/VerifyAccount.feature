@@ -8,7 +8,7 @@ Feature: Verify account
  ### verify email ###
 
   #FDBRMA-221 #FDBRMA-227
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @demoVerify
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Registered Email - Registered Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -16,9 +16,10 @@ Feature: Verify account
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     When User click complete verify button on modal
-    And User clicks verify now button on verify email screen bypass otp
+    Then User will see verifiy process
+    When User clicks verify now button on verify email screen bypass otp
     Then User will see success msg verified by email contains "<email>"
-    And User clicks verify now button on verify phone screen bypass otp
+    When User clicks verify now button on verify phone screen bypass otp
     Then User will see success msg verified by phone contains "<phone>"
 #    And User complete data on personal info screen "<fullname>"
 #    And User choose beauty profile on beauty profile screen
@@ -28,6 +29,29 @@ Feature: Verify account
     Examples:
       |             email             |   password    |       phone           |     fullname    |
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
+
+  #FDBRMA-223 #FDBRMA-229
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  Scenario Outline: Verify Changed Email - Changed Phone
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" username on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    Then User will see verifiy process
+    When User change email "<newemail>" to verify email bypass otp
+    Then User will see success msg verified by email contains "<newemail>"
+    When User change phone "<newphone>" to verify phone bypass otp
+    Then User will see success msg verified by phone contains "<newphone>"
+#    And User complete data on personal info screen "<fullname>"
+#    And User choose beauty profile on beauty profile screen
+#    And User choose beauty concern on beauty concern screen
+    Then User will see congratulation modal
+
+    Examples:
+      |             email                 |   password    |          newemail                  |      newphone     |
+      |	  welcomeemail01@mailinator.com	  |   test123     |     welcomeemail0@mailinator.com    |     628129000229   |
 
   #FDBRMA-222 #FDBRMA-250
   @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
