@@ -44,8 +44,8 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.clickVerifyEmailNow();
     }
 
-    @Then("^User will see verifiy process$")
-    public void user_will_see_verifiy_process() throws Throwable {
+    @Then("^User will see verify process$")
+    public void user_will_see_verify_process() throws Throwable {
 
         verifyAccountScreen.checkStepper();
     }

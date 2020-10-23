@@ -14,7 +14,7 @@ Feature: Verify account
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     When User click complete verify button on modal
-    Then User will see verifiy process
+    Then User will see verify process
     When User clicks verify now button on verify email screen bypass otp
     Then User will see success msg verified by email contains "<email>"
     When User clicks verify now button on verify phone screen bypass otp
@@ -29,7 +29,7 @@ Feature: Verify account
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228
-  @Android @Smoke @bypassotp @IntegrationTest @demoVerify
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1
   Scenario Outline: Verify Changed Email - Changed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -37,7 +37,7 @@ Feature: Verify account
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     When User click complete verify button on modal
-    Then User will see verifiy process
+    Then User will see verify process
     When User change email "<newemail>" to verify email bypass otp
     Then User will see success msg verified by email contains "<newemail>"
     When User change phone "<newphone>" to verify phone bypass otp
@@ -52,7 +52,7 @@ Feature: Verify account
       |	  welcomeemail01@mailinator.com	  |   test123     |     welcomeemail@mailinator.com    |     628129000229   |   changedemailphone   |
 
   #FDBRMA-224 #FDBRMA-230
-  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Registered Email - Registered Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
