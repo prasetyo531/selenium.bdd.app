@@ -5,8 +5,6 @@ Feature: Verify account
   User should have real number
   User should fill personal info, beauty profile and concern
 
- ### verify email ###
-
   #FDBRMA-221 #FDBRMA-227
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Registered Email - Registered Phone
@@ -30,8 +28,8 @@ Feature: Verify account
       |             email             |   password    |       phone           |     fullname    |
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
-  #FDBRMA-223 #FDBRMA-229
-  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Changed Email - Changed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -50,111 +48,30 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |             email                 |   password    |          newemail                  |      newphone     |
-      |	  welcomeemail01@mailinator.com	  |   test123     |     welcomeemail0@mailinator.com    |     628129000229   |
+      |             email                 |   password    |          newemail                  |      newphone     |     fullname    |
+      |	  welcomeemail01@mailinator.com	  |   test123     |     welcomeemail@mailinator.com    |     628129000229   |   changedemailphone   |
 
-  #FDBRMA-222 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Inputed Email
+  #FDBRMA-224 #FDBRMA-230
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  Scenario Outline: Verify Registered Email - Registered Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
     And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User fill "<phone>" phone and verify on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see congratulation modal
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    When User clicks label to verify your email
+    And User input bypass otp code then confirm
+    Then User will see success msg verified by email contains "<email>" and label Verified will appear
+    When User clicks label to verify your phone
+    And User input bypass otp code then confirm
+    Then User will see success msg verified by phone contains "<phone>" and label Verified will appear
 
     Examples:
-      |   username        |   password    |       phone           |
-      |	  bddregister	  |   test123     |     081284915951      |
-
-  #FDBRMA-223 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Changed Email
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User fill "<phone>" phone and verify on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see congratulation modal
-
-    Examples:
-      |   username        |   password    |       phone           |
-      |	  bddregister	  |   test123     |     081284915951      |
-
-
-  ### verify phone ###
-
-  #FDBRMA-227 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Registered Phone
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User clicks verify now button on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see congratulation modal
-
-    Examples:
-      |   username        |   password    |
-      |	  bddregister	  |   test123     |
-
-  #FDBRMA-228 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Inputed Phone
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User clicks verify now button on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see congratulation modal
-
-    Examples:
-      |   username        |   password    |
-      |	  bddregister	  |   test123     |
-
-  #FDBRMA-229 #FDBRMA-250
-  @Android @Smoke @Profile @RealDevices @IntegrationTest @WIP
-  Scenario Outline: Verify Changed Phone
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User clicks verify now button on verify email screen
-    And User clicks verify now button on verify phone screen
-    And User fill all mandatory field on personal info screen
-    And User choose beauty profile on beauty profile screen
-    And User choose beauty concern on beauty concern screen
-    Then User will see congratulation modal
-
-    Examples:
-      |   username        |   password    |
-      |	  bddregister	  |   test123     |
+      |                    email                     |        password       |      phone         |
+      |	      bddverifyprofile01@mailinator.com	     |        test123        |    6287876600224   |
 
 
   ### UI VALIDATION ###

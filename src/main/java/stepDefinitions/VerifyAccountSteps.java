@@ -284,4 +284,52 @@ public class VerifyAccountSteps extends DriverFactory {
         //verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
     }
 
+    //from profile
+    @And("^User clicks profile from homescreen menu and edit profile$")
+    public void user_clicks_profile_from_homescreen_menu_and_edit_profile() throws Throwable {
+
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickSettingProfile();
+        profileScreen.clickEditProfile();
+    }
+
+    @When("^User clicks label to verify your email$")
+    public void user_clicks_label_to_verify_your_email() throws Throwable {
+
+        profileScreen.clickVerifyEmail();
+    }
+
+    @When("^User clicks label to verify your phone$")
+    public void user_clicks_label_to_verify_your_phone() throws Throwable {
+
+        profileScreen.clickVerifyPhone();
+    }
+
+    @And("^User input bypass otp code then confirm$")
+    public void user_input_bypass_otp_code_then_confirm() throws Throwable {
+
+        otpScreen.fillByPassOtp();
+        otpScreen.clickConfirmOtp();
+    }
+
+    @Then("^User will see success msg verified by email contains \"([^\"]*)\" and label Verified will appear$")
+    public void user_will_see_success_msg_verified_by_email_contains_something_and_label_verified_will_appear(String email) throws Throwable {
+
+        Thread.sleep(1200);
+        verifyAccountScreen.checkVerifiedSuccessEmail(email);
+
+        Thread.sleep(1000);
+        profileScreen.checkLabelVerifiedEmail();
+    }
+
+    @Then("^User will see success msg verified by phone contains \"([^\"]*)\" and label Verified will appear$")
+    public void user_will_see_success_msg_verified_by_phone_contains_something_and_label_verified_will_appear(String phone) throws Throwable {
+
+        Thread.sleep(1200);
+        verifyAccountScreen.checkVerifiedSuccessPhone(phone);
+
+        Thread.sleep(1000);
+        profileScreen.checkLabelVerifiedPhone();
+    }
+
 }

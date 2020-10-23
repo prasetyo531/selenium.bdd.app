@@ -76,11 +76,17 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutDob")
     public MobileElement dobEditProfile;
 
-    @AndroidFindBy(id=" com.fdbr.android.main:id/inputDob")
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputDob")
     public MobileElement inputedDob;
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement editCancel;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/textStatusEmail")
+    public MobileElement labelVerifyEmail;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/textStatusPhone")
+    public MobileElement labelVerifyPhone;
 
     //previous month
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.NumberPicker[1]/android.widget.Button[1]")
@@ -288,6 +294,36 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    /* verify from profile */
+    public ProfileScreen clickVerifyEmail() throws IOException {
+
+        isElementPresent(labelVerifyEmail);
+        tapByElement(labelVerifyEmail);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickVerifyPhone() throws IOException {
+
+        isElementPresent(labelVerifyPhone);
+        tapByElement(labelVerifyPhone);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen checkLabelVerifiedEmail() throws IOException {
+
+        String lb1 = labelVerifyEmail.getText();
+        Assert.assertEquals("Verified", lb1);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen checkLabelVerifiedPhone() throws IOException {
+
+        String lb2 = labelVerifyPhone.getText();
+        Assert.assertEquals("Verified", lb2);
+        return new ProfileScreen(driver);
+    }
+
+
     /*  edit profile screen */
     public ProfileScreen clickSaveProfile() throws IOException {
 
@@ -356,7 +392,6 @@ public class ProfileScreen extends ActionBase{
         inputValue(fieldBio, bio);
         return new ProfileScreen(driver);
     }
-
 
     public ProfileScreen clickUpdateBeautyProfile() throws IOException {
 
