@@ -88,6 +88,43 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/textStatusPhone")
     public MobileElement labelVerifyPhone;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonChangeEmail")
+    public MobileElement changeEmail;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonChangePhoneNumber")
+    public MobileElement changePhone;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputEmail")
+    public MobileElement fieldEmail;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPhone")
+    public MobileElement fieldPhone;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyEmail")
+    public MobileElement btnVerifyEmailProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyPhone")
+    public MobileElement btnVerifyPhoneProfile;
+
+    /***  modal change password screen  ***/
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/tvTitle")
+    public MobileElement titleModalPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/tvSubtitle")
+    public MobileElement subtitleModalPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputPassword")
+    public MobileElement fieldPassword;
+
+    @AndroidFindBy(id="com.fdbr.android:id/text_input_end_icon")
+    public MobileElement unhideIcon;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnConfirm")
+    public MobileElement btnConfirmPassword;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnClose")
+    public MobileElement closeModalPassword;
+
     //previous month
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.NumberPicker[1]/android.widget.Button[1]")
     public MobileElement MonthDob;
@@ -323,6 +360,56 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen tapToChangeEmailProfile(String email) throws InterruptedException, IOException {
+
+        isElementPresent(changeEmail);
+        tapByElement(changeEmail);
+
+        isElementPresent(fieldEmail);
+        inputValue(fieldEmail, email);
+
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen tapToChangePhoneProfile(String phone) throws InterruptedException, IOException {
+
+        isElementPresent(changePhone);
+        tapByElement(changePhone);
+
+        isElementPresent(fieldPhone);
+        inputValue(fieldPhone, phone);
+
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen confirmChangeVerifyEmail() throws IOException {
+
+        tapByElement(btnVerifyEmailProfile);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen confirmChangeVerifyPhone() throws IOException {
+
+        tapByElement(btnVerifyPhoneProfile);
+        return new ProfileScreen(driver);
+    }
+
+    /***  modal confirmation password  ***/
+    public ProfileScreen inputPasswordToChangeEmailProfile() throws IOException {
+
+        isElementPresent(titleModalPassword);
+        inputValue(fieldPassword, "test123");
+        tapByElement(btnConfirmPassword);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen inputPasswordToChangePhoneProfile() throws IOException {
+
+        isElementPresent(titleModalPassword);
+        inputValue(fieldPassword, "test123");
+        tapByElement(btnConfirmPassword);
+        return new ProfileScreen(driver);
+    }
 
     /*  edit profile screen */
     public ProfileScreen clickSaveProfile() throws IOException {

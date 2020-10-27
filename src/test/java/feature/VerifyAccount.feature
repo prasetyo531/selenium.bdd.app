@@ -29,7 +29,7 @@ Feature: Verify account
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228
-  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Changed Email - Changed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -72,6 +72,29 @@ Feature: Verify account
     Examples:
       |                    email                     |        password       |      phone         |
       |	      bddverifyprofile01@mailinator.com	     |        test123        |    6287876600224   |
+
+  #FDBRMA-226 #FDBRMA-232 
+  #check email and should use new phone
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  Scenario Outline: Verify Changed Email - Changed Phone on Profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    When User clicks change email "<newemail>" to verify email bypass otp
+    And User input bypass otp code then confirm
+    Then User will see success msg verified by email contains "<newemail>" and label Verified will appear
+    When User clicks change phone "<newphone>" to verify phone bypass otp
+    And User input bypass otp code then confirm
+    Then User will see success msg verified by phone contains "<newphone>" and label Verified will appear
+
+    Examples:
+      |             email             |   password    |          newemail                |      newphone      |         fullname      |
+      |	  verifyprofile02@gmail.com	  |   test123     |     verifyprofile01@gmail.com    |     628129000226   |   changedemailphone   |
 
 
   ### UI VALIDATION ###

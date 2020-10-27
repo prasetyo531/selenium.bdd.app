@@ -293,6 +293,26 @@ public class VerifyAccountSteps extends DriverFactory {
         profileScreen.clickEditProfile();
     }
 
+    @When("^User clicks change email \"([^\"]*)\" to verify email bypass otp$")
+    public void user_clicks_change_email_something_to_verify_email_bypass_otp(String newemail) throws Throwable {
+
+        profileScreen.tapToChangeEmailProfile(newemail);
+        profileScreen.confirmChangeVerifyEmail();
+
+        //password
+        profileScreen.inputPasswordToChangeEmailProfile();
+    }
+
+    @When("^User clicks change phone \"([^\"]*)\" to verify phone bypass otp$")
+    public void user_clicks_change_phone_something_to_verify_phone_bypass_otp(String newphone) throws Throwable {
+
+        profileScreen.tapToChangePhoneProfile(newphone);
+        profileScreen.confirmChangeVerifyPhone();
+
+        //password
+        profileScreen.inputPasswordToChangePhoneProfile();
+    }
+
     @When("^User clicks label to verify your email$")
     public void user_clicks_label_to_verify_your_email() throws Throwable {
 
