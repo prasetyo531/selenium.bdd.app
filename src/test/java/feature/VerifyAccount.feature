@@ -29,6 +29,7 @@ Feature: Verify account
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228
+  #check email and should use new phone
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Changed Email - Changed Phone
     Given User navigates to onboarding screen by swipe
@@ -73,7 +74,7 @@ Feature: Verify account
       |                    email                     |        password       |      phone         |
       |	      bddverifyprofile01@mailinator.com	     |        test123        |    6287876600224   |
 
-  #FDBRMA-226 #FDBRMA-232 
+  #FDBRMA-226 #FDBRMA-232
   #check email and should use new phone
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
   Scenario Outline: Verify Changed Email - Changed Phone on Profile
@@ -94,7 +95,7 @@ Feature: Verify account
 
     Examples:
       |             email             |   password    |          newemail                |      newphone      |         fullname      |
-      |	  verifyprofile02@gmail.com	  |   test123     |     verifyprofile01@gmail.com    |     628129000226   |   changedemailphone   |
+      |	  verifyprofile01@gmail.com	  |   test123     |     verifyprofile02@gmail.com    |     628129000232   |   changedemailphone   |
 
 
   ### UI VALIDATION ###
