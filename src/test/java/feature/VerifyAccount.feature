@@ -76,7 +76,7 @@ Feature: Verify account
 
   #FDBRMA-226 #FDBRMA-232
   #check email and should use new phone
-  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @wip
+  @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @demoVerify1
   Scenario Outline: Verify Changed Email - Changed Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
