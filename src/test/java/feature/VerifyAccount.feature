@@ -5,7 +5,7 @@ Feature: Verify account
   User should have real number
   User should fill personal info, beauty profile and concern
 
-  #FDBRMA-221 #FDBRMA-227
+  #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Registered Email - Registered Phone
     Given User navigates to onboarding screen by swipe
@@ -19,9 +19,9 @@ Feature: Verify account
     Then User will see success msg verified by email contains "<email>"
     When User clicks verify now button on verify phone screen bypass otp
     Then User will see success msg verified by phone contains "<phone>"
-#    And User complete data on personal info screen "<fullname>"
-#    And User choose beauty profile on beauty profile screen
-#    And User choose beauty concern on beauty concern screen
+    And User complete data on personal info screen "<fullname>"
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
     Then User will see congratulation modal
 
     Examples:
@@ -43,9 +43,9 @@ Feature: Verify account
     Then User will see success msg verified by email contains "<newemail>"
     When User change phone "<newphone>" to verify phone bypass otp
     Then User will see success msg verified by phone contains "<newphone>"
-#    And User complete data on personal info screen "<fullname>"
-#    And User choose beauty profile on beauty profile screen
-#    And User choose beauty concern on beauty concern screen
+    And User complete data on personal info screen "<fullname>"
+    And User choose beauty profile on beauty profile screen
+    And User choose beauty concern on beauty concern screen
     Then User will see congratulation modal
 
     Examples:
@@ -142,7 +142,7 @@ Feature: Verify account
 
   ### PERSONAL INFO SCREEN ###
 
-  #FDBRMA-254 @FDBRMA-251 #FDBRMA-366
+  #FDBRMA-254 @FDBRMA-251 #FDBRMA-255 #FDBRMA-366
   @FDBRMA-254
   Scenario Outline: Save personal info input fullname contains integer or special character - input without fullname, gender and location
     Given User navigates to onboarding screen by swipe

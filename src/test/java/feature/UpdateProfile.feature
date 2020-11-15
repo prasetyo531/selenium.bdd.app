@@ -39,7 +39,7 @@ Feature: Update Profile
       |   username        |   password      |
       |	  bddbeautyid02	  |   test123       |
 
-  #FDBRMA-368
+  #FDBRMA-368 #FDBRMA-254
   @FDBRMA-368
   Scenario Outline: Update full name - input fullname contains special character
     Given User navigates to onboarding screen by swipe
