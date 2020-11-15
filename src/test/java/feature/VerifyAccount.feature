@@ -28,7 +28,7 @@ Feature: Verify account
       |             email             |   password    |       phone           |     fullname    |
       |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
 
-  #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228
+  #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify
   Scenario Outline: Verify Changed Email - Changed Phone
@@ -74,7 +74,7 @@ Feature: Verify account
       |                    email                     |        password       |      phone         |
       |	      bddverifyprofile01@mailinator.com	     |        test123        |    6287876600224   |
 
-  #FDBRMA-226 #FDBRMA-232
+  #FDBRMA-226 #FDBRMA-232 #FDBRMA-245 #FDBRMA-237
   #check email and should use new phone
   @Android @Smoke @bypassotp @IntegrationTest @demoVerify1 @demoVerify1
   Scenario Outline: Verify Changed Email - Changed Phone on Profile
