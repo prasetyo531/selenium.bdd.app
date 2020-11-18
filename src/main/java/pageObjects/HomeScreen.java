@@ -59,7 +59,7 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/fabClose")
     public MobileElement closeFloatingImg;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @tindex='1']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='0']")
     public MobileElement tnrMenu;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
