@@ -17,6 +17,16 @@ public class VerifyAccountSteps extends DriverFactory {
         homeScreen.verifyAccountStatusModal();
     }
 
+    @Then("^User will see modal account status on homescreen and click tnr menu$")
+    public void User_will_see_modal_account_status_on_homescreen_and_click_tnr_menu() throws Throwable {
+
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
+
+        homeScreen.verifyAccountStatusModal();
+        homeScreen.clickTnrMenu();
+    }
+
     @Then("^user will see modal account status on ios homescreen$")
     public void user_will_see_modal_account_status_on_ios_homescreen() throws Throwable {
 

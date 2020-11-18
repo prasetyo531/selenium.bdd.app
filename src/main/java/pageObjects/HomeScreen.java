@@ -53,14 +53,17 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="Find product, article, brand or user here")
     public MobileElement searchBar;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
-    public MobileElement productCategoryMenu;
-
     @AndroidFindBy(id="com.fdbr.android.main:id/imageXb")
     public MobileElement floatingImg;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/fabClose")
     public MobileElement closeFloatingImg;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @tindex='1']")
+    public MobileElement tnrMenu;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
+    public MobileElement productCategoryMenu;
 
     /************
      plus button
@@ -285,10 +288,18 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
+    //menu bar
     public HomeScreen clickProductCategory() throws IOException {
 
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickTnrMenu() throws IOException {
+
+        isElementPresent(tnrMenu);
+        tapByElement(tnrMenu);
         return new HomeScreen(driver);
     }
 

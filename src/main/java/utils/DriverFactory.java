@@ -38,6 +38,7 @@ public class DriverFactory {
     public static TalkScreen talkScreen;
     public static OthersScreen othersScreen;
     public static ModalPostTagProductScreen modalPostTagProductScreen;
+    public static TryAndReviewScreen tryAndReviewScreen;
 
     public AppiumDriver getDriver() throws IOException {
 
@@ -81,6 +82,7 @@ public class DriverFactory {
             talkScreen = new TalkScreen(driver);
             othersScreen = new OthersScreen(driver);
             modalPostTagProductScreen = new ModalPostTagProductScreen(driver);
+            tryAndReviewScreen = new TryAndReviewScreen(driver);
         }
         return driver;
     }

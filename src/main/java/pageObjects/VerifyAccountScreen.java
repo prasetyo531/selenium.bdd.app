@@ -147,7 +147,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement contentBeautyProf;
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
-    public MobileElement skinTypeCombination;
+    public MobileElement skinTypeNormal;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinType")
     public MobileElement errorMsgSkinType;
@@ -534,7 +534,7 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen chooseSkinType() throws IOException {
 
-        tapByElement(skinTypeCombination);
+        tapByElement(skinTypeNormal);
         return new VerifyAccountScreen(driver);
     }
 
