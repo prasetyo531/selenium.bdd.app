@@ -4,7 +4,6 @@ Feature: User Join Campaign
   I should able to fill form personal info, beauty profile, beauty concern and address
   If user cancel post, user will get confirmation modal
 
-  c
   @Android @Tnr @tnrtest
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
