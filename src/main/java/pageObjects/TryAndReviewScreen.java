@@ -86,13 +86,13 @@ public class TryAndReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinType")
     public MobileElement errorMsgSkinType;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]")
     public MobileElement skinToneDark;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinTone")
     public MobileElement errorMsgSkinTone;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
     public MobileElement skinUnderToneWarm;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinUnderTone")
@@ -104,13 +104,13 @@ public class TryAndReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
     public MobileElement errorMsgHairType;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
     public MobileElement coloredHairNo;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorColoredHair")
     public MobileElement errorMsgColoredHair;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
     public MobileElement isHijaberNo;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHijab")
@@ -268,7 +268,7 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
         tapByElement(buttonSaveBeautyProfile);
-        isElementPresent(toastMsg);
+//        isElementPresent(toastMsg);
         return new TryAndReviewScreen(driver);
     }
 
@@ -369,6 +369,7 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
         verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
         tapByElement(btnSaveBeautyConcern);
+//        isElementPresent(toastMsg);
         return new TryAndReviewScreen(driver);
     }
 
@@ -431,6 +432,7 @@ public class TryAndReviewScreen extends ActionBase {
 
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
 
         isElementPresent(listBaliCity);
         tapByElement(listBaliCity);
