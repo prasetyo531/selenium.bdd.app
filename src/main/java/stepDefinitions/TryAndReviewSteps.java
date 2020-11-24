@@ -77,13 +77,17 @@ public class TryAndReviewSteps extends DriverFactory {
 
     @And("^User complete data tnr on shipping information screen \"([^\"]*)\", \"([^\"]*)\" and set main address$")
     public void user_complete_data_tnr_on_shipping_information_screen_something_something_and_set_main_address(String firstname, String lastname) throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.clickAddNewAddressParticipantSum();
         tryAndReviewScreen.completeAddressBali(firstname, lastname);
     }
 
-    @When("^User clicks submit to join campaign$")
-    public void user_clicks_submit_to_join_campaign() throws Throwable {
+    @When("^User clicks submit to join campaign using main address$")
+    public void user_clicks_submit_to_join_campaign_using_main_address() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.checkFlagMainAddress();
         tryAndReviewScreen.clickSaveJoinCampaign();
+
     }
 
     @Then("^User will see success toast message after joined campaign$")

@@ -41,14 +41,32 @@ public class TryAndReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.tryreview:id/buttonAddBeautyProfile")
     public MobileElement addBeautyProfTnrIcon;
 
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageEditBeautyProfile")
+    public MobileElement editBeautyProfTnrIcon;
+
     @AndroidFindBy(id="com.fdbr.android.tryreview:id/buttonAddConcern")
     public MobileElement addBeautyConTnrIcon;
+
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageEditBeautyConcern")
+    public MobileElement editBeautyConTnrIcon;
 
     @AndroidFindBy(id="com.fdbr.android.tryreview:id/buttonAddAddress")
     public MobileElement addAddNewAddressSumTnrIcon;
 
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageEditAddress")
+    public MobileElement editAddNewAddressSumTnrIcon;
+
     @AndroidFindBy(id="com.fdbr.android.tryreview:id/buttonSubmit")
     public MobileElement submitJoinBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageExpandArrow1")
+    public MobileElement expandArrow1;
+
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageExpandArrow2")
+    public MobileElement expandArrow2;
+
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/imageExpandArrow3")
+    public MobileElement expandArrow3;
 
     /***
      Personal Info
@@ -183,7 +201,10 @@ public class TryAndReviewScreen extends ActionBase {
     public MobileElement completeAddressField;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/checkBoxMainAddress")
-    public MobileElement checkMainAddBtn;
+    public MobileElement mainAddressBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.tryreview:id/tagMainAddress")
+    public MobileElement flagMainAddressParticipantSummary;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSave")
     public MobileElement saveAddressBtn;
@@ -206,6 +227,17 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    public TryAndReviewScreen clickToCollapse() throws IOException, InterruptedException {
+
+        isElementEnabled(expandArrow1);
+        tapByElement(expandArrow1);
+        tapByElement(expandArrow2);
+        tapByElement(expandArrow3);
+
+        Thread.sleep(500);
+        return new TryAndReviewScreen(driver);
+    }
+
     //participant summary
     public TryAndReviewScreen checkIsOnScreenParticapantSummary() throws IOException, InterruptedException {
 
@@ -217,6 +249,8 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen clickEditPersonalInfo() throws IOException {
 
         isElementPresent(editPersonalInfoTnrIcon);
+        isElementEnabled(editPersonalInfoTnrIcon);
+
         tapByElement(editPersonalInfoTnrIcon);
         return new TryAndReviewScreen(driver);
     }
@@ -235,9 +269,9 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickAddNewAddressParticipantSum() throws IOException {
+    public TryAndReviewScreen clickAddNewAddressParticipantSum() throws IOException, InterruptedException {
 
-        isElementPresent(addAddNewAddressSumTnrIcon);
+        isElementEnabled(addAddNewAddressSumTnrIcon);
         tapByElement(addAddNewAddressSumTnrIcon);
         return new TryAndReviewScreen(driver);
     }
@@ -422,9 +456,17 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //address form
+    public TryAndReviewScreen setAsMainAddress() throws IOException {
+
+        isElementPresent(mainAddressBtn);
+        tapByElement(mainAddressBtn);
+        return new TryAndReviewScreen(driver);
+    }
+
     public TryAndReviewScreen completeAddressBali(String firstname, String lastname) throws IOException {
 
         isElementPresent(firstnameField);
+        isElementPresent(provinceOpt);
         inputValueEnter(firstnameField, firstname);
         inputValueEnter(lastnameField, lastname);
 
@@ -443,8 +485,17 @@ public class TryAndReviewScreen extends ActionBase {
         inputValueEnter(zipField,"100451");
         inputValueEnter(completeAddressField, firstname+ " " +lastname);
 
+        setAsMainAddress();
+
         tapByElement(saveAddressBtn);
 
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen checkFlagMainAddress() throws IOException, InterruptedException {
+
+        Thread.sleep(2000);
+        isElementPresent(flagMainAddressParticipantSummary);
         return new TryAndReviewScreen(driver);
     }
 

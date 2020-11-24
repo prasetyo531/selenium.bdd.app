@@ -4,6 +4,7 @@ Feature: User Join Campaign
   I should able to fill form personal info, beauty profile, beauty concern and address
   If user cancel post, user will get confirmation modal
 
+  #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489
   @Android @Tnr @tnrtest
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
@@ -19,9 +20,9 @@ Feature: User Join Campaign
     And User complete data tnr on beauty profile screen
     And User complete data tnr on beauty concern screen
     And User complete data tnr on shipping information screen "<firstname>", "<lastname>" and set main address
-    When User clicks submit to join campaign
+    When User clicks submit to join campaign using main address
     Then User will see success toast message after joined campaign
 
     Examples:
-      |         email        |    password    |  fullname   |      firstname       |     lastname    |
-      |	      bddtnrandroid	 |    test123     |    newtnr   |      address1        |   1address      |
+      |         email            |    password    |  fullname   |      firstname       |     lastname    |
+      |	      bddtnrandroid08	 |    test123     |    newtnr   |      address1        |   1address      |
