@@ -295,6 +295,44 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    public TryAndReviewScreen inputFullname(String fullname) throws IOException {
+
+        isElementPresent(fullNameField);
+        inputValueEnter(fullNameField, fullname);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen chooseDob() throws IOException {
+
+        isElementEnabled(dobOpt);
+        tapByElement(dobOpt);
+
+        isElementEnabled(dobOK);
+        tapByElement(dobOK);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen chooseGender() throws IOException {
+
+        isElementEnabled(genderOpt);
+        tapByElement(genderOpt);
+
+        isElementEnabled(femalePersonalInfo);
+        tapByElement(femalePersonalInfo);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen savePersonalInfoEmpty() throws IOException {
+
+        isElementPresent(fullNameField);
+        tapByElement(savePersonalInfoBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
     //beauty profile
     public TryAndReviewScreen clickSaveBeautyProfile() throws IOException {
 
@@ -506,9 +544,18 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    //toast
     public TryAndReviewScreen checkToastSuccess() throws IOException {
 
         isElementPresent(toastMsg);
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen checkToastEmptyField(String msg) throws IOException {
+
+        isElementPresent(toastMsg);
+        String txt = toastMsg.getText();
+        org.junit.Assert.assertEquals(msg, txt);
         return new TryAndReviewScreen(driver);
     }
 }

@@ -87,12 +87,48 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.checkFlagMainAddress();
         tryAndReviewScreen.clickSaveJoinCampaign();
-
     }
 
     @Then("^User will see success toast message after joined campaign$")
     public void user_will_see_success_toast_message_after_joined_campaign() throws Throwable {
         tryAndReviewScreen.checkToastSuccess();
     }
+
+    @When("^User save data personal info screen without fill any field$")
+    public void user_save_data_personal_info_screen_without_fill_any_field() throws Throwable {
+        tryAndReviewScreen.clickEditPersonalInfo();
+        tryAndReviewScreen.savePersonalInfoEmpty();
+    }
+
+    @Then("^Display red toast \"([^\"]*)\"$")
+    public void display_red_toast_something(String msg) throws Throwable {
+        tryAndReviewScreen.checkToastEmptyField(msg);
+    }
+
+    @When("^User input \"([^\"]*)\" fullname field and choose dob and gender$")
+    public void user_input_something_fullname_field_and_choose_dob_and_gender(String fullname) throws Throwable {
+        tryAndReviewScreen.clickEditPersonalInfo();
+        tryAndReviewScreen.inputFullname(fullname);
+        tryAndReviewScreen.chooseDob();
+        tryAndReviewScreen.chooseGender();
+    }
+
+    @When("^User input correct \"([^\"]*)\" fullname field and choose dob$")
+    public void user_input_correct_something_fullname_field_and_choose_dob(String validfullname) throws Throwable {
+        tryAndReviewScreen.clickEditPersonalInfo();
+        tryAndReviewScreen.inputFullname(validfullname);
+        tryAndReviewScreen.chooseDob();
+    }
+
+    @And("^User save data personal info screen$")
+    public void user_save_data_personal_info_screen() throws Throwable {
+        tryAndReviewScreen.savePersonalInfoEmpty();
+    }
+
+    @And("^User save data personal info screen without choose gender$")
+    public void user_save_data_personal_info_screen_without_choose_gender() throws Throwable {
+        tryAndReviewScreen.savePersonalInfoEmpty();
+    }
+
 
 }

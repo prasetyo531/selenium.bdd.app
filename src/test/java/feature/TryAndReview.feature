@@ -5,7 +5,7 @@ Feature: User Join Campaign
   If user cancel post, user will get confirmation modal
 
   #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489
-  @Android @Tnr @tnrtest
+  @Android @Tnr
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -26,3 +26,66 @@ Feature: User Join Campaign
     Examples:
       |         email            |    password    |  fullname   |      firstname       |     lastname    |
       |	      bddtnrandroid08	 |    test123     |    newtnr   |      address1        |   1address      |
+
+
+  #FDBRMA-478 #FDBRMA-453 #FDBRMA-454
+  @Android @Tnr @wip
+  Scenario Outline: Save Personal Info without input any field - Min char Full Name - More than 100 char
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save data personal info screen without fill any field
+    Then Display red toast "Oops ... you need to fill in all data"
+#    When User input "<fullname>" fullname field
+#    Then Display red toast "Fullname should be 2-100 chars in length"
+
+    Examples:
+      |         email            |    password    |  fullname   |
+      |	      tnrpersonalinfo01	 |    test123     |    ne   |
+      |	      tnrpersonalinfo01	 |    test123     |    askmdlasmdalmdlakmsdlkamsdlakdmaldsmalkdmalmdsladmalsdmalmdladjsandjasdhasdhajsdhashdausdahsduasdaysdha   |
+
+  #FDBRMA-455
+  @Android @Tnr @Tnrtest
+  Scenario Outline: Save Personal Info Input Special Char
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User input "<fullname>" fullname field and choose dob and gender
+    And User save data personal info screen
+    Then Display red toast "Fullname must be alpha character"
+
+    Examples:
+      |         email            |    password    |  fullname     |   validfullname     |
+      |	      tnrpersonalinfo01	 |    test123     |    newtnr@#   |     newtnr          |
+
+  #FDBRMA-456
+  @Android @Tnr @Tnrtest
+  Scenario Outline: Save Personal Not select gender
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User input correct "<fullname>" fullname field and choose dob
+    And User save data personal info screen without choose gender
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |  fullname     |
+      |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
