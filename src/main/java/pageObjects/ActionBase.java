@@ -203,7 +203,20 @@ public class ActionBase extends DriverFactory {
         int endPoint = (int) (size.height * endPercentage);
 
         new TouchAction(driver)
-                //.tap(tapOptions().withElement(element(mobileElement)))
+                .tap(tapOptions().withElement(element(mobileElement)))
+                .press(point(anchor, startPoint))
+                .waitAction(waitOptions(ofMillis(1000)))
+                .moveTo(point(anchor, endPoint))
+                .release().perform();
+    }
+
+    public void verticalSwipeByPercentagesDirectly(double startPercentage, double endPercentage, double anchorPercentage, int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * endPercentage);
+
+        new TouchAction(driver)
                 .press(point(anchor, startPoint))
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(anchor, endPoint))

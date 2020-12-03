@@ -21,6 +21,7 @@ public class TryAndReviewSteps extends DriverFactory {
     public void user_complete_data_tnr_on_personal_info_screen_something(String fullname) throws Throwable {
         tryAndReviewScreen.clickEditPersonalInfo();
         tryAndReviewScreen.inputPersonalInfoForm(fullname);
+        tryAndReviewScreen.checkToastSuccess();
     }
 
     @And("^User complete data tnr on beauty profile screen$")
@@ -53,6 +54,8 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.chooseHijaber();
 
         tryAndReviewScreen.clickSaveBeautyProfile();
+
+        tryAndReviewScreen.checkToastSuccess();
     }
 
     @And("^User complete data tnr on beauty concern screen$")
@@ -73,6 +76,8 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.chooseHairCon();
 
         tryAndReviewScreen.clickSaveBeautyConcern();
+
+        tryAndReviewScreen.checkToastSuccess();
     }
 
     @And("^User complete data tnr on shipping information screen \"([^\"]*)\", \"([^\"]*)\" and set main address$")
@@ -80,6 +85,28 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.clickAddNewAddressParticipantSum();
         tryAndReviewScreen.completeAddressBali(firstname, lastname);
+        tryAndReviewScreen.checkToastSuccess();
+    }
+
+    @When("^User save address form but let empty all mandatory field$")
+    public void user_save_address_form_but_let_empty_all_mandatory_field() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.saveWithoutFillAllField();
+    }
+
+    @When("^User save address form but let empty first name$")
+    public void user_save_address_form_but_let_empty_first_name() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.saveEmptyFirstName();
+    }
+
+    @When("^User save address form but let empty last name$")
+    public void user_save_address_form_but_let_empty_last_name() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.saveEmptyLastName();
     }
 
     @When("^User clicks submit to join campaign using main address$")

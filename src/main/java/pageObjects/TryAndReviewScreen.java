@@ -503,8 +503,8 @@ public class TryAndReviewScreen extends ActionBase {
 
     public TryAndReviewScreen completeAddressBali(String firstname, String lastname) throws IOException {
 
-        isElementPresent(firstnameField);
-        isElementPresent(provinceOpt);
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
         inputValueEnter(firstnameField, firstname);
         inputValueEnter(lastnameField, lastname);
 
@@ -525,6 +525,77 @@ public class TryAndReviewScreen extends ActionBase {
 
         setAsMainAddress();
 
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen saveWithoutFillAllField() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+
+        verticalSwipeByPercentages(provinceOpt,0.4,0.01,0.5,500);
+
+        isElementEnabled(saveAddressBtn);
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen saveEmptyFirstName() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        inputValueEnter(lastnameField, "lastname");
+
+        inputValueEnter(phonenumberField, "0812812");
+
+        verticalSwipeByPercentagesDirectly(0.4,0.01,0.5,500);
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        inputValueEnter(zipField,"100451");
+        inputValueEnter(completeAddressField, "save empty first name");
+
+        isElementEnabled(saveAddressBtn);
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen saveEmptyLastName() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        inputValueEnter(lastnameField, "lastname");
+
+        inputValueEnter(phonenumberField, "0812812");
+
+        verticalSwipeByPercentagesDirectly(0.4,0.01,0.5,500);
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        inputValueEnter(zipField,"100451");
+        inputValueEnter(completeAddressField, "save empty first name");
+
+        isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
 
         return new TryAndReviewScreen(driver);

@@ -25,7 +25,7 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |  fullname   |      firstname       |     lastname    |
-      |	      bddtnrandroid08	 |    test123     |    newtnr   |      address1        |   1address      |
+      |	      bddtnrandroid011	 |    test123     |    newtnr   |      address1        |   1address      |
 
 
   #FDBRMA-478 #FDBRMA-453 #FDBRMA-454
@@ -51,7 +51,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |    askmdlasmdalmdlakmsdlkamsdlakdmaldsmalkdmalmdsladmalsdmalmdladjsandjasdhasdhajsdhashdausdahsduasdaysdha   |
 
   #FDBRMA-455
-  @Android @Tnr @Tnrtest
+  @Android @Tnr
   Scenario Outline: Save Personal Info Input Special Char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -71,7 +71,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |    newtnr@#   |     newtnr          |
 
   #FDBRMA-456
-  @Android @Tnr @Tnrtest
+  @Android @Tnr
   Scenario Outline: Save Personal Not select gender
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -89,3 +89,60 @@ Feature: User Join Campaign
     Examples:
       |         email            |    password    |  fullname     |
       |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
+
+  #FDBRMA-462
+  @Android @Tnr @TnrTest
+  Scenario Outline: Save Add New Address without fill all mandatory field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty all mandatory field
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-463
+  @Android @Tnr @TnrTest
+  Scenario Outline: Save Add New Address without fill first name
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty first name
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-464
+  @Android @Tnr @TnrTest
+  Scenario Outline: Save Add New Address without fill last name
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty last name
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
