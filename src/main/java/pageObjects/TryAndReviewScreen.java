@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -167,6 +168,9 @@ public class TryAndReviewScreen extends ActionBase {
     /***
      Add New Address
      ***/
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView")
+    public MobileElement scrollView;
+
     @AndroidFindBy(id="com.fdbr.android.beauty:id/inputFirstname")
     public MobileElement firstnameField;
 
@@ -535,7 +539,7 @@ public class TryAndReviewScreen extends ActionBase {
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
 
-        verticalSwipeByPercentages(provinceOpt,0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(scrollView,0.4,0.01,0.5,500);
 
         isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
@@ -551,7 +555,7 @@ public class TryAndReviewScreen extends ActionBase {
 
         inputValueEnter(phonenumberField, "0812812");
 
-        verticalSwipeByPercentagesDirectly(0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(scrollView,0.4,0.01,0.8,500);
 
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);
@@ -580,7 +584,7 @@ public class TryAndReviewScreen extends ActionBase {
 
         inputValueEnter(phonenumberField, "0812812");
 
-        verticalSwipeByPercentagesDirectly(0.4,0.01,0.5,500);
+        verticalSwipeByPercentages(scrollView,0.4,0.01,0.8,500);
 
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);

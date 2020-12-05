@@ -91,7 +91,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
 
   #FDBRMA-462
-  @Android @Tnr @TnrTest
+  @Android @Tnr @demoVerify
   Scenario Outline: Save Add New Address without fill all mandatory field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -110,7 +110,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-463
-  @Android @Tnr @TnrTest
+  @Android @Tnr @demoVerify
   Scenario Outline: Save Add New Address without fill first name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -129,7 +129,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-464
-  @Android @Tnr @TnrTest
+  @Android @Tnr @demoVerify
   Scenario Outline: Save Add New Address without fill last name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
