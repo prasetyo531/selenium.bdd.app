@@ -91,7 +91,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
 
   #FDBRMA-462
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill all mandatory field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

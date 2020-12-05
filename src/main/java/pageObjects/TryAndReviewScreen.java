@@ -2,6 +2,7 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.interactions.touch.TouchActions;
@@ -9,6 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+
+import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.ofMillis;
 
 public class TryAndReviewScreen extends ActionBase {
 
@@ -555,8 +562,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         inputValueEnter(phonenumberField, "0812812");
 
-        verticalSwipeByPercentages(scrollView,0.4,0.01,0.8,500);
-
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);
         tapByElement(listBaliProvince);
@@ -566,6 +571,8 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(listBaliDistrict);
         tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
         inputValueEnter(zipField,"100451");
         inputValueEnter(completeAddressField, "save empty first name");
@@ -584,8 +591,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         inputValueEnter(phonenumberField, "0812812");
 
-        verticalSwipeByPercentages(scrollView,0.4,0.01,0.8,500);
-
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);
         tapByElement(listBaliProvince);
@@ -595,6 +600,8 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(listBaliDistrict);
         tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
         inputValueEnter(zipField,"100451");
         inputValueEnter(completeAddressField, "save empty first name");
