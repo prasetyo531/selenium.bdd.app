@@ -150,12 +150,14 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutLocation")
     public MobileElement locationField;
 
+    //location screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchLocField;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textCityName') and @text='Ambon']")
     public MobileElement ambon;
 
+    //setting
     @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
     public MobileElement changePassword;
 

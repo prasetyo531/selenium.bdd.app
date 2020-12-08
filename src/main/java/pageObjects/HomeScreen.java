@@ -45,13 +45,13 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement adsBanner;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonMenuToolbar")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarNotif")
     @iOSXCUITFindBy(id="ic notification")
     public MobileElement notifBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonSearch")
     @iOSXCUITFindBy(id="Find product, article, brand or user here")
-    public MobileElement searchBar;
+    public MobileElement searchIcon;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/imageXb")
     public MobileElement floatingImg;
@@ -59,10 +59,10 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/fabClose")
     public MobileElement closeFloatingImg;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='0']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='1']")
     public MobileElement tnrMenu;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='4']")
     public MobileElement productCategoryMenu;
 
     /************
@@ -185,7 +185,7 @@ public class HomeScreen extends ActionBase {
 
         boolean boolElem1= isElementPresent(greetingText);
         boolean boolElem2= isElementPresent(notifBtn);
-        boolean boolElem3= isElementPresent(searchBar);
+        boolean boolElem3= isElementPresent(searchIcon);
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (boolElem1 && boolElem2 && boolElem3);
@@ -194,7 +194,7 @@ public class HomeScreen extends ActionBase {
     public boolean verifyHomescreenIos() {
 
         boolean boolElem2= isElementPresent(notifBtn);
-        boolean boolElem3= isElementPresent(searchBar);
+        boolean boolElem3= isElementPresent(searchIcon);
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
 
         return (boolElem2 && boolElem3);
@@ -365,7 +365,7 @@ public class HomeScreen extends ActionBase {
     //search
     public HomeScreen clickSearch() throws IOException {
 
-        tapByElement(searchBar);
+        tapByElement(searchIcon);
         return new HomeScreen(driver);
     }
 
@@ -378,7 +378,7 @@ public class HomeScreen extends ActionBase {
 
     public HomeScreen inputSearch(String fullname) throws IOException {
 
-        inputValue(searchBar, fullname);
+        inputValue(searchIcon, fullname);
         return new HomeScreen(driver);
     }
 

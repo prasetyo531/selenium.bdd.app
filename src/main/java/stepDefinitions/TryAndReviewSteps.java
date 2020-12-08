@@ -109,6 +109,54 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.saveEmptyLastName();
     }
 
+    @When("^User save address form but let empty phone number$")
+    public void user_save_address_form_but_let_empty_phone_number() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.fillFirstName();
+        tryAndReviewScreen.fillLastName();
+        tryAndReviewScreen.fillProvinceCityDistrict();
+        tryAndReviewScreen.fillZipCode();
+        tryAndReviewScreen.fillCompleteAddress();
+        tryAndReviewScreen.clickSaveAddress();
+    }
+
+    @When("^User save address form but let empty province$")
+    public void user_save_address_form_but_let_empty_province() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.fillFirstName();
+        tryAndReviewScreen.fillLastName();
+        tryAndReviewScreen.fillPhoneNumber();
+        tryAndReviewScreen.fillZipCode();
+        tryAndReviewScreen.fillCompleteAddress();
+        tryAndReviewScreen.clickSaveAddress();
+    }
+
+    @When("^User save address form but let empty postal code$")
+    public void user_save_address_form_but_let_empty_postal_code() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.fillFirstName();
+        tryAndReviewScreen.fillLastName();
+        tryAndReviewScreen.fillPhoneNumber();
+        tryAndReviewScreen.fillProvinceCityDistrict();
+        tryAndReviewScreen.fillCompleteAddress();
+        tryAndReviewScreen.clickSaveAddress();
+    }
+
+    @When("^User save address form but let empty complete address$")
+    public void user_save_address_form_but_let_empty_complete_address() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.fillFirstName();
+        tryAndReviewScreen.fillLastName();
+        tryAndReviewScreen.fillPhoneNumber();
+        tryAndReviewScreen.fillProvinceCityDistrict();
+        tryAndReviewScreen.fillZipCode();
+        tryAndReviewScreen.clickSaveAddress();
+    }
+
     @When("^User clicks submit to join campaign using main address$")
     public void user_clicks_submit_to_join_campaign_using_main_address() throws Throwable {
         tryAndReviewScreen.clickToCollapse();

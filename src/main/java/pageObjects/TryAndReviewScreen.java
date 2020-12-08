@@ -512,6 +512,58 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    public TryAndReviewScreen fillFirstName() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        inputValueEnter(firstnameField, faker.name().firstName());
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen fillLastName() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        inputValueEnter(lastnameField, faker.name().lastName());
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen fillPhoneNumber() throws IOException {
+
+        inputValueEnter(phonenumberField, "0812891");
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen fillProvinceCityDistrict() throws IOException {
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen fillZipCode() throws IOException {
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        inputValueEnter(zipField, faker.address().zipCode());
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen fillCompleteAddress() throws IOException {
+
+        inputValueEnter(completeAddressField, faker.address().streetAddress());
+
+        return new TryAndReviewScreen(driver);
+    }
+
     public TryAndReviewScreen completeAddressBali(String firstname, String lastname) throws IOException {
 
         isElementEnabled(firstnameField);
@@ -531,6 +583,8 @@ public class TryAndReviewScreen extends ActionBase {
         isElementPresent(listBaliDistrict);
         tapByElement(listBaliDistrict);
 
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
         inputValueEnter(zipField,"100451");
         inputValueEnter(completeAddressField, firstname+ " " +lastname);
 
@@ -546,7 +600,7 @@ public class TryAndReviewScreen extends ActionBase {
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
 
-        verticalSwipeByPercentages(scrollView,0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
         isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
@@ -616,6 +670,13 @@ public class TryAndReviewScreen extends ActionBase {
 
         Thread.sleep(2000);
         isElementPresent(flagMainAddressParticipantSummary);
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen clickSaveAddress() throws IOException {
+
+        isElementPresent(saveAddressBtn);
+        tapByElement(saveAddressBtn);
         return new TryAndReviewScreen(driver);
     }
 

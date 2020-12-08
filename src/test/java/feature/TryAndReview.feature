@@ -90,6 +90,8 @@ Feature: User Join Campaign
       |         email            |    password    |  fullname     |
       |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
 
+  ### Address Form ###
+
   #FDBRMA-462
   @Android @Tnr
   Scenario Outline: Save Add New Address without fill all mandatory field
@@ -110,7 +112,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-463
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill first name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -129,7 +131,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-464
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill last name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -141,6 +143,82 @@ Feature: User Join Campaign
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
     When User save address form but let empty last name
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-465
+  @Android @Tnr @demoVerify
+  Scenario Outline: Save Add New Address without fill phone number
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty phone number
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-466 #FDBRMA-467 #FDBRMA-468
+  @Android @Tnr @demoVerify
+  Scenario Outline: Save Add New Address without fill province
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty province
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-469
+  @Android @Tnr @demoVerify
+  Scenario Outline: Save Add New Address without fill postal code
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty postal code
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email            |    password    |
+      |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-470
+  @Android @Tnr @demoVerify
+  Scenario Outline: Save Add New Address without fill complete address
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User save address form but let empty complete address
     Then Display red toast "Oops ... you need to fill in all data"
 
     Examples:
