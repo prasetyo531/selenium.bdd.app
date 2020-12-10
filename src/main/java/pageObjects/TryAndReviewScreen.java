@@ -173,6 +173,21 @@ public class TryAndReviewScreen extends ActionBase {
     public MobileElement btnSaveBeautyConcern;
 
     /***
+     List Address
+     ***/
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnAddAddressShipping")
+    public MobileElement addNewAddressListAddress;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.beauty:id/layoutParentAddress') and @index='1']")
+    public MobileElement listAddress1;
+
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.beauty:id/buttonEdit') and @index='1']")
+    public MobileElement editListAddres2;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/tagMain")
+    public MobileElement flagMainAddressListSum;
+
+    /***
      Add New Address
      ***/
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView")
@@ -287,6 +302,12 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    public TryAndReviewScreen clickEditAddressParticipantSum() throws IOException {
+
+        isElementEnabled(editAddNewAddressSumTnrIcon);
+        tapByElement(editAddNewAddressSumTnrIcon);
+        return new TryAndReviewScreen(driver);
+    }
 
     //personal info
     public TryAndReviewScreen inputPersonalInfoForm(String fullname) throws IOException {
@@ -348,10 +369,11 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen clickSaveBeautyProfile() throws IOException {
 
         isElementPresent(contentBeautyProf);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         tapByElement(buttonSaveBeautyProfile);
-//        isElementPresent(toastMsg);
+        isElementPresent(toastMsg);
+
         return new TryAndReviewScreen(driver);
     }
 
@@ -361,6 +383,7 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinType = errorMsgSkinType.getText();
         System.out.println(txtErrorSkinType);
         Assert.assertEquals(txtErrorSkinType, "Please choose your skin type");
+
         return new TryAndReviewScreen(driver);
     }
 
@@ -370,6 +393,7 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinTone = errorMsgSkinTone.getText();
         System.out.println(txtErrorSkinTone);
         Assert.assertEquals(txtErrorSkinTone, "Please choose your skin tone");
+
         return new TryAndReviewScreen(driver);
     }
 
@@ -379,6 +403,7 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinUndertone = errorMsgSkinUndertone.getText();
         System.out.println(txtErrorSkinUndertone);
         Assert.assertEquals(txtErrorSkinUndertone, "Please choose your skin undertone");
+
         return new TryAndReviewScreen(driver);
     }
 
@@ -452,7 +477,8 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
         verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
         tapByElement(btnSaveBeautyConcern);
-//        isElementPresent(toastMsg);
+        isElementPresent(toastMsg);
+
         return new TryAndReviewScreen(driver);
     }
 
@@ -504,7 +530,24 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    //list address screen
+    public TryAndReviewScreen clickBackToParticipantSumm() throws IOException {
+
+        isElementPresent(backIcon);
+        tapByElement(backIcon);
+        return new TryAndReviewScreen(driver);
+    }
+
     //address form
+    public TryAndReviewScreen waitAddressForm() throws IOException {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
     public TryAndReviewScreen setAsMainAddress() throws IOException {
 
         isElementPresent(mainAddressBtn);
@@ -514,8 +557,6 @@ public class TryAndReviewScreen extends ActionBase {
 
     public TryAndReviewScreen fillFirstName() throws IOException {
 
-        isElementEnabled(firstnameField);
-        isElementEnabled(provinceOpt);
         inputValueEnter(firstnameField, faker.name().firstName());
         return new TryAndReviewScreen(driver);
     }
@@ -568,6 +609,8 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
         inputValueEnter(firstnameField, firstname);
         inputValueEnter(lastnameField, lastname);
 
@@ -595,10 +638,28 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
+    public TryAndReviewScreen editAddressAsMainAddress() throws IOException {
+
+        isElementEnabled(listAddress1);
+        tapByElement(editListAddres2);
+        isElementEnabled(saveAddressBtn);
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
+        tapByElement(mainAddressBtn);
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
     public TryAndReviewScreen saveWithoutFillAllField() throws IOException {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
@@ -612,6 +673,8 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
         inputValueEnter(lastnameField, "lastname");
 
         inputValueEnter(phonenumberField, "0812812");
@@ -641,6 +704,8 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
         inputValueEnter(lastnameField, "lastname");
 
         inputValueEnter(phonenumberField, "0812812");

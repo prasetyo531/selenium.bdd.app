@@ -88,6 +88,15 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.checkToastSuccess();
     }
 
+    @When("^User choose any address to be main address$")
+    public void user_choose_any_address_to_be_main_address() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickEditAddressParticipantSum();
+        tryAndReviewScreen.editAddressAsMainAddress();
+        tryAndReviewScreen.checkToastSuccess();
+        tryAndReviewScreen.clickBackToParticipantSumm();
+    }
+
     @When("^User save address form but let empty all mandatory field$")
     public void user_save_address_form_but_let_empty_all_mandatory_field() throws Throwable {
         tryAndReviewScreen.clickToCollapse();
@@ -149,6 +158,7 @@ public class TryAndReviewSteps extends DriverFactory {
     public void user_save_address_form_but_let_empty_complete_address() throws Throwable {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.waitAddressForm();
         tryAndReviewScreen.fillFirstName();
         tryAndReviewScreen.fillLastName();
         tryAndReviewScreen.fillPhoneNumber();
@@ -162,6 +172,20 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.checkFlagMainAddress();
         tryAndReviewScreen.clickSaveJoinCampaign();
+    }
+
+    @When("^User clicks submit to join campaign$")
+    public void user_clicks_submit_to_join_campaign() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickSaveJoinCampaign();
+    }
+
+
+    @Then("^User will see label main address on participant summary form$")
+    public void user_will_see_label_main_address_on_participant_summary_form() throws Throwable {
+        tryAndReviewScreen.checkFlagMainAddress();
+        tryAndReviewScreen.clickSaveAddress();
+        tryAndReviewScreen.checkToastSuccess();
     }
 
     @Then("^User will see success toast message after joined campaign$")

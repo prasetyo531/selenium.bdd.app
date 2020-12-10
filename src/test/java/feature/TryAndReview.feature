@@ -40,8 +40,6 @@ Feature: User Join Campaign
     Then User will see modal account status on homescreen and click tnr menu
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
-    When User save data personal info screen without fill any field
-    Then Display red toast "Oops ... you need to fill in all data"
 #    When User input "<fullname>" fullname field
 #    Then Display red toast "Fullname should be 2-100 chars in length"
 
@@ -224,3 +222,117 @@ Feature: User Join Campaign
     Examples:
       |         email            |    password    |
       |	      tnrpersonalinfo01	 |    test123     |
+
+  #FDBRMA-471
+  @Android @Tnr @production @wip
+  Scenario Outline: Add New Address Until Maximum Number of Allowed Address
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+#    When User save more address after user already had 4 address
+#    Then User will not see button add new address on list address screen
+
+    Examples:
+      |         email    |    password    |
+      |	      datatnr01	 |    test123     |
+
+  #FDBRMA-472
+  @Android @Tnr @demoVerify
+  Scenario Outline: Choose Any Address to Become Shipping Information Address
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User choose any address to be main address
+    Then User will see label main address on participant summary form
+
+    Examples:
+      |         email    |    password    |
+      |	      datatnr01	 |    test123     |
+
+  #FDBRMA-474 #FDBRMA-477
+  @Android @Tnr @demoVerify
+  Scenario Outline: Submit Participant Summary without Completed Personal Info - without Completed Shipping Information
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User clicks submit to join campaign
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |             email            |    password    |
+      |	      completepersonalinfo	 |    test123     |
+
+  #FDBRMA-475
+  @Android @Tnr @production @wip
+  Scenario Outline: Submit Participant Summary without Completed Beauty Profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User clicks submit to join campaign
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email        |    password    |
+      |	      emptyprofile	 |    test123     |
+
+  #FDBRMA-476
+  @Android @Tnr @production @wip
+  Scenario Outline: Submit Participant Summary without Completed Beauty Concern
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User clicks submit to join campaign
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email    |    password    |
+      |	      apkprod30	 |    test123     |
+
+  #FDBRMA-488
+  @Android @Tnr @demoVerify
+  Scenario Outline: Submit Participant Summary without Completed All Mandatory Section
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    When User clicks submit to join campaign
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |         email        |    password    |
+      |	      emptydatatnr	 |    test123     |
