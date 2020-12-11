@@ -572,6 +572,7 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen fillPhoneNumber() throws IOException {
 
         inputValueEnter(phonenumberField, "0812891");
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         return new TryAndReviewScreen(driver);
     }
 

@@ -148,7 +148,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-465
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -167,8 +167,8 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-466 #FDBRMA-467 #FDBRMA-468
-  @Android @Tnr @demoVerify
-  Scenario Outline: Save Add New Address without fill province
+  @Android @Tnr
+  Scenario Outline: Save Add New Address without fill province, city, district
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then user enters the "<email>" email to login
@@ -186,7 +186,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-469
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill postal code
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -205,7 +205,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |
 
   #FDBRMA-470
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Save Add New Address without fill complete address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -243,7 +243,7 @@ Feature: User Join Campaign
       |	      datatnr01	 |    test123     |
 
   #FDBRMA-472
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Choose Any Address to Become Shipping Information Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -262,7 +262,7 @@ Feature: User Join Campaign
       |	      datatnr01	 |    test123     |
 
   #FDBRMA-474 #FDBRMA-477
-  @Android @Tnr @demoVerify
+  @Android @Tnr
   Scenario Outline: Submit Participant Summary without Completed Personal Info - without Completed Shipping Information
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -319,7 +319,7 @@ Feature: User Join Campaign
       |	      apkprod30	 |    test123     |
 
   #FDBRMA-488
-  @Android @Tnr @demoVerify
+  @Android @Tnr @demoVerify1
   Scenario Outline: Submit Participant Summary without Completed All Mandatory Section
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -334,5 +334,5 @@ Feature: User Join Campaign
     Then Display red toast "Oops ... you need to fill in all data"
 
     Examples:
-      |         email        |    password    |
+      |         email    |    password    |
       |	      emptydatatnr	 |    test123     |

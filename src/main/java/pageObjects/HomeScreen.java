@@ -6,10 +6,12 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HomeScreen extends ActionBase {
 
@@ -20,6 +22,9 @@ public class HomeScreen extends ActionBase {
     /***********
      account status
      ***********/
+    @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
+    public List<MobileElement> accountCompleteVerBtnCheck;
+
     @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
@@ -203,9 +208,11 @@ public class HomeScreen extends ActionBase {
     public boolean verifyAccountStatusModal() throws InterruptedException {
 
         Thread.sleep(2000);
-        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        //http://appium.io/docs/en/commands/element/find-elements/#find-elements
+        List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
+        //boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         try {
-            if (checkAccountStatusModal == true) {
+            if (checkAccountStatusModal.size()>0) {
                 tapByElement(closeAccountStatusModal);
                 System.out.println("account status modal is present");
                 verifyHomescreen();
@@ -216,9 +223,8 @@ public class HomeScreen extends ActionBase {
         } catch (Exception e){
             e.printStackTrace();
         }
-        return (checkAccountStatusModal && verifyHomescreen());
+        return (verifyHomescreen());
     }
-
 
     /*
     public void verifyAccountStatusModal() {
