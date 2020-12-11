@@ -319,7 +319,7 @@ Feature: User Join Campaign
       |	      apkprod30	 |    test123     |
 
   #FDBRMA-488
-  @Android @Tnr @demoVerify1
+  @Android @Tnr
   Scenario Outline: Submit Participant Summary without Completed All Mandatory Section
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
