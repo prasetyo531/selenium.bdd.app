@@ -210,6 +210,7 @@ public class ActionBase extends DriverFactory {
                 .release().perform();
     }
 
+    //--https://qavalidation.com/2016/07/scrolling-in-appium.html/
     public void verticalSwipeByPercentagesDirectly(int xoffset1, int yoffset1, int xoffset2, int yoffset2) {
 
         new TouchAction(driver)

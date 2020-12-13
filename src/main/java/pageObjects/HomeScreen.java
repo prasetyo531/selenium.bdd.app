@@ -7,7 +7,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -28,6 +30,9 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement accountCompleteVerBtn;
+
+    @FindBy(id="com.fdbr.android:id/buttonAction")
+    public List<WebElement> accountCompleteVerBtnOnModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonClose")
     @iOSXCUITFindBy(id="icon close")
@@ -209,7 +214,8 @@ public class HomeScreen extends ActionBase {
 
         Thread.sleep(2000);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
-        List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
+        List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
+        //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
         //boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         try {
             if (checkAccountStatusModal.size()>0) {
