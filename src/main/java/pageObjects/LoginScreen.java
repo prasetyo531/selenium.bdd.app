@@ -43,6 +43,9 @@ public class LoginScreen extends ActionBase {
     @iOSXCUITFindBy(id="id_forgotpassword")
     public MobileElement forgotPassword;
 
+    @AndroidFindBy(id="com.fdbr.android:id/tv_message")
+    public MobileElement toastMsg;
+
     @iOSXCUITFindBy(id="Done")
     public MobileElement doneKeyboard;
 
@@ -95,20 +98,14 @@ public class LoginScreen extends ActionBase {
     // ** hardcode
     public void inputHardcodeAuth() {
 
-        inputValue(usernameEmailField, "newnew01");
+        inputValue(usernameEmailField, "putwid");
     }
 
     public void inputHardcodePassword() {
 
-        inputValue(passwordField, "test123");
+        inputValue(passwordField, "123tester");
     }
     // hardcode **
-
-    public void clickNext() {
-
-        tapByElement(nextLoginBtn);
-    }
-
     public LoginScreen clickLogin() throws IOException {
 
         tapByElement(nextLoginBtn);
@@ -179,7 +176,7 @@ public class LoginScreen extends ActionBase {
     }
 
     /*  content or description modal */
-    public void errorDescPhoneNumberNotVerifiedModal() {
+    public LoginScreen errorDescPhoneNumberNotVerifiedModal() throws IOException {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
@@ -187,77 +184,109 @@ public class LoginScreen extends ActionBase {
         Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches this account:"));
         Assert.assertTrue(getDesc.contains("Please login with the correct email.\n" +
                 "If the email does not belong to you, please create a new account."));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescEmailDuplicateModal(){
+    public LoginScreen errorDescEmailDuplicateModal() throws IOException {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Hi! The email you have entered matches these accounts:"));
         Assert.assertTrue(getDesc.contains("Please login with the correct username."));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescPhoneNumberNotRegisteredModal(){
+    public LoginScreen errorDescPhoneNumberNotRegisteredModal() throws IOException {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Create a new account with this number? +62"));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescEmailNotRegisteredModal(){
+    public LoginScreen errorDescEmailNotRegisteredModal() throws IOException {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("The email and password you entered do not match."));
         Assert.assertTrue(getDesc.contains("Do you want to reset your password?"));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescPasswordNotValidModal(){
+    public LoginScreen errorDescPasswordNotValidModal() throws IOException {
 
         isElementPresent(descModal);
         String textInvalidPassword = descModal.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescUsernamePasswordNotValidModalIos(){
+    public LoginScreen errorDescUsernamePasswordNotValidModalIos() throws IOException {
 
         isElementPresent(usernamePasswordNotValidIos);
         String textInvalidPassword = usernamePasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+
+        return new LoginScreen(driver);
     }
 
-    public void errorDescEmailPasswordNotValidModalIos(){
+    public LoginScreen errorDescEmailPasswordNotValidModalIos() throws IOException {
 
         isElementPresent(emailPasswordNotValidIos);
         String textInvalidPassword = emailPasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The email and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
+
+        return new LoginScreen(driver);
     }
 
-    public void clickLoginBtnModal(){
+    public LoginScreen clickLoginBtnModal() throws IOException {
 
         tapByElement(yesBtnModal);
+
+        return new LoginScreen(driver);
     }
 
-    public void clickYesBtnPhoneUnregisteredModal(){
+    public LoginScreen clickYesBtnPhoneUnregisteredModal() throws IOException {
 
         tapByElement(yesBtnModal);
+
+        return new LoginScreen(driver);
     }
 
-    public void clickRegisterBtnModal(){
+    public LoginScreen clickRegisterBtnModal() throws IOException {
 
         tapByElement(noBtnModal);
+
+        return new LoginScreen(driver);
     }
 
-    public void inputNewChannelToLogin(String channel){
+    public LoginScreen inputNewChannelToLogin(String channel) throws IOException {
 
         usernameEmailField.clear();
         inputValue(usernameEmailField, channel);
+
+        return new LoginScreen(driver);
+    }
+
+    //toast msg
+    public LoginScreen assertToastSuspend(String text) throws IOException {
+
+        isElementPresent(toastMsg);
+        String txtWarning = toastMsg.getText();
+        Assert.assertTrue(txtWarning.contains(text));
+
+        return new LoginScreen(driver);
     }
 
 }

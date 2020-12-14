@@ -173,6 +173,23 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen clickResendCode() throws IOException {
 
+        isElementEnabled(confirmOtpBtn);
+        tapByElement(resendCodeLabel);
+
+        return new OtpScreen(driver);
+    }
+
+    public OtpScreen clickResendCodeUntilSuspend() throws IOException, InterruptedException {
+
+        Thread.sleep(30000);
+        isElementEnabled(resendCodeLabel);
+
+        tapByElement(resendCodeLabel);
+        Thread.sleep(31000);
+
+        tapByElement(resendCodeLabel);
+        Thread.sleep(32000);
+
         tapByElement(resendCodeLabel);
 
         return new OtpScreen(driver);
@@ -180,6 +197,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen clickConfirmOtp() throws IOException {
 
+        isElementEnabled(confirmOtpBtn);
         tapByElement(confirmOtpBtn);
 
         return new OtpScreen(driver);

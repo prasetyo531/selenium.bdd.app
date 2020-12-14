@@ -219,6 +219,21 @@ Feature: Login into account
       |      phonenumber         |   password   |
       |	    0812849159510	     |   test123    |
 
+  #FDBRMA-217
+  @Android @Login @Regression @RealAccount @RealDevices @UiTest @demo
+  Scenario Outline: Login using suspended phone number
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<phonenumber>" phonenumber to login
+    And User clicks next button on login screen
+    When User resend otp 3 times from phone on otp screen android
+    And User click change phone but input same "<phonenumber>"
+    Then display toast error msg suspend "You have reached a limit for sending code. Please try again in"
+
+    Examples:
+      |        phonenumber          |
+      |	       6287808192493	    |
+
   ##################################################################################
   #IOS
   ##################################################################################

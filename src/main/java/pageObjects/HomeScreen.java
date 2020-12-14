@@ -6,7 +6,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
@@ -75,6 +74,9 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='4']")
     public MobileElement productCategoryMenu;
 
+    @AndroidFindBy(xpath="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
+    public MobileElement brandMenu;
+
     /************
      plus button
      ************/
@@ -89,7 +91,6 @@ public class HomeScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonCancel")
     public MobileElement cancelMenu;
-
 
     /**********
      product matches
@@ -116,7 +117,7 @@ public class HomeScreen extends ActionBase {
     public MobileElement productMatchesHairType;
 
     /*****
-    search result screen
+     search result screen
      *****/
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Users\"]")
     public MobileElement usersTab;
@@ -164,14 +165,14 @@ public class HomeScreen extends ActionBase {
     public MobileElement btnNeedVerify;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public HomeScreen(AppiumDriver driver) throws IOException {
+    public HomeScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public HomeScreen allowPermission() throws IOException {
+    public HomeScreen allowPermission() {
 
         isElementPresent(permissionAllow);
         tapByElement(permissionAllow);
@@ -247,8 +248,7 @@ public class HomeScreen extends ActionBase {
     }
      */
 
-    public HomeScreen verifyAccountStatusModalIos() throws IOException {
-
+    public HomeScreen verifyAccountStatusModalIos() {
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
             tapByElement(closeAccountStatusModal);
@@ -261,8 +261,7 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
-    public Boolean checkProgressBarVerifyEmailPhone(){
-
+    public Boolean checkProgressBarVerifyEmailPhone() {
         boolean e1= isElementPresent(progressBar);
         boolean e2= isElementPresent(textNeedVerify);
         boolean e3= isElementPresent(btnNeedVerify);
@@ -274,26 +273,22 @@ public class HomeScreen extends ActionBase {
     }
 
     public Boolean checkProgressBarCompleteProfile(){
-
         boolean e1= isElementPresent(progressBar);
         boolean e2= isElementPresent(textNeedVerify);
         boolean e3= isElementPresent(btnNeedVerify);
         String txt = btnNeedVerify.getText().toString();
         Assert.assertTrue(txt.equalsIgnoreCase("Complete"));
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
-
         return (e1 && e2 && e3);
     }
 
-    public HomeScreen findAndCloseFloatingImg() throws IOException {
-
+    public HomeScreen findAndCloseFloatingImg() {
         isElementPresent(floatingImg);
         tapByElement(closeFloatingImg);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen completeMyBeautyIdProductMatches() throws IOException {
-
+    public HomeScreen completeMyBeautyIdProductMatches() {
         isElementPresent(btnCompleteBeautyID);
         tapByElement(btnCompleteBeautyID);
         System.out.println("complete my beautyId is present");
@@ -301,62 +296,56 @@ public class HomeScreen extends ActionBase {
     }
 
     //menu bar
-    public HomeScreen clickProductCategory() throws IOException {
-
+    public HomeScreen clickProductCategory() {
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickTnrMenu() throws IOException {
-
+    public HomeScreen clickTnrMenu() {
         isElementPresent(tnrMenu);
         tapByElement(tnrMenu);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen verifyProductMatches() throws IOException {
-
+    public HomeScreen verifyProductMatches() {
         isElementPresent(firstindextproductmatches);
         System.out.println("product matches is present");
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickAccountCompleteVerBtn() throws IOException {
-
+    public HomeScreen clickAccountCompleteVerBtn() {
         isElementPresent(accountCompleteVerBtn);
         tapByElement(accountCompleteVerBtn);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickAddReviewHomeMenu() throws IOException {
-
+    public HomeScreen clickAddReviewHomeMenu() {
         tapByElement(plusTab);
         tapByElement(addReviewMenu);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickAddProductHomeMenu() throws IOException {
-
+    public HomeScreen clickAddProductHomeMenu() {
         tapByElement(plusTab);
         tapByElement(addProductMenu);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickAddPostHomeMenu() throws IOException {
+    public HomeScreen clickAddPostHomeMenu() {
 
         tapByElement(plusTab);
         tapByElement(addPostMenu);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickHomeMenu() throws IOException {
+    public HomeScreen clickHomeMenu() {
 
         tapByElement(homeTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickFeedMenu() throws IOException {
+    public HomeScreen clickFeedMenu() {
 
         tapByElement(feedTab);
         return new HomeScreen(driver);
@@ -369,41 +358,41 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen clickProfileHomeMenu() throws IOException {
-
         tapByElement(profileTab);
         return new HomeScreen(driver);
     }
 
-    //search
-    public HomeScreen clickSearch() throws IOException {
+    public HomeScreen scrollClickMenuAppToAllBrands() {
+        horizontalSwipeByPercentagesDirectly(1353,1220, 370, 1203);
+        isElementEnabled(brandMenu);
+        tapByElement(brandMenu);
+        return new HomeScreen(driver);
+    }
 
+    //search
+    public HomeScreen clickSearch() {
         tapByElement(searchIcon);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickUsersTab() throws IOException {
-
+    public HomeScreen clickUsersTab() {
         isElementPresent(usersTab);
         tapByElement(usersTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen inputSearch(String fullname) throws IOException {
-
+    public HomeScreen inputSearch(String fullname) {
         inputValue(searchIcon, fullname);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickFirstElementSearch() throws IOException {
-
+    public HomeScreen clickFirstElementSearch() {
         tapByElement(firstResultUsersTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen acceptAlertPermission() throws IOException {
-
+    public HomeScreen acceptAlertPermission() {
         acceptAlert();
         return new HomeScreen(driver);
     }
-
 }

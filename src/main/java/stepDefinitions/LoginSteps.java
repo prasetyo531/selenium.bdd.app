@@ -33,7 +33,7 @@ public class LoginSteps extends DriverFactory {
     @And("^User enters the \"([^\"]*)\" password on login screen$")
     public void User_enters_the_something_password_on_login_screen(String password) throws Throwable {
 
-        loginScreen.clickNext();
+        loginScreen.clickLogin();
         loginScreen.inputPassword(password);
     }
 
@@ -54,7 +54,7 @@ public class LoginSteps extends DriverFactory {
     @And("^User clicks next button on login screen$")
     public void User_clicks__next_button_on_login_screen() throws Throwable {
 
-        loginScreen.clickNext();
+        loginScreen.clickLogin();
     }
 
     @When("^User clicks login button on login screen$")
@@ -70,7 +70,30 @@ public class LoginSteps extends DriverFactory {
 
         otpScreen.clickAllowReadMsg();
         otpScreen.comparePhoneReceiver();
+        otpScreen.fillByPassOtp();
         otpScreen.clickConfirmOtp();
+    }
+
+    @When("^User resend otp 3 times from phone on otp screen android$")
+    public void user_resend_otp_3_times_from_phone_on_otp_screen_android() throws Throwable {
+        otpScreen.comparePhoneReceiver();
+        otpScreen.clickResendCodeUntilSuspend();
+    }
+
+    @And("^User click change phone but input same \"([^\"]*)\"$")
+    public void user_click_change_phone_but_input_same_something(String phonenumber) throws Throwable {
+
+        otpScreen.tapToChangeFromPhoneToEmail();
+        loginScreen.inputUsrEmailPhoneName(phonenumber);
+
+        loginScreen.clickLogin();
+    }
+
+    @Then("^display toast error msg suspend \"([^\"]*)\"$")
+    public void display_toast_error_msg_suspend_something(String msg) throws Throwable {
+
+        loginScreen.assertToastSuspend(msg);
+
     }
 
     @When("^user input correct otp from phone on otp screen from ios to login$")
@@ -168,12 +191,10 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorDescEmailDuplicateModal();
     }
 
-    @Then("^pop up message shoul Then pop up message should displayedd displayed$")
-    public void pop_up_message_should_displayed() {
-        loginScreen.errorDescPasswordNotValidModal();
-        loginScreen.clickRegisterBtnModal();
-    }
-
-
+//    @Then("^pop up message shoul Then pop up message should displayed displayed$")
+//    public void pop_up_message_should_displayed() {
+//        loginScreen.errorDescPasswordNotValidModal();
+//        loginScreen.clickRegisterBtnModal();
+//    }
 
 }

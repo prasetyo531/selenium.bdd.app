@@ -11,6 +11,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -133,7 +135,7 @@ public class ActionBase extends DriverFactory {
     /**********************************************************************************
      Accept Alert
      **********************************************************************************/
-    protected void acceptAlert() throws IOException {
+    protected void acceptAlert() {
         System.out.println("wait to dismiss dialog");
         WebDriverWait wait = new WebDriverWait(driver, 30);
         try {
@@ -212,11 +214,18 @@ public class ActionBase extends DriverFactory {
 
     //--https://qavalidation.com/2016/07/scrolling-in-appium.html/
     public void verticalSwipeByPercentagesDirectly(int xoffset1, int yoffset1, int xoffset2, int yoffset2) {
-
         new TouchAction(driver)
                 .press(point(xoffset1, yoffset1))
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(xoffset2, yoffset2))
+                .release().perform();
+    }
+
+    public void horizontalSwipeByPercentagesDirectly(int xoffset1, int yoffset1, int xoffset2, int yoffset2) {
+        new TouchAction(driver)
+                .press(PointOption.point(xoffset1, yoffset1))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+                .moveTo(PointOption.point(xoffset2, yoffset2))
                 .release().perform();
     }
 
@@ -349,12 +358,9 @@ public class ActionBase extends DriverFactory {
      **********************************************/
     public void testToast(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-
         final String toastText = text;
         raiseToast(toastText);
-
         wait.until(toastMatches(toastText, false));
-
         raiseToast(toastText);
         wait.until(toastMatches("^Catch.+!", true));
     }
@@ -431,10 +437,8 @@ public class ActionBase extends DriverFactory {
      Compare Images / Visual Test
      *****************************************************************/
     public void compareImgIfUploaded(String nama1, String nama2){
-
         BufferedImage imgA = null;
         BufferedImage imgB = null;
-
         try
         {
             File fileA = new File(System.getProperty("user.dir") + "/output/tc/"+nama1+".jpg");
@@ -508,7 +512,6 @@ public class ActionBase extends DriverFactory {
      Send msg to telegram
      *****************************************************************/
     public static void sendMessageToTelegram(String scenario,String status) throws IOException {
-
         String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";
         String CHAT_ID = "-329202248"; //AppiumTelegram
 
@@ -518,7 +521,6 @@ public class ActionBase extends DriverFactory {
                 + "status : "+ status;
 
         httpRequest.header("Content-Type", "application/json").log().all();
-
         JsonObject payload = new JsonObject();
         payload.addProperty("chat_id", CHAT_ID);
         payload.addProperty("text", text);
