@@ -42,7 +42,7 @@ public class CommentLikeScreen extends ActionBase {
 
 
     // This is a constructor, as every page need a base driver to find android elements
-    public CommentLikeScreen(AppiumDriver driver) throws IOException {
+    public CommentLikeScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -51,7 +51,6 @@ public class CommentLikeScreen extends ActionBase {
 
     //count total comment
     public Integer getTotalCommentBefore(){
-
         String total1 = clickCommentIcon.getText();
         //parse to integer
         t1=Integer.parseInt(total1);
@@ -60,7 +59,6 @@ public class CommentLikeScreen extends ActionBase {
     }
 
     public Integer getTotalCommentAfter(){
-
         String total2 = clickCommentIcon.getText();
         //parse to integer
         t2=Integer.parseInt(total2);
@@ -69,7 +67,6 @@ public class CommentLikeScreen extends ActionBase {
     }
 
     public void totalComm(){
-
         System.out.println(t1+" "+t2);
         if(t2.equals(t1)){
             Assert.fail("total should not same"+" "+t1);
@@ -77,42 +74,36 @@ public class CommentLikeScreen extends ActionBase {
         }
     }
 
-    public CommentLikeScreen clickFirstPostProfile() throws IOException {
-
+    public CommentLikeScreen clickFirstPostProfile() {
         isElementPresent(firstPostProfile);
         tapByElement(firstPostProfile);
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen clickFirstReviewProfile() throws IOException {
-
+    public CommentLikeScreen clickFirstReviewProfile() {
         isElementPresent(firstReviewProfile);
         tapByElement(firstReviewProfile);
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen clickCommentIcon() throws IOException {
-
+    public CommentLikeScreen clickCommentIcon() {
         isElementPresent(clickCommentIcon);
         tapByElement(clickCommentIcon);
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen inputCommentField(String commentmention) throws IOException {
-
+    public CommentLikeScreen inputCommentField(String commentmention) {
         isElementPresent(commentField);
         inputValue(commentField, commentmention);
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen postComment() throws IOException {
-
+    public CommentLikeScreen postComment() {
         tapByElement(postBtn);
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen clickBack() throws IOException {
-
+    public CommentLikeScreen clickBack() {
         tapByElement(backToolbar);
         return new CommentLikeScreen(driver);
     }

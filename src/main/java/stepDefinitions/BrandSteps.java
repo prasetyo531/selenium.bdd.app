@@ -9,6 +9,7 @@ public class BrandSteps extends DriverFactory {
 
     @Given("^User clicks menu all brand from homescreen menu$")
     public void user_clicks_menu_all_brand_from_homescreen_menu() throws Throwable {
+        homeScreen.findAndCloseFloatingImg();
         homeScreen.scrollClickMenuAppToAllBrands();
     }
 

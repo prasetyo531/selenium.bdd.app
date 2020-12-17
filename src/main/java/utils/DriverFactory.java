@@ -9,7 +9,7 @@ public class DriverFactory {
 
     //grid
     public static AppiumDriver driver;
-    public static Process process;
+    //public static Process process;
 
     //set configuration
     public static String loadPropertyFile = "android.properties";
@@ -42,9 +42,7 @@ public class DriverFactory {
     public static BrandScreen brandScreen;
 
     public AppiumDriver getDriver() throws IOException {
-
         try {
-
             AppiumServer.stop();
             AppiumServer.start();
 
@@ -57,7 +55,6 @@ public class DriverFactory {
                 CommonUtils.setAndroidCapabilities();
                 driver = CommonUtils.getAndroidDriver();
             }
-
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());
         } finally {
@@ -88,5 +85,4 @@ public class DriverFactory {
         }
         return driver;
     }
-
 }

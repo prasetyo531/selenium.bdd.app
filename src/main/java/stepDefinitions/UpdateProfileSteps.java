@@ -38,19 +38,19 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @When("^User clicks beautyId button on beauty box on profile$")
-    public void user_clicks_beautyid_button_on_beauty_box_on_profile() throws Throwable {
+    public void user_clicks_beautyid_button_on_beauty_box_on_profile() {
 
         profileScreen.clickBeautyIdOnBeautyBox();
     }
 
     @And("^User clicks setting icon$")
-    public void user_clicks_setting_icon() throws Throwable {
+    public void user_clicks_setting_icon() {
 
         profileScreen.clickSettingProfile();
     }
 
     @And("^User clicks edit profile$")
-    public void user_clicks_edit_profile() throws Throwable {
+    public void user_clicks_edit_profile() {
 
         profileScreen.clickEditProfile();
     }

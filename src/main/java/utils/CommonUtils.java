@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -62,7 +64,6 @@ public class CommonUtils {
         PLATFORM_VERSION=prop.getProperty("platform.version");
         NEW_COMMAND_TIMEOUT= Integer.parseInt(prop.getProperty("new.command.timeout"));
         DEVICE_TIMEOUT= Integer.parseInt(prop.getProperty("device.ready.timeout"));
-
     }
 
     public static void loadIosConfigProp(String propertyFileName) throws IOException {
@@ -137,7 +138,4 @@ public class CommonUtils {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-
-
-
 }

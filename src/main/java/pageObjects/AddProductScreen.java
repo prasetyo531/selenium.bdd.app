@@ -320,7 +320,7 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen fillProductDesc() throws IOException {
 
-        this.verticalSwipeByPercentages(productDescField,0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         //tapByElement(productDescField);
         inputValue(productDescField, "desc add product test");
         return new AddProductScreen(driver);
@@ -523,7 +523,7 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen scrollToBottom() throws IOException {
 
-        this.verticalSwipeByPercentages(productDescField,0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         return new AddProductScreen(driver);
     }
 }

@@ -98,12 +98,12 @@ public class LoginScreen extends ActionBase {
     // ** hardcode
     public void inputHardcodeAuth() {
 
-        inputValue(usernameEmailField, "putwid");
+        inputValue(usernameEmailField, "fixnotif");
     }
 
     public void inputHardcodePassword() {
 
-        inputValue(passwordField, "123tester");
+        inputValue(passwordField, "test123");
     }
     // hardcode **
     public LoginScreen clickLogin() throws IOException {

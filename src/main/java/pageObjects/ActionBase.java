@@ -181,7 +181,6 @@ public class ActionBase extends DriverFactory {
                 .perform();
     }
 
-
     //Horizontal Swipe by percentages
     public void horizontalSwipeByPercentage (MobileElement mobileElement, double startPercentage, double endPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();
@@ -301,7 +300,7 @@ public class ActionBase extends DriverFactory {
      *** Tap Random Element ***
      **********************************************/
     //xpath fullpath https://stackoverflow.com/questions/39036751/how-to-randomly-click-an-element-in-the-list-androidusing-seleniumappium
-    public static void clickRandomMenus(List<MobileElement> mobileElements){
+    public void clickRandomMenus(List<MobileElement> mobileElements){
         try {
             //count size first
             List<MobileElement> li = mobileElements;
@@ -322,7 +321,7 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public static void clickRandomMultipleMenus(List<MobileElement> mobileElements){
+    public void clickRandomMultipleMenus(List<MobileElement> mobileElements){
         try {
             List<MobileElement> li = mobileElements;
             int i = 0;
@@ -342,6 +341,26 @@ public class ActionBase extends DriverFactory {
                 System.out.println("there are"+" "+li.size()+" "+"element");
                 break;
             }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //LinkedList/queue = allow to implement get, remove dan insert dari awal dan akhir LinkedList
+    public void clickLastMenus(List<MobileElement> mobileElements){
+        try {
+            //count size first
+            List<MobileElement> li = mobileElements;
+            int i = 0;
+            System.out.println("there are"+" "+li.size()+" "+"element");
+
+            LinkedList<MobileElement> arrayProductCat = new LinkedList<MobileElement>();
+
+            while(i!=li.size()) {
+                arrayProductCat.add(li.get(i));
+                i++;
+            }
+            arrayProductCat.getLast().click();
         } catch (Exception e){
             e.printStackTrace();
         }

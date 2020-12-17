@@ -286,48 +286,42 @@ public class ProfileScreen extends ActionBase{
 
 
     // This is a constructor, as every page need a base driver to find android elements
-    public ProfileScreen(AppiumDriver driver) throws IOException {
+    public ProfileScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public ProfileScreen clickReviewsTab() throws IOException {
-
+    public ProfileScreen clickReviewsTab() {
         tapByElement(reviewsTab);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickPostsTab() throws IOException {
-
+    public ProfileScreen clickPostsTab() {
         tapByElement(postsTab);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickBeautyIdOnBeautyBox() throws IOException {
-
+    public ProfileScreen clickBeautyIdOnBeautyBox() {
         isElementPresent(updateBeautyIdBeautyBox);
         tapByElement(updateBeautyIdBeautyBox);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickSettingProfile() throws IOException {
-
+    public ProfileScreen clickSettingProfile() {
         isElementPresent(settingIcon);
         tapByElement(settingIcon);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickEditProfile() throws IOException {
-
+    public ProfileScreen clickEditProfile() {
         isElementPresent(editProfile);
         tapByElement(editProfile);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickBackSetting() throws IOException {
-
+    public ProfileScreen clickBackSetting() {
         isElementPresent(backArrow);
         tapByElement(backArrow);
         return new ProfileScreen(driver);

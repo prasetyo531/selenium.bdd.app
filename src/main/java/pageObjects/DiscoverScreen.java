@@ -58,7 +58,6 @@ public class DiscoverScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.comment:id/parent")
     public MobileElement commentList;
 
-
     @AndroidFindBy(id="com.fdbr.android:id/buttonLove")
     public MobileElement likeIcon;
 
@@ -93,7 +92,7 @@ public class DiscoverScreen extends ActionBase {
     public MobileElement imgPost;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public DiscoverScreen(AppiumDriver driver) throws IOException {
+    public DiscoverScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
