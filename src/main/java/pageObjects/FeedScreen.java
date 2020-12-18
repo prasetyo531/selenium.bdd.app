@@ -122,6 +122,12 @@ public class FeedScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
+    public DiscoverScreen clickCommentFirstReview() {
+        isElementEnabled(iconCommentFirstPost);
+        tapByElement(iconCommentFirstPost);
+        return new DiscoverScreen(driver);
+    }
+
     public FeedScreen clickPostTagProduct() {
         isElementPresent(firstPostFeed);
         tapByElement(firstPostFeed);

@@ -39,9 +39,18 @@ public class LoginSteps extends DriverFactory {
 
     // *** hardcode login username
     @Then("^User enters the username on login screen$")
-    public void user_enters_the_username_on_login_screen() throws Throwable {
-
+    public void user_enters_the_username_on_login_screen() {
         loginScreen.inputHardcodeAuth();
+    }
+
+    @Then("^User enters the username that have post on login screen$")
+    public void user_enters_the_username_that_have_post_on_login_screen() {
+        loginScreen.inputHardcodeAuthHavePost();
+    }
+
+    @Then("^User enters the username that have review on login screen$")
+    public void user_enters_the_username_that_have_review_on_login_screen() {
+        loginScreen.inputHardcodeAuthHaveReview();
     }
 
     @And("^User enters the password on login screen$")

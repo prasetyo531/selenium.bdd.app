@@ -9,10 +9,16 @@ import utils.DriverFactory;
 
 public class CommentMentionSteps extends DriverFactory {
 
-    @Given("^User clicks feed from homescreen menu and select comment$")
-    public void user_clicks_feed_from_homescreen_menu_and_select_comment() {
+    @When("^User clicks feed from homescreen menu and select comment post$")
+    public void user_clicks_feed_from_homescreen_menu_and_select_comment_post() {
         homeScreen.clickFeedMenu();
         feedScreen.clickCommentFirstPost();
+    }
+
+    @When("^User clicks feed from homescreen menu and select comment review$")
+    public void user_clicks_feed_from_homescreen_menu_and_select_comment_review() {
+        homeScreen.clickFeedMenu();
+        feedScreen.clickCommentFirstReview();
     }
 
     @When("^User clicks search \"([^\"]*)\" users on homescreen$")
@@ -68,12 +74,12 @@ public class CommentMentionSteps extends DriverFactory {
         commentLikeScreen.totalComm();
     }
 
-    @When("^User click reply from any comment and click post$")
+    @And("^User click reply from any comment and click post$")
     public void user_click_reply_from_any_comment_and_click_post() throws InterruptedException {
         feedScreen.submitReplyCommentPost();
     }
 
-    @When("^User input comment and click post$")
+    @And("^User input comment and click post$")
     public void user_input_comment_and_click_post() throws InterruptedException {
         feedScreen.submitCommentPost();
     }

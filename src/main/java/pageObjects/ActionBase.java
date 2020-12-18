@@ -354,13 +354,13 @@ public class ActionBase extends DriverFactory {
             int i = 0;
             System.out.println("there are"+" "+li.size()+" "+"element");
 
-            LinkedList<MobileElement> arrayProductCat = new LinkedList<MobileElement>();
+            LinkedList<MobileElement> arrayComment = new LinkedList<MobileElement>();
 
             while(i!=li.size()) {
-                arrayProductCat.add(li.get(i));
+                arrayComment.add(li.get(i));
                 i++;
             }
-            arrayProductCat.getLast().click();
+            arrayComment.getLast().click();
         } catch (Exception e){
             e.printStackTrace();
         }

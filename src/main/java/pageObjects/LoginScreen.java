@@ -78,97 +78,101 @@ public class LoginScreen extends ActionBase {
     //String selectorUsernameEmailField = "type == 'UIAccessibilityTextFieldElement' AND value BEGINSWITH[c] 'Email, Username or phone number' AND visible == 1";
 
     // This is a constructor, as every page need a base driver to find android elements
-    public LoginScreen(AppiumDriver driver) throws IOException {
+    public LoginScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public void inputUsrEmailPhoneName(String usremailphonename) {
-
+    public LoginScreen inputUsrEmailPhoneName(String usremailphonename) {
         inputValue(usernameEmailField, usremailphonename);
+        return new LoginScreen(driver);
     }
 
-    public void inputPassword(String password) {
-
+    public LoginScreen inputPassword(String password) {
         inputValue(passwordField, password);
+        return new LoginScreen(driver);
     }
 
     // ** hardcode
-    public void inputHardcodeAuth() {
-
+    public LoginScreen inputHardcodeAuth() {
         inputValue(usernameEmailField, "fixnotif");
+        return new LoginScreen(driver);
     }
 
-    public void inputHardcodePassword() {
+    public LoginScreen inputHardcodeAuthHavePost() {
+        inputValue(usernameEmailField, "fixnotif");
+        return new LoginScreen(driver);
+    }
 
+    public LoginScreen inputHardcodeAuthHaveReview() {
+        inputValue(usernameEmailField, "testcampaign");
+        return new LoginScreen(driver);
+    }
+
+    public LoginScreen inputHardcodePassword() {
         inputValue(passwordField, "test123");
+        return new LoginScreen(driver);
     }
-    // hardcode **
-    public LoginScreen clickLogin() throws IOException {
 
+    public LoginScreen clickLogin() {
         tapByElement(nextLoginBtn);
         return new LoginScreen(driver);
     }
 
     /*  error msg underneath field   */
-    public void assertTextWarningLogin(String text){
-
+    public LoginScreen assertTextWarningLogin(String text){
         String txtWarning = txtWarningPhoneId.getText();
         Assert.assertEquals(txtWarning, text);
+        return new LoginScreen(driver);
     }
 
     /*  action modal phone number and email */
     /*  title modal */
-    public LoginScreen errorTitlePhoneNumberNotVerifiedModal() throws IOException {
-
+    public LoginScreen errorTitlePhoneNumberNotVerifiedModal() {
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your phone number");
         return new LoginScreen(driver);
     }
 
-    public void errorTitleEmailDuplicateModal(){
-
+    public LoginScreen errorTitleEmailDuplicateModal(){
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your username");
+        return new LoginScreen(driver);
     }
 
-    public void errorTitleUsernameDuplicateModal(){
-
+    public LoginScreen errorTitleUsernameDuplicateModal(){
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your email");
+        return new LoginScreen(driver);
     }
 
-    public LoginScreen errorTitlePhoneNumberNotRegisteredModal() throws IOException {
-
+    public LoginScreen errorTitlePhoneNumberNotRegisteredModal() {
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorTitlePhoneNumberNotRegisteredModalIos() throws IOException {
-
+    public LoginScreen errorTitlePhoneNumberNotRegisteredModalIos() {
         isElementPresent(titlePhoneNumberIsNotRegisteredIos);
         String getTitle = titlePhoneNumberIsNotRegisteredIos.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorTitleEmailUsernameNotRegisteredModal() throws IOException {
-
+    public LoginScreen errorTitleEmailUsernameNotRegisteredModal() {
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorTitleEmailUsernameNotRegisteredModalIos() throws IOException {
-
+    public LoginScreen errorTitleEmailUsernameNotRegisteredModalIos() {
         isElementPresent(accountNotFoundIos);
         String getTitle = accountNotFoundIos.getText();
         Assert.assertTrue(getTitle.contains("Uh-oh! Account not found!"));
@@ -176,117 +180,92 @@ public class LoginScreen extends ActionBase {
     }
 
     /*  content or description modal */
-    public LoginScreen errorDescPhoneNumberNotVerifiedModal() throws IOException {
-
+    public LoginScreen errorDescPhoneNumberNotVerifiedModal() {
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches this account:"));
         Assert.assertTrue(getDesc.contains("Please login with the correct email.\n" +
                 "If the email does not belong to you, please create a new account."));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescEmailDuplicateModal() throws IOException {
-
+    public LoginScreen errorDescEmailDuplicateModal() {
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Hi! The email you have entered matches these accounts:"));
         Assert.assertTrue(getDesc.contains("Please login with the correct username."));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescPhoneNumberNotRegisteredModal() throws IOException {
-
+    public LoginScreen errorDescPhoneNumberNotRegisteredModal() {
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Create a new account with this number? +62"));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescEmailNotRegisteredModal() throws IOException {
-
+    public LoginScreen errorDescEmailNotRegisteredModal() {
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("The email and password you entered do not match."));
         Assert.assertTrue(getDesc.contains("Do you want to reset your password?"));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescPasswordNotValidModal() throws IOException {
-
+    public LoginScreen errorDescPasswordNotValidModal() {
         isElementPresent(descModal);
         String textInvalidPassword = descModal.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescUsernamePasswordNotValidModalIos() throws IOException {
-
+    public LoginScreen errorDescUsernamePasswordNotValidModalIos() {
         isElementPresent(usernamePasswordNotValidIos);
         String textInvalidPassword = usernamePasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen errorDescEmailPasswordNotValidModalIos() throws IOException {
-
+    public LoginScreen errorDescEmailPasswordNotValidModalIos() {
         isElementPresent(emailPasswordNotValidIos);
         String textInvalidPassword = emailPasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The email and password you entered do not match."));
         Assert.assertTrue(textInvalidPassword.contains("Do you want to reset your password?"));
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen clickLoginBtnModal() throws IOException {
-
+    public LoginScreen clickLoginBtnModal() {
         tapByElement(yesBtnModal);
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen clickYesBtnPhoneUnregisteredModal() throws IOException {
-
+    public LoginScreen clickYesBtnPhoneUnregisteredModal() {
         tapByElement(yesBtnModal);
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen clickRegisterBtnModal() throws IOException {
-
+    public LoginScreen clickRegisterBtnModal() {
         tapByElement(noBtnModal);
-
         return new LoginScreen(driver);
     }
 
-    public LoginScreen inputNewChannelToLogin(String channel) throws IOException {
-
+    public LoginScreen inputNewChannelToLogin(String channel) {
         usernameEmailField.clear();
         inputValue(usernameEmailField, channel);
-
         return new LoginScreen(driver);
     }
 
     //toast msg
-    public LoginScreen assertToastSuspend(String text) throws IOException {
-
+    public LoginScreen assertToastSuspend(String text) {
         isElementPresent(toastMsg);
         String txtWarning = toastMsg.getText();
         Assert.assertTrue(txtWarning.contains(text));
-
         return new LoginScreen(driver);
     }
-
 }
