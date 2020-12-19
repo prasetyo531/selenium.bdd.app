@@ -18,7 +18,7 @@ Feature: User do comment, like or mention
     When User delete comment
     Then User will see comment deleted
 
-  @Android @Comment @Regression @FDBRMA-356 @demo
+  @Android @Comment @Regression @FDBRMA-356
   Scenario: Reply in comment of review
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -33,7 +33,7 @@ Feature: User do comment, like or mention
     When User delete comment
     Then User will see comment deleted
 
-  @Android @Comment @FDBRMA-360 @demo
+  @Android @Comment @FDBRMA-360
   Scenario: Delete comment on post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

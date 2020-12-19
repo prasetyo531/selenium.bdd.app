@@ -530,7 +530,7 @@ public class ActionBase extends DriverFactory {
     /*****************************************************************
      Send msg to telegram
      *****************************************************************/
-    public static void sendMessageToTelegram(String scenario,String status) throws IOException {
+    public static void sendMessageToTelegram(String scenario,String status) {
         String TOKEN = "1026051821:AAEuT8g9HHZ1lh-iXUVBAIj34fJQTQn5ccA";
         String CHAT_ID = "-329202248"; //AppiumTelegram
 

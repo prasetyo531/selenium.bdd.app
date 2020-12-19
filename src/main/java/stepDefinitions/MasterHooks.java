@@ -9,7 +9,6 @@ import utils.CommonUtils;
 import utils.DriverFactory;
 
 import java.io.IOException;
-import java.time.Duration;
 
 public class MasterHooks extends DriverFactory {
 
@@ -25,7 +24,7 @@ public class MasterHooks extends DriverFactory {
     }
 
     @After
-    public void tearDownScreenshootFailure(Scenario scenario) throws InterruptedException, IOException {
+    public void tearDownScreenshootFailure(Scenario scenario) throws InterruptedException {
         try {
             switch (this.loadPropertyFile) {
                 case "android.properties":
