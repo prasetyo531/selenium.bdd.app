@@ -23,8 +23,8 @@ public class AppiumServer {
     public static void start() throws IOException, InterruptedException {
 
         Runtime runtime = Runtime.getRuntime();
-
-        process = runtime.exec(STARTSERVER);
+        process = runtime.exec("appium -a 127.0.0.1 -p 4725");
+        //process = runtime.exec(STARTSERVER);
 
         Thread.sleep(7000);
 
