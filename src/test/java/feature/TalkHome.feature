@@ -4,8 +4,8 @@ Feature: User navigate to talk homepage
   And search topic, talk, group
   I should able to operate all feature
 
-  #FDBRMA-71
-  @Android @Talk @talktest
+  #FDBRMA-71 #FDBRMA-78 #FDBRMA-83
+  @Android @Talk @Talktest
   Scenario Outline: Check functionality of 'Join Group' button on group card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

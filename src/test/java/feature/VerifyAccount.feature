@@ -99,7 +99,7 @@ Feature: Verify account
 
   #FDBRMA-240 #FDBRMA-248
   #check email and phone using suspend data
-  @Android @Smoke @bypassotp @IntegrationTest
+  @Android @Smoke @bypassotp @IntegrationTest @VerifyTest
   Scenario Outline: Verify Changed Email - Changed Phone using Suspend email and phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

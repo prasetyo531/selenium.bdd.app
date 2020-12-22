@@ -23,4 +23,23 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkJoinedGroupJoinedTab();
     }
 
+    @When("^User submit add topic at not joined group$")
+    public void user_submit_add_topic_at_not_joined_group() {
+        talkScreen.scrollGroupTalk();
+        talkScreen.clickRandomTalk();
+
+        talkScreen.submitAddTopicAsGuest();
+    }
+
+    @And("^User will see confirmation that inform user will automatically joined group after add topic$")
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_add_topic() {
+        talkScreen.getConfirmationJoin();
+    }
+
+    @Then("^User will see new topic added$")
+    public void user_will_see_new_topic_added() throws Throwable {
+        talkScreen.checkNewSubmittedTopic();
+        talkScreen.checkBtnAfterJoinGroupDetail();
+    }
+
 }
