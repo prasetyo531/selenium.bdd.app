@@ -37,6 +37,17 @@ public class LoginSteps extends DriverFactory {
         loginScreen.inputPassword(password);
     }
 
+    @And("^User enters the \"([^\"]*)\" username and \"([^\"]*)\" password then click login button on login screen$")
+    public void user_enters_the_something_username_and_something_password_then_click_login_button_on_login_screen(String username, String password) throws Throwable {
+        loginScreen.inputUsrEmailPhoneName(username);
+        loginScreen.clickLogin();
+        loginScreen.inputPassword(password);
+
+        loginScreen.clickLogin();
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
+    }
+
     // *** hardcode login username
     @Then("^User enters the username on login screen$")
     public void user_enters_the_username_on_login_screen() {
@@ -98,11 +109,10 @@ public class LoginSteps extends DriverFactory {
         loginScreen.clickLogin();
     }
 
-    @Then("^display toast error msg suspend \"([^\"]*)\"$")
-    public void display_toast_error_msg_suspend_something(String msg) throws Throwable {
+    @Then("^Display toast error msg suspend \"([^\"]*)\"$")
+    public void Display_toast_error_msg_suspend_something(String msg) throws Throwable {
 
         loginScreen.assertToastSuspend(msg);
-
     }
 
     @When("^user input correct otp from phone on otp screen from ios to login$")

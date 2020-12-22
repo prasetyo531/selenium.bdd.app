@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 
 public class AppiumServer {
 
-
     //Appium Launch on Windows
     private static Process process;
 
@@ -18,7 +17,6 @@ public class AppiumServer {
      */
     private static String STARTSERVER = "/usr/local/bin/node /usr/local/bin/appium";
 
-
     //Starting the Appium Server
     public static void start() throws IOException, InterruptedException {
 
@@ -27,34 +25,23 @@ public class AppiumServer {
         //process = runtime.exec(STARTSERVER);
 
         Thread.sleep(7000);
-
         if (process != null) {
-
             System.out.println("Appium server started");
-
         }
-
     }
-
 
     //Stopping the Appium Server
     public static void stop() throws IOException {
-
         if (process != null) {
-
             process.destroy();
-
         }
-
         System.out.println("Appium server stopped");
-
     }
 
     //Kill port
     public static void killPort() {
         String s = null;
         try {
-
             // Process provides control of native processes started by ProcessBuilder.start and Runtime.exec.
             // getRuntime() returns the runtime object associated with the current Java application.
             Process p = Runtime.getRuntime().exec("kill $(lsof -t -i :4725)");
@@ -81,6 +68,4 @@ public class AppiumServer {
             System.exit(-1);
         }
     }
-
-
 }

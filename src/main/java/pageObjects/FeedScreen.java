@@ -316,7 +316,7 @@ public class FeedScreen extends ActionBase {
 
     public FeedScreen checkDeleteCommentPost() throws InterruptedException {
         isElementEnabled(commentList);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         deletecomment2 = commentSize.size();
         System.out.println("total comment"+" "+deletecomment2);
         Assert.assertNotEquals(deletecomment2, deletecomment1);
@@ -332,9 +332,14 @@ public class FeedScreen extends ActionBase {
         //reason of report
         isElementPresent(titleModal);
         String titleModalReport = titleModal.getText();
-        Assert.assertTrue(titleModalReport.equals("What's your reason for reporting Post?"));
+        Assert.assertTrue(titleModalReport.equals("What's your reason for reporting Comment?"));
         isElementPresent(notRelevantOption);
         tapByElement(notRelevantOption);
+        return new FeedScreen(driver);
+    }
+
+    public FeedScreen checkToastReportComment() {
+        toastMatches("Thank you for reporting this comment", false);
         return new FeedScreen(driver);
     }
 }

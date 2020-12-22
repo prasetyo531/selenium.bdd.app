@@ -97,6 +97,27 @@ Feature: Verify account
       |             email             |   password    |          newemail                |      newphone      |         fullname      |
       |	  verifyprofile01@gmail.com	  |   test123     |     verifyprofile02@gmail.com    |     628129000232   |   changedemailphone   |
 
+  #FDBRMA-240 #FDBRMA-248
+  #check email and phone using suspend data
+  @Android @Smoke @bypassotp @IntegrationTest
+  Scenario Outline: Verify Changed Email - Changed Phone using Suspend email and phone on Profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then user enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    When User clicks change email "<newemail>" to verify email bypass otp
+    Then Display toast error msg suspend "Email you entered has been suspended. Please try again in"
+    And User clicks back
+    When User clicks change phone "<newphone>" to verify phone bypass otp
+    Then Display toast error msg suspend "Phone number you entered has been suspended. Please try again in"
+
+    Examples:
+      |             email             |   password    |          newemail                |      newphone      |         fullname      |
+      |	  bddtalk01@mailinator.com	  |   test123     | suspendemailqa@mailinator.com    |     081280005001   |   changedemailphone   |
 
   ### UI VALIDATION ###
 

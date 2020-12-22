@@ -24,7 +24,6 @@ public class ExtentManager {
 
 	    public static ExtentReports createInstance(String fileName) {
 	        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
-	       
 	        
 	        htmlReporter.config().setTheme(Theme.DARK);
 	        htmlReporter.config().setDocumentTitle(fileName);
@@ -36,8 +35,6 @@ public class ExtentManager {
 	        extent.setSystemInfo("Automation Tester", "Prasetyo Putra");
 	        extent.setSystemInfo("Organization", "qa.prasetyo.com");
 	        extent.setSystemInfo("Build no", "dev000");
-	        
-	        
 	        return extent;
 	    }
 
@@ -59,9 +56,5 @@ public class ExtentManager {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-
 		}
-
-
 	}

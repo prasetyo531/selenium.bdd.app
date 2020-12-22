@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-
     <!--  generate ss to /reports  -->
     <listeners>
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
-
-<!--    <test name="maintest">-->
-<!--        <classes>-->
-<!--            <class name="integrationTestAndroid.RegisterLoginStaging"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+        <test name="maintest">
+            <classes>
+                <class name="uiTestAndroid.UiTestRegister"/>
+            </classes>
+        </test>
     <test name="secondtest">
         <classes>
-            <class name="runner.RegressionRunner"/>
+            <class name="uiTestAndroid.UiTestRandom"/>
         </classes>
     </test>
-    <test name="thirdtest">
-        <classes>
-            <class name="regression.AllLogin"/>
-        </classes>
-    </test>
-    <test name="curltest">
-        <classes>
-            <class name="sendReport.curlTelegram"/>
-        </classes>
-    </test>
+    <!--    <test name="curltest">-->
+    <!--        <classes>-->
+    <!--            <class name="sendReport.curlTelegram"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 </suite>

@@ -328,35 +328,35 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* verify from profile */
-    public ProfileScreen clickVerifyEmail() throws IOException {
+    public ProfileScreen clickVerifyEmail() {
 
         isElementPresent(labelVerifyEmail);
         tapByElement(labelVerifyEmail);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickVerifyPhone() throws IOException {
+    public ProfileScreen clickVerifyPhone() {
 
         isElementPresent(labelVerifyPhone);
         tapByElement(labelVerifyPhone);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen checkLabelVerifiedEmail() throws IOException {
+    public ProfileScreen checkLabelVerifiedEmail() {
 
         String lb1 = labelVerifyEmail.getText();
         Assert.assertEquals("Verified", lb1);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen checkLabelVerifiedPhone() throws IOException {
+    public ProfileScreen checkLabelVerifiedPhone() {
 
         String lb2 = labelVerifyPhone.getText();
         Assert.assertEquals("Verified", lb2);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen tapToChangeEmailProfile(String email) throws InterruptedException, IOException {
+    public ProfileScreen tapToChangeEmailProfile(String email) {
 
         isElementPresent(changeEmail);
         tapByElement(changeEmail);
@@ -367,7 +367,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen tapToChangePhoneProfile(String phone) throws InterruptedException, IOException {
+    public ProfileScreen tapToChangePhoneProfile(String phone) {
 
         isElementPresent(changePhone);
         tapByElement(changePhone);
@@ -378,20 +378,20 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen confirmChangeVerifyEmail() throws IOException {
+    public ProfileScreen confirmChangeVerifyEmail() {
 
         tapByElement(btnVerifyEmailProfile);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen confirmChangeVerifyPhone() throws IOException {
+    public ProfileScreen confirmChangeVerifyPhone() {
 
         tapByElement(btnVerifyPhoneProfile);
         return new ProfileScreen(driver);
     }
 
     /***  modal confirmation password  ***/
-    public ProfileScreen inputPasswordToChangeEmailProfile() throws IOException {
+    public ProfileScreen inputPasswordToChangeEmailProfile() {
 
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
@@ -399,7 +399,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen inputPasswordToChangePhoneProfile() throws IOException {
+    public ProfileScreen inputPasswordToChangePhoneProfile() {
 
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
@@ -408,21 +408,21 @@ public class ProfileScreen extends ActionBase{
     }
 
     /*  edit profile screen */
-    public ProfileScreen clickSaveProfile() throws IOException {
+    public ProfileScreen clickSaveProfile() {
 
         isElementPresent(saveEditprofile);
         tapByElement(saveEditprofile);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickCancelEditProfile() throws IOException {
+    public ProfileScreen clickCancelEditProfile() {
 
         isElementPresent(cancelEditprofile);
         tapByElement(cancelEditprofile);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen editDobToPreviousMonth() throws IOException {
+    public ProfileScreen editDobToPreviousMonth() {
 
         isElementPresent(dobEditProfile);
         tapByElement(dobEditProfile);
@@ -434,14 +434,14 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen inputFullname(String fullname) throws IOException {
+    public ProfileScreen inputFullname(String fullname) {
 
         isElementPresent(fullnameField);
         inputValue(fullnameField, fullname);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseFemaleGender() throws IOException {
+    public ProfileScreen chooseFemaleGender() {
 
         tapByElement(genderField);
 
@@ -450,7 +450,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseMaleGender() throws IOException {
+    public ProfileScreen chooseMaleGender() {
 
         tapByElement(genderField);
 
@@ -459,7 +459,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseLocationEditProfile() throws IOException {
+    public ProfileScreen chooseLocationEditProfile() {
 
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         tapByElement(locationField);
@@ -469,14 +469,14 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen inputBio(String bio) throws IOException {
+    public ProfileScreen inputBio(String bio) {
 
         isElementPresent(fieldBio);
         inputValue(fieldBio, bio);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickUpdateBeautyProfile() throws IOException {
+    public ProfileScreen clickUpdateBeautyProfile() {
 
         isElementPresent(fullnameField);
         this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
@@ -485,7 +485,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickUpdateBeautyConcern() throws IOException {
+    public ProfileScreen clickUpdateBeautyConcern() {
 
         isElementPresent(fullnameField);
         this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
@@ -495,60 +495,60 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* choose beauty profile */
-    public ProfileScreen chooseSkinType() throws IOException {
+    public ProfileScreen chooseSkinType() {
 
         tapByElement(skinTypeCombination);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseSkinTone() throws IOException {
+    public ProfileScreen chooseSkinTone() {
 
         tapByElement(skinToneDark);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseSkinUndertone() throws IOException {
+    public ProfileScreen chooseSkinUndertone() {
 
         this.verticalSwipeByPercentages(skinUnderToneWarm,0.4,0.01,0.5,500);
         tapByElement(skinUnderToneWarm);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseHairType() throws IOException {
+    public ProfileScreen chooseHairType() {
 
         this.verticalSwipeByPercentages(hairTypeCurly,0.4,0.01,0.5,500);
         tapByElement(hairTypeCurly);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseColoredHair() throws IOException {
+    public ProfileScreen chooseColoredHair() {
 
         tapByElement(coloredHairNo);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseHijaber() throws IOException {
+    public ProfileScreen chooseHijaber() {
 
         this.verticalSwipeByPercentages(isHijaberNo,0.4,0.01,0.5,500);
         tapByElement(isHijaberNo);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickSaveBeautyProf() throws IOException {
+    public ProfileScreen clickSaveBeautyProf() {
 
         tapByElement(buttonSaveBeautyProfile);
         return new ProfileScreen(driver);
     }
 
     /* choose beauty concern */
-    public ProfileScreen chooseSkinCon() throws IOException {
+    public ProfileScreen chooseSkinCon() {
 
         isElementPresent(contentScreenBodyCon);
         tapByElement(blackOrWhite);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseBodyCon() throws IOException {
+    public ProfileScreen chooseBodyCon() {
 
         verticalSwipeByPercentages(contentScreenBodyCon, 0.8,0.01,0.5,500);
         isElementPresent(looseSkin);
@@ -556,14 +556,14 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen chooseHairCon() throws IOException {
+    public ProfileScreen chooseHairCon() {
 
         isElementPresent(greyHair);
         tapByElement(greyHair);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickSaveBeautyCon() throws IOException {
+    public ProfileScreen clickSaveBeautyCon() {
 
         tapByElement(btnSaveBeautyConcern);
         return new ProfileScreen(driver);
@@ -588,7 +588,7 @@ public class ProfileScreen extends ActionBase{
     }
 
     /*  get inputed field profile screen */
-    public ProfileScreen getTextDob() throws IOException {
+    public ProfileScreen getTextDob() {
 
         isElementPresent(dobEditProfile);
         String getDob = dobEditProfile.getText();
@@ -597,7 +597,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getFullnameEditProfile(String fullname) throws IOException {
+    public ProfileScreen getFullnameEditProfile(String fullname) {
 
         isElementPresent(fullnameField);
         String getFullname = fullnameField.getText();
@@ -606,7 +606,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getLocationEditProfile() throws IOException {
+    public ProfileScreen getLocationEditProfile() {
 
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         isElementPresent(locationField);
@@ -617,7 +617,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getTextBio(String txt) throws IOException {
+    public ProfileScreen getTextBio(String txt) {
 
         isElementPresent(fieldBio);
         String getBio = fieldBio.getText();
@@ -626,7 +626,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getTextEmptyDob() throws IOException {
+    public ProfileScreen getTextEmptyDob() {
 
         isElementPresent(dobEditProfile);
         String getDob = dobEditProfile.getText();
@@ -635,7 +635,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getFullnameEmptyEditProfile() throws IOException {
+    public ProfileScreen getFullnameEmptyEditProfile() {
 
         isElementPresent(fullnameField);
         String getFullname = fullnameField.getText();
@@ -644,7 +644,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getLocationEmptyEditProfile() throws IOException {
+    public ProfileScreen getLocationEmptyEditProfile() {
 
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         isElementPresent(locationField);
@@ -655,7 +655,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getTextEmptyBio() throws IOException {
+    public ProfileScreen getTextEmptyBio() {
 
         isElementPresent(fieldBio);
         String getBio = fieldBio.getText();
@@ -664,7 +664,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen findToastAfterUpdateBeautyProfile() throws IOException {
+    public ProfileScreen findToastAfterUpdateBeautyProfile() {
 
         //WebDriverWait wait = new WebDriverWait(driver, 2);
         //its not check text equals expected text
@@ -673,7 +673,7 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen findToastAfterUpdateBeautyConcern() throws IOException {
+    public ProfileScreen findToastAfterUpdateBeautyConcern() {
 
         //WebDriverWait wait = new WebDriverWait(driver, 2);
         //its not check text equals expected text
@@ -682,8 +682,14 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen clickBackOnChangeEmailPhoneScreen() {
+        isElementPresent(backArrow);
+        tapByElement(backArrow);
+        return new ProfileScreen(driver);
+    }
+
     /*   change password   */
-    public ProfileScreen clickChangePassword() throws IOException {
+    public ProfileScreen clickChangePassword() {
 
         this.verticalSwipeByPercentages(locationField,0.4,0.01,0.5,500);
 
@@ -691,28 +697,28 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen inputOldPassword(String oldpass) throws IOException {
+    public ProfileScreen inputOldPassword(String oldpass) {
 
         isElementPresent(oldPassField);
         inputValue(oldPassField, oldpass);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen inputNewPassword(String newpass) throws IOException {
+    public ProfileScreen inputNewPassword(String newpass) {
 
         isElementPresent(newPassField);
         inputValue(newPassField, newpass);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen clickSubmitChangePassword() throws IOException {
+    public ProfileScreen clickSubmitChangePassword() {
 
         isElementPresent(submitBtn);
         tapByElement(submitBtn);
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getSneakMsgOldPassword(String text) throws IOException {
+    public ProfileScreen getSneakMsgOldPassword(String text) {
 
         isElementPresent(sneakbarChangePassword);
         String msg = sneakbarChangePassword.getText();
@@ -721,7 +727,7 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* review */
-    public ProfileScreen clickRandomReviewListProfile() throws IOException {
+    public ProfileScreen clickRandomReviewListProfile() {
 
         this.verticalSwipeByPercentages(listPhotoReviewsProfile, 0.4,0.01,0.5,500);
         isElementPresent(listPhotoReviewsProfile);
@@ -731,7 +737,7 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* post */
-    public ProfileScreen clickFirstPostProfile() throws IOException {
+    public ProfileScreen clickFirstPostProfile() {
 
         this.verticalSwipeByPercentages(postsTab, 0.4,0.01,0.5,500);
         isElementPresent(firstPostProfile);

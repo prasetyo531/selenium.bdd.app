@@ -71,6 +71,9 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='1']")
     public MobileElement tnrMenu;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='2']")
+    public MobileElement talkMenu;
+
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='4']")
     public MobileElement productCategoryMenu;
 
@@ -305,6 +308,12 @@ public class HomeScreen extends ActionBase {
     public HomeScreen clickTnrMenu() {
         isElementPresent(tnrMenu);
         tapByElement(tnrMenu);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickTalkMenu() {
+        isElementPresent(talkMenu);
+        tapByElement(talkMenu);
         return new HomeScreen(driver);
     }
 

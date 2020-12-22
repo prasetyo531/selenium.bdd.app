@@ -1,8 +1,6 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
@@ -94,8 +92,18 @@ public class CommentMentionSteps extends DriverFactory {
         feedScreen.deleteCommentPost();
     }
 
+    @And("^User report comment$")
+    public void user_report_comment() {
+        feedScreen.reportCommentPost();
+    }
+
     @Then("^User will see comment deleted$")
     public void user_will_see_comment_deleted() throws InterruptedException {
         feedScreen.checkDeleteCommentPost();
+    }
+
+    @Then("^User will see toast msg after report comment$")
+    public void user_will_see_toast_msg_after_report_comment() {
+        feedScreen.checkToastReportComment();
     }
 }

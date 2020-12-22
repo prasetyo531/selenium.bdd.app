@@ -228,7 +228,7 @@ Feature: Login into account
     And User clicks next button on login screen
     When User resend otp 3 times from phone on otp screen android
     And User click change phone but input same "<phonenumber>"
-    Then display toast error msg suspend "You have reached a limit for sending code. Please try again in"
+    Then Display toast error msg suspend "You have reached a limit for sending code. Please try again in"
 
     Examples:
       |        phonenumber          |

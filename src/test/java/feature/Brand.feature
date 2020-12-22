@@ -12,7 +12,7 @@ Feature: User navigate to brand page
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
 
-  @FDBRMA-322 @demo
+  @Android @FDBRMA-322 @Brand
   Scenario: Scroll product list of brand detail
     Given User clicks menu all brand from homescreen menu
     When User clicks one of popular brand to find product
