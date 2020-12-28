@@ -26,19 +26,41 @@ public class TalkSteps extends DriverFactory {
     @When("^User submit add topic at not joined group$")
     public void user_submit_add_topic_at_not_joined_group() {
         talkScreen.scrollGroupTalk();
-        talkScreen.clickRandomTalk();
+        talkScreen.clickRandomGroupTalk();
 
         talkScreen.submitAddTopicAsGuest();
     }
 
     @And("^User will see confirmation that inform user will automatically joined group after add topic$")
     public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_add_topic() {
-        talkScreen.getConfirmationJoin();
+        talkScreen.getConfirmationJoinTopic();
     }
 
     @Then("^User will see new topic added$")
     public void user_will_see_new_topic_added() throws Throwable {
         talkScreen.checkNewSubmittedTopic();
+        talkScreen.checkBtnAfterJoinGroupDetail();
+    }
+
+    @When("^User submit reply topic at not joined group \"([^\"]*)\"$")
+    public void user_submit_reply_topic_at_not_joined_group_something(String group) throws InterruptedException {
+        talkScreen.searchGroupTalk(group);
+        talkScreen.clickRandomGroupTalk();
+
+        talkScreen.submitReplyTopicAsGuest();
+    }
+
+    @And("^User will see confirmation that inform user will automatically joined group after reply topic$")
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_topic() throws Throwable {
+        talkScreen.getConfirmationJoinTalk();
+    }
+
+    @Then("^User will see new reply topic added and user will member of group$")
+    public void user_will_see_new_reply_topic_added_and_user_will_member_of_group() {
+        talkScreen.checkNewSubmittedTalk();
+
+        talkScreen.clickBackToGroupDetail();
+        talkScreen.scrollToTopGroupDetail();
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 

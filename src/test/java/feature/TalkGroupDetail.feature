@@ -5,7 +5,7 @@ Feature: User navigate to talk group screen
   I should able to operate all feature
 
   #FDBRMA-94
-  @Android @Talk @Topictest
+  @Android @Talk @AddTopic
   Scenario Outline: Create topic at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

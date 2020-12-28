@@ -2,6 +2,7 @@ package pageObjects;
 
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
+import gherkin.lexer.Th;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -26,6 +27,9 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSeeMore")
     public MobileElement seeMoreGrouptn;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listGroups")
+    public MobileElement listAllGroup;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout[contains(@resource-id, 'com.fdbr.android.talk:id/talkParent')]")
     public List<MobileElement> groupCard;
@@ -57,14 +61,14 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSortBy")
     public MobileElement sortGroupDetail;
 
-    @AndroidFindBy(id="com.fdbr.android.talk:id/listTopics")
-    public MobileElement listAllTopic;
-
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonAddTopic")
     public MobileElement addTopicBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listTopics")
+    public MobileElement listAllTopic;
+
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public List<MobileElement> topicList1;
+    public MobileElement topicList1;
 
     //add topic screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
@@ -85,11 +89,31 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSubmit")
     public MobileElement submitAddTopicBtn;
 
-    //error modal add topic screen
+    /***********************************************
+     group detail and topic list and add topic screen
+     ***********************************************/
+    @AndroidFindBy(id="com.fdbr.android.talk:id/buttonReply")
+    public MobileElement replyTopicBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listTalks")
+    public MobileElement listTalk;
+
+    @AndroidFindBy(xpath="//android.widget.CheckedTextView(@resource-id, 'com.fdbr.android.talk:id/buttonLove')]")
+    public List<MobileElement> listLikeTopicTalk;
+
+    @AndroidFindBy(xpath="//android.widget.TextView(@resource-id, 'com.fdbr.android.talk:id/buttonComment')]")
+    public List<MobileElement> listReplyTopicTalk;
+
+    //reply topic screen
+    @AndroidFindBy(id="com.fdbr.android.talk:id/inputDescription")
+    public MobileElement descReplyTopic;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSubmit")
+    public MobileElement submitReplyTopicBtn;
+
+    //error modal add, reply topic and reply talk as guest
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descErrorModal;
-
-    //By submitting this topic, you automatically joined this group.
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement okModal;
@@ -107,12 +131,25 @@ public class TalkScreen extends ActionBase {
         try {
             tapByElement(seeMoreGrouptn);
             for (int i = 0; i < 4; i++) {
-                isElementEnabled((MobileElement) groupCard);
-                this.verticalSwipeByPercentages((MobileElement) groupCard,0.4,0.01,0.5,500);
+                isElementEnabled(listAllGroup);
+                verticalSwipeByPercentagesDirectly(609,1843,604, 996);
             }
         }catch (Exception e){
             e.getMessage();
         }
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen scrollToTopGroupDetail() {
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen searchGroupTalk(String group) throws InterruptedException {
+        inputValue(searchTalkBar,group);
+        Thread.sleep(3000);
         return new TalkScreen(driver);
     }
 
@@ -121,7 +158,7 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen clickRandomTalk() {
+    public TalkScreen clickRandomGroupTalk() {
         clickRandomMenus(groupCard);
         return new TalkScreen(driver);
     }
@@ -138,7 +175,7 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen checkBtnAfterJoinGroupDetail() throws InterruptedException {
+    public TalkScreen checkBtnAfterJoinGroupDetail() {
         isElementPresent(memberBtnGroupDetail);
         return new TalkScreen(driver);
     }
@@ -176,7 +213,7 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen getConfirmationJoin() {
+    public TalkScreen getConfirmationJoinTopic() {
         isElementEnabled(descErrorModal);
         String desc = descErrorModal.getText();
         Assert.assertEquals(desc,"By submitting this topic, you automatically joined this group.");
@@ -184,8 +221,46 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
+    public TalkScreen getConfirmationJoinTalk() {
+        isElementEnabled(descErrorModal);
+        String desc = descErrorModal.getText();
+        Assert.assertEquals(desc,"By submitting this talk, you automatically joined this group.");
+        tapByElement(okModal);
+        return new TalkScreen(driver);
+    }
+
     public TalkScreen checkNewSubmittedTopic() {
         isElementPresent(listAllTopic);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen clickMostTopTopic() {
+        isElementPresent(listAllTopic);
+        tapByElement(topicList1);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen submitReplyTopicAsGuest() {
+        isElementPresent(listAllTopic);
+        tapByElement(topicList1);
+
+        isElementPresent(listTalk);
+        isElementPresent(replyTopicBtn);
+        tapByElement(replyTopicBtn);
+
+        isElementEnabled(descReplyTopic);
+        inputValue(descReplyTopic, faker.regexify("[a-z1-9]{100}")+" "+"description reply topic");
+        tapByElement(submitReplyTopicBtn);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkNewSubmittedTalk() {
+        isElementPresent(listTalk);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen clickBackToGroupDetail() {
+        tapByElement(backIcon);
         return new TalkScreen(driver);
     }
 }
