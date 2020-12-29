@@ -36,10 +36,24 @@ public class TalkSteps extends DriverFactory {
         talkScreen.getConfirmationJoinTopic();
     }
 
+    @And("^User will see confirmation that inform user will automatically joined group after edit topic$")
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_edit_topic() {
+        talkScreen.getConfirmationJoinTopic();
+        talkScreen.checkToastTopicEdited();
+    }
+
     @Then("^User will see new topic added$")
     public void user_will_see_new_topic_added() throws Throwable {
         talkScreen.checkNewSubmittedTopic();
         talkScreen.checkBtnAfterJoinGroupDetail();
+    }
+
+    @When("^User edit topic at not joined group \"([^\"]*)\" and search topic \"([^\"]*)\"$")
+    public void user_edit_topic_at_not_joined_group_something_and_search_topic_something(String group, String topic) throws InterruptedException {
+        talkScreen.searchGroupTalk(group);
+        talkScreen.clickFirstGroup();
+
+        talkScreen.submitEditTopicAsGuest(topic);
     }
 
     @When("^User submit reply topic at not joined group \"([^\"]*)\"$")
@@ -53,6 +67,15 @@ public class TalkSteps extends DriverFactory {
     @And("^User will see confirmation that inform user will automatically joined group after reply topic$")
     public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_topic() throws Throwable {
         talkScreen.getConfirmationJoinTalk();
+    }
+
+    @Then("^User will see topic updated$")
+    public void user_will_see_topic_updated() {
+        talkScreen.checkTopicUpdated();
+        talkScreen.clickBackToGroupDetail();
+        talkScreen.clickCancelSearchTopic();
+        talkScreen.scrollToTopGroupDetail();
+        talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
     @Then("^User will see new reply topic added and user will member of group$")

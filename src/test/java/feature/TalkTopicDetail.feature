@@ -4,6 +4,7 @@ Feature: User navigate to topic detail screen
   And search topic
   I should able to operate all feature
 
+  ####  Topic ####
   @Android @Talk @ReplyTopic
   Scenario Outline: Create reply topic at not joined group
     Given User navigates to onboarding screen by swipe
@@ -18,3 +19,8 @@ Feature: User navigate to topic detail screen
     Examples:
       |   username       |   password    |    group    |
       |	  bddtalk03      |   test123     | Combination Skin  |
+
+  ####  Talk ####
+
+  @Android @Talk @ReplyTalk
+  Scenario Outline: Create reply talk at not joined group

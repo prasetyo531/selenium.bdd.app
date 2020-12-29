@@ -92,7 +92,25 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    /***  SENDKEYS  ***/
+    /**********************************************************************************
+     WAIT METHODS
+     **********************************************************************************/
+    public boolean WaitUntilElementIsVisible(MobileElement mobileElement) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOf(mobileElement));
+            System.out.println("WebElement is visible using locator: " + "<" + mobileElement.toString() + ">");
+            return true;
+        } catch (Exception e) {
+            System.out.println("WebElement is NOT visible, using locator: " + "<" + mobileElement.toString() + ">");
+            Assert.fail("WebElement is NOT visible, Exception: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**********************************************************************************
+     SENDKEYS
+     *********************************************************************************/
     public void inputValue(MobileElement mobileElement, String value) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -112,8 +130,24 @@ public class ActionBase extends DriverFactory {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             mobileElement.clear();
-            mobileElement.setValue(value+"\n");
             ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+            driver.hideKeyboard();
+            System.out.println("element is present");
+        } catch (NoSuchElementException e) {
+            System.out.println("element is not present");
+            Assert.fail("Unable to send keys to WebElement, Exception: " + e.getMessage());
+        }
+    }
+
+    //http://appium.io/docs/en/writing-running-appium/android/android-ime/
+    public void tapAndInputValueKeyboard(MobileElement mobileElement, String value) {
+        try {
+            new TouchAction(driver)
+                    .tap(tapOptions().withElement(element(mobileElement)))
+                    .waitAction(waitOptions(Duration.ofMillis(250))).perform();
+
+            driver.getKeyboard().sendKeys(value);
+            driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
             driver.hideKeyboard();
             System.out.println("element is present");
         } catch (NoSuchElementException e) {
