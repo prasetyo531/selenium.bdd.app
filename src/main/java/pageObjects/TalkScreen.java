@@ -109,10 +109,10 @@ public class TalkScreen extends ActionBase {
     public MobileElement inputTaggingAddTopicScreen;
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSubmit")
-    public MobileElement submitAddTopicBtn;
+    public MobileElement submitAddTopicTalkBtn;
 
     /***********************************************
-     topic detail reply, like talk screen
+     topic detail reply, like talk screen, talk desc field
      ***********************************************/
     @AndroidFindBy(id="com.fdbr.android.talk:id/labelTalkName")
     public MobileElement titleTopic;
@@ -129,11 +129,20 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/listTalks")
     public MobileElement listTalk;
 
-    @AndroidFindBy(xpath="//android.widget.CheckedTextView(@resource-id, 'com.fdbr.android.talk:id/buttonLove')]")
+    @AndroidFindBy(xpath="android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove')]")
     public List<MobileElement> listLikeTopicTalk;
 
-    @AndroidFindBy(xpath="//android.widget.TextView(@resource-id, 'com.fdbr.android.talk:id/buttonComment')]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonComment')]")
     public List<MobileElement> listReplyTopicTalk;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/labelDescription")
+    public MobileElement replyingLabel;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/labelReplyTo")
+    public MobileElement replyingToLabel;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/inputDescription")
+    public MobileElement inputDescAddTalkScreen;
 
     //more option topic detail
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonMore")
@@ -262,7 +271,7 @@ public class TalkScreen extends ActionBase {
         inputValue(inputDescAddTopicScreen, fakeValuesService.regexify("[a-z1-9]{100}")+" "+"talk description");
         tapByElement(inputTaggingAddTopicScreen);
         inputValueEnter(inputTaggingAddTopicScreen, faker.book().genre());
-        tapByElement(submitAddTopicBtn);
+        tapByElement(submitAddTopicTalkBtn);
         return new TalkScreen(driver);
     }
 
@@ -270,8 +279,7 @@ public class TalkScreen extends ActionBase {
     public TalkScreen submitEditTopicAsGuest(String topic) throws InterruptedException {
         isElementPresent(searchTopicGroupDetail);
         tapAndInputValueKeyboard(searchTopicGroupDetail,topic);
-//        driver.getKeyboard().sendKeys(topic);
-//        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+
         Thread.sleep(3000);
         WaitUntilElementIsVisible(topicResultSearch1);
         tapByElement(topicResultSearch1);
@@ -294,7 +302,7 @@ public class TalkScreen extends ActionBase {
         tapByElement(inputTaggingAddTopicScreen);
         driver.hideKeyboard();
         inputValueEnter(inputTaggingAddTopicScreen, tagEditTopic);
-        tapByElement(submitAddTopicBtn);
+        tapByElement(submitAddTopicTalkBtn);
         return new TalkScreen(driver);
     }
 
@@ -372,6 +380,32 @@ public class TalkScreen extends ActionBase {
     public TalkScreen clickBackToGroupDetail() {
         WaitUntilElementIsVisible(backIcon);
         tapByElement(backIcon);
+        return new TalkScreen(driver);
+    }
+
+    //submit reply talk
+    public TalkScreen submitReplyTalkAsGuest(String topic) throws InterruptedException {
+        isElementPresent(searchTopicGroupDetail);
+        tapAndInputValueKeyboard(searchTopicGroupDetail,topic);
+
+        Thread.sleep(3000);
+        WaitUntilElementIsVisible(topicResultSearch1);
+        tapByElement(topicResultSearch1);
+
+        WaitUntilElementIsVisible(listTalk);
+        clickRandomMenus(listReplyTopicTalk);
+        WaitUntilElementIsVisible(inputDescAddTalkScreen);
+        isElementPresent(replyingLabel);
+        isElementPresent(replyingToLabel);
+
+        //reply talk screen
+        isElementPresent(titleAddTopicScreen);
+        String getTextReplyTalk = titleAddTopicScreen.getText();
+        Assert.assertEquals("Reply Talk", getTextReplyTalk);
+
+        tapByElement(inputDescAddTalkScreen);
+        inputValue(inputDescAddTalkScreen, fakeValuesService.regexify("[a-z1-9]{100}")+" "+"reply talk description");
+        tapByElement(submitAddTopicTalkBtn);
         return new TalkScreen(driver);
     }
 }

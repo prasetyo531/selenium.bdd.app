@@ -101,6 +101,8 @@ public class CommonUtils {
         capabilities.setCapability("skipDeviceInitialization", true);
         capabilities.setCapability("skipServerInstallation", true);
         capabilities.setCapability("noReset", false);
+        capabilities.setCapability("unicodeKeyboard", true);
+        capabilities.setCapability("resetKeyboard", true);
     }
 
     public static void setIOSCapabilities() {

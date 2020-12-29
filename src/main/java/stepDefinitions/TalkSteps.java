@@ -87,4 +87,28 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
+    //talk
+    @When("^User submit reply talk at not joined group \"([^\"]*)\" and at topic \"([^\"]*)\"$")
+    public void user_submit_reply_talk_at_not_joined_group_something_and_at_topic_something(String group, String topic) throws Throwable {
+        talkScreen.searchGroupTalk(group);
+        talkScreen.clickFirstGroup();
+
+        talkScreen.submitReplyTalkAsGuest(topic);
+    }
+
+    @And("^User will see confirmation that inform user will automatically joined group after reply talk$")
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_talk() throws Throwable {
+        talkScreen.getConfirmationJoinTalk();
+    }
+
+    @Then("^User will see new reply talk added and user will member of group$")
+    public void user_will_see_new_reply_talk_added_and_user_will_member_of_group() {
+        talkScreen.checkNewSubmittedTalk();
+
+        talkScreen.clickBackToGroupDetail();
+        talkScreen.clickBackToGroupDetail();
+        talkScreen.scrollToTopGroupDetail();
+        talkScreen.checkBtnAfterJoinGroupDetail();
+    }
+
 }
