@@ -111,4 +111,24 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
+    //topic talk profile
+    @When("^User clicks topic from topic list on profile$")
+    public void user_clicks_topic_from_topic_list_on_profile() {
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickTopicTab();
+        profileScreen.clickFirstTopicListProfile();
+    }
+
+    @When("^User clicks talk from talk list on profile$")
+    public void user_clicks_talk_from_talk_list_on_profile() {
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickTalkTab();
+        profileScreen.clickFirstTalkListProfile();
+    }
+
+    @Then("^User will direct to topic detail screen$")
+    public void user_will_direct_to_topic_detail_screen() {
+        talkScreen.checkTopicDetail();
+    }
+
 }

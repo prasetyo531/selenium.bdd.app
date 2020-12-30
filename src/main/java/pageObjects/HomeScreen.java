@@ -342,31 +342,27 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen clickAddPostHomeMenu() {
-
         tapByElement(plusTab);
         tapByElement(addPostMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickHomeMenu() {
-
         tapByElement(homeTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickFeedMenu() {
-
         tapByElement(feedTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickDiscoverHomeMenu() throws IOException {
-
+    public HomeScreen clickDiscoverHomeMenu() {
         tapByElement(discoverTab);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickProfileHomeMenu() throws IOException {
+    public HomeScreen clickProfileHomeMenu() {
         tapByElement(profileTab);
         return new HomeScreen(driver);
     }

@@ -126,6 +126,9 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonReply")
     public MobileElement replyTopicBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.talk:id/labelWelcome")
+    public MobileElement talksLabel;
+
     @AndroidFindBy(id="com.fdbr.android.talk:id/listTalks")
     public MobileElement listTalk;
 
@@ -190,6 +193,13 @@ public class TalkScreen extends ActionBase {
         }catch (Exception e){
             e.getMessage();
         }
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkTopicDetail() {
+        WaitUntilElementIsVisible(talksLabel);
+        String lbl = talksLabel.getText();
+        Assert.assertEquals("TALKS", lbl);
         return new TalkScreen(driver);
     }
 

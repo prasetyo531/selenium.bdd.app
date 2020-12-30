@@ -216,7 +216,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyProfile")
     public MobileElement skipBeautyProfile;
 
-    /***  beauty concern screen  ***/
+    /*********
+     beauty concern screen
+     *********/
     //title screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement titleScreen;
@@ -284,6 +286,14 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android:id/snackbar_text")
     public MobileElement sneakbarChangePassword;
 
+    /*****
+     Talk
+     ****/
+    @AndroidFindBy(id="com.fdbr.android.main:id/listItems")
+    public MobileElement topicTalkList;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/itemMenuParent') and @index='0']")
+    public MobileElement firstTopicTalkProfile;
 
     // This is a constructor, as every page need a base driver to find android elements
     public ProfileScreen(AppiumDriver driver) {
@@ -300,6 +310,16 @@ public class ProfileScreen extends ActionBase{
 
     public ProfileScreen clickPostsTab() {
         tapByElement(postsTab);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickTopicTab() {
+        tapByElement(topicsTab);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickTalkTab() {
+        tapByElement(talksTab);
         return new ProfileScreen(driver);
     }
 
@@ -329,35 +349,30 @@ public class ProfileScreen extends ActionBase{
 
     /* verify from profile */
     public ProfileScreen clickVerifyEmail() {
-
         isElementPresent(labelVerifyEmail);
         tapByElement(labelVerifyEmail);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickVerifyPhone() {
-
         isElementPresent(labelVerifyPhone);
         tapByElement(labelVerifyPhone);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen checkLabelVerifiedEmail() {
-
         String lb1 = labelVerifyEmail.getText();
         Assert.assertEquals("Verified", lb1);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen checkLabelVerifiedPhone() {
-
         String lb2 = labelVerifyPhone.getText();
         Assert.assertEquals("Verified", lb2);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen tapToChangeEmailProfile(String email) {
-
         isElementPresent(changeEmail);
         tapByElement(changeEmail);
 
@@ -368,7 +383,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen tapToChangePhoneProfile(String phone) {
-
         isElementPresent(changePhone);
         tapByElement(changePhone);
 
@@ -379,20 +393,17 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen confirmChangeVerifyEmail() {
-
         tapByElement(btnVerifyEmailProfile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen confirmChangeVerifyPhone() {
-
         tapByElement(btnVerifyPhoneProfile);
         return new ProfileScreen(driver);
     }
 
     /***  modal confirmation password  ***/
     public ProfileScreen inputPasswordToChangeEmailProfile() {
-
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
         tapByElement(btnConfirmPassword);
@@ -400,7 +411,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen inputPasswordToChangePhoneProfile() {
-
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
         tapByElement(btnConfirmPassword);
@@ -409,21 +419,18 @@ public class ProfileScreen extends ActionBase{
 
     /*  edit profile screen */
     public ProfileScreen clickSaveProfile() {
-
         isElementPresent(saveEditprofile);
         tapByElement(saveEditprofile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickCancelEditProfile() {
-
         isElementPresent(cancelEditprofile);
         tapByElement(cancelEditprofile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen editDobToPreviousMonth() {
-
         isElementPresent(dobEditProfile);
         tapByElement(dobEditProfile);
 
@@ -435,14 +442,12 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen inputFullname(String fullname) {
-
         isElementPresent(fullnameField);
         inputValue(fullnameField, fullname);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseFemaleGender() {
-
         tapByElement(genderField);
 
         isElementPresent(rbFemalePersonalInfo);
@@ -451,7 +456,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen chooseMaleGender() {
-
         tapByElement(genderField);
 
         isElementPresent(rbMalePersonalInfo);
@@ -460,7 +464,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen chooseLocationEditProfile() {
-
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         tapByElement(locationField);
 
@@ -470,14 +473,12 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen inputBio(String bio) {
-
         isElementPresent(fieldBio);
         inputValue(fieldBio, bio);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickUpdateBeautyProfile() {
-
         isElementPresent(fullnameField);
         this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
 
@@ -486,7 +487,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickUpdateBeautyConcern() {
-
         isElementPresent(fullnameField);
         this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
 
@@ -496,46 +496,39 @@ public class ProfileScreen extends ActionBase{
 
     /* choose beauty profile */
     public ProfileScreen chooseSkinType() {
-
         tapByElement(skinTypeCombination);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseSkinTone() {
-
         tapByElement(skinToneDark);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseSkinUndertone() {
-
         this.verticalSwipeByPercentages(skinUnderToneWarm,0.4,0.01,0.5,500);
         tapByElement(skinUnderToneWarm);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseHairType() {
-
         this.verticalSwipeByPercentages(hairTypeCurly,0.4,0.01,0.5,500);
         tapByElement(hairTypeCurly);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseColoredHair() {
-
         tapByElement(coloredHairNo);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseHijaber() {
-
         this.verticalSwipeByPercentages(isHijaberNo,0.4,0.01,0.5,500);
         tapByElement(isHijaberNo);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickSaveBeautyProf() {
-
         tapByElement(buttonSaveBeautyProfile);
         return new ProfileScreen(driver);
     }
@@ -549,7 +542,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen chooseBodyCon() {
-
         verticalSwipeByPercentages(contentScreenBodyCon, 0.8,0.01,0.5,500);
         isElementPresent(looseSkin);
         tapByElement(looseSkin);
@@ -557,20 +549,17 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen chooseHairCon() {
-
         isElementPresent(greyHair);
         tapByElement(greyHair);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickSaveBeautyCon() {
-
         tapByElement(btnSaveBeautyConcern);
         return new ProfileScreen(driver);
     }
 
     public void checkTitleScreenBeautyProfile() throws InterruptedException {
-
         Thread.sleep(2000);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
@@ -579,7 +568,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public void checkTitleScreenBeautyConcern() throws InterruptedException {
-
         Thread.sleep(2000);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
@@ -589,7 +577,6 @@ public class ProfileScreen extends ActionBase{
 
     /*  get inputed field profile screen */
     public ProfileScreen getTextDob() {
-
         isElementPresent(dobEditProfile);
         String getDob = dobEditProfile.getText();
         System.out.println("dob is"+" "+getDob);
@@ -598,7 +585,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getFullnameEditProfile(String fullname) {
-
         isElementPresent(fullnameField);
         String getFullname = fullnameField.getText();
         System.out.println("fullname is"+" "+getFullname);
@@ -607,7 +593,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getLocationEditProfile() {
-
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         isElementPresent(locationField);
 
@@ -618,7 +603,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getTextBio(String txt) {
-
         isElementPresent(fieldBio);
         String getBio = fieldBio.getText();
         System.out.println("dobiob is"+" "+getBio);
@@ -627,7 +611,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getTextEmptyDob() {
-
         isElementPresent(dobEditProfile);
         String getDob = dobEditProfile.getText();
         System.out.println("dob is"+" "+getDob);
@@ -636,7 +619,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getFullnameEmptyEditProfile() {
-
         isElementPresent(fullnameField);
         String getFullname = fullnameField.getText();
         System.out.println("fullname is"+" "+getFullname);
@@ -645,7 +627,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getLocationEmptyEditProfile() {
-
         verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         isElementPresent(locationField);
 
@@ -656,7 +637,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getTextEmptyBio() {
-
         isElementPresent(fieldBio);
         String getBio = fieldBio.getText();
         System.out.println("dobiob is"+" "+getBio);
@@ -665,8 +645,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen findToastAfterUpdateBeautyProfile() {
-
-        //WebDriverWait wait = new WebDriverWait(driver, 2);
         //its not check text equals expected text
         toastMatches("Beauty Profile Updated", false);
 
@@ -674,8 +652,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen findToastAfterUpdateBeautyConcern() {
-
-        //WebDriverWait wait = new WebDriverWait(driver, 2);
         //its not check text equals expected text
         toastMatches("Beauty Concern Updated", false);
 
@@ -690,7 +666,6 @@ public class ProfileScreen extends ActionBase{
 
     /*   change password   */
     public ProfileScreen clickChangePassword() {
-
         this.verticalSwipeByPercentages(locationField,0.4,0.01,0.5,500);
 
         tapByElement(changePassword);
@@ -698,28 +673,24 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen inputOldPassword(String oldpass) {
-
         isElementPresent(oldPassField);
         inputValue(oldPassField, oldpass);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen inputNewPassword(String newpass) {
-
         isElementPresent(newPassField);
         inputValue(newPassField, newpass);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickSubmitChangePassword() {
-
         isElementPresent(submitBtn);
         tapByElement(submitBtn);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen getSneakMsgOldPassword(String text) {
-
         isElementPresent(sneakbarChangePassword);
         String msg = sneakbarChangePassword.getText();
         Assert.assertEquals(text, msg);
@@ -728,21 +699,35 @@ public class ProfileScreen extends ActionBase{
 
     /* review */
     public ProfileScreen clickRandomReviewListProfile() {
-
         this.verticalSwipeByPercentages(listPhotoReviewsProfile, 0.4,0.01,0.5,500);
         isElementPresent(listPhotoReviewsProfile);
         clickRandomMenus(listProductReviewsProfile);
-
         return new ProfileScreen(driver);
     }
 
     /* post */
     public ProfileScreen clickFirstPostProfile() {
-
         this.verticalSwipeByPercentages(postsTab, 0.4,0.01,0.5,500);
         isElementPresent(firstPostProfile);
         tapByElement(firstPostProfile);
+        return new ProfileScreen(driver);
+    }
 
+    /* topic */
+    public ProfileScreen clickFirstTopicListProfile() {
+        WaitUntilElementIsVisible(topicTalkList);
+        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        isElementPresent(firstTopicTalkProfile);
+        tapByElement(firstTopicTalkProfile);
+        return new ProfileScreen(driver);
+    }
+
+    /* talk */
+    public ProfileScreen clickFirstTalkListProfile() {
+        WaitUntilElementIsVisible(topicTalkList);
+        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        isElementPresent(firstTopicTalkProfile);
+        tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
     }
 }

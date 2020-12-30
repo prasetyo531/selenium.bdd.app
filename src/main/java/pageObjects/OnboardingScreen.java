@@ -44,7 +44,7 @@ public class OnboardingScreen extends ActionBase {
     public MobileElement labelPrivacy;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public OnboardingScreen(AppiumDriver driver) throws IOException {
+    public OnboardingScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -52,10 +52,8 @@ public class OnboardingScreen extends ActionBase {
     }
 
     //intro screen
-    public OnboardingScreen swipeAfterSplashScreen() throws IOException {
-
+    public OnboardingScreen swipeAfterSplashScreen() {
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         isElementPresent(splashScreenImage);
         this.horizontalSwipeByPercentage(splashScreenImage,0.9,0.01,0.5,500);
         this.horizontalSwipeByPercentage(splashScreenImage, 0.9,0.01,0.5,500);
@@ -63,33 +61,28 @@ public class OnboardingScreen extends ActionBase {
 
     }
 
-    public OnboardingScreen clickNextIntroBtn() throws IOException {
-
+    public OnboardingScreen clickNextIntroBtn() {
         //tapByElement(nextIntroBtn);
         tapByElement(nextIntroScreenBtn);
         tapByElement(nextIntroScreenBtn);
         return new OnboardingScreen(driver);
     }
 
-    public OnboardingScreen clickGetStartedBtn() throws IOException {
-
+    public OnboardingScreen clickGetStartedBtn() {
         tapByElement(getStartedBtn);
         return new OnboardingScreen(driver);
     }
 
 
-    public OnboardingScreen clickLoginBtn() throws IOException {
-
+    public OnboardingScreen clickLoginBtn() {
         isElementEnabled(loginBtn);
         tapByElement(loginBtn);
         return new OnboardingScreen(driver);
     }
 
-    public OnboardingScreen clickSignupBtn() throws IOException {
-
+    public OnboardingScreen clickSignupBtn() {
         isElementEnabled(signupBtn);
         tapByElement(signupBtn);
         return new OnboardingScreen(driver);
     }
-
 }
