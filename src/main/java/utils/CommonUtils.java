@@ -47,7 +47,12 @@ public class CommonUtils {
     private static AppiumDriver driver;
 
     public static void loadAndroidConfigProp(String propertyFileName) throws IOException {
+        /* 
+        mac setting
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/client/properties/"+propertyFileName);
+         */
+        
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\client\\properties\\"+propertyFileName);
         prop.load(fis);
 
         EXPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("explicit.wait"));
