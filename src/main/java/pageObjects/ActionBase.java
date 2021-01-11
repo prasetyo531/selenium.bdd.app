@@ -129,6 +129,7 @@ public class ActionBase extends DriverFactory {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             mobileElement.clear();
+            mobileElement.setValue(value);
             ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
             driver.hideKeyboard();
             System.out.println("element is present");
