@@ -5,7 +5,7 @@ Feature: User navigate to talk group screen
   I should able to operate all feature
 
   #FDBRMA-94
-  @Android @Talk @AddTopic @demotalk
+  @Android @Talk @AddTopic
   Scenario Outline: Create topic at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -20,7 +20,7 @@ Feature: User navigate to talk group screen
       |   username       |   password    |
       |	  bddtalk02      |   test123     |
 
-  @Android @Talk @EditTopic @Bug @demotalk
+  @Android @Talk @EditTopic @Bug
   Scenario Outline: Edit topic at not joined group - edit description
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

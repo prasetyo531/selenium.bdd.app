@@ -6,6 +6,7 @@ import cucumber.api.junit.Cucumber;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import pageObjects.ActionBase;
 
 import java.io.File;
@@ -16,7 +17,7 @@ import java.io.IOException;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@FDBRMA-361, @FDBRMA-336"},
+        tags = {"@demotalk"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3

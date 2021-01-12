@@ -5,7 +5,7 @@ Feature: User navigate to topic detail screen
   I should able to operate all feature
 
   ####  Topic ####
-  @Android @Talk @ReplyTopic @Bug @demotalk
+  @Android @Talk @ReplyTopic @Bug
   Scenario Outline: Create reply topic at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -20,7 +20,7 @@ Feature: User navigate to topic detail screen
       |   username       |   password    |    group    |
       |	  bddtalk03      |   test123     | Combination Skin  |
 
-  @Android @Talk @ReplyTopic @TalkProfile @demotalk
+  @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Open created topic from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -34,7 +34,7 @@ Feature: User navigate to topic detail screen
       |	  putwid      |   123tester   |
 
   ####  Talk ####
-  @Android @Talk @ReplyTalk @Bug @demotalk
+  @Android @Talk @ReplyTalk @Bug
   Scenario Outline: Create reply talk at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -49,7 +49,7 @@ Feature: User navigate to topic detail screen
       |   username       |   password    |    group        |   topic    |
       |	  bddtalk03      |   test123     | Men's Grooming  |  topic no in  |
 
-  @Android @Talk @TalkProfile @demotalk
+  @Android @Talk @TalkProfile @demotalk2
   Scenario Outline: Open created talk from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

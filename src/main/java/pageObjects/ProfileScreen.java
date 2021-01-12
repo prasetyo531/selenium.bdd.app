@@ -314,11 +314,13 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickTopicTab() {
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(topicsTab);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickTalkTab() {
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(talksTab);
         return new ProfileScreen(driver);
     }
@@ -716,7 +718,8 @@ public class ProfileScreen extends ActionBase{
     /* topic */
     public ProfileScreen clickFirstTopicListProfile() {
         WaitUntilElementIsVisible(topicTalkList);
-        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
@@ -725,7 +728,8 @@ public class ProfileScreen extends ActionBase{
     /* talk */
     public ProfileScreen clickFirstTalkListProfile() {
         WaitUntilElementIsVisible(topicTalkList);
-        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
