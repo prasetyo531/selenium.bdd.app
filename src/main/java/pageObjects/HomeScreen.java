@@ -167,6 +167,15 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonVerifyUser")
     public MobileElement btnNeedVerify;
 
+    /**********
+     talk section
+     ***********/
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonJoin') and @index='3']")
+    public List<MobileElement> btnJoinGroup;
+
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonMember') and @index='3']")
+    public List<MobileElement> btnMemberGroup;
+
     // This is a constructor, as every page need a base driver to find android elements
     public HomeScreen(AppiumDriver driver) {
 
@@ -400,4 +409,29 @@ public class HomeScreen extends ActionBase {
         acceptAlert();
         return new HomeScreen(driver);
     }
+    
+    //talk
+    public HomeScreen scrollToTalkSection() {
+        verticalSwipeByPercentagesDirectly(90,1736,90, 316);
+        verticalSwipeByPercentagesDirectly(85,1729,85, 259);
+        verticalSwipeByPercentagesDirectly(99,1703,69, 249);
+        return new HomeScreen(driver);
+    }
+    
+    public HomeScreen joinGroupTalk() {
+        clickLastMenus(btnJoinGroup);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
+        Thread.sleep(1500);
+        Integer btnMember = btnMemberGroup.size();
+        if(btnMember==0){
+            Assert.fail("button changed to member is not appear");
+        }else {
+            System.out.println("button changed to member is appear");
+        }
+        return new HomeScreen(driver);
+    }
+    
 }

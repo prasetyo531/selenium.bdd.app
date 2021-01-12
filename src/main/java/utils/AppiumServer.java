@@ -9,7 +9,8 @@ public class AppiumServer {
 
     //Appium Launch on Windows
     private static Process process;
-    private static String STARTSERVER = "C:\\Program Files\\nodejs\\node.exe C:\\Program Files\\Appium\\resources\\app\\node_modules\\appium\\lib\\appium.js";
+    private static String STARTSERVER = "C:\\Program Files\\nodejs\\node.exe " +
+            "C:\\Program Files\\Appium\\resources\\app\\node_modules\\appium\\lib\\appium.js";
 
     //private static String STARTSERVER = "/usr/local/bin/node /usr/local/bin/appium";
     
@@ -23,7 +24,7 @@ public class AppiumServer {
     public static void start() throws IOException, InterruptedException {
 //
 //        Runtime runtime = Runtime.getRuntime();
-////        runtime.exec("appium -a 127.0.0.1 -p 4723");
+//        runtime.exec("appium -a 127.0.0.1 -p 4723");
 //        //process = runtime.exec(STARTSERVER);
 //
 //        Thread.sleep(7000);
