@@ -414,7 +414,7 @@ public class HomeScreen extends ActionBase {
     public HomeScreen scrollToTalkSection() {
         verticalSwipeByPercentagesDirectly(90,1736,90, 316);
         verticalSwipeByPercentagesDirectly(85,1729,85, 259);
-        verticalSwipeByPercentagesDirectly(99,1703,69, 249);
+        verticalSwipeByPercentagesDirectly(99,1703,97, 882);
         return new HomeScreen(driver);
     }
     
