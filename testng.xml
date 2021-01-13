@@ -8,7 +8,7 @@
 
     <test name="secondtest">
         <classes>
-            <class name="uiTestAndroid.UiTestTalk"/>
+            <class name="uiTestAndroid.UiTestRandom"/>
         </classes>
     </test>
     <!--    <test name="curltest">-->
