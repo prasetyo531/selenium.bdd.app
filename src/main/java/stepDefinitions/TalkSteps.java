@@ -87,6 +87,21 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
+    @And("^User scroll until see talk section on homescreen$")
+    public void user_scroll_until_see_talk_section_on_homescreen() throws Throwable {
+        homeScreen.scrollToTalkSection();
+    }
+
+    @When("^User clicks join any group from group card on homescreen$")
+    public void user_clicks_join_any_group_from_group_card_on_homescreen() throws Throwable {
+        homeScreen.joinGroupTalk();
+    }
+
+    @Then("^User will see member button on group card homescreen$")
+    public void user_will_see_member_button_on_group_card_homescreen() throws Throwable {
+        homeScreen.checkBtnAfterJoinGroup();
+    }
+
     //talk
     @When("^User submit reply talk at not joined group \"([^\"]*)\" and at topic \"([^\"]*)\"$")
     public void user_submit_reply_talk_at_not_joined_group_something_and_at_topic_something(String group, String topic) throws Throwable {
