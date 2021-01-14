@@ -412,9 +412,14 @@ public class HomeScreen extends ActionBase {
     
     //talk
     public HomeScreen scrollToTalkSection() {
-        verticalSwipeByPercentagesDirectly(90,1736,90, 316);
-        verticalSwipeByPercentagesDirectly(85,1729,85, 259);
-        verticalSwipeByPercentagesDirectly(99,1703,97, 882);
+        Integer btnJoin = btnJoinGroup.size();
+        if(btnJoin==0) {
+            verticalSwipeByPercentagesDirectly(90,1736,90, 316);
+            verticalSwipeByPercentagesDirectly(85,1729,85, 259);
+            verticalSwipeByPercentagesDirectly(99,1703,97, 882);
+        } else {
+            clickLastMenus(btnJoinGroup);
+        }
         return new HomeScreen(driver);
     }
     
