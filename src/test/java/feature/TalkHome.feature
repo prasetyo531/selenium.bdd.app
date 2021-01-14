@@ -4,7 +4,6 @@ Feature: User navigate to talk homepage
   And search topic, talk, group
   I should able to operate all feature
 
-  
   #FDBRMA-400
   @Android @Talk @TalktestMacia
   Scenario Outline: Join group from snippet on Home Screen
@@ -18,7 +17,7 @@ Feature: User navigate to talk homepage
     
     Examples:
       |   username        |   password    |
-      |	  usertalk	      |   test123     |
+      |	  teststag01	      |   test123     |
     
   #FDBRMA-71 #FDBRMA-78 #FDBRMA-83
   @Android @Talk
@@ -33,4 +32,4 @@ Feature: User navigate to talk homepage
 
     Examples:
       |   username        |   password    |
-      |	  bddtalk01	      |   test123     |
+      |	  teststag01	      |   test123     |

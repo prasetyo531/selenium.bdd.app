@@ -7,8 +7,12 @@ import java.io.InputStreamReader;
 
 public class AppiumServer {
 
-    //Appium Launch on Windows
     private static Process process;
+    /*
+    //Appium Launch on Windows
+    private static String STARTSERVER = "C:\\Program Files\\nodejs\\node.exe " +
+            "C:\\Program Files\\Appium\\resources\\app\\node_modules\\appium\\lib\\appium.js";
+     */
 
     /*
     Calling the node.exe and appium.js
