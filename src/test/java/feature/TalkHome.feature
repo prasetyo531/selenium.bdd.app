@@ -13,7 +13,7 @@ Feature: User navigate to talk homepage
     And User enters the "<username>" username and "<password>" password then click login button on login screen
     Then User will see modal account status on homescreen
     And User scroll until see talk section on homescreen
-#    When User clicks join any group from group card on homescreen
+    When User clicks join any group from group card on homescreen
     Then User will see member button on group card homescreen
     
     Examples:
