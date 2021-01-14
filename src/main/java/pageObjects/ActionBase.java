@@ -490,10 +490,14 @@ public class ActionBase extends DriverFactory {
     public static void copyLatestExtentReport() throws IOException {
         Date d = new Date();
         String date = d.toString().replace(":", "_").replace(" ", "_");
-        File source = new File(System.getProperty("user.dir") + "/test-output/cucumber/report.html");
-        File dest = new File(System.getProperty("user.dir") + "/output/report/" + date.toString() + ".html");
-        copyFileUsingStream(source, dest);
 
+        try {
+            File source = new File(System.getProperty("user.dir") + "/test-output/cucumber/report.html");
+            File dest = new File(System.getProperty("user.dir") + "/output/report/" + date.toString() + ".html");
+            copyFileUsingStream(source, dest);
+        } catch (Exception e) {
+            e.getMessage();
+        }
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
     }
 
