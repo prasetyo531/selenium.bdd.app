@@ -134,7 +134,7 @@ public class TalkSteps extends DriverFactory {
     }
 
     @When("^User clicks topic from topic list on profile$")
-    public void user_clicks_topic_from_topic_list_on_profile() /* throws InterruptedException */ {
+    public void user_clicks_topic_from_topic_list_on_profile() {
         homeScreen.clickProfileHomeMenu();
         profileScreen.clickTopicTab();
         profileScreen.clickFirstTopicListProfile();

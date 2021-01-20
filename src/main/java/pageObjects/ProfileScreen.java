@@ -732,12 +732,10 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* topic */
-    public ProfileScreen clickFirstTopicListProfile() /* throws InterruptedException */ {
+    public ProfileScreen clickFirstTopicListProfile()  {
         WaitUntilElementIsVisible(topicTalkList);
-        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+//        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
         isElementPresent(firstTopicTalkProfile);
-        
-//        Thread.sleep(1000);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
     }

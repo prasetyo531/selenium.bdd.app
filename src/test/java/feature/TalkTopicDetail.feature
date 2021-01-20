@@ -20,7 +20,7 @@ Feature: User navigate to topic detail screen
       |   username       |   password    |    group    |
       |	  bddtalk03      |   test123     | Combination Skin  |
 
-  @Android @Talk @ReplyTopic @TalkProfile00 
+  @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Open created topic from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
