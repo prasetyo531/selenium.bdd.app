@@ -11,7 +11,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public class HomeScreen extends ActionBase {
@@ -176,6 +175,18 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonMember') and @index='3']")
     public List<MobileElement> btnMemberGroup;
 
+    /**********
+     rating app modal
+     ***********/
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textDesc') and @index='2']")
+    public MobileElement modalRateApp;
+    
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRateNow")
+    public MobileElement btnRateNow;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRemindMeLater")
+    public MobileElement btnRemindMeLater;
+
     // This is a constructor, as every page need a base driver to find android elements
     public HomeScreen(AppiumDriver driver) {
 
@@ -234,13 +245,27 @@ public class HomeScreen extends ActionBase {
             if (checkAccountStatusModal.size()>0) {
                 tapByElement(closeAccountStatusModal);
                 System.out.println("account status modal is present");
-                verifyHomescreen();
+//                verifyHomescreen();
             } else {
                 System.out.println("account status modal is not present");
-                verifyHomescreen();
+//                verifyHomescreen();
             }
         } catch (Exception e){
             e.printStackTrace();
+        }
+//        return (verifyHomescreen());
+        return false;
+    }
+
+    public boolean remindMeLaterRatingModal() {
+        boolean rateApp = isElementPresent(modalRateApp);
+        if (rateApp) {
+            tapByElement(btnRemindMeLater);
+            System.out.println("rate app modal is present");
+            verifyHomescreen();
+        } else {
+            System.out.println("rate app modal is not present");
+            verifyHomescreen();
         }
         return (verifyHomescreen());
     }

@@ -3,6 +3,7 @@ package stepDefinitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.HomeScreen;
 import utils.DriverFactory;
 
 public class TalkSteps extends DriverFactory {
@@ -127,8 +128,13 @@ public class TalkSteps extends DriverFactory {
     }
 
     //topic talk profile
+    @And("^user close modal rate app$")
+    public void user_close_modal_rate_app() throws Throwable {
+        homeScreen.remindMeLaterRatingModal();
+    }
+
     @When("^User clicks topic from topic list on profile$")
-    public void user_clicks_topic_from_topic_list_on_profile() {
+    public void user_clicks_topic_from_topic_list_on_profile() /* throws InterruptedException */ {
         homeScreen.clickProfileHomeMenu();
         profileScreen.clickTopicTab();
         profileScreen.clickFirstTopicListProfile();
@@ -144,6 +150,24 @@ public class TalkSteps extends DriverFactory {
     @Then("^User will direct to topic detail screen$")
     public void user_will_direct_to_topic_detail_screen() {
         talkScreen.checkTopicDetail();
+    }
+
+    //edit topic from profile
+    @And("^User edit topic from topic on list profile$")
+    public void user_edit_topic_from_topic_on_list_profile() throws Throwable {
+        profileScreen.clickBtnSeeMore();
+        profileScreen.clickBtnEditTopic();
+    }
+    
+    @And("^User submit topic with empty title$")
+    public void user_submit_topic_with_empty_title() throws Throwable {
+        profileScreen.deleteTopicTitle();
+        profileScreen.submitTopic();
+    }
+
+    @Then("^User will see toast msg that title at least have 15 character$")
+    public void user_will_see_toast_msg_that_title_at_least_have_15_character() throws Throwable {
+        profileScreen.getErrorEditTitleTopic();
     }
 
 }

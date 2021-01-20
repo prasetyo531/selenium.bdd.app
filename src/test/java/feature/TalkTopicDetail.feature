@@ -20,7 +20,7 @@ Feature: User navigate to topic detail screen
       |   username       |   password    |    group    |
       |	  bddtalk03      |   test123     | Combination Skin  |
 
-  @Android @Talk @ReplyTopic @TalkProfile
+  @Android @Talk @ReplyTopic @TalkProfile00 
   Scenario Outline: Open created topic from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -32,6 +32,25 @@ Feature: User navigate to topic detail screen
     Examples:
       |   username    |   password    |
       |	  putwid      |   123tester   |
+    
+  ####  Edit Topic ####
+  #FDBRMA-97 
+  @Android @Talk @ReplyTopic @TalkProfile @TalktestMacia
+  Scenario Outline: Check title field - Field Title is Empty
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And user close modal rate app
+    When User clicks topic from topic list on profile
+    And User edit topic from topic on list profile
+    And User submit topic with empty title
+    Then User will see toast msg that title at least have 15 character
+
+    Examples:
+      | username | password |
+      | usertalk | test123  |
+  
 
   ####  Talk ####
   @Android @Talk @ReplyTalk @Bug
