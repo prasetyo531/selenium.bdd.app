@@ -17,8 +17,8 @@ Feature: User navigate to topic detail screen
     Then User will see new reply topic added and user will member of group
 
     Examples:
-      |   username       |   password    |    group    |
-      |	  bddtalk03      |   test123     | Combination Skin  |
+      | username  | password | group            |
+      | bddtalk03 | test123  | Combination Skin |
 
   @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Open created topic from profile
@@ -35,8 +35,25 @@ Feature: User navigate to topic detail screen
     
   ####  Edit Topic ####
   #FDBRMA-97 
-  @Android @Talk @ReplyTopic @TalkProfile @TalktestMacia
-  Scenario Outline: Check title field - Field Title is Empty
+  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMacia
+  Scenario Outline: Check title field - field title is empty
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And user close modal rate app
+    When User clicks topic from topic list on profile
+    And User edit topic from topic on list profile 
+    And User submit topic with empty title
+    Then User will see toast msg that title at least have 15 character
+
+    Examples:
+      | username | password |
+      | usertalk | test123  |
+    
+  #FDBRMA-98
+  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMacia
+  Scenario Outline: Check description field - field description is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
@@ -44,12 +61,31 @@ Feature: User navigate to topic detail screen
     And user close modal rate app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
-    And User submit topic with empty title
-    Then User will see toast msg that title at least have 15 character
+    And User submit topic with empty description
+    Then User will see toast msg that desc at least have 100 character
 
     Examples:
       | username | password |
-      | usertalk | test123  |
+      | usertalk | test123  |    
+    
+  #FDBRMA-99
+  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMaciaFailed
+  Scenario Outline: Check tagging field - remove all tags
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And user close modal rate app
+    When User clicks topic from topic list on profile
+    And User edit topic from topic on list profile
+    And User submit topic after remove all tags
+    Then User will see toast msg that need at least one tag
+
+    Examples:
+      | username | password |
+      | usertalk | test123  |      
+    
+    
   
 
   ####  Talk ####
