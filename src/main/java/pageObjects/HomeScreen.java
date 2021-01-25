@@ -215,9 +215,8 @@ public class HomeScreen extends ActionBase {
         return (boolElem2 && boolElem3);
     }
 
-    public void verifyAccountStatusModal() throws InterruptedException {
-
-        Thread.sleep(2000);
+    public void verifyAccountStatusModal() {
+        WaitUntilElementIsVisible(accountCompleteVerBtn);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
         List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
         //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
@@ -237,7 +236,6 @@ public class HomeScreen extends ActionBase {
     }
 
     public void remindMeLaterRatingModal() {
-
         WaitUntilElementIsVisible(modalRateApp);
         List<WebElement> checkAppRatingModal = btnRateNowWebelement;
         try {
@@ -255,6 +253,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen verifyAccountStatusModalIos() {
+
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
             tapByElement(closeAccountStatusModal);
@@ -406,30 +405,30 @@ public class HomeScreen extends ActionBase {
 
     //talk
     public HomeScreen scrollToTalkSection() {
-            verticalSwipeByPercentagesDirectly(90,1736,90, 316);
-            verticalSwipeByPercentagesDirectly(85,1729,85, 259);
-            verticalSwipeByPercentagesDirectly(99,1703,97, 882);
-            Integer btnJoin = btnJoinGroup.size();
-            if(btnJoin==0) {
-                verticalSwipeByPercentagesDirectly(83,683,74, 1749);
-            }
-            return new HomeScreen(driver);
+        verticalSwipeByPercentagesDirectly(90,1736,90, 316);
+        verticalSwipeByPercentagesDirectly(85,1729,85, 259);
+        verticalSwipeByPercentagesDirectly(99,1703,97, 882);
+        Integer btnJoin = btnJoinGroup.size();
+        if(btnJoin==0) {
+            verticalSwipeByPercentagesDirectly(83,683,74, 1749);
         }
-
-        public HomeScreen joinGroupTalk() {
-            clickLastMenus(btnJoinGroup);
-            return new HomeScreen(driver);
-        }
-
-        public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
-            Thread.sleep(1500);
-            Integer btnMember = btnMemberGroup.size();
-            if(btnMember==0){
-                Assert.fail("button changed to member is not appear");
-            }else {
-                System.out.println("button changed to member is appear");
-            }
-            return new HomeScreen(driver);
-        }
-
+        return new HomeScreen(driver);
     }
+
+    public HomeScreen joinGroupTalk() {
+        clickLastMenus(btnJoinGroup);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
+        Thread.sleep(1500);
+        Integer btnMember = btnMemberGroup.size();
+        if(btnMember==0){
+            Assert.fail("button changed to member is not appear");
+        }else {
+            System.out.println("button changed to member is appear");
+        }
+        return new HomeScreen(driver);
+    }
+
+}
