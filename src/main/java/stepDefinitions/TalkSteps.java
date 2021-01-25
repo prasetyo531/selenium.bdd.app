@@ -129,7 +129,7 @@ public class TalkSteps extends DriverFactory {
 
     //topic talk profile
     @And("^user close modal rate app$")
-    public void user_close_modal_rate_app() throws Throwable {
+    public void user_close_modal_rate_app() {
         homeScreen.remindMeLaterRatingModal();
     }
 

@@ -9,15 +9,23 @@ import utils.DriverFactory;
 public class VerifyAccountSteps extends DriverFactory {
 
     @Then("^User will see modal account status on homescreen$")
-    public void User_will_see_modal_account_status_on_homescreen() throws Throwable {
+    public void User_will_see_modal_account_status_on_homescreen() {
         homeScreen.acceptAlertPermission();
         homeScreen.acceptAlertPermission();
 
         homeScreen.verifyAccountStatusModal();
     }
 
+    @Then("^User will see modal account status on homescreen and close modal rating app$")
+    public void user_will_see_modal_account_status_on_homescreen_and_close_modal_rating_app() {
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
+
+        homeScreen.verifyAccountStatusModalAndAppRatingModal();
+    }
+
     @Then("^User will see modal account status on homescreen and click tnr menu$")
-    public void User_will_see_modal_account_status_on_homescreen_and_click_tnr_menu() throws Throwable {
+    public void User_will_see_modal_account_status_on_homescreen_and_click_tnr_menu() {
         homeScreen.acceptAlertPermission();
         homeScreen.acceptAlertPermission();
 

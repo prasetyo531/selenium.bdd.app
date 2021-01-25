@@ -215,6 +215,23 @@ public class HomeScreen extends ActionBase {
         return (boolElem2 && boolElem3);
     }
 
+    public void remindMeLaterRatingModal() {
+        WaitUntilElementIsVisible(modalRateApp);
+        List<WebElement> checkAppRatingModal = btnRateNowWebelement;
+        try {
+            if (checkAppRatingModal.size()>0) {
+                tapByElement(btnRemindMeLater);
+                System.out.println("rate app modal is present");
+                verifyHomescreen();
+            } else {
+                System.out.println("rate app modal is not present");
+                verifyHomescreen();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void verifyAccountStatusModal() {
         WaitUntilElementIsVisible(accountCompleteVerBtn);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
@@ -235,16 +252,21 @@ public class HomeScreen extends ActionBase {
         }
     }
 
-    public void remindMeLaterRatingModal() {
-        WaitUntilElementIsVisible(modalRateApp);
-        List<WebElement> checkAppRatingModal = btnRateNowWebelement;
+    public void verifyAccountStatusModalAndAppRatingModal() {
+        WaitUntilElementIsVisible(accountCompleteVerBtn);
+        //http://appium.io/docs/en/commands/element/find-elements/#find-elements
+        List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
+        //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
+        //boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         try {
-            if (checkAppRatingModal.size()>0) {
-                tapByElement(btnRemindMeLater);
-                System.out.println("rate app modal is present");
+            if (checkAccountStatusModal.size()>0) {
+                tapByElement(closeAccountStatusModal);
+                System.out.println("account status modal is present");
+                remindMeLaterRatingModal();
                 verifyHomescreen();
             } else {
-                System.out.println("rate app modal is not present");
+                remindMeLaterRatingModal();
+                System.out.println("account status modal is not present");
                 verifyHomescreen();
             }
         } catch (Exception e){

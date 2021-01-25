@@ -5,7 +5,7 @@ Feature: User navigate to talk homepage
   I should able to operate all feature
 
   #FDBRMA-400
-  @Android @Talk @TestTalkMacia
+  @Android @Talk
   Scenario Outline: Join group from snippet on Home Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

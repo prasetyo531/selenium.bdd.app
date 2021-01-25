@@ -341,12 +341,14 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickTopicTab() {
+        WaitUntilElementIsVisible(topicsTab);
         verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(topicsTab);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickTalkTab() {
+        WaitUntilElementIsVisible(talksTab);
         verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(talksTab);
         return new ProfileScreen(driver);
