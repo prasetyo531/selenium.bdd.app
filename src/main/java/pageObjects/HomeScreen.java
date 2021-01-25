@@ -11,12 +11,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public class HomeScreen extends ActionBase {
-
-    private static DesiredCapabilities capabilities = new DesiredCapabilities();
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
@@ -176,6 +173,21 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonMember') and @index='3']")
     public List<MobileElement> btnMemberGroup;
 
+    /**********
+     rating app modal
+     ***********/
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textDesc') and @index='2']")
+    public MobileElement modalRateApp;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRateNow")
+    public MobileElement btnRateNow;
+
+    @FindBy(id="com.fdbr.android:id/buttonRateNow")
+    public List<WebElement> btnRateNowWebelement;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonRemindMeLater")
+    public MobileElement btnRemindMeLater;
+
     // This is a constructor, as every page need a base driver to find android elements
     public HomeScreen(AppiumDriver driver) {
 
@@ -183,26 +195,6 @@ public class HomeScreen extends ActionBase {
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
-
-    public HomeScreen allowPermission() {
-
-        isElementPresent(permissionAllow);
-        tapByElement(permissionAllow);
-        return new HomeScreen(driver);
-    }
-
-    /*
-    public void verifyAccountStatusModal(){
-        try {
-            isElementPresent(accountStatus);
-            System.out.println("account status is present");
-            return true;
-        } catch (NoSuchElementException e){
-            e.printStackTrace();
-            System.out.println("account status is not present");
-        }
-    }
-     */
 
     public boolean verifyHomescreen() {
 
@@ -223,7 +215,7 @@ public class HomeScreen extends ActionBase {
         return (boolElem2 && boolElem3);
     }
 
-    public boolean verifyAccountStatusModal() throws InterruptedException {
+    public void verifyAccountStatusModal() throws InterruptedException {
 
         Thread.sleep(2000);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
@@ -242,23 +234,25 @@ public class HomeScreen extends ActionBase {
         } catch (Exception e){
             e.printStackTrace();
         }
-        return (verifyHomescreen());
     }
 
-    /*
-    public void verifyAccountStatusModal() {
+    public void remindMeLaterRatingModal() {
 
-        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
-        if (checkAccountStatusModal) {
-            tapByElement(closeAccountStatusModal);
-            System.out.println("account status modal is present");
-            verifyHomescreen();
-        } else {
-            System.out.println("account status modal is not present");
-            verifyHomescreen();
+        WaitUntilElementIsVisible(modalRateApp);
+        List<WebElement> checkAppRatingModal = btnRateNowWebelement;
+        try {
+            if (checkAppRatingModal.size()>0) {
+                tapByElement(btnRemindMeLater);
+                System.out.println("rate app modal is present");
+                verifyHomescreen();
+            } else {
+                System.out.println("rate app modal is not present");
+                verifyHomescreen();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
-     */
 
     public HomeScreen verifyAccountStatusModalIos() {
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
@@ -409,33 +403,33 @@ public class HomeScreen extends ActionBase {
         acceptAlert();
         return new HomeScreen(driver);
     }
-    
+
     //talk
     public HomeScreen scrollToTalkSection() {
-        Integer btnJoin = btnJoinGroup.size();
-        verticalSwipeByPercentagesDirectly(90,1736,90, 316);
-        verticalSwipeByPercentagesDirectly(85,1729,85, 259);
-        verticalSwipeByPercentagesDirectly(99,1703,97, 882);
-        if(btnJoin==0){
+            verticalSwipeByPercentagesDirectly(90,1736,90, 316);
+            verticalSwipeByPercentagesDirectly(85,1729,85, 259);
             verticalSwipeByPercentagesDirectly(99,1703,97, 882);
+            Integer btnJoin = btnJoinGroup.size();
+            if(btnJoin==0) {
+                verticalSwipeByPercentagesDirectly(83,683,74, 1749);
+            }
+            return new HomeScreen(driver);
         }
-        return new HomeScreen(driver);
-    }
-    
-    public HomeScreen joinGroupTalk() {
-        clickLastMenus(btnJoinGroup);
-        return new HomeScreen(driver);
-    }
 
-    public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
-        Thread.sleep(1500);
-        Integer btnMember = btnMemberGroup.size();
-        if(btnMember==0){
-            Assert.fail("button changed to member is not appear");
-        }else {
-            System.out.println("button changed to member is appear");
+        public HomeScreen joinGroupTalk() {
+            clickLastMenus(btnJoinGroup);
+            return new HomeScreen(driver);
         }
-        return new HomeScreen(driver);
+
+        public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
+            Thread.sleep(1500);
+            Integer btnMember = btnMemberGroup.size();
+            if(btnMember==0){
+                Assert.fail("button changed to member is not appear");
+            }else {
+                System.out.println("button changed to member is appear");
+            }
+            return new HomeScreen(driver);
+        }
+
     }
-    
-}

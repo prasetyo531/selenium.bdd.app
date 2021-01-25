@@ -294,6 +294,33 @@ public class ProfileScreen extends ActionBase{
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/itemMenuParent') and @index='0']")
     public MobileElement firstTopicTalkProfile;
+    
+    @AndroidFindBy(id = "com.fdbr.android.talk:id/buttonMore")
+    public MobileElement buttonSeeMore;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textValue') and @index='0']")
+    public MobileElement buttonEditTopic;
+
+    @AndroidFindBy(id = "com.fdbr.android.talk:id/inputTitle")
+    public MobileElement fieldTopicTitle;
+
+    @AndroidFindBy(id = "com.fdbr.android.talk:id/inputDescription")
+    public MobileElement fieldTopicDesc;
+
+    /*@AndroidFindBy(xpath="//android.view.View[@content-desc=Remove kombinasi]")
+    public MobileElement t*//*agOne;*/
+    
+    @AndroidFindBy(id ="Remove kombinasi")
+    public MobileElement tagHardCode;
+
+    @AndroidFindBy(id = "com.fdbr.android.talk:id/buttonSubmit")
+    public MobileElement buttonSubmitTopic;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textDescription') and @index='0']")
+    public MobileElement descErrorEditTitleTopic;
+    
+    @AndroidFindBy(id= "com.fdbr.android:id/buttonNegative")
+    public MobileElement btnOkModal;
 
     // This is a constructor, as every page need a base driver to find android elements
     public ProfileScreen(AppiumDriver driver) {
@@ -716,13 +743,71 @@ public class ProfileScreen extends ActionBase{
     }
 
     /* topic */
-    public ProfileScreen clickFirstTopicListProfile() {
+    public ProfileScreen clickFirstTopicListProfile()  {
         WaitUntilElementIsVisible(topicTalkList);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
+    }
+
+    /* edit topic */
+    public ProfileScreen clickBtnSeeMore() {
+        tapByElement(buttonSeeMore);
+        return new ProfileScreen(driver);
+    }
+    
+    public ProfileScreen clickBtnEditTopic() {
+        tapByElement(buttonEditTopic);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen deleteTopicTitle() {
+        fieldTopicTitle.clear();
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen deleteTopicDesc() {
+        isElementPresent(fieldTopicDesc);
+        tapByElement(fieldTopicDesc);
+        fieldTopicDesc.clear();
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen deleteTopicTags() {
+        isElementPresent(tagHardCode);
+        tapByElement(tagHardCode);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen submitTopic() {
+        tapByElement(buttonSubmitTopic);
+        return new ProfileScreen(driver);
+    }
+
+    public TalkScreen getErrorEditTitleTopic() {
+        isElementEnabled(descErrorEditTitleTopic);
+        String desc = descErrorEditTitleTopic.getText();
+        Assert.assertEquals("Whoops! We need you to tell us more to start the topic. Please enter title at least 15 characters.", desc);
+        tapByElement(btnOkModal);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen getErrorErrorEditDescTopic() {
+        isElementEnabled(descErrorEditTitleTopic);
+        String desc = descErrorEditTitleTopic.getText();
+        Assert.assertEquals("Whoops! We need you to tell us more to start the topic. You need at least 100 characters to submit this", desc);
+        tapByElement(btnOkModal);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen getErrorRemoveTagsTopic() {
+        isElementEnabled(descErrorEditTitleTopic);
+        String desc = descErrorEditTitleTopic.getText();
+        Assert.assertEquals("Whoops! We need you to tell us more to start the topic. You need at least 1 tag", desc);
+        tapByElement(btnOkModal);
+        return new TalkScreen(driver);
     }
 
     /* talk */

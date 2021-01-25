@@ -3,6 +3,7 @@ package stepDefinitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.HomeScreen;
 import utils.DriverFactory;
 
 public class TalkSteps extends DriverFactory {
@@ -127,6 +128,11 @@ public class TalkSteps extends DriverFactory {
     }
 
     //topic talk profile
+    @And("^user close modal rate app$")
+    public void user_close_modal_rate_app() throws Throwable {
+        homeScreen.remindMeLaterRatingModal();
+    }
+
     @When("^User clicks topic from topic list on profile$")
     public void user_clicks_topic_from_topic_list_on_profile() {
         homeScreen.clickProfileHomeMenu();
@@ -144,6 +150,46 @@ public class TalkSteps extends DriverFactory {
     @Then("^User will direct to topic detail screen$")
     public void user_will_direct_to_topic_detail_screen() {
         talkScreen.checkTopicDetail();
+    }
+
+    //edit topic from profile
+    @And("^User edit topic from topic on list profile$")
+    public void user_edit_topic_from_topic_on_list_profile() throws Throwable {
+        profileScreen.clickBtnSeeMore();
+        profileScreen.clickBtnEditTopic();
+    }
+    
+    @And("^User submit topic with empty title$")
+    public void user_submit_topic_with_empty_title() throws Throwable {
+        profileScreen.deleteTopicTitle();
+        profileScreen.submitTopic();
+    }
+
+    @And("^User submit topic with empty description$")
+    public void user_submit_topic_with_empty_description() throws Throwable {
+        profileScreen.deleteTopicDesc();
+        profileScreen.submitTopic();
+    }
+
+    @And("^User submit topic after remove all tags$")
+    public void user_submit_topic_after_remove_all_tags() throws Throwable {
+        profileScreen.deleteTopicTags();
+        profileScreen.submitTopic();
+    }
+
+    @Then("^User will see toast msg that title at least have 15 character$")
+    public void user_will_see_toast_msg_that_title_at_least_have_15_character() throws Throwable {
+        profileScreen.getErrorEditTitleTopic();
+    }
+
+    @Then("^User will see toast msg that desc at least have 100 character$")
+    public void user_will_see_toast_msg_that_desc_at_least_have_100_character() throws Throwable {
+        profileScreen.getErrorErrorEditDescTopic();
+    }
+
+    @Then("^User will see toast msg that need at least one tag$")
+    public void user_will_see_toast_msg_that_need_at_least_one_tag() throws Throwable {
+        profileScreen.getErrorRemoveTagsTopic();
     }
 
 }
