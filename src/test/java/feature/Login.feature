@@ -112,14 +112,14 @@ Feature: Login into account
 
   #FDBRMA-365
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
-  Scenario Outline: Login with valid username and password
+  Scenario Outline: Login with valid username and password - phone not verified
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will see verify phone screen to complete by user
 
     Examples:
       |         email        |        password       |
@@ -325,13 +325,14 @@ Feature: Login into account
 
   #FDBRMA-365
   @FDBRMA-365Ios
-  Scenario Outline: Login with valid username and password
+  Scenario Outline: Login with valid username and password - phone not verified
     Given User navigates to onboarding screen by click next
     When User clicks login button on onboarding screen
     Then User enters the "<username>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
+    Then User will see verify phone screen to complete by user
 
     Examples:
       | username | password  |
