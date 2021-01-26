@@ -15,10 +15,10 @@ Feature: Verify account
     And User clicks login button on login screen
     When User click complete verify button on modal
     Then User will see verify process
-    When User clicks verify now button on verify email screen bypass otp
-    Then User will see success msg verified by email contains "<email>"
     When User clicks verify now button on verify phone screen bypass otp
     Then User will see success msg verified by phone contains "<phone>"
+    When User clicks verify now button on verify email screen bypass otp
+    Then User will see success msg verified by email contains "<email>"
     And User complete data on personal info screen "<fullname>"
     And User choose beauty profile on beauty profile screen
     And User choose beauty concern on beauty concern screen
@@ -39,10 +39,10 @@ Feature: Verify account
     And User clicks login button on login screen
     When User click complete verify button on modal
     Then User will see verify process
-    When User change email "<newemail>" to verify email bypass otp
-    Then User will see success msg verified by email contains "<newemail>"
     When User change phone "<newphone>" to verify phone bypass otp
     Then User will see success msg verified by phone contains "<newphone>"
+    When User change email "<newemail>" to verify email bypass otp
+    Then User will see success msg verified by email contains "<newemail>"
     And User complete data on personal info screen "<fullname>"
     And User choose beauty profile on beauty profile screen
     And User choose beauty concern on beauty concern screen
@@ -57,7 +57,7 @@ Feature: Verify account
   Scenario Outline: Verify Registered Email - Registered Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -80,7 +80,7 @@ Feature: Verify account
   Scenario Outline: Verify Changed Email - Changed Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -103,7 +103,7 @@ Feature: Verify account
   Scenario Outline: Verify Changed Email - Changed Phone using Suspend email and phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -125,6 +125,7 @@ Feature: Verify account
   @FDBRMA-19
   Scenario Outline: Verify Input With Invalid Format Email
     Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
     And User clicks next button on login screen
