@@ -65,19 +65,6 @@ Feature: Create account
       | phonenumber  |
       | 087885221338 |
 
-  #FDBRMA-363 #FDBRMA-136
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input email with incorrect format email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then display msg "Please enter your correct email address" is displayed under phone number field
-
-    Examples:
-      |               email               |
-      |	          jzjsh++..-@test.com     |
-
   #FDBRMA-214
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input phone number starts without 0
@@ -103,32 +90,6 @@ Feature: Create account
     Examples:
       | phonenumber |
       | 08170223322 |
-
-
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup using registered email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then show modal email has been registered
-
-    Examples:
-      |            email           |
-      | sprint46ios@mailinator.com |
-
-  #FDBRMA-137
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup using verified email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then show modal verified email android
-
-    Examples:
-      |          email            |
-      | testflight@mailinator.com |
 
   #FDBRMA-211
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
