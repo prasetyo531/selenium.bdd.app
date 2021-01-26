@@ -18,8 +18,8 @@ public class LoginSteps extends DriverFactory {
     }
 
     //***   Login input password   ****//
-    @Then("^user enters the \"([^\"]*)\" email to login$")
-    public void user_enters_the_something_email_to_login(String email) throws Throwable {
+    @Then("^User enters the \"([^\"]*)\" email to login$")
+    public void User_enters_the_something_email_to_login(String email) throws Throwable {
 
         loginScreen.inputUsrEmailPhoneName(email);
     }
@@ -48,6 +48,11 @@ public class LoginSteps extends DriverFactory {
         homeScreen.acceptAlertPermission();
     }
 
+    @Then("^User will see verify phone screen to complete by user$")
+    public void user_will_see_verify_phone_screen_to_complete_by_user() {
+        verifyAccountScreen.verifyPhoneStepper();
+    }
+
     // *** hardcode login username
     @Then("^User enters the username on login screen$")
     public void user_enters_the_username_on_login_screen() {
@@ -69,8 +74,8 @@ public class LoginSteps extends DriverFactory {
 
         loginScreen.inputHardcodePassword();
     }
-    // hardcode password to login **
 
+    // hardcode password to login **
     @And("^User clicks next button on login screen$")
     public void User_clicks__next_button_on_login_screen() throws Throwable {
 
@@ -124,8 +129,8 @@ public class LoginSteps extends DriverFactory {
     }
 
     /* phone number not verified */
-    @Then("^user see and click login on modal phone number is not verified$")
-    public void user_see_and_click_login_on_modal_phone_number_is_not_verified() throws Throwable {
+    @Then("^User see and click login on modal phone number is not verified$")
+    public void User_see_and_click_login_on_modal_phone_number_is_not_verified() throws Throwable {
 
         loginScreen.clickLoginBtnModal();
     }
@@ -203,17 +208,11 @@ public class LoginSteps extends DriverFactory {
         //loginScreen.errorDescUsernamePasswordNotValidModalIos();
     }
 
-    @Then("^user see and close modal email is used to multiple account$")
-    public void user_see_and_close_modal_email_is_used_to_multiple_account() throws Throwable {
+    @Then("^User see and close modal email is used to multiple account$")
+    public void User_see_and_close_modal_email_is_used_to_multiple_account() throws Throwable {
 
         loginScreen.errorTitleEmailDuplicateModal();
         loginScreen.errorDescEmailDuplicateModal();
     }
-
-//    @Then("^pop up message shoul Then pop up message should displayed displayed$")
-//    public void pop_up_message_should_displayed() {
-//        loginScreen.errorDescPasswordNotValidModal();
-//        loginScreen.clickRegisterBtnModal();
-//    }
 
 }
