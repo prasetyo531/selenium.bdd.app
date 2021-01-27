@@ -101,6 +101,7 @@ public class LoginSteps extends DriverFactory {
 
     @When("^User resend otp 3 times from phone on otp screen android$")
     public void user_resend_otp_3_times_from_phone_on_otp_screen_android() throws Throwable {
+        verifyAccountScreen.clickVerifyPhoneNow();
         otpScreen.comparePhoneReceiver();
         otpScreen.clickResendCodeUntilSuspend();
     }

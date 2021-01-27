@@ -22,9 +22,9 @@ Feature: Login into account
 
     Examples:
       |        phonenumber          |
-      |	       085212688725	        |
-      |        6285212688725        |
-      |       +6285212688725        |
+      |	       081284910005	        |
+      |        6281284910005        |
+      |       +6281284910005     |
 
   #FDBRMA-172
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -66,7 +66,7 @@ Feature: Login into account
       |	  0812812812812	     |
 
   #FDBRMA-104
-  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest @FDBRMA-104
+  @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using verified email address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -93,7 +93,7 @@ Feature: Login into account
 
     Examples:
       |           email                  |        password       |
-      |	      verifyprod@mailinator.com	 |        test123        |
+      |	      vnsphl30@mailinator.com	 |        test123        |
 
   #FDBRMA-112
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -115,15 +115,15 @@ Feature: Login into account
   Scenario Outline: Login with valid username and password - phone not verified
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<email>" email to login
+    Then User enters the "<username>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see verify phone screen to complete by user
 
     Examples:
-      |         email        |        password       |
-      |	      putwid	 |        tester123        |
+      |         username    |        password       |
+      |	      vnsphl31	 |        test123        |
 
    #FDBRMA-117
   @Android @Login @Production @Regression @RealAccount @RealDevices @UiTest
@@ -184,7 +184,7 @@ Feature: Login into account
     Examples:
       |   username   |  password  |
       |    putwid    | 123qwerty  |
-      |  vnsphl27  | test123   |
+      |  vnsphl27  | 123qwerty   |
 
    #FDBRMA-173
   @Android @Login @Staging @Regression @RealAccount @RealDevices @UiTest
@@ -209,18 +209,18 @@ Feature: Login into account
     Then User enters the "<phonenumber>" phonenumber to login
     And User clicks next button on login screen
     Then User see and click login on modal phone number is not verified
-    Then user changes inputed login field to "myjne001@gmail.com" to login
+    Then user changes inputed login field to "nohpsama@mailinator.com" to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will see verify phone screen to complete by user
 
     Examples:
       |      phonenumber         |   password   |
       |	    0812849159510	     |   test123    |
 
   #FDBRMA-217
-  @Android @Login @Regression @RealAccount @RealDevices @UiTest @demo
+  @Android @Login @Regression @RealAccount @RealDevices @UiTest
   Scenario Outline: Login using suspended phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -232,7 +232,7 @@ Feature: Login into account
 
     Examples:
       |        phonenumber          |
-      |	       6287808192493	    |
+      |	       62818894410	    |
 
   ##################################################################################
   #IOS
