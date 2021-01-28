@@ -89,7 +89,7 @@ public class OtpScreen extends ActionBase{
         Assert.assertTrue(titleReceiver.equals("Verifying Number"));
 
         String labelReceiver = authReceiverLabel.getText();
-        Assert.assertTrue(labelReceiver.startsWith("+628"));
+        Assert.assertTrue(labelReceiver.startsWith("+"));
 
         String labelwn = labelBeforeTapToChange.getText();
         Assert.assertTrue(labelwn.equals("Wrong number?"));
@@ -173,7 +173,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen clickResendCode() throws IOException {
 
-        isElementEnabled(confirmOtpBtn);
+        WaitUntilElementIsVisible(resendCodeLabel);
         tapByElement(resendCodeLabel);
 
         return new OtpScreen(driver);

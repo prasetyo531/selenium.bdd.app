@@ -20,8 +20,8 @@ Feature: Create account
     Then User will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email          |      username     |
-      |	  081284915951	     |    realotp@mailinator.com   |     realotp01     |
+      |   phonenumber        |              email                  |      username     |
+      |	  0812119119119	     |    bddregisandro01@mailinator.com   |     bddregisandro01     |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -34,17 +34,17 @@ Feature: Create account
 
     Examples:
       |       phonenumber        |
-      |	    6281284919999	     |
-      |	    +6281284919998	     |
+      |	    62812120120120	     |
+      |	    +62812120120120	     |
 
-  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-212
+  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
   Scenario Outline: Signup input with invalid format phone or email
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<auth>" to register
     And User clicks next button on register screen
-    Then display msg "This email or phone number is invalid" is displayed under phone number field
+    Then display msg "This phone number is invalid" is displayed under phone number field
 
     Examples:
       |                     auth                   |
@@ -63,7 +63,7 @@ Feature: Create account
 
     Examples:
       | phonenumber  |
-      | 087885221338 |
+      | 081284910005 |
 
   #FDBRMA-214
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -72,7 +72,7 @@ Feature: Create account
     When User clicks register button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to register
     And User clicks next button on register screen
-    Then display msg "Please enter your correct phone number" is displayed under phone number field
+    Then user will direct to otp screen from phone to register
 
     Examples:
       |       phonenumber         |
@@ -89,7 +89,7 @@ Feature: Create account
 
     Examples:
       | phonenumber |
-      | 08170223322 |
+      | 62812000978846 |
 
   #FDBRMA-211
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -120,7 +120,7 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                    |      username     |
-      |	  081301209991	     |    bypassotpnumber02@mailinator.com   |    bypassotpnumber02    |
+      |	  0813142142155      |    bypassotpnumber04@mailinator.com   |    bypassotpnumber04    |
 
   ### Verification Screen ###
 
@@ -138,7 +138,7 @@ Feature: Create account
 
     Examples:
       |       auth        |
-      |	  08150125012	  |
+      |	  0815144144144	  |
 
   #FDBRMA-145 #FDBRMA-215 #FDBRMA-180 #FDBRMA-181
   @FDBRMA-145 @DataStaging @otpScreen
@@ -156,7 +156,7 @@ Feature: Create account
 
     Examples:
       |       auth        |
-      |	  08180125012	  |
+      |	  0818215215181	  |
 
   #FDBRMA-154
   @FDBRMA-154 @DataStaging @otpScreen
@@ -166,7 +166,7 @@ Feature: Create account
     Then User enters the "<phone>" phonenumber to register
     And User clicks next button on register screen
     When User clicks tap to change auth and input email "<email>"
-    Then User direct to verify email screen
+    Then display msg "This phone number is invalid" is displayed under phone number field
 
     Examples:
       |       phone        |    email     |
