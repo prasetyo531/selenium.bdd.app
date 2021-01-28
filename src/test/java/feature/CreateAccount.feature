@@ -273,7 +273,7 @@ Feature: Create account
       |	  081384915168	   |  wrongformatpass02@mailinator.com  |      wrongformatpass         |   abcd1234abcd1234abcd1234abcd    |
 
   #FDBRMA-202
-  @Android @DemoPras @DataStaging @completeAccount
+  @Android @DemoPras @DataStaging @completeAccount @register
   Scenario Outline: Submit input incorrect username format - contains special char
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
@@ -285,7 +285,7 @@ Feature: Create account
     Then User will see error msg "Please use alphabets, numbers, and '_' symbol only" underneath username field
 
     Examples:
-      |   email           |              phone                        |     username     |
+      |   phone           |              email                        |     username     |
       |	  081301200202	  |    wrongusernameformat04@mailinator.com   |     usern@m3     |
 
   ##################################################################################
