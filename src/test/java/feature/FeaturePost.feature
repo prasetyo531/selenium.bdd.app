@@ -10,7 +10,7 @@ Feature: User Check Post
   Scenario Outline: Report - Share post other user from discover
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -31,7 +31,7 @@ Feature: User Check Post
   Scenario Outline: Share - Delete own post from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -51,7 +51,7 @@ Feature: User Check Post
   Scenario Outline: Check tagged post with user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -68,7 +68,7 @@ Feature: User Check Post
   Scenario Outline: Check tagged post without user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen

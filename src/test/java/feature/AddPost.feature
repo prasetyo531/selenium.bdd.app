@@ -9,7 +9,7 @@ Feature: User Add Post
   Scenario Outline: Add post image only camera - Add post with tag product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -29,7 +29,7 @@ Feature: User Add Post
   Scenario Outline: Add post image from gallery - Add post without tag product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -49,7 +49,7 @@ Feature: User Add Post
   Scenario Outline: Add post cancel tag post and cancel post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -70,7 +70,7 @@ Feature: User Add Post
   Scenario Outline: Add post with tag product - Review product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -92,7 +92,7 @@ Feature: User Add Post
   Scenario Outline: Add post - Tag reviewed product by search product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -114,7 +114,7 @@ Feature: User Add Post
   Scenario Outline: Add post with multiple tag product - review each tagged product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen

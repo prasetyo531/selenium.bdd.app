@@ -8,7 +8,7 @@ Feature: User Edit Post
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -28,7 +28,7 @@ Feature: User Edit Post
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -48,7 +48,7 @@ Feature: User Edit Post
   Scenario Outline: Edit post - Remove tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -67,7 +67,7 @@ Feature: User Edit Post
   Scenario Outline: Edit post - Remove tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -86,7 +86,7 @@ Feature: User Edit Post
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -105,7 +105,7 @@ Feature: User Edit Post
   Scenario Outline: Edit post - remove reviewed product from tag until only one product in tag
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
