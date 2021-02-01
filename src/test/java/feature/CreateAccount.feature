@@ -39,7 +39,7 @@ Feature: Create account
 
   #FDBRMA-213 #FDBRMA-123 #FDBRMA-124
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input with invalid format phone or email
+  Scenario Outline: Signup input with invalid format phone
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<auth>" to register

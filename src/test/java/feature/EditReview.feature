@@ -28,7 +28,7 @@ Feature: User Edit Review
 
     Examples:
       |         email        |        password       |
-      |	      onlyreviewbdd	 |        test123        |
+      |	      editreviewbdd	 |        test123        |
 
   #FDBRMA-420 #FDBRMA-415 #FDBRMA-416
   @EditReview @Staging @Bug

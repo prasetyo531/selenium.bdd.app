@@ -21,8 +21,8 @@ Feature: User Add Post
     Then User will direct to product list screen to tag product
 
     Examples:
-      |         email        |        password       |
-      |	      bddtestaddpost	 |        test123        |
+      |         email            |        password       |
+      |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-55
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
@@ -41,8 +41,8 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
     Examples:
-      |         email        |        password       |
-      |	      bddtestaddpost	 |        test123        |
+      |         email            |        password       |
+      |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-57 #FDBRMA-65 #FDBRMA-317
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
@@ -62,8 +62,8 @@ Feature: User Add Post
     Then User will see confirm modal to cancel add post
 
     Examples:
-      |         email        |        password       |
-      |	      bddtestaddpost	 |        test123        |
+      |         email            |        password       |
+      |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-58 #FDBRMA-59
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
@@ -84,8 +84,8 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
     Examples:
-      |         email        |        password       |
-      |	      bddtestaddpost00	 |        test123        |
+      |         email            |        password       |
+      |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-56 #FDBRMA-60
   @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
@@ -106,8 +106,8 @@ Feature: User Add Post
     Then User will direct to feed where last post is at most top
 
     Examples:
-      |                 search               |
-      |	            nature republic          |
+      |         email            |      password       |           search               |
+      |	      bddtestaddpost01	 |	      test123      |       nature republic          |
 
   #FDBRMA-61  #FDBRMA-63
   @FDBRMA-61
