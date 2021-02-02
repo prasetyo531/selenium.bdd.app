@@ -6,7 +6,7 @@ Feature: Verify account
   User should fill personal info, beauty profile and concern
 
   #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @Android @Smoke @bypassotp @IntegrationTest
+  @Android @staging @Smoke @bypassotp @IntegrationTest
   Scenario Outline: Verify Registered Email - Registered Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -30,7 +30,7 @@ Feature: Verify account
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
-  @Android @Smoke @bypassotp @IntegrationTest
+  @Android @staging @Smoke @bypassotp @IntegrationTest
   Scenario Outline: Verify Changed Email - Changed Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -201,4 +201,4 @@ Feature: Verify account
 
     Examples:
       |   username    |   password      |
-      |	  newnew01	  |   test123     |
+      |	  newnew02	  |   test123     |
