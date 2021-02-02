@@ -6,7 +6,7 @@ Feature: User Check Post
   I should able report, share, delete post
 
   #FDBRMA-345 #FDBRMA-346
-  @CheckPost
+  @CheckPost @staging
   Scenario Outline: Report - Share post other user from discover
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -24,10 +24,10 @@ Feature: User Check Post
 
     Examples:
       |         email        |        password       |
-      |	      apkprod20	     |        test123        |
+      |	      addpostbdd	     |        test123        |
 
   #FDBRMA-346 #FDBRMA-347
-  @CheckPost
+  @CheckPost @staging
   Scenario Outline: Share - Delete own post from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -44,10 +44,10 @@ Feature: User Check Post
 
     Examples:
       |         email        |        password   |
-      |	      apkprod20	     |        test123        |
+      |	      addpostbdd	     |        test123        |
 
   #FDBRMA-421
-  @CheckPost
+  @CheckPost @staging
   Scenario Outline: Check tagged post with user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -61,10 +61,10 @@ Feature: User Check Post
 
     Examples:
       |         email        |        password   |
-      |	      apkprod19	     |        test123    |
+      |	      onlypostbdd	     |        test123    |
 
   #FDBRMA-422
-  @CheckPost
+  @CheckPost @staging
   Scenario Outline: Check tagged post without user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -77,5 +77,5 @@ Feature: User Check Post
     Then User will see overall rating for product
 
     Examples:
-      |         email        |        password   |
-      |	      apkprod20	     |        test123    |
+      |         email             |        password   |
+      |	      postreviewbdd01	  |        test123    |
