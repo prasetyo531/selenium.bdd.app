@@ -11,7 +11,7 @@ public class ReviewListSteps extends DriverFactory {
 
     @And("^User clicks see more reviews on product detail$")
     public void user_clicks_see_more_reviews_on_product_detail() throws Throwable {
-
+        homeScreen.findAndCloseFloatingImg();
         homeScreen.clickProductCategory();
 
         productCategoryScreen.clickFirstPopularProduct();
