@@ -5,6 +5,7 @@ Feature: User navigate to topic detail screen
   I should able to operate all feature
 
   ####  Topic ####
+  #FDBRMA-597
   @Android @Talk @ReplyTopic @Bug
   Scenario Outline: Create reply topic at not joined group
     Given User navigates to onboarding screen by swipe
@@ -41,7 +42,6 @@ Feature: User navigate to topic detail screen
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
     Then User will see modal account status on homescreen and close modal rating app
-#    And user close modal rate app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile 
     And User submit topic with empty title
@@ -58,7 +58,6 @@ Feature: User navigate to topic detail screen
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
     Then User will see modal account status on homescreen and close modal rating app
-#    And user close modal rate app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic with empty description
@@ -75,7 +74,6 @@ Feature: User navigate to topic detail screen
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
     Then User will see modal account status on homescreen
-    And user close modal rate app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic after remove all tags
@@ -84,7 +82,6 @@ Feature: User navigate to topic detail screen
     Examples:
       | username | password |
       | usertalk | test123  |      
-
 
   ####  Talk ####
   @Android @Talk @ReplyTalk @Bug
