@@ -208,5 +208,10 @@ public class TalkSteps extends DriverFactory {
         talkScreen.clickOnProfileUser();
         profileScreen.followUserFromProfile();
     }
+
+    @And("^user like recent talk from tab Talk$")
+    public void user_like_recent_talk_from_tab_talk() throws Throwable {
+        talkScreen.likeRecentTalk();
+    }
     
 }

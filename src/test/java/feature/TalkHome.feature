@@ -52,7 +52,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia
+  @Android @Talk @TestTalkMacia1
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -66,4 +66,19 @@ Feature: User navigate to talk homepage
     Examples:
       | username   | password |
       | usertalk01 | test1234 |  
+    
+  #FDBRMA-612
+  @Android @Talk @TestTalkMacia @Failed
+  Scenario Outline: Like recent talk from recent talk tab
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    And user like recent talk from tab Talk
+
+    Examples:
+      | username   | password |
+      | usertalk01 | test1234 |      
     

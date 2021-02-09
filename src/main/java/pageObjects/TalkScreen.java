@@ -71,6 +71,10 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.talk:id/imageUserIcon') and @index='0']")
     public MobileElement userProfile;
 
+    @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove') and @index='0']")
+    public List<MobileElement> btnLike;
+    
+
     /***********************************************
      group detail and topic list and add topic screen
      ***********************************************/
@@ -442,6 +446,11 @@ public class TalkScreen extends ActionBase {
 
     public TalkScreen clickOnProfileUser() {
         tapByElement(userProfile);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen likeRecentTalk() {
+        clickLastMenus(btnLike);
         return new TalkScreen(driver);
     }
 }
