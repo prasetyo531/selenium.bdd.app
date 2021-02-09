@@ -30,6 +30,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/setting")
     public MobileElement settingIcon;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonFollow")
+    public MobileElement btnFollow;
+
     /* review or post list */
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
     public List<MobileElement> listProductReviewsProfile;
@@ -813,6 +816,20 @@ public class ProfileScreen extends ActionBase{
         this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
+        return new ProfileScreen(driver);
+    }
+    
+    /* follow user from profile */
+    public ProfileScreen followUserFromProfile() throws InterruptedException {
+        
+        isElementEnabled(btnFollow);
+        tapByElement(btnFollow);
+
+        Thread.sleep(2000);
+        String getValue = btnFollow.getText();
+        org.testng.Assert.assertEquals(getValue, "Following");
+        System.out.println(getValue);
+        
         return new ProfileScreen(driver);
     }
 }

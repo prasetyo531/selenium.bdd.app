@@ -35,7 +35,7 @@ Feature: User navigate to topic detail screen
     
   ####  Edit Topic ####
   #FDBRMA-97 
-  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMacia
+  @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Check title field - field title is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -52,7 +52,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test123  |
     
   #FDBRMA-98
-  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMacia
+  @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Check description field - field description is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

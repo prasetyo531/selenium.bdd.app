@@ -6,7 +6,7 @@ Feature: User navigate to talk homepage
 
   
   #FDBRMA-400
-  @Android @Talk @TestTalkMacia
+  @Android @Talk 
   Scenario Outline: Join group from snippet on Home Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -35,3 +35,35 @@ Feature: User navigate to talk homepage
     Examples:
       |   username        |   password    |
       |	  bddtalk01	      |   test123     |
+    
+  #FDBRMA-610
+  @Android @Talk @TestTalkMacia1
+  Scenario Outline: Follow member from recent talk card
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    And user follow member from recent talk card
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |
+    
+  #FDBRMA-611
+  @Android @Talk @TestTalkMacia
+  Scenario Outline: Follow member from recent topic card
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    Then User click on tab Topic
+    And user follow member from recent talk card
+
+    Examples:
+      | username   | password |
+      | usertalk01 | test1234 |  
+    

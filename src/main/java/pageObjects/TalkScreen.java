@@ -62,6 +62,15 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Joined\"]")
     public MobileElement joinedGroupTab;
 
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Talk\"]/android.widget.TextView")
+    public MobileElement tabTalk;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Topic\"]/android.widget.TextView")
+    public MobileElement tabTopic;
+
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.talk:id/imageUserIcon') and @index='0']")
+    public MobileElement userProfile;
+
     /***********************************************
      group detail and topic list and add topic screen
      ***********************************************/
@@ -416,6 +425,23 @@ public class TalkScreen extends ActionBase {
         tapByElement(inputDescAddTalkScreen);
         inputValue(inputDescAddTalkScreen, fakeValuesService.regexify("[a-z1-9]{100}")+" "+"reply talk description");
         tapByElement(submitAddTopicTalkBtn);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen scrollToRecentTalk() {
+        verticalSwipeByPercentagesDirectly(45,431,64, 1813);
+        verticalSwipeByPercentagesDirectly(64,1813,54, 1224);
+        verticalSwipeByPercentagesDirectly(54,1224,32, 934);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen clickTabTopic() {
+        tapByElement(tabTopic);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen clickOnProfileUser() {
+        tapByElement(userProfile);
         return new TalkScreen(driver);
     }
 }
