@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class MasterHooks extends DriverFactory {
 
-    Runtime rt = Runtime.getRuntime();
-
     @Before
     public void setUp() throws IOException, InterruptedException {
 

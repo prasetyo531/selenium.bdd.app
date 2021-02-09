@@ -411,6 +411,25 @@ public class ActionBase extends DriverFactory {
         }
     }
 
+    public void clickFirstMenus(List<MobileElement> mobileElements){
+        try {
+            //count size first
+            List<MobileElement> li = mobileElements;
+            int i = 0;
+            System.out.println("there are"+" "+li.size()+" "+"element");
+
+            LinkedList<MobileElement> arrayComment = new LinkedList<MobileElement>();
+
+            while(i!=li.size()) {
+                arrayComment.add(li.get(i));
+                i++;
+            }
+            arrayComment.getFirst().click();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     //xpath smart search
     public static int randomElementPicker(MobileElement[] elements) {
         Random r = new Random();

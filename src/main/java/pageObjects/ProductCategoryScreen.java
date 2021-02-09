@@ -23,43 +23,81 @@ public class ProductCategoryScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
     public MobileElement firstPopularProduct;
 
-    @AndroidFindBy(id="com.fdbr.android:id/itemMenuParent")
-    public List<MobileElement> listroductCat;
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent')]")
+    public List<MobileElement> listProductCat;
+
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id,'com.fdbr.android:id/imagePhoto')]")
+    public MobileElement photoProduct;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelProductName')]")
+    public MobileElement productName;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public ProductCategoryScreen(AppiumDriver driver) throws IOException {
+    public ProductCategoryScreen(AppiumDriver driver){
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public ProductCategoryScreen clickMenuBody() throws IOException {
+    public ProductCategoryScreen clickInputSearchBar(String productname) throws InterruptedException {
+        WaitUntilElementIsVisible(searchBar);
+        inputValueEnter(searchBar,productname);
+        Thread.sleep(4000);
+
+        return new ProductCategoryScreen(driver);
+    }
+
+    public ProductCategoryScreen clickMenuBody() {
 
         tapByElement(productCategoryBody);
 
         return new ProductCategoryScreen(driver);
     }
 
-    public ProductCategoryScreen clickMenuSkincare() throws IOException {
+    public ProductCategoryScreen clickMenuSkincare() {
 
         tapByElement(productCategorySkincare);
 
         return new ProductCategoryScreen(driver);
     }
 
-    public ProductCategoryScreen clickRandomMenuProductCat() throws IOException {
+    public ProductCategoryScreen clickRandomMenuProductCat() {
 
-        clickRandomMenus(listroductCat);
+        clickRandomMenus(listProductCat);
 
         return new ProductCategoryScreen(driver);
     }
 
-    public ProductCategoryScreen clickFirstPopularProduct() throws IOException {
+    public ProductCategoryScreen clickFirstPopularProduct() {
 
         tapByElement(firstPopularProduct);
 
         return new ProductCategoryScreen(driver);
     }
 
+    public boolean isSearchBarActive() {
+
+        WaitUntilElementIsVisible(searchBar);
+        boolean boolElem1= isElementPresent(searchBar);
+        String txt = searchBar.getText();
+
+        return (boolElem1);
+    }
+
+    public boolean isSearchResultAppear() {
+
+        WaitUntilElementIsVisible(photoProduct);
+        boolean boolElem1= isElementPresent(photoProduct);
+        boolean boolElem2= isElementPresent(productName);
+
+        return (boolElem1 && boolElem2);
+    }
+
+    public ProductCategoryScreen clickFirstProductSearchResult() {
+
+        clickFirstMenus(listProductCat);
+
+        return new ProductCategoryScreen(driver);
+    }
 }
