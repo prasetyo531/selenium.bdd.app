@@ -45,7 +45,7 @@ Feature: User navigate to talk homepage
     Then User will see modal account status on homescreen
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
-    And user follow member from recent talk card
+    And User follow member from recent talk card
 
     Examples:
       | username | password |
@@ -61,14 +61,14 @@ Feature: User navigate to talk homepage
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     Then User click on tab Topic
-    And user follow member from recent talk card
+    And User follow member from recent topic card
 
     Examples:
       | username   | password |
       | usertalk01 | test1234 |  
     
   #FDBRMA-612
-  @Android @Talk @TestTalkMacia @Failed
+  @Android @Talk @TestTalkMacia1
   Scenario Outline: Like recent talk from recent talk tab
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -76,9 +76,61 @@ Feature: User navigate to talk homepage
     Then User will see modal account status on homescreen
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
-    And user like recent talk from tab Talk
+    And User like recent talk from tab Talk
 
     Examples:
-      | username   | password |
-      | usertalk01 | test1234 |      
+      | username | password |
+      | usertalk | test1234 |
+    
+      
+  #FDBRMA-613
+  @Android @Talk @TestTalkMacia1
+  Scenario Outline: Reply most recent talk
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    When User tap on reply button at talk card
+    Then User will see topic detail screen
+    And User reply talk on topic detail
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |  
+
+  #FDBRMA-613
+  @Android @Talk @TestTalkMacia
+  Scenario Outline: Reply most recent topic
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    Then User click on tab Topic
+    When User click on recent topic
+    Then User will see topic detail screen
+    And User reply topic on topic detail 
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |      
+
+  #FDBRMA-616
+  @Android @Talk @TestTalkMacia1 @OnProgress
+  Scenario Outline: Check see more talk
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until last screen
+    When User click on see more talk
+#    Then User will see list of recent talk
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |    
     

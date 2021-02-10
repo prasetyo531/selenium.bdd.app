@@ -72,9 +72,18 @@ public class TalkScreen extends ActionBase {
     public MobileElement userProfile;
 
     @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove') and @index='0']")
-    public List<MobileElement> btnLike;
-    
+    public List<MobileElement> listBtnLikeRecentTalk;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonComment') and @index='1']")
+    public List<MobileElement> listBtnReplyRecentTalk;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
+    public List<MobileElement> listRecentTopic;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
+    public MobileElement btnSeeMoreTalkTopic;
+    
+    
     /***********************************************
      group detail and topic list and add topic screen
      ***********************************************/
@@ -180,12 +189,21 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSubmit")
     public MobileElement submitReplyTopicBtn;
 
+    //reply talk screen
+    @AndroidFindBy(id="com.fdbr.android.talk:id/inputDescription")
+    public MobileElement descFieldReplyTalk;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSubmit")
+    public MobileElement submitReplyTalkBtn;
+    
     //error modal add, reply topic and reply talk as guest
     @AndroidFindBy(id="com.fdbr.android:id/textDescription")
     public MobileElement descErrorModal;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement okModal;
+    
+    String replyTalkTopic = "bdd test reply topic bdd test reply topic bdd test reply topic";
 
     // This is a constructor, as every page need a base driver to find android elements
     public TalkScreen(AppiumDriver driver) {
@@ -435,7 +453,14 @@ public class TalkScreen extends ActionBase {
     public TalkScreen scrollToRecentTalk() {
         verticalSwipeByPercentagesDirectly(45,431,64, 1813);
         verticalSwipeByPercentagesDirectly(64,1813,54, 1224);
-        verticalSwipeByPercentagesDirectly(54,1224,32, 934);
+        verticalSwipeByPercentagesDirectly(54,1224,32, 500);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen scrollUntilLasScreen() {
+        verticalSwipeByPercentagesDirectly(40,1801,31, 297);
+        verticalSwipeByPercentagesDirectly(53,1961,35, 615);
+        verticalSwipeByPercentagesDirectly(35,615,40, 1974);
         return new TalkScreen(driver);
     }
 
@@ -450,7 +475,57 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen likeRecentTalk() {
-        clickLastMenus(btnLike);
+        clickLastMenus(listBtnLikeRecentTalk);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen replyRecentTalk() {
+        clickLastMenus(listBtnReplyRecentTalk);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen getTopicDetail() {
+        isElementPresent(titleTopic);
+        isElementPresent(replyTopicBtn);
+        isElementPresent(talksLabel);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen replyTalkOnTopicDetail() {
+        clickLastMenus(listReplyTopicTalk);
+        isElementPresent(descFieldReplyTalk);
+        
+        tapAndInputValueKeyboard(descFieldReplyTalk, replyTalkTopic);
+        tapByElement(submitReplyTalkBtn);
+        
+        if(okModal.isDisplayed()) {
+            tapByElement(okModal);
+        }
+        
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen tapRecentTopic() {
+        clickLastMenus(listRecentTopic);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen replyTopicOnTopicDetail() {
+        tapByElement(replyTopicBtn);
+        isElementPresent(descReplyTopic);
+
+        tapAndInputValueKeyboard(descReplyTopic, replyTalkTopic);
+        tapByElement(submitReplyTopicBtn);
+
+        if(okModal.isDisplayed()) {
+            tapByElement(okModal);
+        }
+
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen tapSeeMoreTalkTopic() {
+        tapByElement(btnSeeMoreTalkTopic);
         return new TalkScreen(driver);
     }
 }
