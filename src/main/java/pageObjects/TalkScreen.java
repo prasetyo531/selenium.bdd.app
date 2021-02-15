@@ -80,6 +80,9 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
     public List<MobileElement> listRecentTopic;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
+    public List<MobileElement> listRecentTalk;
+
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
     
@@ -458,9 +461,10 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen scrollUntilLasScreen() {
-        verticalSwipeByPercentagesDirectly(40,1801,31, 297);
-        verticalSwipeByPercentagesDirectly(53,1961,35, 615);
-        verticalSwipeByPercentagesDirectly(35,615,40, 1974);
+        verticalSwipeByPercentagesDirectly(55,681,55, 1984);
+        verticalSwipeByPercentagesDirectly(55,1984,55, 922);
+        verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
+        verticalSwipeByPercentagesDirectly(32,1993,51, 922);
         return new TalkScreen(driver);
     }
 
@@ -498,10 +502,6 @@ public class TalkScreen extends ActionBase {
         tapAndInputValueKeyboard(descFieldReplyTalk, replyTalkTopic);
         tapByElement(submitReplyTalkBtn);
         
-        if(okModal.isDisplayed()) {
-            tapByElement(okModal);
-        }
-        
         return new TalkScreen(driver);
     }
 
@@ -517,15 +517,16 @@ public class TalkScreen extends ActionBase {
         tapAndInputValueKeyboard(descReplyTopic, replyTalkTopic);
         tapByElement(submitReplyTopicBtn);
 
-        if(okModal.isDisplayed()) {
-            tapByElement(okModal);
-        }
-
         return new TalkScreen(driver);
     }
 
     public TalkScreen tapSeeMoreTalkTopic() {
         tapByElement(btnSeeMoreTalkTopic);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen getListTalk() {
+        isElementPresent(listRecentTalk);
         return new TalkScreen(driver);
     }
 }

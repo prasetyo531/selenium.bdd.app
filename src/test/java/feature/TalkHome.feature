@@ -37,7 +37,7 @@ Feature: User navigate to talk homepage
       |	  bddtalk01	      |   test123     |
     
   #FDBRMA-610
-  @Android @Talk @TestTalkMacia1
+  @Android @Talk @TestTalkMacia @Pass
   Scenario Outline: Follow member from recent talk card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -52,7 +52,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia1
+  @Android @Talk @TestTalkMacia @Pass
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -65,10 +65,10 @@ Feature: User navigate to talk homepage
 
     Examples:
       | username   | password |
-      | usertalk01 | test1234 |  
+      | usertalk01 | test123  |  
     
   #FDBRMA-612
-  @Android @Talk @TestTalkMacia1
+  @Android @Talk @TestTalkMacia @Pass
   Scenario Outline: Like recent talk from recent talk tab
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -84,7 +84,7 @@ Feature: User navigate to talk homepage
     
       
   #FDBRMA-613
-  @Android @Talk @TestTalkMacia1
+  @Android @Talk @TestTalkMacia @Pass
   Scenario Outline: Reply most recent talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -101,7 +101,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |  
 
   #FDBRMA-613
-  @Android @Talk @TestTalkMacia
+  @Android @Talk @TestTalkMacia @Pass
   Scenario Outline: Reply most recent topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -128,7 +128,7 @@ Feature: User navigate to talk homepage
     And User click menu fdtalk on homescreen menu
     And User scroll until last screen
     When User click on see more talk
-#    Then User will see list of recent talk
+    Then User will see list of recent talk
 
     Examples:
       | username | password |

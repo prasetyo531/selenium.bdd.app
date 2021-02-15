@@ -255,4 +255,9 @@ public class TalkSteps extends DriverFactory {
         talkScreen.tapSeeMoreTalkTopic();
     }
 
+    @Then("^User will see list of recent talk$")
+    public void user_will_see_list_of_recent_talk() throws Throwable {
+        talkScreen.getListTalk();
+    }
+    
 }
