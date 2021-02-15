@@ -68,10 +68,10 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public boolean isElementPresent(List<MobileElement> mobileElements){
+    public boolean isElementsPresent(List<MobileElement> mobileElements){
         try {
             WebDriverWait wait = new WebDriverWait(driver, 80);
-            wait.until(ExpectedConditions.visibilityOf((WebElement) mobileElements));
+            wait.until ( ExpectedConditions.visibilityOf ( (WebElement) mobileElements ) );
             System.out.println("element is present");
             return true;
         } catch (NoSuchElementException e) {

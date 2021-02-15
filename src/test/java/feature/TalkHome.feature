@@ -119,7 +119,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |      
 
   #FDBRMA-616
-  @Android @Talk @TestTalkMacia1 @OnProgress
+  @Android @Talk @TestTalkMacia1 @Pass
   Scenario Outline: Check see more talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -133,4 +133,20 @@ Feature: User navigate to talk homepage
     Examples:
       | username | password |
       | usertalk | test1234 |    
+    
+  #FDBRMA-616
+  @Android @Talk @TestTalkMacia @Pass
+  Scenario Outline: Check see more topic
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    When User scroll and click tab Topic
+    And User click on see more topic
+    Then User will see list of recent topic
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |        
     

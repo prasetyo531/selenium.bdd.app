@@ -244,6 +244,11 @@ public class TalkSteps extends DriverFactory {
     public void user_scroll_until_last_screen() throws Throwable {
         talkScreen.scrollUntilLasScreen();
     }
+
+    @When("^User scroll and click tab Topic$")
+    public void user_scroll_and_click_tab_topic() throws Throwable {
+        talkScreen.scrollAndClickTabTopic();
+    }
     
     @When("^User click on recent topic$")
     public void user_click_on_recent_topic() throws Throwable {
@@ -257,7 +262,17 @@ public class TalkSteps extends DriverFactory {
 
     @Then("^User will see list of recent talk$")
     public void user_will_see_list_of_recent_talk() throws Throwable {
-        talkScreen.getListTalk();
+        talkScreen.getListRecentTalkTopic();
+    }
+
+    @When("^User click on see more topic$")
+    public void user_click_on_see_more_topic() throws Throwable {
+        talkScreen.tapSeeMoreTalkTopic();
+    }
+
+    @Then("^User will see list of recent topic$")
+    public void user_will_see_list_of_recent_topic() throws Throwable {
+        talkScreen.getListRecentTalkTopic();
     }
     
 }

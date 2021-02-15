@@ -78,10 +78,10 @@ public class TalkScreen extends ActionBase {
     public List<MobileElement> listBtnReplyRecentTalk;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public List<MobileElement> listRecentTopic;
+    public List<MobileElement> recentTopic;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public List<MobileElement> listRecentTalk;
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listRecent")
+    public MobileElement listRecentTalkTopic;
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
@@ -464,7 +464,20 @@ public class TalkScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(55,681,55, 1984);
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
-        verticalSwipeByPercentagesDirectly(32,1993,51, 922);
+        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
+        
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen scrollAndClickTabTopic() {
+        verticalSwipeByPercentagesDirectly(55,681,55, 1984);
+        verticalSwipeByPercentagesDirectly(55,1984,55, 922);
+        verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
+        
+        tapByElement (tabTopic);
+        
+        verticalSwipeByPercentagesDirectly(32,1993,51, 200);
+
         return new TalkScreen(driver);
     }
 
@@ -506,7 +519,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapRecentTopic() {
-        clickLastMenus(listRecentTopic);
+        clickLastMenus(recentTopic);
         return new TalkScreen(driver);
     }
 
@@ -525,8 +538,8 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen getListTalk() {
-        isElementPresent(listRecentTalk);
+    public TalkScreen getListRecentTalkTopic() {
+        isElementPresent(listRecentTalkTopic);
         return new TalkScreen(driver);
     }
 }
