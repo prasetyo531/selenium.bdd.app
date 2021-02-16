@@ -502,6 +502,8 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen getTopicDetail() {
+        WaitUntilElementIsVisible(titleTopic);
+        
         isElementPresent(titleTopic);
         isElementPresent(replyTopicBtn);
         isElementPresent(talksLabel);
@@ -534,6 +536,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapSeeMoreTalkTopic() {
+        WaitUntilElementIsVisible(btnSeeMoreTalkTopic);
         tapByElement(btnSeeMoreTalkTopic);
         return new TalkScreen(driver);
     }

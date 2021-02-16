@@ -822,10 +822,11 @@ public class ProfileScreen extends ActionBase{
     /* follow user from profile */
     public ProfileScreen followUserFromProfile() throws InterruptedException {
         
-        isElementEnabled(btnFollow);
+        WaitUntilElementIsVisible(btnFollow);
         tapByElement(btnFollow);
 
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
+        isElementPresent(btnFollow);
         String getValue = btnFollow.getText();
         org.testng.Assert.assertEquals(getValue, "Following");
         System.out.println(getValue);
