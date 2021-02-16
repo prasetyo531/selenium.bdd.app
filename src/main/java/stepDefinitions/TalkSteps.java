@@ -192,4 +192,87 @@ public class TalkSteps extends DriverFactory {
         profileScreen.getErrorRemoveTagsTopic();
     }
 
+    //follow user from recent activity
+    @And("^User scroll until see recent activity$")
+    public void user_scroll_until_see_recent_activity() throws Throwable {
+        talkScreen.scrollToRecentTalk();
+    }
+
+    @Then("^User click on tab Topic$")
+    public void user_click_on_tab_topic() throws Throwable {
+        talkScreen.clickTabTopic();
+    }
+
+    @And("^User follow member from recent talk card$")
+    public void user_follow_member_from_recent_talk_card() throws Throwable {
+        talkScreen.clickOnProfileUser();
+        profileScreen.followUserFromProfile();
+    }
+
+    @And("^User follow member from recent topic card$")
+    public void user_follow_member_from_recent_topic_card() throws Throwable {
+        talkScreen.clickOnProfileUser();
+        profileScreen.followUserFromProfile();
+    }
+
+    @And("^User like recent talk from tab Talk$")
+    public void user_like_recent_talk_from_tab_talk() throws Throwable {
+        talkScreen.likeRecentTalk();
+    }
+    
+    @When("^User tap on reply button at talk card$")
+    public void user_tap_on_reply_button_at_talk_card() throws Throwable {
+        talkScreen.replyRecentTalk();
+    }
+
+    @Then("^User will see topic detail screen$")
+    public void user_will_see_topic_detail_screen() throws Throwable {
+        talkScreen.getTopicDetail();
+    }
+    
+    @And("^User reply talk on topic detail$")
+    public void user_reply_talk_on_topic_detail() throws Throwable {
+        talkScreen.replyTalkOnTopicDetail();
+    }
+
+    @And("^User reply topic on topic detail$")
+    public void userReplyTopicOnTopicDetail() {
+        talkScreen.replyTopicOnTopicDetail();
+    }
+    
+    @And("^User scroll until last screen$")
+    public void user_scroll_until_last_screen() throws Throwable {
+        talkScreen.scrollUntilLasScreen();
+    }
+
+    @When("^User scroll and click tab Topic$")
+    public void user_scroll_and_click_tab_topic() throws Throwable {
+        talkScreen.scrollAndClickTabTopic();
+    }
+    
+    @When("^User click on recent topic$")
+    public void user_click_on_recent_topic() throws Throwable {
+        talkScreen.tapRecentTopic();
+    }
+
+    @When("^User click on see more talk$")
+    public void user_click_on_see_more_talk() throws Throwable {
+        talkScreen.tapSeeMoreTalkTopic();
+    }
+
+    @Then("^User will see list of recent talk$")
+    public void user_will_see_list_of_recent_talk() throws Throwable {
+        talkScreen.getListRecentTalkTopic();
+    }
+
+    @When("^User click on see more topic$")
+    public void user_click_on_see_more_topic() throws Throwable {
+        talkScreen.tapSeeMoreTalkTopic();
+    }
+
+    @Then("^User will see list of recent topic$")
+    public void user_will_see_list_of_recent_topic() throws Throwable {
+        talkScreen.getListRecentTalkTopic();
+    }
+    
 }

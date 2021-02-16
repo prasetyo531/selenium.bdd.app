@@ -30,6 +30,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/setting")
     public MobileElement settingIcon;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonFollow")
+    public MobileElement btnFollow;
+
     /* review or post list */
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
     public List<MobileElement> listProductReviewsProfile;
@@ -678,14 +681,12 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen findToastAfterUpdateBeautyProfile() {
         //its not check text equals expected text
         toastMatches("Beauty Profile Updated", false);
-
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen findToastAfterUpdateBeautyConcern() {
         //its not check text equals expected text
         toastMatches("Beauty Concern Updated", false);
-
         return new ProfileScreen(driver);
     }
 
@@ -819,6 +820,18 @@ public class ProfileScreen extends ActionBase{
         WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
+        return new ProfileScreen(driver);
+    }
+    
+    /* follow user from profile */
+    public ProfileScreen followUserFromProfile() {
+        WaitUntilElementIsVisible(btnFollow);
+        tapByElement(btnFollow);
+
+        isElementPresent(btnFollow);
+        String getValue = btnFollow.getText();
+        org.testng.Assert.assertEquals(getValue, "Following");
+        System.out.println(getValue);
         return new ProfileScreen(driver);
     }
 }
