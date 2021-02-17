@@ -198,24 +198,27 @@ public class TalkSteps extends DriverFactory {
         talkScreen.scrollToRecentTalk();
     }
 
-    @Then("^User click on tab Topic$")
+    @And("^User click on tab Topic$")
     public void user_click_on_tab_topic() throws Throwable {
         talkScreen.clickTabTopic();
     }
+    
+    @When("^User click on profile user from recent card$")
+    public void user_click_on_profile_user_from_recent_card() throws Throwable {
+        talkScreen.clickOnProfileUser();
+    }
 
-    @And("^User follow member from recent talk card$")
+    @Then("^User follow member from recent talk card$")
     public void user_follow_member_from_recent_talk_card() throws Throwable {
-        talkScreen.clickOnProfileUser();
         profileScreen.followUserFromProfile();
     }
-
-    @And("^User follow member from recent topic card$")
+    
+    @Then("^User follow member from recent topic card$")
     public void user_follow_member_from_recent_topic_card() throws Throwable {
-        talkScreen.clickOnProfileUser();
         profileScreen.followUserFromProfile();
     }
 
-    @And("^User like recent talk from tab Talk$")
+    @Then("^User like recent talk from tab Talk$")
     public void user_like_recent_talk_from_tab_talk() throws Throwable {
         talkScreen.likeRecentTalk();
     }
@@ -225,17 +228,17 @@ public class TalkSteps extends DriverFactory {
         talkScreen.replyRecentTalk();
     }
 
-    @Then("^User will see topic detail screen$")
+    @And("^User will see topic detail screen$")
     public void user_will_see_topic_detail_screen() throws Throwable {
         talkScreen.getTopicDetail();
     }
     
-    @And("^User reply talk on topic detail$")
+    @Then("^User reply talk on topic detail$")
     public void user_reply_talk_on_topic_detail() throws Throwable {
         talkScreen.replyTalkOnTopicDetail();
     }
 
-    @And("^User reply topic on topic detail$")
+    @Then("^User reply topic on topic detail$")
     public void userReplyTopicOnTopicDetail() {
         talkScreen.replyTopicOnTopicDetail();
     }

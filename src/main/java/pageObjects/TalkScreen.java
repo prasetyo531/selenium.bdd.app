@@ -78,7 +78,7 @@ public class TalkScreen extends ActionBase {
     public List<MobileElement> listBtnReplyRecentTalk;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public List<MobileElement> recentTopic;
+    public MobileElement recentTopic;
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/listRecent")
     public MobileElement listRecentTalkTopic;
@@ -521,7 +521,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapRecentTopic() {
-        clickLastMenus(recentTopic);
+        tapByElement(recentTopic);
         return new TalkScreen(driver);
     }
 
