@@ -827,7 +827,10 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen followUserFromProfile() {
         WaitUntilElementIsVisible(btnFollow);
         tapByElement(btnFollow);
+        return new ProfileScreen(driver);
+    }
 
+    public ProfileScreen checkButtonAfterFollow() {
         isElementPresent(btnFollow);
         String getValue = btnFollow.getText();
         org.testng.Assert.assertEquals(getValue, "Following");

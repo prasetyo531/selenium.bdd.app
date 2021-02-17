@@ -10,6 +10,7 @@ public class TalkSteps extends DriverFactory {
 
     @And("^User click menu fdtalk on homescreen menu$")
     public void user_click_menu_fdtalk_on_homescreen_menu() {
+        homeScreen.findAndCloseFloatingImg();
         homeScreen.clickTalkMenu();
     }
 
@@ -44,7 +45,7 @@ public class TalkSteps extends DriverFactory {
     }
 
     @Then("^User will see new topic added$")
-    public void user_will_see_new_topic_added() throws Throwable {
+    public void user_will_see_new_topic_added() {
         talkScreen.checkNewSubmittedTopic();
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
@@ -66,7 +67,7 @@ public class TalkSteps extends DriverFactory {
     }
 
     @And("^User will see confirmation that inform user will automatically joined group after reply topic$")
-    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_topic() throws Throwable {
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_topic() {
         talkScreen.getConfirmationJoinTalk();
     }
 
@@ -79,6 +80,11 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
+    @Then("^User will see new reply topic$")
+    public void user_will_see_new_reply_topic() {
+        talkScreen.checkNewSubmittedTalk();
+    }
+
     @Then("^User will see new reply topic added and user will member of group$")
     public void user_will_see_new_reply_topic_added_and_user_will_member_of_group() {
         talkScreen.checkNewSubmittedTalk();
@@ -88,13 +94,18 @@ public class TalkSteps extends DriverFactory {
         talkScreen.checkBtnAfterJoinGroupDetail();
     }
 
+    @Then("^User will see new reply talk$")
+    public void user_will_see_new_reply_talk() {
+        talkScreen.checkNewSubmittedTalk();
+    }
+
     @And("^User scroll until see talk section on homescreen$")
-    public void user_scroll_until_see_talk_section_on_homescreen() throws Throwable {
+    public void user_scroll_until_see_talk_section_on_homescreen() {
         homeScreen.scrollToTalkSection();
     }
 
     @When("^User clicks join any group from group card on homescreen$")
-    public void user_clicks_join_any_group_from_group_card_on_homescreen() throws Throwable {
+    public void user_clicks_join_any_group_from_group_card_on_homescreen() {
         homeScreen.joinGroupTalk();
     }
 
@@ -113,7 +124,7 @@ public class TalkSteps extends DriverFactory {
     }
 
     @And("^User will see confirmation that inform user will automatically joined group after reply talk$")
-    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_talk() throws Throwable {
+    public void user_will_see_confirmation_that_inform_user_will_automatically_joined_group_after_reply_talk() {
         talkScreen.getConfirmationJoinTalk();
     }
 
@@ -154,124 +165,136 @@ public class TalkSteps extends DriverFactory {
 
     //edit topic from profile
     @And("^User edit topic from topic on list profile$")
-    public void user_edit_topic_from_topic_on_list_profile() throws Throwable {
+    public void user_edit_topic_from_topic_on_list_profile() {
         profileScreen.clickBtnSeeMore();
         profileScreen.clickBtnEditTopic();
     }
     
     @And("^User submit topic with empty title$")
-    public void user_submit_topic_with_empty_title() throws Throwable {
+    public void user_submit_topic_with_empty_title() {
         profileScreen.deleteTopicTitle();
         profileScreen.submitTopic();
     }
 
     @And("^User submit topic with empty description$")
-    public void user_submit_topic_with_empty_description() throws Throwable {
+    public void user_submit_topic_with_empty_description() {
         profileScreen.deleteTopicDesc();
         profileScreen.submitTopic();
     }
 
     @And("^User submit topic after remove all tags$")
-    public void user_submit_topic_after_remove_all_tags() throws Throwable {
+    public void user_submit_topic_after_remove_all_tags() {
         profileScreen.deleteTopicTags();
         profileScreen.submitTopic();
     }
 
     @Then("^User will see toast msg that title at least have 15 character$")
-    public void user_will_see_toast_msg_that_title_at_least_have_15_character() throws Throwable {
+    public void user_will_see_toast_msg_that_title_at_least_have_15_character() {
         profileScreen.getErrorEditTitleTopic();
     }
 
     @Then("^User will see toast msg that desc at least have 100 character$")
-    public void user_will_see_toast_msg_that_desc_at_least_have_100_character() throws Throwable {
+    public void user_will_see_toast_msg_that_desc_at_least_have_100_character() {
         profileScreen.getErrorErrorEditDescTopic();
     }
 
     @Then("^User will see toast msg that need at least one tag$")
-    public void user_will_see_toast_msg_that_need_at_least_one_tag() throws Throwable {
+    public void user_will_see_toast_msg_that_need_at_least_one_tag() {
         profileScreen.getErrorRemoveTagsTopic();
     }
 
     //follow user from recent activity
     @And("^User scroll until see recent activity$")
-    public void user_scroll_until_see_recent_activity() throws Throwable {
+    public void user_scroll_until_see_recent_activity() {
         talkScreen.scrollToRecentTalk();
     }
 
     @Then("^User click on tab Topic$")
-    public void user_click_on_tab_topic() throws Throwable {
+    public void user_click_on_tab_topic() {
         talkScreen.clickTabTopic();
     }
 
-    @And("^User follow member from recent talk card$")
-    public void user_follow_member_from_recent_talk_card() throws Throwable {
+    @When("^User follow member from recent talk card$")
+    public void user_follow_member_from_recent_talk_card() {
         talkScreen.clickOnProfileUser();
         profileScreen.followUserFromProfile();
     }
 
-    @And("^User follow member from recent topic card$")
-    public void user_follow_member_from_recent_topic_card() throws Throwable {
+    @When("^User follow member from recent topic card$")
+    public void user_follow_member_from_recent_topic_card() {
         talkScreen.clickOnProfileUser();
         profileScreen.followUserFromProfile();
     }
 
-    @And("^User like recent talk from tab Talk$")
-    public void user_like_recent_talk_from_tab_talk() throws Throwable {
+    @Then("^User will see button change to following$")
+    public void user_will_see_button_change_to_following() {
+        profileScreen.checkButtonAfterFollow();
+    }
+
+
+    @When("^User like recent talk from tab Talk$")
+    public void user_like_recent_talk_from_tab_talk() {
+        talkScreen.checkCounterBeforeLike();
         talkScreen.likeRecentTalk();
+    }
+
+    @Then("^User will see counter liked is increased$")
+    public void user_will_see_counter_liked_is_increased() {
+        talkScreen.checkCounterAfterLike();
     }
     
     @When("^User tap on reply button at talk card$")
-    public void user_tap_on_reply_button_at_talk_card() throws Throwable {
+    public void user_tap_on_reply_button_at_talk_card() {
         talkScreen.replyRecentTalk();
     }
 
     @Then("^User will see topic detail screen$")
-    public void user_will_see_topic_detail_screen() throws Throwable {
+    public void user_will_see_topic_detail_screen() {
         talkScreen.getTopicDetail();
     }
     
-    @And("^User reply talk on topic detail$")
-    public void user_reply_talk_on_topic_detail() throws Throwable {
+    @When("^User reply talk on topic detail$")
+    public void user_reply_talk_on_topic_detail() {
         talkScreen.replyTalkOnTopicDetail();
     }
 
-    @And("^User reply topic on topic detail$")
+    @When("^User reply topic on topic detail$")
     public void userReplyTopicOnTopicDetail() {
         talkScreen.replyTopicOnTopicDetail();
     }
     
     @And("^User scroll until last screen$")
-    public void user_scroll_until_last_screen() throws Throwable {
+    public void user_scroll_until_last_screen() {
         talkScreen.scrollUntilLasScreen();
     }
 
     @When("^User scroll and click tab Topic$")
-    public void user_scroll_and_click_tab_topic() throws Throwable {
+    public void user_scroll_and_click_tab_topic() {
         talkScreen.scrollAndClickTabTopic();
     }
     
     @When("^User click on recent topic$")
-    public void user_click_on_recent_topic() throws Throwable {
+    public void user_click_on_recent_topic() {
         talkScreen.tapRecentTopic();
     }
 
     @When("^User click on see more talk$")
-    public void user_click_on_see_more_talk() throws Throwable {
+    public void user_click_on_see_more_talk() {
         talkScreen.tapSeeMoreTalkTopic();
     }
 
     @Then("^User will see list of recent talk$")
-    public void user_will_see_list_of_recent_talk() throws Throwable {
+    public void user_will_see_list_of_recent_talk() {
         talkScreen.getListRecentTalkTopic();
     }
 
     @When("^User click on see more topic$")
-    public void user_click_on_see_more_topic() throws Throwable {
+    public void user_click_on_see_more_topic() {
         talkScreen.tapSeeMoreTalkTopic();
     }
 
     @Then("^User will see list of recent topic$")
-    public void user_will_see_list_of_recent_topic() throws Throwable {
+    public void user_will_see_list_of_recent_topic() {
         talkScreen.getListRecentTalkTopic();
     }
     

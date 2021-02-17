@@ -26,6 +26,8 @@ public class TalkScreen extends ActionBase {
     public static String titleEditTopic = "tile edit topic android";
     public static String descEditTopic = "desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android";
     public static String tagEditTopic = "editTopic";
+    public String beforeLike;
+    public String afterLike;
 
     FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-GB"),new RandomService());
 
@@ -74,6 +76,9 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove')]")
     public List<MobileElement> listBtnLikeRecentTalk;
 
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.CheckedTextView")
+    public MobileElement counterFirstLike;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonComment') and @index='1']")
     public List<MobileElement> listBtnReplyRecentTalk;
 
@@ -85,7 +90,6 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
-    
     
     /***********************************************
      group detail and topic list and add topic screen
@@ -489,8 +493,21 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
+    public TalkScreen checkCounterBeforeLike() {
+        beforeLike = counterFirstLike.getText();
+        System.out.println("before like"+" "+beforeLike);
+        return new TalkScreen(driver);
+    }
+
     public TalkScreen likeRecentTalk() {
-        clickLastMenus(listBtnLikeRecentTalk);
+        clickFirstMenus(listBtnLikeRecentTalk);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkCounterAfterLike() {
+        afterLike = counterFirstLike.getText();
+        System.out.println("after like"+" "+afterLike);
+        Assert.assertNotEquals(afterLike, beforeLike);
         return new TalkScreen(driver);
     }
 

@@ -93,7 +93,7 @@ Feature: User navigate to topic detail screen
     And User click menu fdtalk on homescreen menu
     When User submit reply talk at not joined group "<group>" and at topic "<topic>"
     And User will see confirmation that inform user will automatically joined group after reply talk
-#    Then User will see new reply talk added and user will member of group
+    Then User will see new reply talk added and user will member of group
 
     Examples:
       |   username       |   password    |    group        |   topic    |
