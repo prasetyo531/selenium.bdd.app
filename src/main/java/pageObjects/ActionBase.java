@@ -68,10 +68,10 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public boolean isElementsPresent(List<MobileElement> mobileElements){
+    public boolean isElementPresent(List<MobileElement> mobileElements){
         try {
             WebDriverWait wait = new WebDriverWait(driver, 80);
-            wait.until ( ExpectedConditions.visibilityOf ( (WebElement) mobileElements ) );
+            wait.until(ExpectedConditions.visibilityOf((WebElement) mobileElements));
             System.out.println("element is present");
             return true;
         } catch (NoSuchElementException e) {
@@ -129,6 +129,7 @@ public class ActionBase extends DriverFactory {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             mobileElement.clear();
+            mobileElement.setValue(value);
             ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
             driver.hideKeyboard();
             System.out.println("element is present");
@@ -410,6 +411,25 @@ public class ActionBase extends DriverFactory {
         }
     }
 
+    public void clickFirstMenus(List<MobileElement> mobileElements){
+        try {
+            //count size first
+            List<MobileElement> li = mobileElements;
+            int i = 0;
+            System.out.println("there are"+" "+li.size()+" "+"element");
+
+            LinkedList<MobileElement> arrayComment = new LinkedList<MobileElement>();
+
+            while(i!=li.size()) {
+                arrayComment.add(li.get(i));
+                i++;
+            }
+            arrayComment.getFirst().click();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     //xpath smart search
     public static int randomElementPicker(MobileElement[] elements) {
         Random r = new Random();
@@ -489,10 +509,14 @@ public class ActionBase extends DriverFactory {
     public static void copyLatestExtentReport() throws IOException {
         Date d = new Date();
         String date = d.toString().replace(":", "_").replace(" ", "_");
-        File source = new File(System.getProperty("user.dir") + "/test-output/cucumber/report.html");
-        File dest = new File(System.getProperty("user.dir") + "/output/report/" + date.toString() + ".html");
-        copyFileUsingStream(source, dest);
 
+        try {
+            File source = new File(System.getProperty("user.dir") + "/test-output/cucumber/report.html");
+            File dest = new File(System.getProperty("user.dir") + "/output/report/" + date.toString() + ".html");
+            copyFileUsingStream(source, dest);
+        } catch (Exception e) {
+            e.getMessage();
+        }
         ///Users/mac/Documents/Automation/fdn.bddparallel.web/target/report.html
     }
 

@@ -20,8 +20,8 @@ Feature: Create account
     Then User will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email          |      username     |
-      |	  081284915951	     |    realotp@mailinator.com   |     realotp01     |
+      |   phonenumber        |              email                  |      username     |
+      |	  0812119119119	     |    bddregisandro01@mailinator.com   |     bddregisandro01     |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -34,26 +34,23 @@ Feature: Create account
 
     Examples:
       |       phonenumber        |
-      |	    6281284919999	     |
-      |	    +6281284919998	     |
+      |	    62812120120120	     |
+      |	    +62812120120120	     |
 
-  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124 #FDBRMA-212
+  #FDBRMA-213 #FDBRMA-123 #FDBRMA-124
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input with invalid format phone or email
+  Scenario Outline: Signup input with invalid format phone
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
     Then User enters the "<auth>" to register
     And User clicks next button on register screen
-    Then display msg "This email or phone number is invalid" is displayed under phone number field
+    Then display msg "This phone number is invalid" is displayed under phone number field
 
     Examples:
       |                     auth                   |
       |	                     0	                   |
       |	                   081702	               |
       |	         081702081702081702081702          |
-      |	             wrongformatemail              |
-      |	          wrongformatemail@gmail           |
-      |	     wrongformatemail@gmail@gmail.com      |
 
   #FDBRMA-130
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -66,20 +63,7 @@ Feature: Create account
 
     Examples:
       | phonenumber  |
-      | 087885221338 |
-
-  #FDBRMA-363
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup input email with incorrect format email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then display msg "Please enter your correct email address" is displayed under phone number field
-
-    Examples:
-      |               email               |
-      |	          jzjsh++..-@test.com     |
+      | 081284910005 |
 
   #FDBRMA-214
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -88,7 +72,7 @@ Feature: Create account
     When User clicks register button on onboarding screen
     Then User enters the "<phonenumber>" phonenumber to register
     And User clicks next button on register screen
-    Then display msg "Please enter your correct phone number" is displayed under phone number field
+    Then user will direct to otp screen from phone to register
 
     Examples:
       |       phonenumber         |
@@ -105,33 +89,7 @@ Feature: Create account
 
     Examples:
       | phonenumber |
-      | 08170223322 |
-
-
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup using registered email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then show modal email has been registered
-
-    Examples:
-      |            email           |
-      | sprint46ios@mailinator.com |
-
-  #FDBRMA-137
-  @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
-  Scenario Outline: Signup using verified email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    Then show modal verified email android
-
-    Examples:
-      |          email            |
-      | testflight@mailinator.com |
+      | 62812000978846 |
 
   #FDBRMA-211
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -162,24 +120,7 @@ Feature: Create account
 
     Examples:
       |   phonenumber        |              email                    |      username     |
-      |	  081301209991	     |    bypassotpnumber02@mailinator.com   |    bypassotpnumber02    |
-
-  #FDBRMA-135 #FDBRMA-177 #FDBRMA-189 #FDBRMA-197 #FDBRMA-198
-  @FDBRMA-135 @bypassotp
-  Scenario Outline: Sign up using new email address - by pass otp - input phone starts with 0 and 62
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp from email on otp screen to register
-    Then user enters the "<phone>", "<username>", password and select dob to register by email
-    And user clicks submit button on complete account screen
-    Then User will see modal account status on homescreen
-
-    Examples:
-      |            email                      |       phone         |       username       |
-      |	   bypassotpemail03@mailinator.com   |    081201209197     |     bypassotpemail03  |
-      |	   bypassotpemail03@mailinator.com   |    081201209198     |     bypassotpemail03  |
+      |	  0813142142155      |    bypassotpnumber04@mailinator.com   |    bypassotpnumber04    |
 
   ### Verification Screen ###
 
@@ -197,8 +138,7 @@ Feature: Create account
 
     Examples:
       |       auth        |
-      |	  08150125012	  |
-      |   wrongotp_01@test.com   |
+      |	  0815144144144	  |
 
   #FDBRMA-145 #FDBRMA-215 #FDBRMA-180 #FDBRMA-181
   @FDBRMA-145 @DataStaging @otpScreen
@@ -216,8 +156,7 @@ Feature: Create account
 
     Examples:
       |       auth        |
-      |	  08180125012	  |
-      |   wrongotp_001@test.com   |
+      |	  0818215215181	  |
 
   #FDBRMA-154
   @FDBRMA-154 @DataStaging @otpScreen
@@ -227,25 +166,11 @@ Feature: Create account
     Then User enters the "<phone>" phonenumber to register
     And User clicks next button on register screen
     When User clicks tap to change auth and input email "<email>"
-    Then User direct to verify email screen
+    Then display msg "This phone number is invalid" is displayed under phone number field
 
     Examples:
       |       phone        |    email     |
       |	  081284915950	   |  taptochangemail01@mailinator.com  |
-
-  #FDBRMA-188
-  @FDBRMA-188 @DataStaging @otpScreen
-  Scenario Outline: Tap to change email - input phone
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When User clicks tap to change auth and input phone "<phone>"
-    Then User direct to verify phone screen
-
-    Examples:
-      |                   email                |    phone     |
-      |	  taptochangemail02@mailinator.com	   |  081284915992  |
 
   ### Complete Account Screen ###
 
@@ -347,136 +272,21 @@ Feature: Create account
       |	  081384915167	   |  wrongformatpass01@mailinator.com  |      wrongformatpass         |   abcd         |
       |	  081384915168	   |  wrongformatpass02@mailinator.com  |      wrongformatpass         |   abcd1234abcd1234abcd1234abcd    |
 
-  #FDBRMA-194 #FDBRMA-195
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Sign up by fill phone number - less than 8 - more than 14 digit
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp from email on otp screen to register
-    Then user enters the "<phone>", "<username>", password and select dob to register by email
-    And user clicks submit button on complete account screen
-    Then User will see error msg "Please enter your correct phone number" underneath phone field
-
-    Examples:
-      |            email                      |    phone       |       username        |
-      |	   phoneformatless8@mailinator.com    |    081287      |     phoneformatless8  |
-      |	   phoneformatmore14@mailinator.com   |    08128780012901 |     phoneformatmore14  |
-
-  #FDBRMA-196 #cek db dulu
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Submit input registered phone number
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp from email on otp screen to register
-    Then user enters the registered "<phone>", "<username>", password and select dob to register by email
-    And user clicks submit button on complete account screen
-    Then User will see modal account status on homescreen
-
-    Examples:
-      |            email                        |    phone          |       username        |
-      |	   registeredphone01@mailinator.com    |    6281320180251      |     registeredphone01  |
-
-  #FDBRMA-364
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Submit input verified phone number
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp from email on otp screen to register
-    Then user enters the verified "<phone>", "<username>", password and select dob to register by email
-    And user clicks submit button on complete account screen
-    Then User will see error msg "Phone number has been registered" underneath phone field
-
-    Examples:
-      |            email                   |    phone             |       username        |
-      |	   verifiedphone@mailinator.com    |    628118161597      |     verifiedphone  |
-
-  #FDBRMA-200 #FDBRMA-201
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Submit input incorrect username format - less than 3 - more than 25 - register by email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp on otp screen to register
-    Then user enters the "<phone>", "<username>", password and select dob to register by email
-    And user clicks submit button on complete account screen
-    Then User will see error msg "Username should be 3-25 characters in length" underneath username field
-
-    Examples:
-      |            email                      |       phone         |       username       |
-      |	   wrongusernameformat02@mailinator.com   |    081201209200      |     un          |
-      |	   wrongusernameformat02@mailinator.com   |    081201209200      |     unasdfgthlowsdfrtflsxcdsasdf  |
-
   #FDBRMA-202
-  @Android @DemoPras @DataStaging @completeAccount
+  @Android @DemoPras @DataStaging @completeAccount @register
   Scenario Outline: Submit input incorrect username format - contains special char
     Given User navigates to onboarding screen by swipe
     When User clicks register button on onboarding screen
-    Then User enters the "<email>" phonenumber to register
+    Then User enters the "<phone>" phonenumber to register
     And User clicks next button on register screen
     When user input bypass otp from phone on otp screen to register
-    Then user enters the "<phone>", "<username>", password and select dob to register by phone
+    Then user enters the "<email>", "<username>", password and select dob to register by phone
     And user clicks submit button on complete account screen
     Then User will see error msg "Please use alphabets, numbers, and '_' symbol only" underneath username field
 
     Examples:
-      |   email           |              phone                        |     username     |
+      |   phone           |              email                        |     username     |
       |	  081301200202	  |    wrongusernameformat04@mailinator.com   |     usern@m3     |
-
-  #FDBRMA-203
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Submit input password same with username
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp on otp screen to register
-    Then user enters the "<phone>", "<username>", but fill "<password>" same with username to register by email
-    And user clicks submit button on complete account screen
-    Then User will see error msg "Your password cannot include your username" underneath password field
-
-    Examples:
-      |         email                   |     phone           |      username     |    password     |
-      |	  passusersama02@mailinator.com	|    081301200203    |      password2        |    password2    |
-
-  #FDBRMA-204
-  @Android @DataStaging @completeAccount
-  Scenario Outline: Submit input registered username - register by email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" email to register
-    And User clicks next button on register screen
-    When user input bypass otp on otp screen to register
-    Then user enters the "<phone>", but input registered "<username>" to register by email
-    And user clicks submit button on complete account screen
-    Then User will see error msg "Username has been taken" underneath username field
-
-    Examples:
-      |         email                   |     phone          |      username     |
-      |	  registereduser@mailinator.com	|    081301200204    |      datatnr01    |
-
-  #FDBRMA-206 #FDBRMA-207
-  @Android @DemoPras @DataStaging @completeAccount
-  Scenario Outline: Submit input password less than 6 - more than 25 - register by email
-    Given User navigates to onboarding screen by swipe
-    When User clicks register button on onboarding screen
-    Then User enters the "<email>" to register
-    And User clicks next button on register screen
-    When user input bypass otp on otp screen to register
-    Then user enters the "<phone>", "<username>" but input wrong format "<password>" password to register by email
-#    And user clicks submit button on complete account screen
-    Then User will see error msg "Password should be 6-25 characters in length" underneath password field
-
-    Examples:
-      |       email                            |    phone        |         username             |    password    |
-      |	  wrongformatpass03@mailinator.com	   |  081384915206   |      wrongformatpass         |   abcd         |
-      |	  wrongformatpass04@mailinator.com	   |  6281384915207  |      wrongformatpass         |   abcd1234abcd1234abcd1234abcd    |
 
   ##################################################################################
   #IOS

@@ -7,15 +7,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class HomeScreen extends ActionBase {
-
-    private static DesiredCapabilities capabilities = new DesiredCapabilities();
 
     //@AndroidFindBy(xpath="//class[contains(@resource-id, '') and @text='FD Flash Sale']")
 
@@ -73,7 +70,7 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='2']")
     public MobileElement talkMenu;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='4']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
     public MobileElement productCategoryMenu;
 
     @AndroidFindBy(xpath="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
@@ -180,9 +177,12 @@ public class HomeScreen extends ActionBase {
      ***********/
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textDesc') and @index='2']")
     public MobileElement modalRateApp;
-    
+
     @AndroidFindBy(id="com.fdbr.android:id/buttonRateNow")
     public MobileElement btnRateNow;
+
+    @FindBy(id="com.fdbr.android:id/buttonRateNow")
+    public List<WebElement> btnRateNowWebelement;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonRemindMeLater")
     public MobileElement btnRemindMeLater;
@@ -194,26 +194,6 @@ public class HomeScreen extends ActionBase {
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
-
-    public HomeScreen allowPermission() {
-
-        isElementPresent(permissionAllow);
-        tapByElement(permissionAllow);
-        return new HomeScreen(driver);
-    }
-
-    /*
-    public void verifyAccountStatusModal(){
-        try {
-            isElementPresent(accountStatus);
-            System.out.println("account status is present");
-            return true;
-        } catch (NoSuchElementException e){
-            e.printStackTrace();
-            System.out.println("account status is not present");
-        }
-    }
-     */
 
     public boolean verifyHomescreen() {
 
@@ -234,9 +214,25 @@ public class HomeScreen extends ActionBase {
         return (boolElem2 && boolElem3);
     }
 
-    public boolean verifyAccountStatusModal() throws InterruptedException {
+    public void remindMeLaterRatingModal() {
+        WaitUntilElementIsVisible(modalRateApp);
+        List<WebElement> checkAppRatingModal = btnRateNowWebelement;
+        try {
+            if (checkAppRatingModal.size()>0) {
+                tapByElement(btnRemindMeLater);
+                System.out.println("rate app modal is present");
+                verifyHomescreen();
+            } else {
+                System.out.println("rate app modal is not present");
+                verifyHomescreen();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
-        Thread.sleep(2000);
+    public void verifyAccountStatusModal() {
+        WaitUntilElementIsVisible(accountCompleteVerBtn);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
         List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
         //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
@@ -245,47 +241,40 @@ public class HomeScreen extends ActionBase {
             if (checkAccountStatusModal.size()>0) {
                 tapByElement(closeAccountStatusModal);
                 System.out.println("account status modal is present");
-//                verifyHomescreen();
+                verifyHomescreen();
             } else {
                 System.out.println("account status modal is not present");
-//                verifyHomescreen();
+                verifyHomescreen();
             }
         } catch (Exception e){
             e.printStackTrace();
         }
-//        return (verifyHomescreen());
-        return false;
     }
 
-    public boolean remindMeLaterRatingModal() {
-        boolean rateApp = isElementPresent(modalRateApp);
-        if (rateApp) {
-            tapByElement(btnRemindMeLater);
-            System.out.println("rate app modal is present");
-            verifyHomescreen();
-        } else {
-            System.out.println("rate app modal is not present");
-            verifyHomescreen();
-        }
-        return (verifyHomescreen());
-    }
-
-    /*
-    public void verifyAccountStatusModal() {
-
-        boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
-        if (checkAccountStatusModal) {
-            tapByElement(closeAccountStatusModal);
-            System.out.println("account status modal is present");
-            verifyHomescreen();
-        } else {
-            System.out.println("account status modal is not present");
-            verifyHomescreen();
+    public void verifyAccountStatusModalAndAppRatingModal() {
+        WaitUntilElementIsVisible(accountCompleteVerBtn);
+        //http://appium.io/docs/en/commands/element/find-elements/#find-elements
+        List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
+        //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");
+        //boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
+        try {
+            if (checkAccountStatusModal.size()>0) {
+                tapByElement(closeAccountStatusModal);
+                System.out.println("account status modal is present");
+                remindMeLaterRatingModal();
+                verifyHomescreen();
+            } else {
+                remindMeLaterRatingModal();
+                System.out.println("account status modal is not present");
+                verifyHomescreen();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
-     */
 
     public HomeScreen verifyAccountStatusModalIos() {
+
         boolean checkAccountStatusModal = isElementPresent(accountCompleteVerBtn);
         if (checkAccountStatusModal == true) {
             tapByElement(closeAccountStatusModal);
@@ -334,6 +323,7 @@ public class HomeScreen extends ActionBase {
 
     //menu bar
     public HomeScreen clickProductCategory() {
+        horizontalSwipeByPercentagesDirectly(1353,1220, 370, 1203);
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
         return new HomeScreen(driver);
@@ -434,21 +424,19 @@ public class HomeScreen extends ActionBase {
         acceptAlert();
         return new HomeScreen(driver);
     }
-    
+
     //talk
     public HomeScreen scrollToTalkSection() {
-
         verticalSwipeByPercentagesDirectly(90,1736,90, 316);
         verticalSwipeByPercentagesDirectly(85,1729,85, 259);
         verticalSwipeByPercentagesDirectly(99,1703,97, 882);
-        
         Integer btnJoin = btnJoinGroup.size();
         if(btnJoin==0) {
             verticalSwipeByPercentagesDirectly(83,683,74, 1749);
         }
         return new HomeScreen(driver);
     }
-    
+
     public HomeScreen joinGroupTalk() {
         clickLastMenus(btnJoinGroup);
         return new HomeScreen(driver);
@@ -464,5 +452,5 @@ public class HomeScreen extends ActionBase {
         }
         return new HomeScreen(driver);
     }
-    
+
 }

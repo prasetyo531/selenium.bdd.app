@@ -19,12 +19,6 @@ public class RegisterSteps extends DriverFactory {
         registerScreen.inputUsrEmailPhoneName(phonenumber);
     }
 
-    @Then("^User enters the \"([^\"]*)\" email to register$")
-    public void User_enters_the_something_email_to_register(String email) throws Throwable {
-
-        registerScreen.inputUsrEmailPhoneName(email);
-    }
-
     @And("^User clicks next button on register screen$")
     public void User_clicks_next_button_on_register_screen() throws Throwable {
 
@@ -52,15 +46,6 @@ public class RegisterSteps extends DriverFactory {
 
         otpScreen.getCounter();
         otpScreen.comparePhoneReceiver();
-        otpScreen.fillByPassOtp();
-        otpScreen.clickConfirmOtp();
-    }
-
-    @When("^user input bypass otp from email on otp screen to register$")
-    public void user_input_bypass_otp_from_email_on_otp_screen_to_register() throws Throwable {
-
-        otpScreen.getCounter();
-        otpScreen.compareEmailReceiver();
         otpScreen.fillByPassOtp();
         otpScreen.clickConfirmOtp();
     }
@@ -219,15 +204,6 @@ public class RegisterSteps extends DriverFactory {
     public void user_enters_the_something_something_password_and_select_dob_to_register_by_phone(String email, String username) throws Throwable {
 
         completeAccountScreen.inputEmail(email);
-        completeAccountScreen.inputUsername(username);
-        completeAccountScreen.inputPassword();
-        completeAccountScreen.inputBirthday();
-    }
-
-    @Then("^user enters the \"([^\"]*)\", \"([^\"]*)\", password and select dob to register by email$")
-    public void user_enters_the_something_something_password_and_select_dob_to_register_by_email(String phone, String username) throws Throwable {
-
-        completeAccountScreen.inputPhone(phone);
         completeAccountScreen.inputUsername(username);
         completeAccountScreen.inputPassword();
         completeAccountScreen.inputBirthday();

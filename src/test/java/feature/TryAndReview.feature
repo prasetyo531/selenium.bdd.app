@@ -9,7 +9,7 @@ Feature: User Join Campaign
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -33,7 +33,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Personal Info without input any field - Min char Full Name - More than 100 char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -53,7 +53,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Personal Info Input Special Char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -73,7 +73,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Personal Not select gender
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -95,7 +95,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill all mandatory field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -114,7 +114,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill first name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -133,7 +133,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill last name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -152,7 +152,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -171,7 +171,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill province, city, district
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -190,7 +190,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill postal code
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -209,7 +209,7 @@ Feature: User Join Campaign
   Scenario Outline: Save Add New Address without fill complete address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -228,7 +228,7 @@ Feature: User Join Campaign
   Scenario Outline: Add New Address Until Maximum Number of Allowed Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -247,7 +247,7 @@ Feature: User Join Campaign
   Scenario Outline: Choose Any Address to Become Shipping Information Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -266,7 +266,7 @@ Feature: User Join Campaign
   Scenario Outline: Submit Participant Summary without Completed Personal Info - without Completed Shipping Information
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -285,7 +285,7 @@ Feature: User Join Campaign
   Scenario Outline: Submit Participant Summary without Completed Beauty Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -304,7 +304,7 @@ Feature: User Join Campaign
   Scenario Outline: Submit Participant Summary without Completed Beauty Concern
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -319,11 +319,11 @@ Feature: User Join Campaign
       |	      apkprod30	 |    test123     |
 
   #FDBRMA-488
-  @Android @Tnr @demoVerify1
+  @Android @Tnr @staging @demoVerify1
   Scenario Outline: Submit Participant Summary without Completed All Mandatory Section
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen

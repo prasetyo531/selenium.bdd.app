@@ -26,6 +26,8 @@ public class TalkScreen extends ActionBase {
     public static String titleEditTopic = "tile edit topic android";
     public static String descEditTopic = "desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android";
     public static String tagEditTopic = "editTopic";
+    public String beforeLike;
+    public String afterLike;
 
     FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-GB"),new RandomService());
 
@@ -71,14 +73,17 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.talk:id/imageUserIcon') and @index='0']")
     public MobileElement userProfile;
 
-    @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonLove')]")
     public List<MobileElement> listBtnLikeRecentTalk;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.CheckedTextView")
+    public MobileElement counterFirstLike;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.talk:id/buttonComment') and @index='1']")
     public List<MobileElement> listBtnReplyRecentTalk;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public MobileElement recentTopic;
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent')]")
+    public List<MobileElement> recentTopic;
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/listRecent")
     public MobileElement listRecentTalkTopic;
@@ -465,7 +470,8 @@ public class TalkScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
         verticalSwipeByPercentagesDirectly(32,1993,51, 800);
-        
+        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
+        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
         return new TalkScreen(driver);
     }
 
@@ -473,7 +479,6 @@ public class TalkScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(55,681,55, 1984);
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
-        
         tapByElement (tabTopic);
         
         verticalSwipeByPercentagesDirectly(32,1993,51, 200);
@@ -491,8 +496,21 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
+    public TalkScreen checkCounterBeforeLike() {
+        beforeLike = counterFirstLike.getText();
+        System.out.println("before like"+" "+beforeLike);
+        return new TalkScreen(driver);
+    }
+
     public TalkScreen likeRecentTalk() {
-        clickLastMenus(listBtnLikeRecentTalk);
+        clickFirstMenus(listBtnLikeRecentTalk);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkCounterAfterLike() {
+        afterLike = counterFirstLike.getText();
+        System.out.println("after like"+" "+afterLike);
+        Assert.assertNotEquals(afterLike, beforeLike);
         return new TalkScreen(driver);
     }
 
@@ -521,7 +539,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapRecentTopic() {
-        tapByElement(recentTopic);
+        clickLastMenus(recentTopic);
         return new TalkScreen(driver);
     }
 

@@ -5,11 +5,7 @@
     <listeners>
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
-        <test name="maintest">
-            <classes>
-                <class name="uiTestAndroid.UiTestRegister"/>
-            </classes>
-        </test>
+
     <test name="secondtest">
         <classes>
             <class name="uiTestAndroid.UiTestRandom"/>

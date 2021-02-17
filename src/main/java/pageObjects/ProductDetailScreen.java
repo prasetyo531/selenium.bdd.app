@@ -32,6 +32,9 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/labelProductName")
     public MobileElement labelProductName;
 
+    @AndroidFindBy(id="com.fdbr.android:id/textFirstReview")
+    public MobileElement labelFirstReview;
+
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonReview")
     public MobileElement addReviewBtn;
 
@@ -51,7 +54,7 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement back;
 
-    public ProductDetailScreen(AppiumDriver driver) throws IOException {
+    public ProductDetailScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -66,6 +69,14 @@ public class ProductDetailScreen extends ActionBase {
         boolean boolElem4= isElementPresent(labelProductName);
 
         return (boolElem1 && boolElem2 && boolElem3 && boolElem4);
+    }
+
+    public boolean verifyFirstReview() {
+
+        WaitUntilElementIsVisible(imgProduct);
+        boolean boolElem1= isElementPresent(labelFirstReview);
+
+        return (boolElem1);
     }
 
     public ProductDetailScreen clickAddReviewBtn() throws IOException {
@@ -105,7 +116,7 @@ public class ProductDetailScreen extends ActionBase {
         return new ProductDetailScreen(driver);
     }
 
-    public ProductDetailScreen clickSeeMoreReviews() throws IOException {
+    public ProductDetailScreen clickSeeMoreReviews() {
 
         isElementPresent(seeMoreReviewBtn);
         tapByElement(seeMoreReviewBtn);
@@ -113,5 +124,11 @@ public class ProductDetailScreen extends ActionBase {
         return new ProductDetailScreen(driver);
     }
 
+    public ProductDetailScreen clickBack() {
 
+        isElementPresent(backBtn);
+        tapByElement(backBtn);
+
+        return new ProductDetailScreen(driver);
+    }
 }

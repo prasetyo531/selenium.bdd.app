@@ -18,7 +18,7 @@
     </properties>
 
     <build>
-        <!-- https://examples.javacodegeeks.com/enterprise-java/maven/maven-jar-plugin-example -->
+        <!-- https://examples.javacextentreportsodegeeks.com/enterprise-java/maven/maven-jar-plugin-example -->
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>

@@ -11,7 +11,7 @@ Feature: User Edit Review
   Scenario Outline: Update review - from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -28,14 +28,14 @@ Feature: User Edit Review
 
     Examples:
       |         email        |        password       |
-      |	      onlyreviewbdd	 |        test123        |
+      |	      editreviewbdd	 |        test123        |
 
   #FDBRMA-420 #FDBRMA-415 #FDBRMA-416
   @EditReview @Staging @Bug
   Scenario Outline: Update review - from tagged modal feed and Product detail
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -58,7 +58,7 @@ Feature: User Edit Review
   Scenario Outline: Update review - from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then user enters the "<email>" email to login
+    Then User enters the "<email>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen

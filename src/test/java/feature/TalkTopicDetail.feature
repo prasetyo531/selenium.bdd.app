@@ -5,6 +5,7 @@ Feature: User navigate to topic detail screen
   I should able to operate all feature
 
   ####  Topic ####
+  #FDBRMA-597
   @Android @Talk @ReplyTopic @Bug
   Scenario Outline: Create reply topic at not joined group
     Given User navigates to onboarding screen by swipe
@@ -40,8 +41,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
-    And user close modal rate app
+    Then User will see modal account status on homescreen and close modal rating app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile 
     And User submit topic with empty title
@@ -57,8 +57,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
-    And user close modal rate app
+    Then User will see modal account status on homescreen and close modal rating app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic with empty description
@@ -75,7 +74,6 @@ Feature: User navigate to topic detail screen
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
     Then User will see modal account status on homescreen
-    And user close modal rate app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic after remove all tags
@@ -84,9 +82,6 @@ Feature: User navigate to topic detail screen
     Examples:
       | username | password |
       | usertalk | test123  |      
-    
-    
-  
 
   ####  Talk ####
   @Android @Talk @ReplyTalk @Bug
@@ -98,13 +93,13 @@ Feature: User navigate to topic detail screen
     And User click menu fdtalk on homescreen menu
     When User submit reply talk at not joined group "<group>" and at topic "<topic>"
     And User will see confirmation that inform user will automatically joined group after reply talk
-#    Then User will see new reply talk added and user will member of group
+    Then User will see new reply talk added and user will member of group
 
     Examples:
       |   username       |   password    |    group        |   topic    |
       |	  bddtalk03      |   test123     | Men's Grooming  |  topic no in  |
 
-  @Android @Talk @TalkProfile
+  @Android @Talk @TalkProfile @demotalk2
   Scenario Outline: Open created talk from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

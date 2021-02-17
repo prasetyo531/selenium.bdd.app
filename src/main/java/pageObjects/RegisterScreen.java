@@ -119,10 +119,13 @@ public class RegisterScreen extends ActionBase {
     /*  content or description modal */
     public RegisterScreen errorDescPhoneNumberNotVerifiedModal() throws IOException {
 
+        WaitUntilElementIsVisible(descModal);
         isElementPresent(descModal);
+        String getTitle = titleModal.getText();
         String getDesc = descModal.getText();
-        System.out.println(getDesc);
-        Assert.assertTrue(getDesc.contains("Hi! The phone number you have entered matches these accounts:"));
+        System.out.println("debug"+getTitle);
+        System.out.println("debug"+getDesc);
+        Assert.assertTrue(getTitle.contains("Identify your phone number"));
         Assert.assertTrue(getDesc.contains("Please login with the correct email.\n" +
                 "If the email does not belong to you, please create a new account."));
 

@@ -344,11 +344,15 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickTopicTab() {
+        WaitUntilElementIsVisible(topicsTab);
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(topicsTab);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickTalkTab() {
+        WaitUntilElementIsVisible(talksTab);
+        verticalSwipeByPercentagesDirectly(891,752,862, 2452);
         tapByElement(talksTab);
         return new ProfileScreen(driver);
     }
@@ -677,14 +681,12 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen findToastAfterUpdateBeautyProfile() {
         //its not check text equals expected text
         toastMatches("Beauty Profile Updated", false);
-
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen findToastAfterUpdateBeautyConcern() {
         //its not check text equals expected text
         toastMatches("Beauty Concern Updated", false);
-
         return new ProfileScreen(driver);
     }
 
@@ -746,7 +748,8 @@ public class ProfileScreen extends ActionBase{
     /* topic */
     public ProfileScreen clickFirstTopicListProfile()  {
         WaitUntilElementIsVisible(topicTalkList);
-        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
@@ -813,24 +816,25 @@ public class ProfileScreen extends ActionBase{
     /* talk */
     public ProfileScreen clickFirstTalkListProfile() {
         WaitUntilElementIsVisible(topicTalkList);
-        this.verticalSwipeByPercentages(topicTalkList, 0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        WaitUntilElementIsVisible(firstTopicTalkProfile);
         isElementPresent(firstTopicTalkProfile);
         tapByElement(firstTopicTalkProfile);
         return new ProfileScreen(driver);
     }
     
     /* follow user from profile */
-    public ProfileScreen followUserFromProfile() throws InterruptedException {
-        
+    public ProfileScreen followUserFromProfile() {
         WaitUntilElementIsVisible(btnFollow);
         tapByElement(btnFollow);
+        return new ProfileScreen(driver);
+    }
 
-//        Thread.sleep(2000);
+    public ProfileScreen checkButtonAfterFollow() {
         isElementPresent(btnFollow);
         String getValue = btnFollow.getText();
         org.testng.Assert.assertEquals(getValue, "Following");
         System.out.println(getValue);
-        
         return new ProfileScreen(driver);
     }
 }

@@ -8,15 +8,15 @@ import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 import pageObjects.ActionBase;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 
 @RunWith(Cucumber.class) //this annotations tells junit run test
 @CucumberOptions(
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@FDBRMA-361, @FDBRMA-336"},
+        tags = {"@Producttest"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -28,7 +28,13 @@ public class UiTestRandom extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {
-        Reporter.loadXMLConfig(new File(System.getProperty("user.dir") + "/src/main/java/utils/ReportsConfig.xml"));
+        String userDirectory = FileSystems.getDefault()
+                .getPath("")
+                .toAbsolutePath()
+                .toString();
+        System.out.println("directory"+" "+userDirectory);
+
+        Reporter.loadXMLConfig(userDirectory +"/src/main/java/utils/ReportsConfig.xml");
         ActionBase.copyLatestExtentReport();
     }
 }
