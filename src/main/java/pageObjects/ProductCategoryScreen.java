@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -49,35 +50,30 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickMenuBody() {
-
         tapByElement(productCategoryBody);
 
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickMenuSkincare() {
-
         tapByElement(productCategorySkincare);
 
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickRandomMenuProductCat() {
-
         clickRandomMenus(listProductCat);
 
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickFirstPopularProduct() {
-
         tapByElement(firstPopularProduct);
 
         return new ProductCategoryScreen(driver);
     }
 
     public boolean isSearchBarActive() {
-
         WaitUntilElementIsVisible(searchBar);
         boolean boolElem1= isElementPresent(searchBar);
         String txt = searchBar.getText();
@@ -86,7 +82,6 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public boolean isSearchResultAppear() {
-
         WaitUntilElementIsVisible(photoProduct);
         boolean boolElem1= isElementPresent(photoProduct);
         boolean boolElem2= isElementPresent(productName);
@@ -95,7 +90,6 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickFirstProductSearchResult() {
-
         clickFirstMenus(listProductCat);
 
         return new ProductCategoryScreen(driver);
