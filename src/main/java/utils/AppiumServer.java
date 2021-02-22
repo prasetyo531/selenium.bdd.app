@@ -8,25 +8,25 @@ import java.io.InputStreamReader;
 public class AppiumServer {
 
     private static Process process;
-    /*
+    
     //Appium Launch on Windows
     private static String STARTSERVER = "C:\\Program Files\\nodejs\\node.exe " +
             "C:\\Program Files\\Appium\\resources\\app\\node_modules\\appium\\lib\\appium.js";
-     */
+     
 
     /*
     Calling the node.exe and appium.js
     which node
     which appium
      */
-    private static String STARTSERVER = "/usr/local/bin/node /usr/local/bin/appium";
+    /* private static String STARTSERVER = "/usr/local/bin/node /usr/local/bin/appium"; */
 
     //Starting the Appium Server
     public static void start() throws IOException, InterruptedException {
 
         Runtime runtime = Runtime.getRuntime();
-        process = runtime.exec("appium -a 127.0.0.1 -p 4725");
-        //process = runtime.exec(STARTSERVER);
+        //process = runtime.exec("appium -a 127.0.0.1 -p 4725");
+        process = runtime.exec(STARTSERVER);
 
         Thread.sleep(7000);
         if (process != null) {

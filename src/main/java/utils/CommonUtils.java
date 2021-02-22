@@ -1,6 +1,7 @@
 package utils;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -53,7 +54,7 @@ public class CommonUtils {
         EXPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("explicit.wait"));
         IMPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("implicit.wait"));
         DEFAULT_WAIT_TIME = Integer.parseInt(prop.getProperty("default.wait"));
-        APPLICATION_NAME = prop.getProperty("application.path");
+        APPLICATION_NAME = System.getProperty("user.dir")+prop.getProperty("application.path");
         BASE_PKG = prop.getProperty("base.pkg");
         APPS_ACTIVITY = prop.getProperty("application.activity");
         APPIUM_PORT = prop.getProperty("appium.server.port");
@@ -96,7 +97,7 @@ public class CommonUtils {
         capabilities.setCapability(APP_ACTIVITY, CommonUtils.APPS_ACTIVITY);
         capabilities.setCapability(APP_PACKAGE, CommonUtils.BASE_PKG);
         //will not install apk in package app
-        //capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPLICATION_NAME);
+        capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APPLICATION_NAME);
         //https://appiumpro.com/editions/50 - if false will install from android properties
         capabilities.setCapability("skipDeviceInitialization", true);
         capabilities.setCapability("skipServerInstallation", true);
@@ -128,7 +129,7 @@ public class CommonUtils {
     }
 
     public static AppiumDriver getAndroidDriver() throws MalformedURLException {
-        serverUrl = new URL("http://localhost:" + APPIUM_PORT + "/wd/hub");
+        serverUrl = new URL("http://0.0.0.0:" + APPIUM_PORT + "/wd/hub");
         driver = new AndroidDriver(serverUrl, capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;

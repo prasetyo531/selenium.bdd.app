@@ -13,8 +13,7 @@ import java.io.IOException;
 public class MasterHooks extends DriverFactory {
 
     @Before
-    public void setUp() throws IOException, InterruptedException {
-
+    public void setUp() throws IOException {
         System.out.println("setUp");
         driver = getDriver();
 
