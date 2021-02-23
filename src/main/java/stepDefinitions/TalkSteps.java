@@ -297,5 +297,44 @@ public class TalkSteps extends DriverFactory {
     public void user_will_see_list_of_recent_topic() {
         talkScreen.getListRecentTalkTopic();
     }
+
+    //sort topic on group detail
+    @When("^User click one of group talk$")
+    public void user_click_one_of_group_talk() throws Throwable {
+        talkScreen.clickRandomGroupTalk();
+    }
+
+    @And("^User sort topic by category Newest$")
+    public void user_sort_topic_by_category_newest() throws Throwable {
+        talkScreen.checkBeforeSort();
+        talkScreen.sortTopicByNewest();
+    }
+
+    @Then("^User will see list topic by category Newest$")
+    public void user_will_see_list_topic_by_category_newest() throws Throwable {
+        talkScreen.checkAfterSortNewest();
+    }
+
+    @And("^User sort topic by category Popular$")
+    public void user_sort_topic_by_category_popular() throws Throwable {
+        talkScreen.checkBeforeSort();
+        talkScreen.sortTopicByPopular();
+    }
+
+    @Then("^User will see list topic by category Popular$")
+    public void user_will_see_list_topic_by_category_popular() throws Throwable {
+        talkScreen.checkAfterSortPopularMostTalks();
+    }
+
+    @And("^User sort topic by category Most Talks$")
+    public void user_sort_topic_by_category_most_talks() throws Throwable {
+        talkScreen.checkBeforeSort();
+        talkScreen.sortTopicByMostTalks();
+    }
+    
+    @Then("^User will see list topic by category Most Talks$")
+    public void user_will_see_list_topic_by_category_most_talks() throws Throwable {
+        talkScreen.checkAfterSortPopularMostTalks();
+    }
     
 }

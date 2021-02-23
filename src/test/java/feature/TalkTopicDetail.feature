@@ -81,8 +81,8 @@ Feature: User navigate to topic detail screen
 
     Examples:
       | username | password |
-      | usertalk | test123  |      
-
+      | usertalk | test123  |
+  
   ####  Talk ####
   @Android @Talk @ReplyTalk @Bug
   Scenario Outline: Create reply talk at not joined group
