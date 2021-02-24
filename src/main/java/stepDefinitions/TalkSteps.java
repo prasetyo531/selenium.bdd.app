@@ -336,5 +336,39 @@ public class TalkSteps extends DriverFactory {
     public void user_will_see_list_topic_by_category_most_talks() throws Throwable {
         talkScreen.checkAfterSortPopularMostTalks();
     }
+
+
+    @When("^User sort talk by category Newest$")
+    public void user_sort_talk_by_category_newest() throws Throwable {
+        talkScreen.checkBeforeSortTalk();
+        talkScreen.sortTalkByNewest();
+    }
+
+    @Then("^User will see list talk by category Newest$")
+    public void user_will_see_list_talk_by_category_newest() throws Throwable {
+        talkScreen.checkAfterSortNewestTalks();
+    }
+
+    @When("^User sort talk by category Oldest$")
+    public void user_sort_talk_by_category_oldest() throws Throwable {
+        talkScreen.checkBeforeSortTalk();
+        talkScreen.sortTalkByOldest();
+    }
+
+    @Then("^User will see list talk by category Oldest$")
+    public void user_will_see_list_talk_by_category_oldest() throws Throwable {
+        talkScreen.checkAfterSortOldestMostLikes();
+    }
+
+    @When("^User sort talk by category Most Likes$")
+    public void user_sort_talk_by_category_most_likes() throws Throwable {
+        talkScreen.checkBeforeSortTalk();
+        talkScreen.sortTalkByMostLikes();
+    }
+
+    @Then("^User will see list talk by category Most Likes$")
+    public void user_will_see_list_talk_by_category_most_likes() throws Throwable {
+        talkScreen.checkAfterSortOldestMostLikes();
+    }
     
 }

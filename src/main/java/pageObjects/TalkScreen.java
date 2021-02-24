@@ -113,13 +113,13 @@ public class TalkScreen extends ActionBase {
     public MobileElement sortGroupDetail;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Newest']")
-    public MobileElement sortByNewest;
+    public MobileElement sortTopicByNewest;
     
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Popular']")
-    public MobileElement sortByPopular;
+    public MobileElement sortTopicByPopular;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Most Talks']")
-    public MobileElement sortByMostTalks;
+    public MobileElement sortTopicByMostTalks;
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/labelTalkName")
     public MobileElement firstTopic;
@@ -190,7 +190,19 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/inputDescription")
     public MobileElement inputDescAddTalkScreen;
+    
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Newest']")
+    public MobileElement sortTalkByNewest;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Oldest']")
+    public MobileElement sortTalkByOldest;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Most Likes']")
+    public MobileElement sortTalkByMostLikes;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")
+    public MobileElement firstTalk;
+    
     //more option topic detail
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonMore")
     public MobileElement topicDetailMoreBtn;
@@ -586,19 +598,19 @@ public class TalkScreen extends ActionBase {
     
     public TalkScreen sortTopicByNewest() {
         tapByElement(sortGroupDetail);
-        tapByElement(sortByNewest);
+        tapByElement(sortTopicByNewest);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTopicByPopular() {
         tapByElement(sortGroupDetail);
-        tapByElement(sortByPopular);
+        tapByElement(sortTopicByPopular);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTopicByMostTalks() {
         tapByElement(sortGroupDetail);
-        tapByElement(sortByMostTalks);
+        tapByElement(sortTopicByMostTalks);
         return new TalkScreen(driver);
     }
 
@@ -611,6 +623,44 @@ public class TalkScreen extends ActionBase {
     
     public TalkScreen checkAfterSortPopularMostTalks() {
         afterSort = firstTopic.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertNotEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen checkBeforeSortTalk() {
+        beforeSort = firstTalk.getText();
+        System.out.println("before sort"+" "+beforeSort);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByNewest() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByNewest);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByOldest() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByOldest);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByMostLikes() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByMostLikes);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkAfterSortNewestTalks() {
+        afterSort = firstTalk.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkAfterSortOldestMostLikes() {
+        afterSort = firstTalk.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertNotEquals(afterSort, beforeSort);
         return new TalkScreen(driver);

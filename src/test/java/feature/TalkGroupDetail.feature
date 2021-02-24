@@ -37,7 +37,7 @@ Feature: User navigate to talk group screen
     
   ####  Sort Topic #### 
   #FDBRMA-604
-  @Android @Talk @ReplyTopic @TalkSort
+  @Android @Talk @ReplyTopic @TopicSort
   Scenario Outline: Sort Topic on Group Detail Screen by Newest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -52,8 +52,8 @@ Feature: User navigate to talk group screen
       | username | password |
       | usertalk | test1234 |       
     
-  #FDBRMA-602
-  @Android @Talk @ReplyTopic @TalkSort
+  #FDBRMA-605
+  @Android @Talk @ReplyTopic @TopicSort
   Scenario Outline: Sort Topic on Group Detail Screen by Popular
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -68,8 +68,8 @@ Feature: User navigate to talk group screen
       | username | password |
       | usertalk | test1234 |       
     
-  #FDBRMA-603
-  @Android @Talk @ReplyTopic @TalkSort
+  #FDBRMA-606
+  @Android @Talk @ReplyTopic @TopicSort
   Scenario Outline: Sort Topic on Group Detail Screen by Most Talks
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
