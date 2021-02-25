@@ -129,7 +129,7 @@ public class CommonUtils {
     }
 
     public static AppiumDriver getAndroidDriver() throws MalformedURLException {
-        serverUrl = new URL("http://0.0.0.0:" + APPIUM_PORT + "/wd/hub");
+        serverUrl = new URL("http://localhost:" + APPIUM_PORT + "/wd/hub");
         driver = new AndroidDriver(serverUrl, capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;

@@ -28,7 +28,7 @@ public class TalkSteps extends DriverFactory {
     @When("^User submit add topic at not joined group$")
     public void user_submit_add_topic_at_not_joined_group() {
         talkScreen.scrollGroupTalk();
-        talkScreen.clickRandomGroupTalk();
+        talkScreen.clickFirstGroupTalk();
 
         talkScreen.submitAddTopicAsGuest();
     }
@@ -61,7 +61,7 @@ public class TalkSteps extends DriverFactory {
     @When("^User submit reply topic at not joined group \"([^\"]*)\"$")
     public void user_submit_reply_topic_at_not_joined_group_something(String group) throws InterruptedException {
         talkScreen.searchGroupTalk(group);
-        talkScreen.clickRandomGroupTalk();
+        talkScreen.clickFirstGroupTalk();
 
         talkScreen.submitReplyTopicAsGuest();
     }
@@ -265,7 +265,7 @@ public class TalkSteps extends DriverFactory {
     
     @And("^User scroll until last screen$")
     public void user_scroll_until_last_screen() {
-        talkScreen.scrollUntilLasScreen();
+        talkScreen.scrollUntilLastScreen();
     }
 
     @When("^User scroll and click tab Topic$")
@@ -300,75 +300,80 @@ public class TalkSteps extends DriverFactory {
 
     //sort topic on group detail
     @When("^User click one of group talk$")
-    public void user_click_one_of_group_talk() throws Throwable {
-        talkScreen.clickRandomGroupTalk();
+    public void user_click_one_of_group_talk() {
+        talkScreen.clickFirstGroupTalk();
     }
 
     @And("^User sort topic by category Newest$")
-    public void user_sort_topic_by_category_newest() throws Throwable {
+    public void user_sort_topic_by_category_newest() {
         talkScreen.checkBeforeSort();
         talkScreen.sortTopicByNewest();
     }
 
     @Then("^User will see list topic by category Newest$")
-    public void user_will_see_list_topic_by_category_newest() throws Throwable {
+    public void user_will_see_list_topic_by_category_newest() {
         talkScreen.checkAfterSortNewest();
     }
 
     @And("^User sort topic by category Popular$")
-    public void user_sort_topic_by_category_popular() throws Throwable {
+    public void user_sort_topic_by_category_popular() {
         talkScreen.checkBeforeSort();
         talkScreen.sortTopicByPopular();
     }
 
     @Then("^User will see list topic by category Popular$")
-    public void user_will_see_list_topic_by_category_popular() throws Throwable {
+    public void user_will_see_list_topic_by_category_popular() {
         talkScreen.checkAfterSortPopularMostTalks();
     }
 
     @And("^User sort topic by category Most Talks$")
-    public void user_sort_topic_by_category_most_talks() throws Throwable {
+    public void user_sort_topic_by_category_most_talks() {
         talkScreen.checkBeforeSort();
         talkScreen.sortTopicByMostTalks();
     }
     
     @Then("^User will see list topic by category Most Talks$")
-    public void user_will_see_list_topic_by_category_most_talks() throws Throwable {
+    public void user_will_see_list_topic_by_category_most_talks() {
         talkScreen.checkAfterSortPopularMostTalks();
     }
 
 
     @When("^User sort talk by category Newest$")
-    public void user_sort_talk_by_category_newest() throws Throwable {
+    public void user_sort_talk_by_category_newest() {
         talkScreen.checkBeforeSortTalk();
         talkScreen.sortTalkByNewest();
     }
 
     @Then("^User will see list talk by category Newest$")
-    public void user_will_see_list_talk_by_category_newest() throws Throwable {
+    public void user_will_see_list_talk_by_category_newest() {
         talkScreen.checkAfterSortNewestTalks();
     }
 
     @When("^User sort talk by category Oldest$")
-    public void user_sort_talk_by_category_oldest() throws Throwable {
+    public void user_sort_talk_by_category_oldest() {
         talkScreen.checkBeforeSortTalk();
         talkScreen.sortTalkByOldest();
     }
 
     @Then("^User will see list talk by category Oldest$")
-    public void user_will_see_list_talk_by_category_oldest() throws Throwable {
+    public void user_will_see_list_talk_by_category_oldest() {
         talkScreen.checkAfterSortOldestMostLikes();
     }
 
     @When("^User sort talk by category Most Likes$")
-    public void user_sort_talk_by_category_most_likes() throws Throwable {
+    public void user_sort_talk_by_category_most_likes() {
         talkScreen.checkBeforeSortTalk();
         talkScreen.sortTalkByMostLikes();
     }
 
     @Then("^User will see list talk by category Most Likes$")
-    public void user_will_see_list_talk_by_category_most_likes() throws Throwable {
+    public void user_will_see_list_talk_by_category_most_likes() {
         talkScreen.checkAfterSortOldestMostLikes();
+    }
+
+    @And("^User click any topic on group detail$")
+    public void user_click_any_topic_on_group_detail() {
+        talkScreen.clickMostTopTopic();
     }
     
 }

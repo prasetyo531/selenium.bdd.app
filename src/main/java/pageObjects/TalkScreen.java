@@ -287,8 +287,8 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen clickRandomGroupTalk() {
-        clickRandomMenus(groupCard);
+    public TalkScreen clickFirstGroupTalk() {
+        clickFirstMenus(groupCard);
         return new TalkScreen(driver);
     }
 
@@ -491,7 +491,7 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen scrollUntilLasScreen() {
+    public TalkScreen scrollUntilLastScreen() {
         verticalSwipeByPercentagesDirectly(55,681,55, 1984);
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
