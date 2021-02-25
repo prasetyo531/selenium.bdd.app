@@ -37,7 +37,7 @@ Feature: User navigate to talk homepage
       |	  bddtalk01	      |   test123     |
     
   #FDBRMA-610
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @checkPras
   Scenario Outline: Follow member from recent talk card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -49,11 +49,11 @@ Feature: User navigate to talk homepage
     Then User will see button change to following
 
     Examples:
-      | username   | password |
-      | usertalk01 | test123  |
+      | username | password |
+      | fixnotif | test123 |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia1 @Pass @check
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -67,7 +67,7 @@ Feature: User navigate to talk homepage
 
     Examples:
       | username   | password |
-      | usertalk01 | test123  |
+      | fixnotif | test123  |
     
   #FDBRMA-612
   @Android @Talk @TestTalkMacia @Pass @check
@@ -123,7 +123,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |      
 
   #FDBRMA-616
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @checkPras
   Scenario Outline: Check see more talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -139,7 +139,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @checkPras
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

@@ -323,7 +323,7 @@ public class HomeScreen extends ActionBase {
 
     //menu bar
     public HomeScreen clickProductCategory() {
-        horizontalSwipeByPercentagesDirectly(1353,1220, 370, 1203);
+        horizontalSwipeByPercentagesDirectly(902,805, 333, 809);
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
         return new HomeScreen(driver);
