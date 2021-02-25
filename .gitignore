@@ -10,3 +10,4 @@ test-output/
 target/
 client/properties/
 client/app/
+client/utils/
