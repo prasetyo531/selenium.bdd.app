@@ -139,11 +139,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-<<<<<<<<< Temporary merge branch 1
   @Android @Talk @TestTalkMacia @Pass @checkPras
-=========
-  @Android @Talk @TestTalkMacia @Pass @check
->>>>>>>>> Temporary merge branch 2
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
