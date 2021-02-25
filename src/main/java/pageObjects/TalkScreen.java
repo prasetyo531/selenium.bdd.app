@@ -28,6 +28,8 @@ public class TalkScreen extends ActionBase {
     public static String tagEditTopic = "editTopic";
     public String beforeLike;
     public String afterLike;
+    public String beforeSort;
+    public String afterSort;
 
     FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-GB"),new RandomService());
 
@@ -91,6 +93,7 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
     
+    
     /***********************************************
      group detail and topic list and add topic screen
      ***********************************************/
@@ -109,6 +112,18 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonSortBy")
     public MobileElement sortGroupDetail;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Newest']")
+    public MobileElement sortTopicByNewest;
+    
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Popular']")
+    public MobileElement sortTopicByPopular;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Most Talks']")
+    public MobileElement sortTopicByMostTalks;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/labelTalkName")
+    public MobileElement firstTopic;
+    
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonAddTopic")
     public MobileElement addTopicBtn;
 
@@ -175,7 +190,19 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/inputDescription")
     public MobileElement inputDescAddTalkScreen;
+    
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Newest']")
+    public MobileElement sortTalkByNewest;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Oldest']")
+    public MobileElement sortTalkByOldest;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Most Likes']")
+    public MobileElement sortTalkByMostLikes;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")
+    public MobileElement firstTalk;
+    
     //more option topic detail
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonMore")
     public MobileElement topicDetailMoreBtn;
@@ -260,8 +287,8 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen clickRandomGroupTalk() {
-        clickRandomMenus(groupCard);
+    public TalkScreen clickFirstGroupTalk() {
+        clickFirstMenus(groupCard);
         return new TalkScreen(driver);
     }
 
@@ -461,11 +488,10 @@ public class TalkScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(45,431,64, 1813);
         verticalSwipeByPercentagesDirectly(64,1813,54, 1224);
         verticalSwipeByPercentagesDirectly(54,1224,32, 500);
-        verticalSwipeByPercentagesDirectly(54,1224,32, 500);
         return new TalkScreen(driver);
     }
 
-    public TalkScreen scrollUntilLasScreen() {
+    public TalkScreen scrollUntilLastScreen() {
         verticalSwipeByPercentagesDirectly(55,681,55, 1984);
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
@@ -480,6 +506,9 @@ public class TalkScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(55,1984,55, 922);
         verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
         tapByElement (tabTopic);
+        
+        verticalSwipeByPercentagesDirectly(32,1993,51, 200);
+
         return new TalkScreen(driver);
     }
 
@@ -560,4 +589,81 @@ public class TalkScreen extends ActionBase {
         isElementPresent(listRecentTalkTopic);
         return new TalkScreen(driver);
     }
+
+    public TalkScreen checkBeforeSort() {
+        beforeSort = firstTopic.getText();
+        System.out.println("before sort"+" "+beforeSort);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen sortTopicByNewest() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTopicByNewest);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTopicByPopular() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTopicByPopular);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTopicByMostTalks() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTopicByMostTalks);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkAfterSortNewest() {
+        afterSort = firstTopic.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen checkAfterSortPopularMostTalks() {
+        afterSort = firstTopic.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertNotEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen checkBeforeSortTalk() {
+        beforeSort = firstTalk.getText();
+        System.out.println("before sort"+" "+beforeSort);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByNewest() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByNewest);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByOldest() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByOldest);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen sortTalkByMostLikes() {
+        tapByElement(sortGroupDetail);
+        tapByElement(sortTalkByMostLikes);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkAfterSortNewestTalks() {
+        afterSort = firstTalk.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkAfterSortOldestMostLikes() {
+        afterSort = firstTalk.getText();
+        System.out.println("after sort"+" "+afterSort);
+        Assert.assertNotEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+    
 }

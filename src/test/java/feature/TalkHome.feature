@@ -6,7 +6,7 @@ Feature: User navigate to talk homepage
 
   
   #FDBRMA-400
-  @Android @Talk 
+  @Android @Talk
   Scenario Outline: Join group from snippet on Home Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -19,7 +19,7 @@ Feature: User navigate to talk homepage
     
     Examples:
       |   username        |   password    |
-      |	  usertalk	      |   test123     |
+      |	  usertalk	      |   test1234    |
     
   #FDBRMA-71 #FDBRMA-78 #FDBRMA-83
   @Android @Talk
@@ -49,11 +49,11 @@ Feature: User navigate to talk homepage
     Then User will see button change to following
 
     Examples:
-      | username | password |
-      | fixnotif | test123 |
+      | username   | password |
+      | usertalk01 | test123  |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia1 @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @check
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -67,7 +67,7 @@ Feature: User navigate to talk homepage
 
     Examples:
       | username   | password |
-      | fixnotif | test123  |
+      | usertalk01 | test123  |
     
   #FDBRMA-612
   @Android @Talk @TestTalkMacia @Pass @check
@@ -139,7 +139,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-  @Android @Talk @TestTalkMacia @Pass @checkPras
+  @Android @Talk @TestTalkMacia @Pass @check
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

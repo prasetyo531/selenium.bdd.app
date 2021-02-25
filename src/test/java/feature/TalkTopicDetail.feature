@@ -81,8 +81,8 @@ Feature: User navigate to topic detail screen
 
     Examples:
       | username | password |
-      | usertalk | test123  |      
-
+      | usertalk | test123  |
+  
   ####  Talk ####
   @Android @Talk @ReplyTalk @Bug
   Scenario Outline: Create reply talk at not joined group
@@ -111,3 +111,65 @@ Feature: User navigate to topic detail screen
     Examples:
       |   username    |   password    |
       |	  putwid      |   123tester   |
+    
+  ####  Sort Talk ####    
+  #FDBRMA-607
+  @Android @Talk @ReplyTopic @TalkSortSatu
+  Scenario Outline: Sort Talk on Topic Detail Screen by Newest
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    When User click one of group talk
+    And User click any topic on group detail
+#    And User scroll until see recent activity
+#    When User click on tab Topic
+#    And User click on recent topic
+    Then User will see topic detail screen
+    When User sort talk by category Newest
+    Then User will see list talk by category Newest
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |       
+    
+  #FDBRMA-608
+  @Android @Talk @ReplyTopic @TalkSort
+  Scenario Outline: Sort Talk on Topic Detail Screen by Oldest
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    When User click on tab Topic
+    And User click on recent topic
+    Then User will see topic detail screen
+    When User sort talk by category Oldest
+    Then User will see list talk by category Oldest
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |        
+    
+  #FDBRMA-609
+  @Android @Talk @ReplyTopic @TalkSort1
+  Scenario Outline: Sort Talk on Topic Detail Screen by Most Likes
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    And User scroll until see recent activity
+    When User click on tab Topic
+    And User click on recent topic
+    Then User will see topic detail screen
+    When User sort talk by category Most Likes
+    Then User will see list talk by category Most Likes
+
+    Examples:
+      | username | password |
+      | usertalk | test1234 |      
+  
+  
