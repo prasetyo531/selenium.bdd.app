@@ -14,7 +14,7 @@ Feature: User navigate to screen related to product action
     Then User will see modal account status on homescreen
 
   #FDBRMA-596
-  @Android @Staging @Product @checkPras1
+  @Android @Staging @Product @demoQa
   Scenario Outline: Search product from product category
     Given User clicks menu product category from homescreen menu
     When User input "<productname>" on search bar
@@ -29,7 +29,7 @@ Feature: User navigate to screen related to product action
       |     natu     |
 
   #FDBRMA-413
-  @Android @Staging @Product @checkPras1
+  @Android @Staging @Product @demoQa
   Scenario Outline: Check if product has no review
     Given User clicks menu product category from homescreen menu
     When User input "<productname>" on search bar

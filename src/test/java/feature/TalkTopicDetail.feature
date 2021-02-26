@@ -114,7 +114,7 @@ Feature: User navigate to topic detail screen
     
   ####  Sort Talk ####    
   #FDBRMA-607
-  @Android @Talk @ReplyTopic @TalkSortSatu
+  @Android @Talk @ReplyTopic @demoQa
   Scenario Outline: Sort Talk on Topic Detail Screen by Newest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

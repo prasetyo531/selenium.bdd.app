@@ -485,29 +485,28 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen scrollToRecentTalk() {
-        verticalSwipeByPercentagesDirectly(45,431,64, 1813);
-        verticalSwipeByPercentagesDirectly(64,1813,54, 1224);
-        verticalSwipeByPercentagesDirectly(54,1224,32, 500);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         return new TalkScreen(driver);
     }
 
     public TalkScreen scrollUntilLastScreen() {
-        verticalSwipeByPercentagesDirectly(55,681,55, 1984);
-        verticalSwipeByPercentagesDirectly(55,1984,55, 922);
-        verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
-        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
-        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
-        verticalSwipeByPercentagesDirectly(32,1993,51, 800);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         return new TalkScreen(driver);
     }
 
     public TalkScreen scrollAndClickTabTopic() {
-        verticalSwipeByPercentagesDirectly(55,681,55, 1984);
-        verticalSwipeByPercentagesDirectly(55,1984,55, 922);
-        verticalSwipeByPercentagesDirectly(32,1993,23, 1534);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         tapByElement (tabTopic);
-        
-        verticalSwipeByPercentagesDirectly(32,1993,51, 200);
+
+        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
 
         return new TalkScreen(driver);
     }

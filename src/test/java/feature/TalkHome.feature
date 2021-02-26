@@ -53,7 +53,7 @@ Feature: User navigate to talk homepage
       | usertalk01 | test123  |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @demoQa
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -123,7 +123,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |      
 
   #FDBRMA-616
-  @Android @Talk @TestTalkMacia @Pass @checkPras
+  @Android @Talk @TestTalkMacia @Pass @demoQa
   Scenario Outline: Check see more talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -139,7 +139,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk @TestTalkMacia @Pass @demoQa
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
