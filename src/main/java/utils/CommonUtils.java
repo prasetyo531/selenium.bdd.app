@@ -60,7 +60,7 @@ public class CommonUtils {
         APPIUM_PORT = prop.getProperty("appium.server.port");
         AUTOMATION_INSTRUMENTATION=prop.getProperty("automation.instrumentation");
         DEVICE_NAME=prop.getProperty("device.name");
-        BROWSER_NAME=prop.getProperty("browser.name");
+        //BROWSER_NAME=prop.getProperty("browser.name");
         PLATFORM_NAME=prop.getProperty("platform.name");
         PLATFORM_VERSION=prop.getProperty("platform.version");
         NEW_COMMAND_TIMEOUT= Integer.parseInt(prop.getProperty("new.command.timeout"));
@@ -68,7 +68,7 @@ public class CommonUtils {
     }
 
     public static void loadIosConfigProp(String propertyFileName) throws IOException {
-        FileInputStream fis2 = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/client/properties/"+propertyFileName);
+        FileInputStream fis2 = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/client/properties"+propertyFileName);
         prop.load(fis2);
 
         EXPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("explicit.wait"));
@@ -129,7 +129,7 @@ public class CommonUtils {
     }
 
     public static AppiumDriver getAndroidDriver() throws MalformedURLException {
-        serverUrl = new URL("http://localhost:" + APPIUM_PORT + "/wd/hub");
+        serverUrl = new URL("http://0.0.0.0:" + APPIUM_PORT + "/wd/hub");
         driver = new AndroidDriver(serverUrl, capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;

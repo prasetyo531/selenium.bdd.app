@@ -54,6 +54,7 @@ public class DriverFactory {
                 CommonUtils.loadAndroidConfigProp("android.properties");
                 CommonUtils.setAndroidCapabilities();
                 driver = CommonUtils.getAndroidDriver();
+                System.out.println ("driver: "+driver);
             }
         } catch (Exception e) {
             System.out.println("Unable to load apps: " + e.getMessage());

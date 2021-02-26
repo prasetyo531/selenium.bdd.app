@@ -42,7 +42,7 @@ public class AppiumServer {
         System.out.println("Appium server stopped");
     }
 
-    //Kill port
+    // Kill port
     public static void killPort() {
         String s = null;
         try {
@@ -71,5 +71,5 @@ public class AppiumServer {
             e.printStackTrace();
             System.exit(-1);
         }
-    }
+    } 
 }
