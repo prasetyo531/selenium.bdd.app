@@ -203,17 +203,12 @@ public class TalkSteps extends DriverFactory {
         profileScreen.getErrorRemoveTagsTopic();
     }
 
-    //follow user from recent activity
-    @And("^User scroll until see recent activity$")
-    public void user_scroll_until_see_recent_activity() {
-        talkScreen.scrollToRecentTalk();
-    }
-
     @Then("^User click on tab Topic$")
     public void user_click_on_tab_topic() {
         talkScreen.clickTabTopic();
     }
 
+    //follow user from recent activity
     @When("^User follow member from recent talk card$")
     public void user_follow_member_from_recent_talk_card() {
         talkScreen.clickOnProfileUser();
