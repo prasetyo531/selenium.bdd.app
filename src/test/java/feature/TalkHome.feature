@@ -155,3 +155,18 @@ Feature: User navigate to talk homepage
       | username | password |
       | usertalk | test1234 |        
     
+  #FDBRMA-598
+  @Android @Talk @TalkSearch
+  Scenario Outline: Search Topic from General Search Field at Talk Home
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    When User search for topic "<topic>" title
+    Then User will see "<topic>" search result
+
+    Examples:
+      | username  | password | topic            |
+      | usertalk | test1234  | Combination Skin |    
+    

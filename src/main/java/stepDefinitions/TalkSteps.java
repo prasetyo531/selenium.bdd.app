@@ -10,7 +10,7 @@ public class TalkSteps extends DriverFactory {
 
     @And("^User click menu fdtalk on homescreen menu$")
     public void user_click_menu_fdtalk_on_homescreen_menu() {
-        homeScreen.findAndCloseFloatingImg();
+        // homeScreen.findAndCloseFloatingImg();
         homeScreen.clickTalkMenu();
     }
 
@@ -374,6 +374,19 @@ public class TalkSteps extends DriverFactory {
     @And("^User click any topic on group detail$")
     public void user_click_any_topic_on_group_detail() {
         talkScreen.clickMostTopTopic();
+    }
+
+    //search talk home
+    @When("^User search for topic \"([^\"]*)\" title$")
+    public void user_search_for_topic_something_title(String topic) throws Throwable {
+        talkScreen.searchTopicTalk(topic);
+    }
+
+    @Then("^User will see \"([^\"]*)\" search result$")
+    public void user_will_see_something_search_result(String topic) throws Throwable {
+        talkScreen.tapSearchResult();
+        talkScreen.checkTopicDetail();
+        talkScreen.checkTopicSearchResult(topic);
     }
     
 }
