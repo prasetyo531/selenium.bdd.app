@@ -5,9 +5,8 @@
 .project
 .settings
 *.iml
+*.properties
 #ignore folder
 test-output/
-target/
-client/properties/
-client/app/
-client/utils/
+src/main/java/utils/AppiumServer.java
+src/main/java/utils/CommonUtils.java
