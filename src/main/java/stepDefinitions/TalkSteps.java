@@ -379,14 +379,29 @@ public class TalkSteps extends DriverFactory {
     //search talk home
     @When("^User search for topic \"([^\"]*)\" title$")
     public void user_search_for_topic_something_title(String topic) throws Throwable {
-        talkScreen.searchTopicTalk(topic);
+        talkScreen.searchTopicOnTalkHome(topic);
     }
 
-    @Then("^User will see \"([^\"]*)\" search result$")
-    public void user_will_see_something_search_result(String topic) throws Throwable {
+
+    @Then("^User will see topic \"([^\"]*)\" search result$")
+    public void user_will_see_topic_something_search_result(String topic) throws Throwable {
         talkScreen.tapSearchResult();
         talkScreen.checkTopicDetail();
         talkScreen.checkTopicSearchResult(topic);
     }
+
+
+    @When("^User search for talk \"([^\"]*)\" title$")
+    public void user_search_for_talk_something_title(String talk) throws Throwable {
+        talkScreen.searchTalkOnTalkHome(talk);
+    }
+
+    @Then("^User will see talk \"([^\"]*)\" search result$")
+    public void user_will_see_talk_something_search_result(String talk) throws Throwable {
+        talkScreen.tapSearchResult();
+        talkScreen.checkTopicDetail();
+        talkScreen.checkTopicSearchResult(talk);
+    }
+    
     
 }

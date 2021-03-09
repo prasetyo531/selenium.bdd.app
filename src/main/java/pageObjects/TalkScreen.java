@@ -255,9 +255,11 @@ public class TalkScreen extends ActionBase {
     public MobileElement tabSearchTopic;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public MobileElement searchTopicResut1;
-    
-    
+    public MobileElement searchTopicResult1;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Talk']/android.widget.TextView")
+    public MobileElement tabSearchTalk;
+
     
     // This is a constructor, as every page need a base driver to find android elements
     public TalkScreen(AppiumDriver driver) {
@@ -686,7 +688,7 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
     
-    public TalkScreen searchTopicTalk(String topic) {
+    public TalkScreen searchTopicOnTalkHome(String topic) {
         tapByElement(searchFieldTalkHome);
         
         isElementPresent(searchField);
@@ -697,7 +699,7 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen tapSearchResult() {
-        tapByElement(searchTopicResut1);
+        tapByElement(searchTopicResult1);
         return new TalkScreen(driver);
     }
 
@@ -707,6 +709,25 @@ public class TalkScreen extends ActionBase {
         WaitUntilElementIsVisible(searchField);
         String keyword = searchField.getText();
         Assert.assertEquals(topic, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen searchTalkOnTalkHome(String talk) {
+        tapByElement(searchFieldTalkHome);
+
+        isElementPresent(searchField);
+        tapByElement(tabSearchTalk);
+        tapAndInputValueKeyboard(searchField, talk);
+
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkTalkSearchResult(String talk) {
+        tapByElement(backTopicDetail);
+
+        WaitUntilElementIsVisible(searchField);
+        String keyword = searchField.getText();
+        Assert.assertEquals(talk, keyword);
         return new TalkScreen(driver);
     }
     
