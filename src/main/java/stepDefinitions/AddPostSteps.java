@@ -180,7 +180,7 @@ public class AddPostSteps extends DriverFactory {
 
         addPostScreen.getTextModalAddPost();
         addPostScreen.yesCancelPost();
-        homeScreen.verifyHomescreen();
+        addPostScreen.isCameraScreen();
     }
 
     @And("^User clicks discover from homescreen menu and select post$")

@@ -119,6 +119,12 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
+    public AddPostScreen isCameraScreen() throws IOException {
+
+        WaitUntilElementIsVisible(captureBtn);
+        return new AddPostScreen(driver);
+    }
+
     public AddPostScreen capturePhoto() throws IOException {
 
         clickPhotoBtn();

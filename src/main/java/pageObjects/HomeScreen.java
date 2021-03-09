@@ -232,7 +232,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public void verifyAccountStatusModal() {
-        WaitUntilElementIsVisible(accountCompleteVerBtn);
+        //WaitUntilElementIsVisible(accountCompleteVerBtn);
         //http://appium.io/docs/en/commands/element/find-elements/#find-elements
         List<WebElement> checkAccountStatusModal = accountCompleteVerBtnOnModal;
         //List<MobileElement> checkAccountStatusModal = (List<MobileElement>) driver.findElementsById("com.fdbr.android:id/buttonAction");

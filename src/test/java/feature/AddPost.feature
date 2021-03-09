@@ -66,7 +66,7 @@ Feature: User Add Post
       |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-58 #FDBRMA-59
-  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @testdata
   Scenario Outline: Add post with tag product - Review product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -110,7 +110,7 @@ Feature: User Add Post
       |	      bddtestaddpost01	 |	      test123      |       nature republic          |
 
   #FDBRMA-61  #FDBRMA-63
-  @FDBRMA-61
+  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Add post with multiple tag product - review each tagged product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
