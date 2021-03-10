@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
-
+import java.util.concurrent.TimeUnit;
 public class OnboardingScreen extends ActionBase {
 
     /*  intro   */

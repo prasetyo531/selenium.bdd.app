@@ -114,7 +114,7 @@ Feature: User navigate to topic detail screen
     
   ####  Sort Talk ####    
   #FDBRMA-607
-  @Android @Talk @ReplyTopic @demoQa
+  @Android @Talk @ReplyTopic @TalkSort
   Scenario Outline: Sort Talk on Topic Detail Screen by Newest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -150,7 +150,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test1234 |        
     
   #FDBRMA-609
-  @Android @Talk @ReplyTopic @TalkSort1
+  @Android @Talk @ReplyTopic @TalkSort
   Scenario Outline: Sort Talk on Topic Detail Screen by Most Likes
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

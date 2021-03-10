@@ -10,7 +10,7 @@ public class TalkSteps extends DriverFactory {
 
     @And("^User click menu fdtalk on homescreen menu$")
     public void user_click_menu_fdtalk_on_homescreen_menu() {
-        homeScreen.findAndCloseFloatingImg();
+        // homeScreen.findAndCloseFloatingImg();
         homeScreen.clickTalkMenu();
     }
 
@@ -369,6 +369,53 @@ public class TalkSteps extends DriverFactory {
     @And("^User click any topic on group detail$")
     public void user_click_any_topic_on_group_detail() {
         talkScreen.clickMostTopTopic();
+    }
+
+    //search talk home
+    @When("^User search for topic \"([^\"]*)\" title$")
+    public void user_search_for_topic_something_title(String topic) throws Throwable {
+        talkScreen.searchTopicOnTalkHome(topic);
+    }
+
+
+    @Then("^User will see topic \"([^\"]*)\" search result$")
+    public void user_will_see_topic_something_search_result(String topic) throws Throwable {
+        talkScreen.tapSearchResult();
+        talkScreen.checkTopicDetail();
+        talkScreen.checkTopicSearchResult(topic);
+    }
+
+
+    @When("^User search for talk \"([^\"]*)\" title$")
+    public void user_search_for_talk_something_title(String talk) throws Throwable {
+        talkScreen.searchTalkOnTalkHome(talk);
+    }
+
+    @Then("^User will see talk \"([^\"]*)\" search result$")
+    public void user_will_see_talk_something_search_result(String talk) throws Throwable {
+        talkScreen.tapSearchResult();
+        talkScreen.checkTopicDetail();
+        talkScreen.checkTalkSearchResult(talk);
+    }
+    
+    @When("^User search for group \"([^\"]*)\" at group list screen$")
+    public void user_search_for_group_something_at_group_list_screen(String group) throws Throwable {
+        talkScreen.searchGroupTalk(group);
+    }
+
+    @Then("^User will see group \"([^\"]*)\" search result$")
+    public void user_will_see_group_something_search_result(String group) throws Throwable {
+        talkScreen.checkGroupSearchResult(group);
+    }
+
+    @And("^User search for topic \"([^\"]*)\" at group detail screen$")
+    public void user_search_for_topic_something_at_group_detail_screen(String topic) throws Throwable {
+        talkScreen.searchTopicOnGroupDetail(topic);
+    }
+
+    @Then("^User will see list topic \"([^\"]*)\" search result at group detail screen$")
+    public void user_will_see_list_topic_something_search_result_at_group_detail_screen(String topic) throws Throwable {
+        talkScreen.checkListTopicSearchResult(topic);
     }
     
 }

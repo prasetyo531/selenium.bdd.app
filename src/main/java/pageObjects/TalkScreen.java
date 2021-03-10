@@ -26,6 +26,7 @@ public class TalkScreen extends ActionBase {
     public static String titleEditTopic = "tile edit topic android";
     public static String descEditTopic = "desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android desc edit topic android";
     public static String tagEditTopic = "editTopic";
+    public String replyTalkTopic = "bdd test reply topic bdd test reply topic bdd test reply topic";
     public String beforeLike;
     public String afterLike;
     public String beforeSort;
@@ -92,7 +93,25 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
-    
+
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
+    public MobileElement searchFieldTalkHome;
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
+    public MobileElement searchField;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Topic']/android.widget.TextView")
+    public MobileElement tabSearchTopic;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Talk']/android.widget.TextView")
+    public MobileElement tabSearchTalk;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
+    public MobileElement searchResult;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/layoutGridTalk")
+    public MobileElement searchResultGroup;
     
     /***********************************************
      group detail and topic list and add topic screen
@@ -135,6 +154,12 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/itemMenuParent")
     public MobileElement topicResultSearch1;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/toolbarSearchClick")
+    public MobileElement searchFieldGroupDetail;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listItems")
+    public MobileElement listSearchResultTopic;
 
     //add topic screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
@@ -202,6 +227,9 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")
     public MobileElement firstTalk;
+
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc='Navigate up']")
+    public MobileElement backTopicDetail;
     
     //more option topic detail
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonMore")
@@ -237,8 +265,7 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement okModal;
     
-    String replyTalkTopic = "bdd test reply topic bdd test reply topic bdd test reply topic";
-
+    
     // This is a constructor, as every page need a base driver to find android elements
     public TalkScreen(AppiumDriver driver) {
 
@@ -662,6 +689,67 @@ public class TalkScreen extends ActionBase {
         afterSort = firstTalk.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertNotEquals(afterSort, beforeSort);
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen searchTopicOnTalkHome(String topic) {
+        tapByElement(searchFieldTalkHome);
+        
+        isElementPresent(searchField);
+        tapByElement(tabSearchTopic);
+        tapAndInputValueKeyboard(searchField, topic);
+        
+        return new TalkScreen(driver);
+    }
+    
+    public TalkScreen tapSearchResult() {
+        tapByElement(searchResult);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkTopicSearchResult(String topic) {
+        tapByElement(backTopicDetail);
+
+        WaitUntilElementIsVisible(searchField);
+        String keyword = searchField.getText();
+        Assert.assertEquals(topic, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen searchTalkOnTalkHome(String talk) {
+        tapByElement(searchFieldTalkHome);
+
+        isElementPresent(searchField);
+        tapByElement(tabSearchTalk);
+        tapAndInputValueKeyboard(searchField, talk);
+
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkTalkSearchResult(String talk) {
+        tapByElement(backTopicDetail);
+
+        WaitUntilElementIsVisible(searchField);
+        String keyword = searchField.getText();
+        Assert.assertEquals(talk, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkGroupSearchResult(String group) {
+        isElementPresent(searchResultGroup);
+        String keyword = searchTalkBar.getText();
+        Assert.assertEquals(group, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen searchTopicOnGroupDetail(String topic) {
+        tapAndInputValueKeyboard(searchFieldGroupDetail, topic);
+
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkListTopicSearchResult(String topic) {
+        WaitUntilElementIsVisible(listSearchResultTopic);
         return new TalkScreen(driver);
     }
     
