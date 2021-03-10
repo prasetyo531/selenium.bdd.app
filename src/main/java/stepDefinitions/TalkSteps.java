@@ -412,6 +412,15 @@ public class TalkSteps extends DriverFactory {
     public void user_will_see_group_something_search_result(String group) throws Throwable {
         talkScreen.checkGroupSearchResult(group);
     }
-    
+
+    @And("^User search for topic \"([^\"]*)\" at group detail screen$")
+    public void user_search_for_topic_something_at_group_detail_screen(String topic) throws Throwable {
+        talkScreen.searchTopicOnGroupDetail(topic);
+    }
+
+    @Then("^User will see list topic \"([^\"]*)\" search result at group detail screen$")
+    public void user_will_see_list_topic_something_search_result_at_group_detail_screen(String topic) throws Throwable {
+        talkScreen.checkListTopicSearchResult(topic);
+    }
     
 }

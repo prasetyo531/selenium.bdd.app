@@ -167,8 +167,8 @@ Feature: User navigate to talk homepage
     Then User will see topic "<topic>" search result
 
     Examples:
-      | username  | password | topic            |
-      | usertalk | test1234  | Combination Skin |    
+      | username | password | topic            |
+      | usertalk | test1234 | Combination Skin |    
     
   #FDBRMA-599
   @Android @Talk @TalkSearch1
@@ -186,7 +186,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 | Combination Skin |       
     
   #FDBRMA-600
-  @Android @Talk @TalkSearch
+  @Android @Talk @TalkSearch1
   Scenario Outline: Search Group from Search Field at Group List Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -197,6 +197,8 @@ Feature: User navigate to talk homepage
     Then User will see group "<group>" search result
 
     Examples:
-      | username | password | group            |
-      | usertalk | test1234 | Combination Skin |       
+      | username  | password | group            |
+      | usertalk  | test1234 | Combination Skin |         
+    
+        
     

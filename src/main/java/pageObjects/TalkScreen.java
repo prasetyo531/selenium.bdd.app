@@ -93,7 +93,25 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/buttonBottomSeeMore")
     public MobileElement btnSeeMoreTalkTopic;
-    
+
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
+    public MobileElement searchFieldTalkHome;
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
+    public MobileElement searchField;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Topic']/android.widget.TextView")
+    public MobileElement tabSearchTopic;
+
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Talk']/android.widget.TextView")
+    public MobileElement tabSearchTalk;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
+    public MobileElement searchResult;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/layoutGridTalk")
+    public MobileElement searchResultGroup;
     
     /***********************************************
      group detail and topic list and add topic screen
@@ -136,6 +154,12 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.talk:id/itemMenuParent")
     public MobileElement topicResultSearch1;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/toolbarSearchClick")
+    public MobileElement searchFieldGroupDetail;
+
+    @AndroidFindBy(id="com.fdbr.android.talk:id/listItems")
+    public MobileElement listSearchResultTopic;
 
     //add topic screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
@@ -240,29 +264,7 @@ public class TalkScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement okModal;
-
-    /***********************************************
-                       search feature
-     ***********************************************/
     
-    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
-    public MobileElement searchFieldTalkHome;
-
-    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
-    public MobileElement searchField;
-
-    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Topic']/android.widget.TextView")
-    public MobileElement tabSearchTopic;
-
-    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Talk']/android.widget.TextView")
-    public MobileElement tabSearchTalk;
-
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public MobileElement searchResult;
-    
-    @AndroidFindBy(id="com.fdbr.android.talk:id/layoutGridTalk")
-    public MobileElement searchResultGroup;
-
     
     // This is a constructor, as every page need a base driver to find android elements
     public TalkScreen(AppiumDriver driver) {
@@ -735,11 +737,20 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen checkGroupSearchResult(String group) {
-        //isElementPresent(groupCard);
-
         isElementPresent(searchResultGroup);
         String keyword = searchTalkBar.getText();
         Assert.assertEquals(group, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen searchTopicOnGroupDetail(String topic) {
+        tapAndInputValueKeyboard(searchFieldGroupDetail, topic);
+
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkListTopicSearchResult(String topic) {
+        WaitUntilElementIsVisible(listSearchResultTopic);
         return new TalkScreen(driver);
     }
     

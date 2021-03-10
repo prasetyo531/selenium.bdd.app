@@ -83,3 +83,20 @@ Feature: User navigate to talk group screen
     Examples:
       | username | password |
       | usertalk | test1234 |       
+    
+  ####  Search Topic ####   
+  #FDBRMA-601
+  @Android @Talk @TalkSearch
+  Scenario Outline: Search Topic from Search Field at Group Detail Screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    #Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    When User click one of group talk
+    And User search for topic "<topic>" at group detail screen
+    Then User will see list topic "<topic>" search result at group detail screen
+
+    Examples:
+      | username | password | topic      |
+      | usertalk03 | test123 | Test Topic |      
