@@ -171,7 +171,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234  | Combination Skin |    
     
   #FDBRMA-599
-  @Android @Talk @TalkSearch
+  @Android @Talk @TalkSearch1
   Scenario Outline: Search Talk from General Search Field at Talk Home
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -180,8 +180,23 @@ Feature: User navigate to talk homepage
     And User click menu fdtalk on homescreen menu
     When User search for talk "<talk>" title
     Then User will see talk "<talk>" search result
-    
+
     Examples:
-      | username | password | talk     |
+      | username | password | talk             |
+      | usertalk | test1234 | Combination Skin |       
+    
+  #FDBRMA-600
+  @Android @Talk @TalkSearch
+  Scenario Outline: Search Group from Search Field at Group List Screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    And User enters the "<username>" username and "<password>" password then click login button on login screen
+    Then User will see modal account status on homescreen
+    And User click menu fdtalk on homescreen menu
+    When User search for group "<group>" at group list screen
+    Then User will see group "<group>" search result
+
+    Examples:
+      | username | password | group            |
       | usertalk | test1234 | Combination Skin |       
     

@@ -254,11 +254,14 @@ public class TalkScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Topic']/android.widget.TextView")
     public MobileElement tabSearchTopic;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
-    public MobileElement searchTopicResult1;
-
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc='Talk']/android.widget.TextView")
     public MobileElement tabSearchTalk;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.talk:id/itemMenuParent') and @index='0']")
+    public MobileElement searchResult;
+    
+    @AndroidFindBy(id="com.fdbr.android.talk:id/layoutGridTalk")
+    public MobileElement searchResultGroup;
 
     
     // This is a constructor, as every page need a base driver to find android elements
@@ -699,7 +702,7 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen tapSearchResult() {
-        tapByElement(searchTopicResult1);
+        tapByElement(searchResult);
         return new TalkScreen(driver);
     }
 
@@ -728,6 +731,15 @@ public class TalkScreen extends ActionBase {
         WaitUntilElementIsVisible(searchField);
         String keyword = searchField.getText();
         Assert.assertEquals(talk, keyword);
+        return new TalkScreen(driver);
+    }
+
+    public TalkScreen checkGroupSearchResult(String group) {
+        //isElementPresent(groupCard);
+
+        isElementPresent(searchResultGroup);
+        String keyword = searchTalkBar.getText();
+        Assert.assertEquals(group, keyword);
         return new TalkScreen(driver);
     }
     

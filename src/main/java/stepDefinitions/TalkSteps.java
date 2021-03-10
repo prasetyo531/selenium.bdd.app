@@ -400,7 +400,17 @@ public class TalkSteps extends DriverFactory {
     public void user_will_see_talk_something_search_result(String talk) throws Throwable {
         talkScreen.tapSearchResult();
         talkScreen.checkTopicDetail();
-        talkScreen.checkTopicSearchResult(talk);
+        talkScreen.checkTalkSearchResult(talk);
+    }
+    
+    @When("^User search for group \"([^\"]*)\" at group list screen$")
+    public void user_search_for_group_something_at_group_list_screen(String group) throws Throwable {
+        talkScreen.searchGroupTalk(group);
+    }
+
+    @Then("^User will see group \"([^\"]*)\" search result$")
+    public void user_will_see_group_something_search_result(String group) throws Throwable {
+        talkScreen.checkGroupSearchResult(group);
     }
     
     
