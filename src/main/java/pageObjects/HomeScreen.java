@@ -58,6 +58,9 @@ public class HomeScreen extends ActionBase {
     @iOSXCUITFindBy(id="Find product, article, brand or user here")
     public MobileElement searchIcon;
 
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
+    public MobileElement toolbarSearch;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/imageXb")
     public MobileElement floatingImg;
 
@@ -130,8 +133,8 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Products\"]")
     public MobileElement productsTab;
 
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imageUser') and @index='0']")
-    public MobileElement firstResultUsersTab;
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto')]")
+    public List<MobileElement> firstResultUsersTab;
 
     /**********
      tab bar
@@ -392,7 +395,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen scrollClickMenuAppToAllBrands() {
-        horizontalSwipeByPercentagesDirectly(1353,1220, 370, 1203);
+        horizontalSwipeByPercentagesDirectly(991,798, 460, 803);
         isElementEnabled(brandMenu);
         tapByElement(brandMenu);
         return new HomeScreen(driver);
@@ -411,12 +414,12 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen inputSearch(String fullname) {
-        inputValue(searchIcon, fullname);
+        inputValue(toolbarSearch, fullname);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickFirstElementSearch() {
-        tapByElement(firstResultUsersTab);
+        clickFirstMenus(firstResultUsersTab);
         return new HomeScreen(driver);
     }
 

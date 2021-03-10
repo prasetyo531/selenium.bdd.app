@@ -11,10 +11,10 @@ Feature: Comment and Mention
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
 
   #staging
-  @FDBRMA-330
+  @Android @Comment @FDBRMA-330 @test01
   Scenario Outline: Add comment and mention on post
     When User clicks search "<fulname>" users on homescreen
     And User select most top result
@@ -28,7 +28,7 @@ Feature: Comment and Mention
       |	  restapps	 |    test comment post @putwid   |
 
   #staging
-  @FDBRMA-343
+  @Android @Comment @FDBRMA-343 @test01
   Scenario Outline: Add comment and mention on review
     When User clicks search "<fulname>" users on homescreen
     And User select most top result
