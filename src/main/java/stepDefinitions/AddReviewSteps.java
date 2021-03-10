@@ -12,7 +12,7 @@ public class AddReviewSteps extends DriverFactory {
     @Given("^User clicks menu category from homescreen menu$")
     public void user_clicks_menu_category_from_homescreen_menu() throws Throwable {
 
-        homeScreen.findAndCloseFloatingImg();
+        //homeScreen.findAndCloseFloatingImg();
         homeScreen.clickProductCategory();
     }
 

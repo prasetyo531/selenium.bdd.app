@@ -38,7 +38,7 @@ public class ProductDetailScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonReview")
     public MobileElement addReviewBtn;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelReview') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelReview') and @text='EDIT REVIEW']")
     public MobileElement labelReviewBtn;
 
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonWishlist")
@@ -99,12 +99,7 @@ public class ProductDetailScreen extends ActionBase {
 
         isElementPresent(descReviewDetail);
         tapByElement(back);
-
         isElementPresent(labelReviewBtn);
-        String editRev = labelReviewBtn.getText();
-
-        Assert.assertEquals(editRev, "EDIT REVIEW");
-
         return new ProductDetailScreen(driver);
     }
 

@@ -10,7 +10,7 @@ Feature: User Add Product
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
 
   #FDBRMA-267 #FDBRMA-274
   @Android @AddProduct @Smoke @Staging @IntegrationTest
