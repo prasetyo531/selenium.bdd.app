@@ -11,8 +11,7 @@ Feature: User navigate to talk homepage
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
-    And user close modal rate app
+    Then User will be directed to homescreeen app
     And User scroll until see talk section on homescreen
     When User clicks join any group from group card on homescreen
     Then User will see member button on group card homescreen
@@ -27,7 +26,7 @@ Feature: User navigate to talk homepage
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User join any group from group card on talk home
     Then User will see member button and see joined group appear on joined tab
@@ -37,12 +36,12 @@ Feature: User navigate to talk homepage
       |	  bddtalk01	      |   test123     |
     
   #FDBRMA-610
-  @Android @Talk @TestTalkMacia @Pass @checkPras
+  @Android @Talk
   Scenario Outline: Follow member from recent talk card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     When User follow member from recent talk card
@@ -53,12 +52,12 @@ Feature: User navigate to talk homepage
       | usertalk01 | test123  |
     
   #FDBRMA-611
-  @Android @Talk @TestTalkMacia @Pass @demoQa
+  @Android @Talk
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     Then User click on tab Topic
@@ -70,12 +69,12 @@ Feature: User navigate to talk homepage
       | usertalk01 | test123  |
     
   #FDBRMA-612
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk
   Scenario Outline: Like recent talk from recent talk tab
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     When User like recent talk from tab Talk
@@ -86,12 +85,12 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |
 
   #FDBRMA-613
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk
   Scenario Outline: Reply most recent talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     When User tap on reply button at talk card
@@ -104,12 +103,12 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |  
 
   #FDBRMA-614
-  @Android @Talk @TestTalkMacia @Pass @check
+  @Android @Talk
   Scenario Outline: Reply most recent topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until see recent activity
     Then User click on tab Topic
@@ -123,12 +122,12 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |      
 
   #FDBRMA-616
-  @Android @Talk @TestTalkMacia @Pass @demoQa
+  @Android @Talk @test01
   Scenario Outline: Check see more talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     And User scroll until last screen
     When User click on see more talk
@@ -139,12 +138,12 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-  @Android @Talk @TestTalkMacia @Pass @demoQa
+  @Android @Talk @test01
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User scroll and click tab Topic
     And User scroll until last screen

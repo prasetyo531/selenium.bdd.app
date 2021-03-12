@@ -10,7 +10,7 @@ Feature: User navigate to talk group screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User submit add topic at not joined group
     And User will see confirmation that inform user will automatically joined group after add topic
@@ -25,7 +25,7 @@ Feature: User navigate to talk group screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User edit topic at not joined group "<group>" and search topic "<topic>"
     And User will see confirmation that inform user will automatically joined group after edit topic
@@ -42,7 +42,7 @@ Feature: User navigate to talk group screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User sort topic by category Newest
@@ -58,7 +58,7 @@ Feature: User navigate to talk group screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User sort topic by category Popular
@@ -74,7 +74,7 @@ Feature: User navigate to talk group screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User sort topic by category Most Talks
@@ -86,12 +86,12 @@ Feature: User navigate to talk group screen
     
   ####  Search Topic ####   
   #FDBRMA-601
-  @Android @Talk @TalkSearch @test01
+  @Android @Talk @TalkSearch
   Scenario Outline: Search Topic from Search Field at Group Detail Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    #Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User search for topic "<topic>" at group detail screen

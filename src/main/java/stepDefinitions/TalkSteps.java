@@ -3,7 +3,6 @@ package stepDefinitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageObjects.HomeScreen;
 import utils.DriverFactory;
 
 public class TalkSteps extends DriverFactory {
@@ -16,9 +15,8 @@ public class TalkSteps extends DriverFactory {
 
     @And("^User scroll until see recent activity$")
     public void user_scroll_until_see_recent_activity() {
-        homeScreen.scrollToRecentTalk();
+        talkScreen.scrollToRecentTalk();
     }
-
 
     @When("^User join any group from group card on talk home$")
     public void user_join_any_group_from_group_card_on_talk_home() throws InterruptedException {

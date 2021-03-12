@@ -11,7 +11,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User submit reply topic at not joined group "<group>"
     And User will see confirmation that inform user will automatically joined group after reply topic
@@ -26,7 +26,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     When User clicks topic from topic list on profile
     Then User will direct to topic detail screen
 
@@ -35,13 +35,13 @@ Feature: User navigate to topic detail screen
       |	  putwid      |   123tester   |
     
   ####  Edit Topic ####
-  #FDBRMA-97 
+  #FDBRMA-97
   @Android @Talk @ReplyTopic @TalkProfile
   Scenario Outline: Check title field - field title is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen and close modal rating app
+    Then User will be directed to homescreeen app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile 
     And User submit topic with empty title
@@ -57,7 +57,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen and close modal rating app
+    Then User will be directed to homescreeen app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic with empty description
@@ -73,7 +73,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     When User clicks topic from topic list on profile
     And User edit topic from topic on list profile
     And User submit topic after remove all tags
@@ -89,7 +89,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User submit reply talk at not joined group "<group>" and at topic "<topic>"
     And User will see confirmation that inform user will automatically joined group after reply talk
@@ -104,7 +104,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     When User clicks talk from talk list on profile
     Then User will direct to topic detail screen
 
@@ -119,7 +119,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User click any topic on group detail
@@ -137,7 +137,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User click any topic on group detail
@@ -155,7 +155,7 @@ Feature: User navigate to topic detail screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     And User enters the "<username>" username and "<password>" password then click login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User click menu fdtalk on homescreen menu
     When User click one of group talk
     And User click any topic on group detail
