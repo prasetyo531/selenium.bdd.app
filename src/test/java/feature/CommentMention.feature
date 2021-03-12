@@ -14,7 +14,7 @@ Feature: Comment and Mention
     Then User will be directed to homescreeen app
 
   #staging
-  @Android @Comment @FDBRMA-330 @test01
+  @Android @Comment @FDBRMA-330
   Scenario Outline: Add comment and mention on post
     When User clicks search "<fulname>" users on homescreen
     And User select most top result
@@ -28,7 +28,7 @@ Feature: Comment and Mention
       |	  restapps	 |    test comment post @putwid   |
 
   #staging
-  @Android @Comment @FDBRMA-343 @test01
+  @Android @Comment @FDBRMA-343
   Scenario Outline: Add comment and mention on review
     When User clicks search "<fulname>" users on homescreen
     And User select most top result

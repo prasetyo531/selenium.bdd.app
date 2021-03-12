@@ -14,6 +14,12 @@ public class TalkSteps extends DriverFactory {
         homeScreen.clickTalkMenu();
     }
 
+    @And("^User scroll until see recent activity$")
+    public void user_scroll_until_see_recent_activity() {
+        homeScreen.scrollToRecentTalk();
+    }
+
+
     @When("^User join any group from group card on talk home$")
     public void user_join_any_group_from_group_card_on_talk_home() throws InterruptedException {
         talkScreen.joinRandomGrupTalk();
@@ -415,6 +421,7 @@ public class TalkSteps extends DriverFactory {
 
     @Then("^User will see list topic \"([^\"]*)\" search result at group detail screen$")
     public void user_will_see_list_topic_something_search_result_at_group_detail_screen(String topic) throws Throwable {
+        Thread.sleep(5000);
         talkScreen.checkListTopicSearchResult(topic);
     }
     

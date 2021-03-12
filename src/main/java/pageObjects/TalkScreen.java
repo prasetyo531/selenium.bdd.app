@@ -512,9 +512,9 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen scrollToRecentTalk() {
-        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
-        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
-        verticalSwipeByPercentagesDirectly(538,1680,526, 933);
+        verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
+        verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
+        verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
         return new TalkScreen(driver);
     }
 

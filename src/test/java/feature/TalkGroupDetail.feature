@@ -86,7 +86,7 @@ Feature: User navigate to talk group screen
     
   ####  Search Topic ####   
   #FDBRMA-601
-  @Android @Talk @TalkSearch
+  @Android @Talk @TalkSearch @test01
   Scenario Outline: Search Topic from Search Field at Group Detail Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
