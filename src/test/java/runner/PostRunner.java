@@ -23,7 +23,7 @@ import java.nio.file.FileSystems;
                 "usage:test-output/cucumber/cucumber-usage.json"}
 )
 
-public class LocalRunner extends AbstractTestNGCucumberTests {
+public class PostRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {

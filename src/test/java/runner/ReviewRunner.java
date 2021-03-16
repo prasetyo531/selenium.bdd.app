@@ -15,7 +15,7 @@ import java.nio.file.FileSystems;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"~@FDBRMA-429", "@FDBRMA-323"},
+        tags = {"~@AddProduct", "~@AddPost1", "~@EditReview", "@EditPost1"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -23,7 +23,7 @@ import java.nio.file.FileSystems;
                 "usage:test-output/cucumber/cucumber-usage.json"}
 )
 
-public class UiTestReviewList extends AbstractTestNGCucumberTests {
+public class ReviewRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {
@@ -37,4 +37,5 @@ public class UiTestReviewList extends AbstractTestNGCucumberTests {
     }
 }
 
-//{"@Regression, @RealAccount, @Emulator, @UiTest","~@Ios", "~@Staging", "~@Smoke"},
+//@Regression, @RealAccount, @RealDevices, @IntegrationTest", "~@Android, ~@Login", "@Ios, @Login", "~@WIP
+//{"@Regression, @RealAccount, @RealDevices, @IntegrationTest", "@Ios", "@Login"},

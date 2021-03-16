@@ -22,17 +22,20 @@ public class DiscoverScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/search")
     public MobileElement iconSearchHashtag;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textHashtag') and @index='0']")
     public MobileElement firstTrendingHashtag;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textHashtag') and @index='1']")
     public MobileElement secondTrendingHashtag;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textHashtag') and @index='2']")
     public MobileElement thirdTrendingHashtag;
 
-    @AndroidFindBy(id="com.fdbr.android:id/swipeRepoList")
+    @AndroidFindBy(id="com.fdbr.android.main:id/listDiscover")
     public MobileElement postList;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/listFeeds")
+    public MobileElement feedList;
 
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto') and @index='0']")
     public MobileElement firstPostDiscover;
@@ -82,7 +85,7 @@ public class DiscoverScreen extends ActionBase {
     @AndroidFindBy(xpath="//androidx.recyclerview.widget.RecyclerView[contains(@resource-id, 'com.fdbr.android.main:id/listDiscover') and @index='0']")
     public MobileElement postHashtagGrid;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.ImageView")
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto') and @index='0']")
     public MobileElement firstPostHashtag;
 
     @AndroidFindBy(id="com.fdbr.android:id/listFeeds")
@@ -101,24 +104,13 @@ public class DiscoverScreen extends ActionBase {
 
     public DiscoverScreen scrollOnDiscover() throws IOException {
 
-        isElementEnabled(postList);
+        WaitUntilElementIsVisible(postList);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
-        this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
+        //verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
 
         return new DiscoverScreen(driver);
     }

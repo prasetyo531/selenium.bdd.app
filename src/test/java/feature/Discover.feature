@@ -10,15 +10,15 @@ Feature: Discover
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
 
-  @FDBRMA-319
+  @Android @Discover1 @Staging @FDBRMA-319
   Scenario: Scroll post list on discover
     Given User clicks discover from homescreen menu
     When User scroll post of discover
     Then User back to homescreen
 
-  @FDBRMA-326
+  @Android @Discover @Staging @FDBRMA-326
   Scenario: Follow - check post detail on discover
     Given User clicks discover from homescreen menu
     When User clicks post on discover
@@ -28,7 +28,7 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-  @FDBRMA-289 @FDBRMA-303
+  @Android @Discover @Production @FDBRMA-289 @FDBRMA-303
   Scenario Outline: Follow - check post detail on hashtag detail
     Given User clicks discover from homescreen menu
     When User clicks search hashtag and input "<hashtag>"
@@ -44,7 +44,7 @@ Feature: Discover
       |    hashtag        |
       |	    skin	     |
 
-  @FDBRMA-290
+  @Android @Discover @Production @FDBRMA-290
   Scenario: Scroll post grid and list on hashtag detail
     Given User clicks discover from homescreen menu
     When User clicks trending hashtag
@@ -55,7 +55,7 @@ Feature: Discover
     And User back to discover
     Then User back to homescreen
 
-  @FDBRMA-291 @FDBRMA-301 @FDBRMA-302 @WIP
+  @Android @Discover @Production @FDBRMA-291 @FDBRMA-301 @FDBRMA-302
   Scenario Outline: Click popular hashtag on search screen - Click Like and Comment post on hashtag screen
     Given User clicks discover from homescreen menu
     When User clicks search hashtag and click trending hashtag
@@ -68,7 +68,7 @@ Feature: Discover
       |           comment            |
       |	    wah aku mau juga	     |
 
-  @FDBRMA-292
+  @Android @Discover @Production @FDBRMA-292
   Scenario Outline: Search result, choose hashtag through scroll
     Given User clicks discover from homescreen menu
     When User clicks search hashtag and input "<hashtag>"
