@@ -225,7 +225,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen selectFirstResult() throws IOException {
 
-        isElementPresent(firstIndexProduct);
+        WaitUntilElementIsVisible(firstIndexProduct);
         tapByElement(firstIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
@@ -287,7 +287,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen backToAddPostScreen() throws IOException {
 
-        isElementPresent(labelReviewed);
+        WaitUntilElementIsVisible(labelReviewed);
         String label = labelReviewed.getText();
         Assert.assertTrue(label.equals("REVIEWED"));
 
@@ -298,7 +298,7 @@ public class AddPostScreen extends ActionBase {
     /* check label after tag product */
     public AddPostScreen checkNumProd() throws IOException {
 
-        isElementPresent(labelNumberProducts);
+        WaitUntilElementIsVisible(labelNumberProducts);
         String numProdLabel = labelNumberProducts.getText();
         Assert.assertNotNull(numProdLabel);
         Assert.assertTrue(numProdLabel.contains("Product"));
@@ -307,7 +307,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen checkNumRev() throws IOException {
 
-        isElementPresent(labelNumberReviewed);
+        WaitUntilElementIsVisible(labelNumberReviewed);
         String numReviewedLabel = labelNumberReviewed.getText();
         Assert.assertNotNull(numReviewedLabel);
         Assert.assertTrue(numReviewedLabel.contains("Review"));
@@ -316,7 +316,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen checkLabelMultipleTag() throws IOException {
 
-        isElementPresent(labelNumberProducts);
+        WaitUntilElementIsVisible(labelNumberProducts);
         String numProdLabel = labelNumberProducts.getText();
         Assert.assertNotNull(numProdLabel);
         Assert.assertTrue(numProdLabel.contains("Products"));
@@ -325,7 +325,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen checkLabelMultipleReview() throws IOException {
 
-        isElementPresent(labelNumberReviewed);
+        WaitUntilElementIsVisible(labelNumberReviewed);
         String numReviewedLabel = labelNumberReviewed.getText();
         Assert.assertNotNull(numReviewedLabel);
         Assert.assertTrue(numReviewedLabel.contains("Reviews"));
@@ -345,21 +345,21 @@ public class AddPostScreen extends ActionBase {
     /* modal warning info */
     public AddPostScreen clickNoSkipTag() throws IOException {
 
-        isElementPresent(yesBtn);
+        WaitUntilElementIsVisible(yesBtn);
         tapByElement(yesBtn);
         return new AddPostScreen(driver);
     }
 
     public AddPostScreen clickSkipTag() throws IOException {
 
-        isElementPresent(noBtn);
+        WaitUntilElementIsVisible(noBtn);
         tapByElement(noBtn);
         return new AddPostScreen(driver);
     }
 
     public AddPostScreen checkOnPostScreen () throws IOException {
 
-        isElementPresent(inputCaptionField);
+        WaitUntilElementIsVisible(inputCaptionField);
         return new AddPostScreen(driver);
     }
 

@@ -4,7 +4,7 @@ Feature: User Edit Post
   I should able to fill all option of add post process
 
   #FDBRMA-312 #FDBRMA-313 #FDBRMA-314
-  @Android @EditPost @Staging @EditPost @Production
+  @Android @EditPost @Staging
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -24,7 +24,7 @@ Feature: User Edit Post
       |	      vnsphl	     |        dora12345        |    #cobaskin   |     lips	  |
 
   #FDBRMA-350 #FDBRMA-351 #FDBRMA-352
-  @Android @EditPost @Staging @EditPostDemo @Production
+  @Android @EditPost @Staging
   Scenario Outline: Edit post - Edit caption, hashtag and add tag product from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -41,10 +41,10 @@ Feature: User Edit Post
 
     Examples:
       |         email        |        password       |     hashtag      |   search  |
-      |	      vnsphl	     |        dora12345      |    #cobaskin     |   tint    |
+      |	      vnsphl02	     |        test123      |    #cobaskin     |   tint    |
 
-  #FDBRMA-353
-  @Android @EditPost @Staging @EditPost @Staging
+  #FDBRMA-353 test data have 1 tagged product
+  @Android @EditPost @Staging
   Scenario Outline: Edit post - Remove tag product from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -60,9 +60,9 @@ Feature: User Edit Post
 
     Examples:
       |         email        |        password       |
-      |	      testflight	 |        test123        |
+      |	      vnsphl03	 |        test123        |
 
-  #FDBRMA-315
+  #FDBRMA-315 test data have 1 tagged product
   @Android @EditPost @Staging @EditPostDemo @Staging
   Scenario Outline: Edit post - Remove tag product from profile
     Given User navigates to onboarding screen by swipe
@@ -79,10 +79,10 @@ Feature: User Edit Post
 
     Examples:
       |      email       |        password       |
-      |	    apkprod20	 |        test123        |
+      |	    vnsphl04	 |        test123        |
 
   #FDBRMA-318
-  @Android @EditPost @Staging @EditPostDemo
+  @Android @EditPost @Staging
   Scenario Outline: Cancel Edit post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -98,10 +98,10 @@ Feature: User Edit Post
 
     Examples:
       |         email        |        password       |       hashtag    |
-      |	      apkprod20	 |        test123        |    cobaskincare  |
+      |	      vnsphl	 |        dora12345        |    cobaskincare  |
 
   #FDBRMA-62 run setelah add post #FDBRMA-61
-  @Android @EditPost @Staging @FDBRMA-62
+  @Android @EditPost @Staging
   Scenario Outline: Edit post - remove reviewed product from tag until only one product in tag
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -118,4 +118,4 @@ Feature: User Edit Post
 
     Examples:
       |         email            |        password       |                hashtag                 |
-      |	      bddtestaddpost03	 |        test123        |        edit post tag only 1 product    |
+      |	      vnsphl05	 |        test123        |        edit post tag only 1 product    |

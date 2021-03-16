@@ -4,6 +4,7 @@
 .classpath
 .project
 .settings
+output/tc/
 *.iml
 *.properties
 #ignore folder

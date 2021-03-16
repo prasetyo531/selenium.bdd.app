@@ -92,7 +92,6 @@ public class EditPostSteps extends DriverFactory {
     @Then("^User directed to own user feed and see post updated without tagged product$")
     public void user_directed_to_own_user_feed_and_see_post_updated_without_tagged_product() throws Throwable {
 
-
         feedScreen.checkIsonOwnFeeds();
         feedScreen.checkNoTaggedProductLeftOwnFeed();
     }

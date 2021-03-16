@@ -117,43 +117,43 @@ public class FeedScreen extends ActionBase {
     }
 
     public DiscoverScreen clickCommentFirstPost() {
-        isElementEnabled(iconCommentFirstPost);
+        WaitUntilElementIsVisible(iconCommentFirstPost);
         tapByElement(iconCommentFirstPost);
         return new DiscoverScreen(driver);
     }
 
     public DiscoverScreen clickCommentFirstReview() {
-        isElementEnabled(iconCommentFirstPost);
+        WaitUntilElementIsVisible(iconCommentFirstPost);
         tapByElement(iconCommentFirstPost);
         return new DiscoverScreen(driver);
     }
 
     public FeedScreen clickPostTagProduct() {
-        isElementPresent(firstPostFeed);
+        WaitUntilElementIsVisible(firstPostFeed);
         tapByElement(firstPostFeed);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickReadMoreReview() {
-        isElementPresent(readMoreDetail);
+        WaitUntilElementIsVisible(readMoreDetail);
         tapByElement(readMoreDetail);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickReadMorePost() {
-        isElementPresent(readMorePost);
+        WaitUntilElementIsVisible(readMorePost);
         tapByElement(readMorePost);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickIconTagsPost() {
-        isElementPresent(iconTags);
+        WaitUntilElementIsVisible(iconTags);
         tapByElement(iconTags);
         return new FeedScreen(driver);
     }
 
     public FeedScreen checkIsOnFeedAfterReview() {
-        isElementPresent(descReviewDetail);
+        WaitUntilElementIsVisible(descReviewDetail);
         tapByElement(back);
 
         isElementPresent(feedTitleToolbar);
@@ -163,15 +163,15 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen checkIsOnFeedAfterPost() {
-        isElementPresent(labelFeed);
-        isElementPresent(feedTitleToolbar);
+        WaitUntilElementIsVisible(labelFeed);
+        WaitUntilElementIsVisible(feedTitleToolbar);
         String title = feedTitleToolbar.getText();
         Assert.assertEquals(title, "Feed");
         return new FeedScreen(driver);
     }
 
     public FeedScreen checkIsonOwnFeeds() {
-        isElementPresent(titleOwnUserFeeds);
+        WaitUntilElementIsVisible(titleOwnUserFeeds);
         String title = titleOwnUserFeeds.getText();
         System.out.println(title);
         Assert.assertTrue(title.contains("Feeds"));
@@ -180,14 +180,14 @@ public class FeedScreen extends ActionBase {
 
     /*  edit submitted post */
     public FeedScreen clickEditPost() {
-        isElementPresent(editOption);
+        WaitUntilElementIsVisible(editOption);
         tapByElement(editOption);
         return new FeedScreen(driver);
     }
 
     public FeedScreen checkCaptionEditedWithHashtag(String hashtag) {
         this.verticalSwipeByPercentages(iconLove, 0.2,0.01,0.2,500);
-        isElementPresent(firstCaptionOwnUserFeeds);
+        WaitUntilElementIsVisible(firstCaptionOwnUserFeeds);
         String caption = firstCaptionOwnUserFeeds.getText();
         org.junit.Assert.assertTrue(caption.contains(hashtag));
 
