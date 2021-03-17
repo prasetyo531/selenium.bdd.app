@@ -483,8 +483,9 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickEditReview() throws IOException {
+    public AddReviewScreen clickEditReview() throws IOException, InterruptedException {
 
+        Thread.sleep(1000);
         tapByElement(moreBtn);
         tapByElement(editReview);
 
