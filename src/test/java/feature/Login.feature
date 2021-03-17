@@ -11,7 +11,7 @@ Feature: Login into account
   ##################################################################################
 
   #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
-  @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
+  @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest @ceklogin
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -130,14 +130,14 @@ Feature: Login into account
   Scenario Outline: Login input username contains special character
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<email>" email to login
+    Then User enters the "<username>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
 
     Examples:
-      |         email        |        password       |
+      |         username     |        password       |
       |	      wong_pinky	 |        tuhanyesus        |
 
   #FDBRMA-128 & FDBRMA-109

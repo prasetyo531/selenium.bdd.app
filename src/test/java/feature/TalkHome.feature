@@ -4,7 +4,6 @@ Feature: User navigate to talk homepage
   And search topic, talk, group
   I should able to operate all feature
 
-  
   #FDBRMA-400
   @Android @Talk
   Scenario Outline: Join group from snippet on Home Screen

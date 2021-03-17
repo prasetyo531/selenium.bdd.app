@@ -6,6 +6,7 @@ import cucumber.api.junit.Cucumber;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
+import pageObjects.ActionBase;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -15,7 +16,7 @@ import java.nio.file.FileSystems;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@Discover"},
+        tags = {"@ceklogin"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -26,7 +27,7 @@ import java.nio.file.FileSystems;
 public class SsoRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
-    public static void writeExtentReport() throws IOException {
+    public static void writeExtentReport() throws IOException, InterruptedException {
         String userDirectory = FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()

@@ -5,8 +5,10 @@ Feature: User Check Post
   I should able see post tagged product with review
   I should able report, share, delete post
 
+  #need to maintain
+
   #FDBRMA-345 #FDBRMA-346
-  @CheckPost @staging
+  @Android @CheckPost @staging
   Scenario Outline: Report - Share post other user from discover
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -14,7 +16,7 @@ Feature: User Check Post
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User clicks discover from homescreen menu and select post
     When User clicks report post from feed menu
     And User will see option which reason to reporting post
@@ -27,7 +29,7 @@ Feature: User Check Post
       |	      addpostbdd	     |        test123        |
 
   #FDBRMA-346 #FDBRMA-347
-  @CheckPost @staging
+  @Android @CheckPost @staging
   Scenario Outline: Share - Delete own post from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -35,7 +37,7 @@ Feature: User Check Post
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User clicks profile menu and select post
     When User clicks share post from profile menu
     Then User will see option which app to taking share
@@ -47,7 +49,7 @@ Feature: User Check Post
       |	      addpostbdd	     |        test123        |
 
   #FDBRMA-421
-  @CheckPost @staging
+  @Android @CheckPost @staging
   Scenario Outline: Check tagged post with user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -55,7 +57,7 @@ Feature: User Check Post
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     When User clicks tag icon in post from feed menu
     Then User will see personal rating and review for product
 
@@ -64,7 +66,7 @@ Feature: User Check Post
       |	      onlypostbdd	     |        test123    |
 
   #FDBRMA-422
-  @CheckPost @staging
+  @Android @CheckPost @staging
   Scenario Outline: Check tagged post without user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -72,7 +74,7 @@ Feature: User Check Post
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     When User clicks tag icon in post from feed menu
     Then User will see overall rating for product
 

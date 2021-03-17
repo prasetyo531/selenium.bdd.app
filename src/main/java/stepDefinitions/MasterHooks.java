@@ -40,9 +40,8 @@ public class MasterHooks extends DriverFactory {
                     System.out.println("no need reset app");
                     break;
             }
-
             if (driver !=null && scenario.isFailed()) {
-                ActionBase.captureScreenshot();
+                //ActionBase.captureScreenshot();
                 ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
                 AppiumServer.stop();
             } if (driver != null) {

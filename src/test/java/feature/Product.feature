@@ -11,7 +11,7 @@ Feature: User navigate to screen related to product action
     And User clicks next button on login screen
     And User enters the password on login screen
     And User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
 
   #FDBRMA-596
   @Android @Staging @Product @demoQa

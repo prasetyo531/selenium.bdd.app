@@ -27,7 +27,6 @@ Feature: User Join Campaign
       |         email            |    password    |  fullname   |      firstname       |     lastname    |
       |	      bddtnrandroid011	 |    test123     |    newtnr   |      address1        |   1address      |
 
-
   #FDBRMA-478 #FDBRMA-453 #FDBRMA-454
   @Android @Tnr @wip
   Scenario Outline: Save Personal Info without input any field - Min char Full Name - More than 100 char

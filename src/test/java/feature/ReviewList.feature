@@ -5,7 +5,7 @@ Feature: Review List
   This thumbnail located on snippet review on product detail, review list screen and review list profile
 
   #FDBRMA-323 #FDBRMA-324 #FDBRMA-325
-  @reviewlist @staging
+  @Android @reviewlist @staging
   Scenario Outline: User filter - sort review list
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -13,7 +13,7 @@ Feature: Review List
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
-    Then User will see modal account status on homescreen
+    Then User will be directed to homescreeen app
     And User clicks see more reviews on product detail
     When User clicks filter reviews
     And User clicks sort option by most likes

@@ -64,7 +64,6 @@ public class AppiumServer {
             while ((s = stdError.readLine()) != null) {
                 System.out.println(s);
             }
-
             System.exit(0);
         } catch (IOException e) {
             System.out.println("exception happened - here's what I know: ");
