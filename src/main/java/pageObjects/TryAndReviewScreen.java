@@ -372,7 +372,6 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         tapByElement(buttonSaveBeautyProfile);
-        isElementPresent(toastMsg);
 
         return new TryAndReviewScreen(driver);
     }
@@ -474,10 +473,11 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen clickSaveBeautyConcern() throws IOException {
 
         isElementPresent(contentScreenBodyCon);
-        verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
+        //verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
+        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
         tapByElement(btnSaveBeautyConcern);
-        isElementPresent(toastMsg);
 
         return new TryAndReviewScreen(driver);
     }
@@ -741,6 +741,7 @@ public class TryAndReviewScreen extends ActionBase {
 
     public TryAndReviewScreen clickSaveAddress() throws IOException {
 
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         isElementPresent(saveAddressBtn);
         tapByElement(saveAddressBtn);
         return new TryAndReviewScreen(driver);

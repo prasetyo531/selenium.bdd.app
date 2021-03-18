@@ -11,7 +11,7 @@ Feature: Login into account
   ##################################################################################
 
   #FDBRMA-171 #FDBRMA-103 #FDBRMA-116
-  @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest @ceklogin
+  @Android @Login @Staging @Smoke @RealAccount @RealDevices @IntegrationTest
   Scenario Outline: Login using verified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

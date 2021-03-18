@@ -219,6 +219,12 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.chooseDob();
     }
 
+    @When("^User input \"([^\"]*)\" fullname field$")
+    public void user_input_something_fullname_field(String fullname, String strArg1) throws Throwable {
+        tryAndReviewScreen.clickEditPersonalInfo();
+        tryAndReviewScreen.inputPersonalInfoForm(fullname);
+    }
+
     @And("^User save data personal info screen$")
     public void user_save_data_personal_info_screen() throws Throwable {
         tryAndReviewScreen.savePersonalInfoEmpty();

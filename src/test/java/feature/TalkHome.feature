@@ -5,7 +5,7 @@ Feature: User navigate to talk homepage
   I should able to operate all feature
 
   #FDBRMA-400
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Join group from snippet on Home Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -20,7 +20,7 @@ Feature: User navigate to talk homepage
       |	  usertalk	      |   test1234    |
     
   #FDBRMA-71 #FDBRMA-78 #FDBRMA-83
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Check functionality of 'Join Group' button on group card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -35,7 +35,7 @@ Feature: User navigate to talk homepage
       |	  bddtalk01	      |   test123     |
     
   #FDBRMA-610
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Follow member from recent talk card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -51,7 +51,7 @@ Feature: User navigate to talk homepage
       | usertalk01 | test123  |
     
   #FDBRMA-611
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Follow member from recent topic card
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -68,7 +68,7 @@ Feature: User navigate to talk homepage
       | usertalk01 | test123  |
     
   #FDBRMA-612
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Like recent talk from recent talk tab
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -84,7 +84,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |
 
   #FDBRMA-613
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Reply most recent talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -102,7 +102,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |  
 
   #FDBRMA-614
-  @Android @Talk
+  @Android @Talk @Staging
   Scenario Outline: Reply most recent topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -121,7 +121,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |      
 
   #FDBRMA-616
-  @Android @Talk @test01
+  @Android @Talk @Staging
   Scenario Outline: Check see more talk
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -137,7 +137,7 @@ Feature: User navigate to talk homepage
       | usertalk | test1234 |    
     
   #FDBRMA-617
-  @Android @Talk @test01
+  @Android @Talk @Staging
   Scenario Outline: Check see more topic
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

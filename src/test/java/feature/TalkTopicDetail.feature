@@ -6,7 +6,7 @@ Feature: User navigate to topic detail screen
 
   ####  Topic ####
   #FDBRMA-597
-  @Android @Talk @ReplyTopic @Bug
+  @Android @Talk @Staging @ReplyTopic @Bug
   Scenario Outline: Create reply topic at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -21,7 +21,7 @@ Feature: User navigate to topic detail screen
       | username  | password | group            |
       | bddtalk03 | test123  | Combination Skin |
 
-  @Android @Talk @ReplyTopic @TalkProfile
+  @Android @Talk @Staging @ReplyTopic @TalkProfile
   Scenario Outline: Open created topic from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -36,7 +36,7 @@ Feature: User navigate to topic detail screen
     
   ####  Edit Topic ####
   #FDBRMA-97
-  @Android @Talk @ReplyTopic @TalkProfile
+  @Android @Talk @Staging @ReplyTopic @TalkProfile
   Scenario Outline: Check title field - field title is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -52,7 +52,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test123  |
     
   #FDBRMA-98
-  @Android @Talk @ReplyTopic @TalkProfile
+  @Android @Talk @Staging @ReplyTopic @TalkProfile
   Scenario Outline: Check description field - field description is empty
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -68,7 +68,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test123  |    
     
   #FDBRMA-99
-  @Android @Talk @ReplyTopic @TalkProfile @TestTalkMaciaFailed
+  @Android @Talk @Staging @ReplyTopic @TalkProfile @TestTalkMaciaFailed
   Scenario Outline: Check tagging field - remove all tags
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -84,7 +84,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test123  |
   
   ####  Talk ####
-  @Android @Talk @ReplyTalk @Bug
+  @Android @Talk @Staging @ReplyTalk @Bug
   Scenario Outline: Create reply talk at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -99,7 +99,7 @@ Feature: User navigate to topic detail screen
       |   username       |   password    |    group        |   topic    |
       |	  bddtalk03      |   test123     | Men's Grooming  |  topic no in  |
 
-  @Android @Talk @TalkProfile @demotalk2
+  @Android @Talk @Staging @TalkProfile @demotalk2
   Scenario Outline: Open created talk from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -114,7 +114,7 @@ Feature: User navigate to topic detail screen
     
   ####  Sort Talk ####    
   #FDBRMA-607
-  @Android @Talk @ReplyTopic @TalkSort
+  @Android @Talk @Staging @ReplyTopic @TalkSort
   Scenario Outline: Sort Talk on Topic Detail Screen by Newest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -132,7 +132,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test1234 |       
     
   #FDBRMA-608
-  @Android @Talk @ReplyTopic @TalkSort
+  @Android @Talk @Staging @ReplyTopic @TalkSort
   Scenario Outline: Sort Talk on Topic Detail Screen by Oldest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -150,7 +150,7 @@ Feature: User navigate to topic detail screen
       | usertalk | test1234 |        
     
   #FDBRMA-609
-  @Android @Talk @ReplyTopic @TalkSort
+  @Android @Talk @Staging @ReplyTopic @TalkSort
   Scenario Outline: Sort Talk on Topic Detail Screen by Most Likes
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

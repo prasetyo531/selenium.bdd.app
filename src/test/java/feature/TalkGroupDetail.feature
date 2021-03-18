@@ -5,7 +5,7 @@ Feature: User navigate to talk group screen
   I should able to operate all feature
 
   #FDBRMA-94
-  @Android @Talk @AddTopic @talktest
+  @Android @Talk @Staging @AddTopic @talktest
   Scenario Outline: Create topic at not joined group
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -20,7 +20,7 @@ Feature: User navigate to talk group screen
       |   username       |   password    |
       |	  bddtalk02      |   test123     |
 
-  @Android @Talk @EditTopic @Bug @talktest
+  @Android @Talk @Staging @EditTopic @Staging @Bug
   Scenario Outline: Edit topic at not joined group - edit description
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -37,7 +37,7 @@ Feature: User navigate to talk group screen
     
   ####  Sort Topic #### 
   #FDBRMA-604
-  @Android @Talk @ReplyTopic @TopicSort
+  @Android @Talk @Staging @TopicSort
   Scenario Outline: Sort Topic on Group Detail Screen by Newest
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -53,7 +53,7 @@ Feature: User navigate to talk group screen
       | usertalk | test1234 |       
     
   #FDBRMA-605
-  @Android @Talk @ReplyTopic @TopicSort
+  @Android @Talk @Staging @TopicSort @Staging
   Scenario Outline: Sort Topic on Group Detail Screen by Popular
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -69,7 +69,7 @@ Feature: User navigate to talk group screen
       | usertalk | test1234 |       
     
   #FDBRMA-606
-  @Android @Talk @ReplyTopic @TopicSort
+  @Android @Talk @Staging @TopicSort
   Scenario Outline: Sort Topic on Group Detail Screen by Most Talks
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -86,7 +86,7 @@ Feature: User navigate to talk group screen
     
   ####  Search Topic ####   
   #FDBRMA-601
-  @Android @Talk @TalkSearch
+  @Android @Talk @Staging @TalkSearch
   Scenario Outline: Search Topic from Search Field at Group Detail Screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

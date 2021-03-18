@@ -4,12 +4,15 @@ Feature: User Join Campaign
   I should able to fill form personal info, beauty profile, beauty concern and address
   If user cancel post, user will get confirmation modal
 
+  Precondition : set test data already verified
+                 all personal info, beauty profile and concern data must empty
+
   #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<email>" email to login
+    Then User enters the "<username>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
@@ -24,11 +27,11 @@ Feature: User Join Campaign
     Then User will see success toast message after joined campaign
 
     Examples:
-      |         email            |    password    |  fullname   |      firstname       |     lastname    |
-      |	      bddtnrandroid011	 |    test123     |    newtnr   |      address1        |   1address      |
+      |       username   |    password    |  fullname   |      firstname       |     lastname    |
+      |	      tnrbdd01	 |    test123     |    newtnr   |      address1        |   1address      |
 
   #FDBRMA-478 #FDBRMA-453 #FDBRMA-454
-  @Android @Tnr @wip
+  @Android @Tnr @Staging @CheckTnr @Bug
   Scenario Outline: Save Personal Info without input any field - Min char Full Name - More than 100 char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -39,16 +42,16 @@ Feature: User Join Campaign
     Then User will see modal account status on homescreen and click tnr menu
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
-#    When User input "<fullname>" fullname field
-#    Then Display red toast "Fullname should be 2-100 chars in length"
+    And User complete data tnr on personal info screen "<fullname>"
+    Then Display red toast "Fullname should be 2-100 chars in length"
 
     Examples:
       |         email            |    password    |  fullname   |
-      |	      tnrpersonalinfo01	 |    test123     |    ne   |
-      |	      tnrpersonalinfo01	 |    test123     |    askmdlasmdalmdlakmsdlkamsdlakdmaldsmalkdmalmdsladmalsdmalmdladjsandjasdhasdhajsdhashdausdahsduasdaysdha   |
+      |	      tnrpersonalinfo01	 |    test123     |    n   |
+      |	      tnrpersonalinfo01	 |    test123     |    askmdlasmdasdsadasdasdasdasdasasdasdasdasdasdasdasalmdlakmsdlkamsdlakdmaldsmalkdmalmdsladmalsdmalmdladjsandjasdhasdhajsdhashdausdahsduasdaysdha   |
 
   #FDBRMA-455
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Personal Info Input Special Char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -68,7 +71,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo01	 |    test123     |    newtnr@#   |     newtnr          |
 
   #FDBRMA-456
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Personal Not select gender
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -85,12 +88,12 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |  fullname     |
-      |	      tnrpersonalinfo01	 |    test123     |    newtnr   |
+      |	      tnrpersonalinfo02	 |    test123     |    newtnr   |
 
   ### Address Form ###
 
   #FDBRMA-462
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill all mandatory field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -106,10 +109,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-463
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill first name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -125,10 +128,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-464
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill last name
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -144,10 +147,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-465
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -163,10 +166,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-466 #FDBRMA-467 #FDBRMA-468
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill province, city, district
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -182,10 +185,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-469
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill postal code
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -201,10 +204,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-470
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Save Add New Address without fill complete address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -220,10 +223,10 @@ Feature: User Join Campaign
 
     Examples:
       |         email            |    password    |
-      |	      tnrpersonalinfo01	 |    test123     |
+      |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-471
-  @Android @Tnr @production @wip
+  @Android @Tnr @Staging @wip
   Scenario Outline: Add New Address Until Maximum Number of Allowed Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -242,7 +245,7 @@ Feature: User Join Campaign
       |	      datatnr01	 |    test123     |
 
   #FDBRMA-472
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Choose Any Address to Become Shipping Information Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -261,7 +264,7 @@ Feature: User Join Campaign
       |	      datatnr01	 |    test123     |
 
   #FDBRMA-474 #FDBRMA-477
-  @Android @Tnr
+  @Android @Tnr @Staging
   Scenario Outline: Submit Participant Summary without Completed Personal Info - without Completed Shipping Information
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -280,7 +283,7 @@ Feature: User Join Campaign
       |	      completepersonalinfo	 |    test123     |
 
   #FDBRMA-475
-  @Android @Tnr @production @wip
+  @Android @Tnr @Staging @wip
   Scenario Outline: Submit Participant Summary without Completed Beauty Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -299,7 +302,7 @@ Feature: User Join Campaign
       |	      emptyprofile	 |    test123     |
 
   #FDBRMA-476
-  @Android @Tnr @production @wip
+  @Android @Tnr @Staging @wip
   Scenario Outline: Submit Participant Summary without Completed Beauty Concern
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -318,7 +321,7 @@ Feature: User Join Campaign
       |	      apkprod30	 |    test123     |
 
   #FDBRMA-488
-  @Android @Tnr @staging @demoVerify1
+  @Android @Tnr @Staging
   Scenario Outline: Submit Participant Summary without Completed All Mandatory Section
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

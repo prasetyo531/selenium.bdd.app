@@ -4,7 +4,8 @@ Feature: User Edit Review
   I should able to fill all option of add review process
   Update purchase point using new input
 
-  Precondition : set all field to only choose first field
+  Precondition : set test data already verified and completed
+                 set all field to only choose first field
 
   #FDBRMA-39 #FDBRMA-41
   @Android @EditReview @Staging
