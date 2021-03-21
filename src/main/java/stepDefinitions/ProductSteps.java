@@ -9,7 +9,7 @@ public class ProductSteps extends DriverFactory {
 
     @Given("^User clicks menu product category from homescreen menu$")
     public void user_clicks_menu_product_category_from_homescreen_menu() {
-        homeScreen.findAndCloseFloatingImg();
+        //homeScreen.findAndCloseFloatingImg();
         homeScreen.clickProductCategory();
     }
 

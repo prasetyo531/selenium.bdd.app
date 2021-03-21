@@ -33,14 +33,6 @@ public class AppiumServer {
         if (process != null) {
             System.out.println("Appium server started");
         }
-//        File dir = new File("/Users/fdn-prasetyo/Library/Android/sdk");
-//        process = runtime.exec("emulator -avd Pixel_2_XL_API_29", null, dir);
-//        process.wait(3000);
-//        process = runtime.exec("adb devices");
-//        process.wait(3000);
-//        System.out.println("emulator is up");
-//
-//        process = runtime.exec("adb devices");
     }
 
     //Stopping the Appium Server

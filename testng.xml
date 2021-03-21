@@ -6,14 +6,15 @@
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
 
+    <test name="firsttest">
+        <classes>
+            <class name="emulator.RunEmulator"/>
+        </classes>
+    </test>
+
     <test name="secondtest">
         <classes>
             <class name="uiTestAndroid.UiTestRandom"/>
         </classes>
     </test>
-    <!--    <test name="curltest">-->
-    <!--        <classes>-->
-    <!--            <class name="sendReport.curlTelegram"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
 </suite>
