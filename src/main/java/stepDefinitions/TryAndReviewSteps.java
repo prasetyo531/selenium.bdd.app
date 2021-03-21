@@ -94,7 +94,8 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.clickEditAddressParticipantSum();
         tryAndReviewScreen.editAddressAsMainAddress();
         tryAndReviewScreen.checkToastSuccess();
-        tryAndReviewScreen.clickBackToParticipantSumm();
+        tryAndReviewScreen.isTrueLabelMainAddress();
+        tryAndReviewScreen.clickChooseAddressFromList();
     }
 
     @When("^User save address form but let empty all mandatory field$")
@@ -183,9 +184,8 @@ public class TryAndReviewSteps extends DriverFactory {
 
     @Then("^User will see label main address on participant summary form$")
     public void user_will_see_label_main_address_on_participant_summary_form() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.checkFlagMainAddress();
-        tryAndReviewScreen.clickSaveAddress();
-        tryAndReviewScreen.checkToastSuccess();
     }
 
     @Then("^User will see success toast message after joined campaign$")
@@ -235,5 +235,18 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.savePersonalInfoEmpty();
     }
 
+    @When("^User save more address after user already had 4 address$")
+    public void user_save_more_address_after_user_already_had_4_address() throws Throwable {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickEditAddressParticipantSum();
+        tryAndReviewScreen.clickAddNewAddressFromAddressList();
+        tryAndReviewScreen.completeAddressBali("#FDBRMA-471","#FDBRMA-471");
+        tryAndReviewScreen.checkToastSuccess();
+    }
+
+    @Then("^User will not see button add new address on list address screen$")
+    public void user_will_not_see_button_add_new_address_on_list_address_screen() {
+        tryAndReviewScreen.isFalseAddNewAddressPresent();
+    }
 
 }

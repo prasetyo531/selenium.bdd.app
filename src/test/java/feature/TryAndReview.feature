@@ -31,7 +31,7 @@ Feature: User Join Campaign
       |	      tnrbdd01	 |    test123     |    newtnr   |      address1        |   1address      |
 
   #FDBRMA-478 #FDBRMA-453 #FDBRMA-454
-  @Android @Tnr @Staging @CheckTnr @Bug
+  @Android @Tnr @Staging
   Scenario Outline: Save Personal Info without input any field - Min char Full Name - More than 100 char
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -43,7 +43,7 @@ Feature: User Join Campaign
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
     And User complete data tnr on personal info screen "<fullname>"
-    Then Display red toast "Fullname should be 2-100 chars in length"
+    Then Display red toast "fullname should be 2-100 chars in length"
 
     Examples:
       |         email            |    password    |  fullname   |
@@ -226,7 +226,7 @@ Feature: User Join Campaign
       |	      tnrpersonalinfo02	 |    test123     |
 
   #FDBRMA-471
-  @Android @Tnr @Staging @wip
+  @Android @Tnr @Staging @CheckTnr
   Scenario Outline: Add New Address Until Maximum Number of Allowed Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -237,15 +237,15 @@ Feature: User Join Campaign
     Then User will see modal account status on homescreen and click tnr menu
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
-#    When User save more address after user already had 4 address
-#    Then User will not see button add new address on list address screen
+    When User save more address after user already had 4 address
+    Then User will not see button add new address on list address screen
 
     Examples:
       |         email    |    password    |
       |	      datatnr01	 |    test123     |
 
   #FDBRMA-472
-  @Android @Tnr @Staging
+  @Android @Tnr @Staging @CheckTnr
   Scenario Outline: Choose Any Address to Become Shipping Information Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -338,3 +338,22 @@ Feature: User Join Campaign
     Examples:
       |         email    |    password    |
       |	      emptydatatnr	 |    test123     |
+
+  #FDBRMA-479
+  @Android @Tnr @Staging @Bug @CheckTnr02
+  Scenario Outline: Save Add New Address Form With Special Characters in First Name & Last Name Field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User complete data tnr on shipping information screen "<firstname>", "<lastname>" and set main address
+    Then Display red toast "Oops ... you need to fill in all data"
+
+    Examples:
+      |       username           |    password    |  fullname   |      firstname     |     lastname    |
+      |	      tnrspecialchar	 |    test123     |    newtnr   |      *&*&*&        |   *&*&*&*      |

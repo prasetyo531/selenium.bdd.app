@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.List;
 
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -178,6 +179,9 @@ public class TryAndReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/btnAddAddressShipping")
     public MobileElement addNewAddressListAddress;
 
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/btnAddAddressShipping")
+    public List<MobileElement> addNewAddressListAddressDua;
+
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.beauty:id/layoutParentAddress') and @index='1']")
     public MobileElement listAddress1;
 
@@ -185,7 +189,10 @@ public class TryAndReviewScreen extends ActionBase {
     public MobileElement editListAddres2;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/tagMain")
-    public MobileElement flagMainAddressListSum;
+    public MobileElement flagMainAddressListSumm;
+
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.beauty:id/buttonChoose') and @index='0']")
+    public List<MobileElement> chooseAddressButton;
 
     /***
      Add New Address
@@ -236,14 +243,14 @@ public class TryAndReviewScreen extends ActionBase {
     public MobileElement saveAddressBtn;
 
 
-    public TryAndReviewScreen(AppiumDriver driver) throws IOException {
+    public TryAndReviewScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public TryAndReviewScreen clickMoreAndJoinHiglightedCamp() throws IOException {
+    public TryAndReviewScreen clickMoreAndJoinHiglightedCamp() {
 
         isElementPresent(moreHighlightCampBtn);
         tapByElement(moreHighlightCampBtn);
@@ -253,7 +260,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickToCollapse() throws IOException, InterruptedException {
+    public TryAndReviewScreen clickToCollapse() throws InterruptedException {
 
         isElementEnabled(expandArrow1);
         tapByElement(expandArrow1);
@@ -265,14 +272,14 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //participant summary
-    public TryAndReviewScreen checkIsOnScreenParticapantSummary() throws IOException, InterruptedException {
+    public TryAndReviewScreen checkIsOnScreenParticapantSummary() throws InterruptedException {
 
         Thread.sleep(2000);
         isElementPresent(titleParticipantSum);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickEditPersonalInfo() throws IOException {
+    public TryAndReviewScreen clickEditPersonalInfo() {
 
         isElementPresent(editPersonalInfoTnrIcon);
         isElementEnabled(editPersonalInfoTnrIcon);
@@ -281,28 +288,28 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickAddNewBeautyProfile() throws IOException {
+    public TryAndReviewScreen clickAddNewBeautyProfile() {
 
         isElementPresent(addBeautyProfTnrIcon);
         tapByElement(addBeautyProfTnrIcon);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickAddNewBeautyConcern() throws IOException {
+    public TryAndReviewScreen clickAddNewBeautyConcern() {
 
         isElementPresent(addBeautyConTnrIcon);
         tapByElement(addBeautyConTnrIcon);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickAddNewAddressParticipantSum() throws IOException, InterruptedException {
+    public TryAndReviewScreen clickAddNewAddressParticipantSum() {
 
         isElementEnabled(addAddNewAddressSumTnrIcon);
         tapByElement(addAddNewAddressSumTnrIcon);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickEditAddressParticipantSum() throws IOException {
+    public TryAndReviewScreen clickEditAddressParticipantSum() {
 
         isElementEnabled(editAddNewAddressSumTnrIcon);
         tapByElement(editAddNewAddressSumTnrIcon);
@@ -310,7 +317,7 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //personal info
-    public TryAndReviewScreen inputPersonalInfoForm(String fullname) throws IOException {
+    public TryAndReviewScreen inputPersonalInfoForm(String fullname) {
 
         isElementPresent(fullNameField);
         inputValueEnter(fullNameField, fullname);
@@ -327,7 +334,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen inputFullname(String fullname) throws IOException {
+    public TryAndReviewScreen inputFullname(String fullname) {
 
         isElementPresent(fullNameField);
         inputValueEnter(fullNameField, fullname);
@@ -335,7 +342,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseDob() throws IOException {
+    public TryAndReviewScreen chooseDob() {
 
         isElementEnabled(dobOpt);
         tapByElement(dobOpt);
@@ -346,7 +353,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseGender() throws IOException {
+    public TryAndReviewScreen chooseGender() {
 
         isElementEnabled(genderOpt);
         tapByElement(genderOpt);
@@ -357,7 +364,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen savePersonalInfoEmpty() throws IOException {
+    public TryAndReviewScreen savePersonalInfoEmpty() {
 
         isElementPresent(fullNameField);
         tapByElement(savePersonalInfoBtn);
@@ -366,7 +373,7 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //beauty profile
-    public TryAndReviewScreen clickSaveBeautyProfile() throws IOException {
+    public TryAndReviewScreen clickSaveBeautyProfile() {
 
         isElementPresent(contentBeautyProf);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
@@ -376,7 +383,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorSkinType() throws IOException {
+    public TryAndReviewScreen getErrorSkinType() {
 
         isElementPresent(errorMsgSkinType);
         String txtErrorSkinType = errorMsgSkinType.getText();
@@ -386,7 +393,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorSkinTone() throws IOException {
+    public TryAndReviewScreen getErrorSkinTone() {
 
         isElementPresent(errorMsgSkinTone);
         String txtErrorSkinTone = errorMsgSkinTone.getText();
@@ -396,7 +403,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorSkinUndertone() throws IOException {
+    public TryAndReviewScreen getErrorSkinUndertone() {
 
         isElementPresent(errorMsgSkinUndertone);
         String txtErrorSkinUndertone = errorMsgSkinUndertone.getText();
@@ -406,7 +413,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorHairType() throws IOException {
+    public TryAndReviewScreen getErrorHairType() {
 
         isElementPresent(errorMsgHairType);
         String txtErrorHairType = errorMsgHairType.getText();
@@ -415,7 +422,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorColoredHair() throws IOException {
+    public TryAndReviewScreen getErrorColoredHair() {
 
         isElementPresent(errorMsgColoredHair);
         String txtErrorColoredHair = errorMsgColoredHair.getText();
@@ -424,7 +431,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorHijaber() throws IOException {
+    public TryAndReviewScreen getErrorHijaber() {
 
         isElementPresent(errorMsgHijaber);
         String txtErrorHijaber = errorMsgHijaber.getText();
@@ -433,44 +440,44 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseSkinType() throws IOException {
+    public TryAndReviewScreen chooseSkinType() {
 
         tapByElement(skinTypeNormal);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseSkinTone() throws IOException {
+    public TryAndReviewScreen chooseSkinTone() {
 
         tapByElement(skinToneDark);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseSkinUndertone() throws IOException {
+    public TryAndReviewScreen chooseSkinUndertone() {
 
         tapByElement(skinUnderToneWarm);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseHairType() throws IOException {
+    public TryAndReviewScreen chooseHairType() {
 
         tapByElement(hairTypeCurly);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseColoredHair() throws IOException {
+    public TryAndReviewScreen chooseColoredHair() {
 
         tapByElement(coloredHairNo);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseHijaber() throws IOException {
+    public TryAndReviewScreen chooseHijaber() {
 
         tapByElement(isHijaberNo);
         return new TryAndReviewScreen(driver);
     }
 
     //beauty concern
-    public TryAndReviewScreen clickSaveBeautyConcern() throws IOException {
+    public TryAndReviewScreen clickSaveBeautyConcern() {
 
         isElementPresent(contentScreenBodyCon);
         //verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
@@ -482,14 +489,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseSkinCon() throws IOException {
+    public TryAndReviewScreen chooseSkinCon() {
 
         isElementPresent(blackOrWhite);
         tapByElement(blackOrWhite);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorSkinCon() throws IOException {
+    public TryAndReviewScreen getErrorSkinCon() {
 
         isElementPresent(errorSkinCon);
         String txtErrorSkinCon = errorSkinCon.getText();
@@ -498,14 +505,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseBodyCon() throws IOException {
+    public TryAndReviewScreen chooseBodyCon() {
 
         isElementPresent(looseSkin);
         tapByElement(looseSkin);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorBodyCon() throws IOException {
+    public TryAndReviewScreen getErrorBodyCon() {
 
         isElementPresent(errorBodyCon);
         String txtErrorBodyCon = errorBodyCon.getText();
@@ -514,14 +521,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen chooseHairCon() throws IOException {
+    public TryAndReviewScreen chooseHairCon() {
 
         isElementPresent(greyHair);
         tapByElement(greyHair);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen getErrorHairCon() throws IOException {
+    public TryAndReviewScreen getErrorHairCon() {
 
         isElementPresent(errorHairCon);
         String txtErrorHairCon = errorHairCon.getText();
@@ -531,7 +538,40 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //list address screen
-    public TryAndReviewScreen clickBackToParticipantSumm() throws IOException {
+    public TryAndReviewScreen clickAddNewAddressFromAddressList() {
+
+        tapByElement(addNewAddressListAddress);
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen clickChooseAddressFromList() {
+
+        clickFirstMenus(chooseAddressButton);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen isFalseAddNewAddressPresent() {
+
+        List<MobileElement> li = addNewAddressListAddressDua;
+        System.out.println("after address already had 5"+" "+li.size());
+        Boolean but = li.isEmpty();
+        System.out.println(but);
+        //it depends screen size
+        if(but==false){
+            Assert.fail("button add new address tnr still appear");
+        }
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen isTrueLabelMainAddress() {
+
+        WaitUntilElementIsVisible(flagMainAddressListSumm);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen clickBackToParticipantSumm() {
 
         isElementPresent(backIcon);
         tapByElement(backIcon);
@@ -539,7 +579,7 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //address form
-    public TryAndReviewScreen waitAddressForm() throws IOException {
+    public TryAndReviewScreen waitAddressForm() {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
@@ -548,20 +588,20 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen setAsMainAddress() throws IOException {
+    public TryAndReviewScreen setAsMainAddress() {
 
         isElementPresent(mainAddressBtn);
         tapByElement(mainAddressBtn);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillFirstName() throws IOException {
+    public TryAndReviewScreen fillFirstName() {
 
         inputValueEnter(firstnameField, faker.name().firstName());
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillLastName() throws IOException {
+    public TryAndReviewScreen fillLastName() {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
@@ -569,14 +609,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillPhoneNumber() throws IOException {
+    public TryAndReviewScreen fillPhoneNumber() {
 
         inputValueEnter(phonenumberField, "0812891");
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillProvinceCityDistrict() throws IOException {
+    public TryAndReviewScreen fillProvinceCityDistrict() {
 
         tapByElement(provinceOpt);
         isElementPresent(listBaliProvince);
@@ -591,7 +631,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillZipCode() throws IOException {
+    public TryAndReviewScreen fillZipCode() {
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         inputValueEnter(zipField, faker.address().zipCode());
@@ -599,14 +639,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen fillCompleteAddress() throws IOException {
+    public TryAndReviewScreen fillCompleteAddress() {
 
         inputValueEnter(completeAddressField, faker.address().streetAddress());
 
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen completeAddressBali(String firstname, String lastname) throws IOException {
+    public TryAndReviewScreen completeAddressBali(String firstname, String lastname) {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
@@ -639,7 +679,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen editAddressAsMainAddress() throws IOException {
+    public TryAndReviewScreen editAddressAsMainAddress() {
 
         isElementEnabled(listAddress1);
         tapByElement(editListAddres2);
@@ -647,6 +687,16 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
@@ -656,7 +706,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen saveWithoutFillAllField() throws IOException {
+    public TryAndReviewScreen saveWithoutFillAllField() {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
@@ -670,38 +720,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen saveEmptyFirstName() throws IOException {
-
-        isElementEnabled(firstnameField);
-        isElementEnabled(provinceOpt);
-        isElementEnabled(saveAddressBtn);
-
-        inputValueEnter(lastnameField, "lastname");
-
-        inputValueEnter(phonenumberField, "0812812");
-
-        tapByElement(provinceOpt);
-        isElementPresent(listBaliProvince);
-        tapByElement(listBaliProvince);
-
-        isElementPresent(listBaliCity);
-        tapByElement(listBaliCity);
-
-        isElementPresent(listBaliDistrict);
-        tapByElement(listBaliDistrict);
-
-        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
-
-        inputValueEnter(zipField,"100451");
-        inputValueEnter(completeAddressField, "save empty first name");
-
-        isElementEnabled(saveAddressBtn);
-        tapByElement(saveAddressBtn);
-
-        return new TryAndReviewScreen(driver);
-    }
-
-    public TryAndReviewScreen saveEmptyLastName() throws IOException {
+    public TryAndReviewScreen saveEmptyFirstName() {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
@@ -732,14 +751,45 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen checkFlagMainAddress() throws IOException, InterruptedException {
+    public TryAndReviewScreen saveEmptyLastName() {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
+        inputValueEnter(lastnameField, "lastname");
+
+        inputValueEnter(phonenumberField, "0812812");
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
+        inputValueEnter(zipField,"100451");
+        inputValueEnter(completeAddressField, "save empty first name");
+
+        isElementEnabled(saveAddressBtn);
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen checkFlagMainAddress() throws InterruptedException {
 
         Thread.sleep(2000);
         isElementPresent(flagMainAddressParticipantSummary);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickSaveAddress() throws IOException {
+    public TryAndReviewScreen clickSaveAddress() {
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         isElementPresent(saveAddressBtn);
@@ -747,7 +797,7 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickSaveJoinCampaign() throws IOException {
+    public TryAndReviewScreen clickSaveJoinCampaign() {
 
         isElementPresent(submitJoinBtn);
         tapByElement(submitJoinBtn);
@@ -755,13 +805,13 @@ public class TryAndReviewScreen extends ActionBase {
     }
 
     //toast
-    public TryAndReviewScreen checkToastSuccess() throws IOException {
+    public TryAndReviewScreen checkToastSuccess() {
 
         isElementPresent(toastMsg);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen checkToastEmptyField(String msg) throws IOException {
+    public TryAndReviewScreen checkToastEmptyField(String msg) {
 
         isElementPresent(toastMsg);
         String txt = toastMsg.getText();
