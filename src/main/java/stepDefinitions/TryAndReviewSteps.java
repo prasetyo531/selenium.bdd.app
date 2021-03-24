@@ -81,11 +81,32 @@ public class TryAndReviewSteps extends DriverFactory {
     }
 
     @And("^User complete data tnr on shipping information screen \"([^\"]*)\", \"([^\"]*)\" and set main address$")
-    public void user_complete_data_tnr_on_shipping_information_screen_something_something_and_set_main_address(String firstname, String lastname) throws Throwable {
+    public void user_complete_data_tnr_on_shipping_information_screen_something_something_and_set_main_address(String firstName, String lastName) throws Throwable {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.clickAddNewAddressParticipantSum();
-        tryAndReviewScreen.completeAddressBali(firstname, lastname);
+        tryAndReviewScreen.completeAddressBali(firstName, lastName);
         tryAndReviewScreen.checkToastSuccess();
+    }
+
+    @And("^User complete data tnr on shipping information screen \"([^\"]*)\" and set main address$")
+    public void user_complete_data_tnr_on_shipping_information_screen_something_and_set_main_address(String phonenumber) throws InterruptedException {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.completeAddressInputInvalidPhone(phonenumber);
+    }
+
+    @And("^User complete data tnr on shipping information screen but input invalid format postal code \"([^\"]*)\"$")
+    public void user_complete_data_tnr_on_shipping_information_screen_but_input_invalid_format_postal_code_something(String postalCode) throws InterruptedException {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.completeAddressInputInvalidPostal(postalCode);
+    }
+
+    @And("^User complete data tnr on shipping information screen but input exceed allowed length address$")
+    public void user_complete_data_tnr_on_shipping_information_screen_but_input_exceed_allowed_length_address() throws InterruptedException {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickAddNewAddressParticipantSum();
+        tryAndReviewScreen.completeAddressExceedCompleteAddress();
     }
 
     @When("^User choose any address to be main address$")

@@ -646,14 +646,14 @@ public class TryAndReviewScreen extends ActionBase {
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen completeAddressBali(String firstname, String lastname) {
+    public TryAndReviewScreen completeAddressBali(String firstName, String lastName) {
 
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
         isElementEnabled(saveAddressBtn);
 
-        inputValueEnter(firstnameField, firstname);
-        inputValueEnter(lastnameField, lastname);
+        inputValueEnter(firstnameField, firstName);
+        inputValueEnter(lastnameField, lastName);
 
         inputValueEnter(phonenumberField, "0812812");
 
@@ -670,7 +670,110 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
 
         inputValueEnter(zipField,"100451");
-        inputValueEnter(completeAddressField, firstname+ " " +lastname);
+        inputValueEnter(completeAddressField, firstName+ " " +lastName);
+
+        setAsMainAddress();
+
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen completeAddressInputInvalidPhone(String phoneNumber) {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
+        inputValueEnter(firstnameField, "invalid phone");
+        inputValueEnter(lastnameField, "phone invalid");
+
+        inputValueEnter(phonenumberField, phoneNumber);
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
+        inputValueEnter(zipField,"100451");
+        inputValueEnter(completeAddressField,"complete invalid address");
+
+        setAsMainAddress();
+
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen completeAddressInputInvalidPostal(String postalCode) {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
+        inputValueEnter(firstnameField, "invalid postal code");
+        inputValueEnter(lastnameField, "phone postal code");
+
+        inputValueEnter(phonenumberField, postalCode);
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
+        inputValueEnter(zipField,postalCode);
+        inputValueEnter(completeAddressField,"complete invalid postal code");
+
+        setAsMainAddress();
+
+        tapByElement(saveAddressBtn);
+
+        return new TryAndReviewScreen(driver);
+    }
+
+    public TryAndReviewScreen completeAddressExceedCompleteAddress() {
+
+        isElementEnabled(firstnameField);
+        isElementEnabled(provinceOpt);
+        isElementEnabled(saveAddressBtn);
+
+        inputValueEnter(firstnameField, "exceed address");
+        inputValueEnter(lastnameField, "exceed address");
+
+        inputValueEnter(phonenumberField, "1234567891");
+
+        tapByElement(provinceOpt);
+        isElementPresent(listBaliProvince);
+        tapByElement(listBaliProvince);
+
+        isElementPresent(listBaliCity);
+        tapByElement(listBaliCity);
+
+        isElementPresent(listBaliDistrict);
+        tapByElement(listBaliDistrict);
+
+        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+
+        inputValueEnter(zipField,"12345");
+        inputValueEnter(completeAddressField,"exceed address exceed address exceed address exceed address"+
+                "exceed address exceed address exceed address exceed address exceed address +" +
+                "exceed address exceed address exceed address exceed addressexceed address exceed address exceed address exceed address"+
+                "exceed address exceed address exceed address exceed address"+"exceed address exceed address exceed address exceed address"+
+                "exceed address exceed address exceed address exceed address exceed address exceed address exceed address exceed address");
 
         setAsMainAddress();
 

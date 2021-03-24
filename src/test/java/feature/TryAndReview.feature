@@ -7,7 +7,7 @@ Feature: User Join Campaign
   Precondition : set test data already verified
                  all personal info, beauty profile and concern data must empty
 
-  #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489
+  #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489 #FDBRMA-490
   @Android @Tnr @Staging
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
@@ -340,8 +340,8 @@ Feature: User Join Campaign
       |	      emptydatatnr	 |    test123     |
 
   #FDBRMA-479
-  @Android @Tnr @Staging @Bug @CheckTnr02
-  Scenario Outline: Save Add New Address Form With Special Characters in First Name & Last Name Field
+  @Android @Tnr @Staging @CheckTnr02
+  Scenario Outline: Save Add New Address Form With Special Characters in First Name Field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" email to login
@@ -352,8 +352,87 @@ Feature: User Join Campaign
     When User clicks join campaign from campaign detail of highlighted campaign
     Then User will see participant summary form
     And User complete data tnr on shipping information screen "<firstname>", "<lastname>" and set main address
-    Then Display red toast "Oops ... you need to fill in all data"
+    Then Display red toast "First name must be alpha character"
 
     Examples:
       |       username           |    password    |  fullname   |      firstname     |     lastname    |
-      |	      tnrspecialchar	 |    test123     |    newtnr   |      *&*&*&        |   *&*&*&*      |
+      |	      tnrspecialchar01	 |    test123     |    newtnr   |      *&*&*&        |   last      |
+
+  #FDBRMA-480
+  @Android @Tnr @Staging @CheckTnr02
+  Scenario Outline: Save Add New Address Form With Special Characters in Last Name Field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User complete data tnr on shipping information screen "<firstname>", "<lastname>" and set main address
+    Then Display red toast "Last name must be alpha character"
+
+    Examples:
+      |       username           |    password    |  fullname   |      firstname     |     lastname    |
+      |	      tnrspecialchar01	 |    test123     |    newtnr   |      first        |   *&*&*&*      |
+
+  #FDBRMA-481
+  @Android @Tnr @Staging @CheckTnr02
+  Scenario Outline: Save Add New Address Form With More Than 32 Characters in Phone Number Field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User complete data tnr on shipping information screen "<phonenumber>" and set main address
+    Then Display red toast "Phone number is too long, maximum 32 characters"
+
+    Examples:
+      |       username           |    password    |  phonenumber   |
+      |	      tnrspecialchar01	 |    test123     |    0823849237492374923749274729374928374982374982734729834789237498273498274982738947      |
+
+  #FDBRMA-482 #FDBRMA-483
+  @Android @Tnr @Staging @CheckTnr02
+  Scenario Outline: Save Add New Address Form With Less Than Four Characters on Postal Code Field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User complete data tnr on shipping information screen but input invalid format postal code "<postalcode>"
+    Then Display red toast "Post code must be 4-12 digits long"
+
+    Examples:
+      |       username           |    password    |  postalcode   |
+      |	      tnrspecialchar01	 |    test123     |    123        |
+      |	      tnrspecialchar01	 |    test123     |    1234561234561      |
+
+  #FDBRMA-484
+  @Android @Tnr @Staging @CheckTnr02
+  Scenario Outline: Save Add New Address Form With More Than 128 Characters on Complete Address Field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User complete data tnr on shipping information screen but input exceed allowed length address
+    Then Display red toast "Address is too long, maximum 128 characters"
+
+    Examples:
+      |       username           |    password    |
+      |	      tnrspecialchar01	 |    test123     |
+
+  #FDBRMA-486
