@@ -43,6 +43,7 @@ public class DriverFactory {
 
     public AppiumDriver getDriver() throws IOException {
         try {
+            //Thread.sleep(3000);
             AppiumServer.stop();
             AppiumServer.start();
 

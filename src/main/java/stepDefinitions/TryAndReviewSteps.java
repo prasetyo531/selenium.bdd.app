@@ -271,7 +271,7 @@ public class TryAndReviewSteps extends DriverFactory {
     }
 
     @And("^User choose address as new main address$")
-    public void userChooseAddressAsNewMainAddress() {
+    public void userChooseAddressAsNewMainAddress() throws Exception {
         tryAndReviewScreen.clickToCollapse();
         tryAndReviewScreen.clickEditAddressParticipantSum();
 

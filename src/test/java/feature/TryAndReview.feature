@@ -436,7 +436,7 @@ Feature: User Join Campaign
       |	      tnrspecialchar01	 |    test123     |
 
   #FDBRMA-486
-  @Android @Tnr @Staging @CheckTnr02 @Bug
+  @Android @Tnr @Staging @CheckTnr04 @Bug
   Scenario Outline: Save Add New Address Form - set as Main Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
