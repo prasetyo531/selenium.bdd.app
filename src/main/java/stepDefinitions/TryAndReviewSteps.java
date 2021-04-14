@@ -270,4 +270,10 @@ public class TryAndReviewSteps extends DriverFactory {
         tryAndReviewScreen.isFalseAddNewAddressPresent();
     }
 
+    @And("^User choose address as new main address$")
+    public void userChooseAddressAsNewMainAddress() {
+        tryAndReviewScreen.clickToCollapse();
+        tryAndReviewScreen.clickEditAddressParticipantSum();
+
+    }
 }

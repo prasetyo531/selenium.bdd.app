@@ -436,3 +436,20 @@ Feature: User Join Campaign
       |	      tnrspecialchar01	 |    test123     |
 
   #FDBRMA-486
+  @Android @Tnr @Staging @CheckTnr02 @Bug
+  Scenario Outline: Save Add New Address Form - set as Main Address
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen and click tnr menu
+    When User clicks join campaign from campaign detail of highlighted campaign
+    Then User will see participant summary form
+    And User choose address as new main address
+    Then User will see label main address on participant summary form
+
+    Examples:
+      |       username   |    password    |
+      |	      tnrbdd01	 |    test123     |
