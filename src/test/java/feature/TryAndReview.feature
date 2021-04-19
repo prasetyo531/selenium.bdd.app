@@ -437,7 +437,7 @@ Feature: User Join Campaign
 
   #FDBRMA-486
   @Android @Tnr @Staging @CheckTnr04 @Bug
-  Scenario Outline: Save Add New Address Form - set as Main Address
+  Scenario Outline: Edit Address - Edit as Main Address
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" email to login
@@ -452,4 +452,4 @@ Feature: User Join Campaign
 
     Examples:
       |       username   |    password    |
-      |	      tnrbdd01	 |    test123     |
+      |	      datatnr01	 |    test123     |
