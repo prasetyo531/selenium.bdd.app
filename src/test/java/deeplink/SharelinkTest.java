@@ -3,22 +3,22 @@ package deeplink;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-public class DeeplinkTest {
+public class SharelinkTest {
 
     protected AppiumDriver driver;
     public WebDriverWait wait;
 
-    @Before
+    @BeforeTest
     public void setup () throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
@@ -33,8 +33,8 @@ public class DeeplinkTest {
         wait = new WebDriverWait(driver, 10);
     }
 
-    @Test
-    public void runDeepLinkTest() {
+    @Test(priority = 1)
+    public void runShareLinkProductDetail() {
         try {
             HashMap<String, String> deepUrl = new HashMap<>();
             deepUrl.put("url", "https://femaledaily.link/1kunbq");
@@ -46,7 +46,46 @@ public class DeeplinkTest {
         }
     }
 
-    @After
+    @Test(priority = 2)
+    public void runShareLinkArticleDetail() {
+        try {
+            HashMap<String, String> deepUrl = new HashMap<>();
+            deepUrl.put("url", "https://femaledaily.link/1lavyw");
+            deepUrl.put("package", "com.fdbr.android");
+            driver.executeScript("mobile: deepLink", deepUrl);
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    @Test(priority = 3)
+    public void runShareLinkReviewDetail() {
+        try {
+            HashMap<String, String> deepUrl = new HashMap<>();
+            deepUrl.put("url", "https://femaledaily.link/1law4J");
+            deepUrl.put("package", "com.fdbr.android");
+            driver.executeScript("mobile: deepLink", deepUrl);
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    @Test(priority = 4)
+    public void runShareLinkPostDetail() {
+        try {
+            HashMap<String, String> deepUrl = new HashMap<>();
+            deepUrl.put("url", "https://femaledaily.link/1law6w");
+            deepUrl.put("package", "com.fdbr.android");
+            driver.executeScript("mobile: deepLink", deepUrl);
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    @AfterTest
     public void quit() {
         driver.quit();
     }
