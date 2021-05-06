@@ -43,9 +43,7 @@ import static java.time.Duration.ofSeconds;
 
 public class ActionBase extends DriverFactory {
 
-    protected WebDriverWait wait;
     private static String screenshotName;
-
     Faker faker = new Faker();
 
     protected void sleep(long time) {
