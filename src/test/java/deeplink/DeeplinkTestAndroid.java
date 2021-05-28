@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-public class SharelinkTest {
+public class DeeplinkTestAndroid {
 
     protected AppiumDriver driver;
     public WebDriverWait wait;
@@ -29,7 +29,7 @@ public class SharelinkTest {
         capabilities.setCapability("appActivity", "com.fdbr.android.application.base.AmSplash");
         capabilities.setCapability("appPackage", "com.fdbr.android");
         capabilities.setCapability("noReset", true);
-        driver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"),capabilities);
+        driver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"), capabilities);
         wait = new WebDriverWait(driver, 10);
     }
 
