@@ -2,11 +2,9 @@ package deeplink;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,9 +14,8 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
-public class DeeplinkTestIOS {
+public class DeeplinkTestHomeDomainIOS {
 
     protected AppiumDriver driver;
     public WebDriverWait wait;
@@ -37,13 +34,21 @@ public class DeeplinkTestIOS {
     }
 
     @Test
-    public void runShareLinkProductDetail() {
+    public void runDeepLinkCategoryHomeDomain() {
+
+        By parentMoisturizer = MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' && name == 'Moisturizer'");
+        By childNightCream = MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' && name == 'Night Cream'");
+
         driver.activateApp("com.apple.mobilesafari");
-        driver.get("https://reviews.femaledaily.com/products/moisturizer/night-cream-16?brand=&order=popular&page=1");
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(urlBtn));
-//        wait.until(ExpectedConditions.elementToBeClickable(urlBtn)).sendKeys("https://reviews.femaledaily.com/products/moisturizer/night-cream-16?brand=&order=popular&page=1");
+        driver.get("https://femaledaily.net/category/skincare");
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(parentMoisturizer)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(childNightCream));
+        wait.until(ExpectedConditions.elementToBeClickable(childNightCream)).click();
     }
+
+    //product detail wip due limitation get element browser using appium
 
     @AfterTest
     public void quit() {
