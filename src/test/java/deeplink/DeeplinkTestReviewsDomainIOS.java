@@ -48,7 +48,7 @@ public class DeeplinkTestReviewsDomainIOS {
     @AfterMethod
     public void delay() throws InterruptedException {
 
-        Thread.sleep(13000);
+        Thread.sleep(20000);
     }
 
     @AfterTest
