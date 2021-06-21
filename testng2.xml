@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <!--  generate ss to /reports  -->
+    <listeners>
+        <listener class-name="extentListener.ExtentListeners"></listener>
+    </listeners>
+
+    <test name="firsttest">
+        <classes>
+            <class name="emulator.RunEmulator"/>
+        </classes>
+    </test>
+
+    <test name="secondtest">
+        <classes>
+            <class name="uiTestAndroid.UiTestRandom"/>
+        </classes>
+    </test>
+</suite>
