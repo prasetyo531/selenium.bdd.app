@@ -6,7 +6,6 @@ Feature: User Check Post
   I should able report, share, delete post
 
   #need to maintain
-
   #FDBRMA-345 #FDBRMA-346
   @Android @CheckPost @staging
   Scenario Outline: Report - Share post other user from discover

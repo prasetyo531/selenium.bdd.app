@@ -36,13 +36,13 @@ public class CheckPostSteps extends DriverFactory {
     }
 
     @Then("^User will see option which app to taking share$")
-    public void user_will_see_option_which_app_to_taking_share() throws Throwable {
+    public void user_will_see_option_which_app_to_taking_share() {
 
         othersScreen.findDrawerOptionShare();
     }
 
     @And("^User clicks profile menu and select post$")
-    public void user_clicks_profile_menu_and_select_post() throws Throwable {
+    public void user_clicks_profile_menu_and_select_post() {
 
         homeScreen.clickProfileHomeMenu();
         profileScreen.clickFirstPostProfile();

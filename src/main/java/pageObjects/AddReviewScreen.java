@@ -155,8 +155,18 @@ public class AddReviewScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Share Review']")
     public MobileElement shareReview;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Report']")
+    public MobileElement reportReview;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Cancel']")
     public MobileElement cancelReview;
+
+    /* confirmation modal report*/
+    @AndroidFindBy(id="com.fdbr.android:id/textTitle")
+    public MobileElement titleModal;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Not Relevant']")
+    public MobileElement notRelevantOption;
 
     // This is a constructor, as every page need a base driver to find android elements
     public AddReviewScreen(AppiumDriver driver) throws IOException {
@@ -170,7 +180,6 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(firstPopularProduct);
         tapByElement(firstPopularProduct);
-
         return new AddReviewScreen(driver);
     }
 
@@ -178,7 +187,6 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(secondPopularProduct);
         tapByElement(secondPopularProduct);
-
         return new AddReviewScreen(driver);
     }
 
@@ -186,10 +194,8 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(thirdPopularProduct);
         tapByElement(thirdPopularProduct);
-
         return new AddReviewScreen(driver);
     }
-
 
     /* add review screen */
     public AddReviewScreen clickNextScreen() throws IOException {
@@ -221,7 +227,6 @@ public class AddReviewScreen extends ActionBase {
         } catch (ElementNotVisibleException e){
             e.printStackTrace();
         }
-
         clickNextScreen();
         return new AddReviewScreen(driver);
     }
@@ -243,7 +248,6 @@ public class AddReviewScreen extends ActionBase {
         } catch (ElementNotVisibleException e){
             e.printStackTrace();
         }
-
         clickNextScreen();
         return new AddReviewScreen(driver);
     }
@@ -300,7 +304,6 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(firstTimeUse);
         tapByElement(firstTimeUse);
-
         return new AddReviewScreen(driver);
     }
 
@@ -354,7 +357,6 @@ public class AddReviewScreen extends ActionBase {
         tapByElement(inputedNewSource);
 
         clickNextScreen();
-
         return new AddReviewScreen(driver);
     }
 
@@ -405,7 +407,6 @@ public class AddReviewScreen extends ActionBase {
         getReviewBeforeEditDesc = reviewdesc.getText();
 
         inputValue(reviewdesc,editReviewTxt);
-
         return new AddReviewScreen(driver);
     }
 
@@ -424,7 +425,6 @@ public class AddReviewScreen extends ActionBase {
         tapByElement(seeMyReview);
 
         //getReviewFromDB
-
         return new AddReviewScreen(driver);
     }
 
@@ -439,7 +439,6 @@ public class AddReviewScreen extends ActionBase {
         Assert.assertNotNull(u);
         Assert.assertNotNull(f);
         Assert.assertNotNull(r);
-
         return new AddReviewScreen(driver);
     }
 
@@ -447,29 +446,24 @@ public class AddReviewScreen extends ActionBase {
     public AddReviewScreen getDetailDescReview() throws IOException {
 
         getSubmittedRevDesc = descReviewDetail.getText();
-
-
         return new AddReviewScreen(driver);
     }
 
     public AddReviewScreen getDetailUsagePeriodReview() throws IOException {
 
         getSubmittedRevUsagePer = usagePeriod.getText().toLowerCase();
-
         return new AddReviewScreen(driver);
     }
 
     public AddReviewScreen getDetailProdFromReview() throws IOException {
 
         getSubmittedRevProdFrom = productFrom.getText().toLowerCase();
-
         return new AddReviewScreen(driver);
     }
 
     public AddReviewScreen getDetailRecommReview() throws IOException {
 
         getSubmittedRevRecomm = recommended.getText().toLowerCase();
-
         return new AddReviewScreen(driver);
     }
 
@@ -479,7 +473,6 @@ public class AddReviewScreen extends ActionBase {
         getDetailUsagePeriodReview();
         getDetailProdFromReview();
         getDetailRecommReview();
-
         return new AddReviewScreen(driver);
     }
 
@@ -488,24 +481,20 @@ public class AddReviewScreen extends ActionBase {
         Thread.sleep(1000);
         tapByElement(moreBtn);
         tapByElement(editReview);
-
         return new AddReviewScreen(driver);
     }
 
     public AddReviewScreen editSubmittedReview() throws IOException {
 
         inputValue(reviewdesc,editSubmittedReviewTxt);
-
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen waitReviewDetail() throws IOException {
+    public AddReviewScreen waitReviewDetail() {
 
         isElementPresent(descReviewDetail);
-
         return new AddReviewScreen(driver);
     }
-
 
     public AddReviewScreen compareFieldAfterEdited() throws IOException {
 
@@ -523,9 +512,43 @@ public class AddReviewScreen extends ActionBase {
         Assert.assertNotEquals(getSubmittedRevUsagePer, getNewestRevUsagePer);
         Assert.assertNotEquals(getSubmittedRevProdFrom, getNewestRevProdFrom);
         Assert.assertNotEquals(getSubmittedRevRecomm, getNewestRevRecomm);
-
         return new AddReviewScreen(driver);
     }
 
+    public AddReviewScreen clickMoreReview() {
+
+        WaitUntilElementIsVisible(moreBtn);
+        tapByElement(moreBtn);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen clickShareReview() {
+
+        isElementPresent(shareReview);
+        tapByElement(shareReview);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen clickReportReview() {
+        isElementPresent(reportReview);
+        tapByElement(reportReview);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen chooseReasonNotRelevant() {
+        isElementPresent(titleModal);
+        String titleModalReport = titleModal.getText();
+        org.testng.Assert.assertTrue(titleModalReport.equals("What's your reason for reporting review?"));
+        isElementPresent(notRelevantOption);
+        tapByElement(notRelevantOption);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen findToastAfterReport() {
+        //WebDriverWait wait = new WebDriverWait(driver, 2);
+        //its not check text equals expected text
+        toastMatches("Thank you for reporting this review", false);
+        return new AddReviewScreen(driver);
+    }
 
 }

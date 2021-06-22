@@ -30,14 +30,14 @@ public class EditReviewSteps extends DriverFactory {
     }
 
     @Then("^User will see review updated$")
-    public void user_will_see_review_updated() throws Throwable {
+    public void user_will_see_review_updated() {
 
         addReviewScreen.waitReviewDetail();
         addReviewScreen.compareFieldAfterEdited();
     }
 
     @Then("^User would see review updated$")
-    public void user_would_see_review_updated() throws Throwable {
+    public void user_would_see_review_updated() {
 
         addReviewScreen.waitReviewDetail();
     }

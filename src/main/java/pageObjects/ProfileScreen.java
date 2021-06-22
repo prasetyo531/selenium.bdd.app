@@ -15,7 +15,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Posts\"]")
     public MobileElement postsTab;
 
-    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Reviews\"]")
+    @AndroidFindBy(xpath="/android.widget.LinearLayout[@content-desc=\"Reviews\"]")
     public MobileElement reviewsTab;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Topics\"]")

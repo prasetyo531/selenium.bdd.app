@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class OthersScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.lge:id/resolver_list_lg")
+    @AndroidFindBy(id="android:id/profile_tabhost")
     public MobileElement drawerShare;
 
     // This is a constructor, as every page need a base driver to find android elements
@@ -21,8 +21,7 @@ public class OthersScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public OthersScreen findDrawerOptionShare() throws IOException {
-
+    public OthersScreen findDrawerOptionShare() {
         isElementPresent(drawerShare);
         driver.navigate().back();
         return new OthersScreen(driver);

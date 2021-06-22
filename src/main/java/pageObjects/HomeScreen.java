@@ -403,6 +403,7 @@ public class HomeScreen extends ActionBase {
 
     //search
     public HomeScreen clickSearch() {
+        WaitUntilElementIsVisible(searchIcon);
         tapByElement(searchIcon);
         return new HomeScreen(driver);
     }
@@ -428,7 +429,7 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
-    //talk
+    /*talk*/
     public HomeScreen scrollToTalkSection() {
         verticalSwipeByPercentagesDirectly(90,1736,90, 316);
         verticalSwipeByPercentagesDirectly(85,1729,85, 259);
