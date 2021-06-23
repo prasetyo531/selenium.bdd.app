@@ -492,7 +492,7 @@ public class AddReviewScreen extends ActionBase {
 
     public AddReviewScreen waitReviewDetail() {
 
-        isElementPresent(descReviewDetail);
+        WaitUntilElementIsVisible(descReviewDetail);
         return new AddReviewScreen(driver);
     }
 
