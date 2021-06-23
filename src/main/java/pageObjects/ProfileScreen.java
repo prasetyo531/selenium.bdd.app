@@ -15,7 +15,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Posts\"]")
     public MobileElement postsTab;
 
-    @AndroidFindBy(xpath="/android.widget.LinearLayout[@content-desc=\"Reviews\"]")
+    @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Reviews\"]")
     public MobileElement reviewsTab;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Topics\"]")
@@ -334,6 +334,7 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickReviewsTab() {
+        WaitUntilElementIsVisible(reviewsTab);
         tapByElement(reviewsTab);
         return new ProfileScreen(driver);
     }

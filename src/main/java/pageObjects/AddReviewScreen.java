@@ -169,7 +169,7 @@ public class AddReviewScreen extends ActionBase {
     public MobileElement notRelevantOption;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public AddReviewScreen(AppiumDriver driver) throws IOException {
+    public AddReviewScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -496,7 +496,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen compareFieldAfterEdited() throws IOException {
+    public AddReviewScreen compareFieldAfterEdited() {
 
         getNewestRevDesc = descReviewDetail.getText().toLowerCase();
         getNewestRevUsagePer = usagePeriod.getText().toLowerCase();

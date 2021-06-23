@@ -6,7 +6,7 @@ Feature: User Check Review
   I should able report, share, delete post
 
    #FDBRMA-348 #FDBRMA-349
-  @Android @CheckReview @staging
+  @Android @CheckReview @staging @testO
   Scenario Outline: Report - Share review other user from other user profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -23,5 +23,5 @@ Feature: User Check Review
     Then User will see toast msg after report review
 
     Examples:
-      |         email        |        password       |     fullname     |
-      |	      addpostbdd	 |        test123        |    putwid      |
+      |         email    |        password       |     fullname     |
+      |	      putwid	 |        tester123        |    hanafeberia      |
