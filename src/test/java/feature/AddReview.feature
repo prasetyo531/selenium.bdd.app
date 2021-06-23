@@ -12,7 +12,7 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then User will be directed to homescreeen app
 
-  @FDBRMA-23 @AddReview @Production
+  @FDBRMA-23 @AddReview @Production @OkrDone
   Scenario: Add Review by select Category
     Given User clicks menu category from homescreen menu
     When User clicks one of category to find product

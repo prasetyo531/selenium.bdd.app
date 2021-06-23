@@ -24,7 +24,7 @@ public class ProductCategoryScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
     public MobileElement firstPopularProduct;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent')]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelSubItem')]")
     public List<MobileElement> listProductCat;
 
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id,'com.fdbr.android:id/imagePhoto')]")

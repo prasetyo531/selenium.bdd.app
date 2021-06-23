@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class ProductListScreen extends ActionBase {
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstProduct;
 
     /****

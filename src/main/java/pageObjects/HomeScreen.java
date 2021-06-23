@@ -68,12 +68,21 @@ public class HomeScreen extends ActionBase {
     public MobileElement closeFloatingImg;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='1']")
-    public MobileElement tnrMenu;
+    public MobileElement editorialMenu;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='2']")
+    public MobileElement bsMenu;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='3']")
+    public MobileElement tnrMenu;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='4']")
     public MobileElement talkMenu;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android:id/itemMenuParent') and @index='3']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/itemMenuParent') and @index='5']")
+    public MobileElement fdawardsMenu;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonCategory")
     public MobileElement productCategoryMenu;
 
     @AndroidFindBy(xpath="//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
@@ -326,7 +335,6 @@ public class HomeScreen extends ActionBase {
 
     //menu bar
     public HomeScreen clickProductCategory() {
-        horizontalSwipeByPercentagesDirectly(902,805, 333, 809);
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
         return new HomeScreen(driver);

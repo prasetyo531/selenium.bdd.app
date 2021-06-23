@@ -6,7 +6,7 @@ Feature: login into Android Apps
   So that, I can login into FD Apps
 
   #FDBRMA-717
-  @Android @switchAccount @Staging @switchAccount
+  @Android @switchAccount @Staging @switchAccount @OkrDone
   Scenario Outline: Login after change account using unverified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -24,7 +24,7 @@ Feature: login into Android Apps
       | switchaccountpras     | test123  |
 
   #FDBRMA-711
-  @Android @switchAccount @Staging @switchAccount
+  @Android @switchAccount @Staging @switchAccount @OkrDone
   Scenario Outline: Login and verify using unverified phone number account
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -43,7 +43,7 @@ Feature: login into Android Apps
       | switchaccountpras01 | test123  |
 
   #FDBRMA-714
-  @Android @switchAccount @Staging @switchAccount
+  @Android @switchAccount @Staging @switchAccount @OkrDone
   Scenario Outline: Change account by empty phone number user
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -61,7 +61,7 @@ Feature: login into Android Apps
       | switchaccountpras03 | test123  |
 
   #FDBRMA-715
-  @Android @switchAccount @Staging @switchAccountDone
+  @Android @switchAccount @Staging @switchAccountDone @OkrDone
   Scenario Outline: Change account after change phone number user
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
