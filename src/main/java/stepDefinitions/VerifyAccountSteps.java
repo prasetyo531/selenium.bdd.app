@@ -6,6 +6,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
 
+import java.io.IOException;
+
 public class VerifyAccountSteps extends DriverFactory {
 
     @Then("^User will be directed to homescreeen app$")
@@ -56,19 +58,19 @@ public class VerifyAccountSteps extends DriverFactory {
 
     //***   modal account status    ***
     @And("^User change email and input \"([^\"]*)\" and click verify on verify email screen$")
-    public void User_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) throws Throwable {
+    public void User_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) {
         verifyAccountScreen.clickChangeAuth();
         verifyAccountScreen.inputFieldVerifyEmail(email);
         verifyAccountScreen.clickVerifyEmailNow();
     }
 
     @Then("^User will see verify process$")
-    public void user_will_see_verify_process() throws Throwable {
+    public void user_will_see_verify_process() {
         verifyAccountScreen.checkStepper();
     }
 
     @When("^User change email \"([^\"]*)\" to verify email bypass otp$")
-    public void user_change_email_something_to_verify_email_bypass_otp(String newemail) throws Throwable {
+    public void user_change_email_something_to_verify_email_bypass_otp(String newemail) {
         verifyAccountScreen.tapToChangeEmail(newemail);
         verifyAccountScreen.clickVerifyEmailNow();
         verifyAccountScreen.inputPasswordToChangeEmail();
@@ -78,7 +80,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @When("^User change phone \"([^\"]*)\" to verify phone bypass otp$")
-    public void user_change_phone_something_to_verify_phone_bypass_otp(String newphone) throws Throwable {
+    public void user_change_phone_something_to_verify_phone_bypass_otp(String newphone) {
         verifyAccountScreen.tapToChangePhone(newphone);
         verifyAccountScreen.clickVerifyPhoneNow();
         verifyAccountScreen.inputPasswordToChangePhone();
@@ -104,47 +106,47 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @Then("^User will see success msg verified by email contains \"([^\"]*)\"$")
-    public void user_will_see_success_msg_verified_by_email_contains_something(String email) throws Throwable {
+    public void user_will_see_success_msg_verified_by_email_contains_something(String email) throws InterruptedException {
         Thread.sleep(1000);
         verifyAccountScreen.checkVerifiedSuccessEmail(email);
     }
 
     @Then("^User will see success msg verified by phone contains \"([^\"]*)\"$")
-    public void user_will_see_success_msg_verified_by_phone_contains_something(String phone) throws Throwable {
+    public void user_will_see_success_msg_verified_by_phone_contains_something(String phone) throws InterruptedException {
         Thread.sleep(1000);
         verifyAccountScreen.checkVerifiedSuccessPhone(phone);
     }
 
     @And("^User skip verify email$")
-    public void User_skip_verify_email() throws Throwable {
+    public void User_skip_verify_email() {
         verifyAccountScreen.clickSkipEmail();
     }
 
     @And("^User input \"([^\"]*)\" and click verify on verify phone screen$")
-    public void User_input_something_and_click_verify_on_verify_phone_screen(String phone) throws Throwable {
+    public void User_input_something_and_click_verify_on_verify_phone_screen(String phone) {
         verifyAccountScreen.inputFieldVerifyPhone(phone);
         verifyAccountScreen.clickVerifyPhoneNow();
     }
 
     @Then("^User click skip button on verify email screen$")
-    public void user_click_skip_button_on_verify_email_screen() throws Throwable {
+    public void user_click_skip_button_on_verify_email_screen() {
         verifyAccountScreen.clickSkipEmail();
     }
 
     @And("^User click skip button on verify phone screen$")
-    public void user_click_skip_button_on_verify_phone_screen() throws Throwable {
+    public void user_click_skip_button_on_verify_phone_screen() {
         verifyAccountScreen.clickSkipPhone();
     }
 
     @When("^User take picture to complete personal info$")
-    public void user_take_picture_to_complete_personal_info() throws Throwable {
+    public void user_take_picture_to_complete_personal_info() throws IOException, InterruptedException {
         //capture not allowed to change
         verifyAccountScreen.captureSS("before-upload-photo-profile");
         verifyAccountScreen.clickCaptureImg();
     }
 
     @When("^User use picture from gallery to complete personal info$")
-    public void user_use_picture_from_gallery_to_complete_personal_info() throws Throwable {
+    public void user_use_picture_from_gallery_to_complete_personal_info() {
         verifyAccountScreen.clickGalleryBtn();
     }
 
@@ -196,7 +198,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @And("^User choose beauty profile on beauty profile screen$")
-    public void user_choose_beauty_profile_on_beauty_profile_screen() throws Throwable {
+    public void user_choose_beauty_profile_on_beauty_profile_screen() {
         verifyAccountScreen.checkTitleScreenBeautyProfile();
 
         verifyAccountScreen.clickSaveBeautyProf();
@@ -229,7 +231,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @And("^User choose beauty concern on beauty concern screen$")
-    public void User_choose_beauty_concern_on_beauty_concern_screen() throws Throwable {
+    public void User_choose_beauty_concern_on_beauty_concern_screen() {
         verifyAccountScreen.checkTitleScreenBeautyConcern();
 
         verifyAccountScreen.clickSaveBeautyCon();
@@ -266,7 +268,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @Then("^User will see modal fullname only alphabet$")
-    public void user_will_see_modal_fullname_only_alphabet() throws Throwable {
+    public void user_will_see_modal_fullname_only_alphabet() {
         verifyAccountScreen.getErrorModalFullname();
     }
 
@@ -322,7 +324,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @Then("^User will see success msg verified by email contains \"([^\"]*)\" and label Verified will appear$")
-    public void user_will_see_success_msg_verified_by_email_contains_something_and_label_verified_will_appear(String email) throws Throwable {
+    public void user_will_see_success_msg_verified_by_email_contains_something_and_label_verified_will_appear(String email) throws InterruptedException {
         Thread.sleep(1200);
         verifyAccountScreen.checkVerifiedSuccessEmail(email);
 
@@ -331,7 +333,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @Then("^User will see success msg verified by phone contains \"([^\"]*)\" and label Verified will appear$")
-    public void user_will_see_success_msg_verified_by_phone_contains_something_and_label_verified_will_appear(String phone) throws Throwable {
+    public void user_will_see_success_msg_verified_by_phone_contains_something_and_label_verified_will_appear(String phone) throws InterruptedException {
         Thread.sleep(1200);
         verifyAccountScreen.checkVerifiedSuccessPhone(phone);
 
@@ -343,5 +345,34 @@ public class VerifyAccountSteps extends DriverFactory {
     public void user_clicks_back() throws InterruptedException {
         Thread.sleep(5000);
         profileScreen.clickBackOnChangeEmailPhoneScreen();
+    }
+
+    @And("^User tap button get it now modal get point$")
+    public void userTapButtonGetItNowModalGetPoint() throws InterruptedException {
+        verifyAccountScreen.tapBtnGetItNow();
+    }
+
+    @When("^User switch account by tap button change$")
+    public void userSwitchAccountByTapButtonChange() throws InterruptedException {
+        verifyAccountScreen.tapBtnChangeAccount();
+        verifyAccountScreen.confirmChangeAccount();
+    }
+
+    @Then("^User logout from FD apps$")
+    public void userLogoutFromFDApps() {
+        loginScreen.validateLoginPageAfterlogout();
+    }
+
+    @And("^User tap button next on modal verify success$")
+    public void userTapButtonNextOnModalVerifySuccess() throws InterruptedException {
+        verifyAccountScreen.tapBtnNextOnModalVerifySuccess();
+        homeScreen.acceptAlertPermission();
+    }
+
+    @When("^User change phone \"([^\"]*)\" before switch account$")
+    public void userChangePhoneBeforeSwitchAccount(String newphone) throws Throwable {
+        verifyAccountScreen.tapToChangePhone(newphone);
+        verifyAccountScreen.tapBtnChangeAccount();
+        verifyAccountScreen.confirmChangeAccount();
     }
 }

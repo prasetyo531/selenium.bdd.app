@@ -12,6 +12,9 @@ import java.io.IOException;
 
 public class LoginScreen extends ActionBase {
 
+    @AndroidFindBy(id ="com.fdbr.android.auth:id/labelWelcomeNote")
+    public MobileElement labelWelcomeLogin;
+
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputEmailUsernamePhone")
     @iOSXCUITFindBy(id="Email, Username or phone number")
     public MobileElement usernameEmailField;
@@ -258,6 +261,11 @@ public class LoginScreen extends ActionBase {
     public LoginScreen inputNewChannelToLogin(String channel) {
         usernameEmailField.clear();
         inputValue(usernameEmailField, channel);
+        return new LoginScreen(driver);
+    }
+
+    public LoginScreen validateLoginPageAfterlogout() {
+        isElementPresent(labelWelcomeLogin);
         return new LoginScreen(driver);
     }
 

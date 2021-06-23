@@ -16,7 +16,7 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will direct to beauty profile screen$")
-    public void user_will_direct_to_beauty_profile_screen() throws Throwable {
+    public void user_will_direct_to_beauty_profile_screen() {
 
         verifyAccountScreen.checkTitleScreenBeautyProfile();
         verifyAccountScreen.clickSkipBeautyProfile();
@@ -26,13 +26,13 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will direct to beauty concern screen$")
-    public void user_will_direct_to_beauty_concern_screen() throws Throwable {
+    public void user_will_direct_to_beauty_concern_screen() {
 
         verifyAccountScreen.checkTitleScreenBeautyConcern();
     }
 
     @And("^User clicks profile from homescreen menu$")
-    public void user_clicks_profile_from_homescreen_menu() throws Throwable {
+    public void user_clicks_profile_from_homescreen_menu() {
 
         homeScreen.clickProfileHomeMenu();
     }
@@ -70,7 +70,7 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @When("^User clicks save to save all updated field$")
-    public void user_clicks_save_to_save_all_updated_field() throws Throwable {
+    public void user_clicks_save_to_save_all_updated_field() {
 
         profileScreen.clickSaveProfile();
     }

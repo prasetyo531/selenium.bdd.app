@@ -12,3 +12,4 @@ target/test-classes
 test-output/
 src/main/java/utils/AppiumServer.java
 src/main/java/utils/CommonUtils.java
+target

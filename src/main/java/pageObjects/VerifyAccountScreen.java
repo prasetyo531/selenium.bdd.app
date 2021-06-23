@@ -15,6 +15,9 @@ import java.util.List;
 
 public class VerifyAccountScreen extends ActionBase {
 
+    @AndroidFindBy(id = "com.fdbr.android:id/buttonGetIt")
+    public MobileElement btnGetItNow;
+
     @AndroidFindBy(id = "com.fdbr.android.beauty:id/close")
     public MobileElement closeStep;
 
@@ -50,7 +53,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement nextButtonModalVerifyEmail;
 
     /***  phone screen  ***/
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/labelSubtitle') and @text='Verify your phone number to keep using your account']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/labelSubtitle') and @index='0']")
     @iOSXCUITFindBy(id="Verify your phone number to keep using your account")
     public MobileElement subtitleVerifyPhoneStepper;
 
@@ -78,6 +81,19 @@ public class VerifyAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonPositive")
     public MobileElement nextButtonModalVerifyPhone;
+
+    @AndroidFindBy(id = "com.fdbr.android.beauty:id/buttonChangeAccount")
+    public MobileElement btnChangeAccount;
+
+    /* modal switch account */
+    @AndroidFindBy(id = "com.fdbr.android:id/textTitle")
+    public MobileElement modalSwitchAccountTittle;
+
+    @AndroidFindBy(id = "com.fdbr.android:id/buttonNegative")
+    public MobileElement btnOkChangeAccount;
+
+    @AndroidFindBy(id = "com.fdbr.android:id/buttonPositive")
+    public MobileElement btnCancelChangeAccount;
 
     /***  modal change password screen  ***/
     @AndroidFindBy(id="com.fdbr.android.beauty:id/tvTitle")
@@ -277,7 +293,7 @@ public class VerifyAccountScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public VerifyAccountScreen checkStepper() throws IOException {
+    public VerifyAccountScreen checkStepper() {
 
         isElementPresent(stepper);
         return new VerifyAccountScreen(driver);
@@ -296,7 +312,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  email screen  ***/
-    public VerifyAccountScreen tapToChangeEmail(String email) throws InterruptedException, IOException {
+    public VerifyAccountScreen tapToChangeEmail(String email) {
 
         isElementPresent(changeEmailBtn);
         tapByElement(changeEmailBtn);
@@ -304,20 +320,20 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen inputFieldVerifyEmail(String email) throws InterruptedException, IOException {
+    public VerifyAccountScreen inputFieldVerifyEmail(String email) {
 
         isElementPresent(fieldVerifyEmail);
         inputValue(fieldVerifyEmail, email);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickVerifyEmailNow() throws IOException {
+    public VerifyAccountScreen clickVerifyEmailNow() {
 
         tapByElement(verifyNowEmailBtn);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickSkipEmail() throws IOException {
+    public VerifyAccountScreen clickSkipEmail() {
 
         isElementEnabled(skipEmailBtn);
         tapByElement(skipEmailBtn);
@@ -332,7 +348,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen tapToChangePhone(String phone) throws InterruptedException, IOException {
+    public VerifyAccountScreen tapToChangePhone(String phone) {
 
         isElementPresent(changePhoneBtn);
         tapByElement(changePhoneBtn);
@@ -340,20 +356,20 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen inputFieldVerifyPhone(String phone) throws IOException {
+    public VerifyAccountScreen inputFieldVerifyPhone(String phone) {
 
         isElementPresent(fieldVerifyPhone);
         inputValue(fieldVerifyPhone, phone);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickVerifyPhoneNow() throws IOException {
+    public VerifyAccountScreen clickVerifyPhoneNow() {
 
         tapByElement(verifyNowPhoneBtn);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickSkipPhone() throws IOException {
+    public VerifyAccountScreen clickSkipPhone() {
 
         isElementEnabled(skipPhoneBtn);
         tapByElement(skipPhoneBtn);
@@ -361,7 +377,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  modal success verify email and phone  ***/
-    public VerifyAccountScreen checkVerifiedSuccessEmail(String email) throws IOException {
+    public VerifyAccountScreen checkVerifiedSuccessEmail(String email) {
 
         isElementPresent(titleModalSuccessVerifyEmail);
         isElementPresent(descModalSuccessVerifyEmail);
@@ -372,7 +388,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen checkVerifiedSuccessPhone(String phone) throws IOException {
+    public VerifyAccountScreen checkVerifiedSuccessPhone(String phone) {
 
         isElementPresent(titleModalSuccessVerifyPhone);
         isElementPresent(descModalSuccessVerifyPhone);
@@ -384,7 +400,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  modal confirmation password  ***/
-    public VerifyAccountScreen inputPasswordToChangeEmail() throws IOException {
+    public VerifyAccountScreen inputPasswordToChangeEmail() {
 
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
@@ -392,7 +408,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen inputPasswordToChangePhone() throws IOException {
+    public VerifyAccountScreen inputPasswordToChangePhone() {
 
         isElementPresent(titleModalPassword);
         inputValue(fieldPassword, "test123");
@@ -401,7 +417,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  personal info screen  ***/
-    public VerifyAccountScreen clickCaptureImg() throws IOException, InterruptedException {
+    public VerifyAccountScreen clickCaptureImg() {
 
         isElementPresent(imgPersonalInfo);
         tapByElement(imgPersonalInfo);
@@ -413,7 +429,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickGalleryBtn() throws IOException {
+    public VerifyAccountScreen clickGalleryBtn() {
 
         isElementPresent(imgPersonalInfo);
         tapByElement(imgPersonalInfo);
@@ -446,7 +462,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public Boolean getErrorModalFullname() throws IOException {
+    public Boolean getErrorModalFullname() {
 
         boolean modalError = isElementPresent(modalErrorFullname);
         boolean titleModalError = isElementPresent(titleModalErrorFullname);
@@ -455,13 +471,13 @@ public class VerifyAccountScreen extends ActionBase {
         return (modalError && titleModalError && descModalError && okBtn );
     }
 
-    public VerifyAccountScreen chooseGender() throws IOException {
+    public VerifyAccountScreen chooseGender() {
 
         tapByElement(rbFemalePersonalInfo);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseLocation() throws IOException {
+    public VerifyAccountScreen chooseLocation() {
 
         tapByElement(fieldlocationPersonalInfo);
 
@@ -471,7 +487,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseRandomLocation(String provinsi) throws IOException {
+    public VerifyAccountScreen chooseRandomLocation(String provinsi) {
 
         tapByElement(fieldlocationPersonalInfo);
 
@@ -482,13 +498,13 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickSavePersonalInfo() throws IOException {
+    public VerifyAccountScreen clickSavePersonalInfo() {
 
         tapByElement(saveBtnPersonalInfo);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorFullname() throws IOException {
+    public VerifyAccountScreen getErrorFullname() {
 
         isElementPresent(errorMsgFullname);
         String txtErrorFullname = errorMsgFullname.getText();
@@ -497,7 +513,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorGender() throws IOException {
+    public VerifyAccountScreen getErrorGender() {
 
         isElementPresent(errorMsgGender);
         String txtErrorGender = errorMsgGender.getText();
@@ -506,7 +522,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorLocation() throws IOException {
+    public VerifyAccountScreen getErrorLocation() {
 
         isElementPresent(errorMsgLocation);
         String txtErrorLoc = errorMsgLocation.getText();
@@ -515,20 +531,20 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clikOkOnModalErrorMsg() throws IOException {
+    public VerifyAccountScreen clikOkOnModalErrorMsg() {
 
         tapByElement(okModalErrorFullname);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen skipPersonalInfo() throws IOException {
+    public VerifyAccountScreen skipPersonalInfo() {
 
         tapByElement(skipBtnPersonalInfo);
         return new VerifyAccountScreen(driver);
     }
 
     /***  beauty profile  ***/
-    public VerifyAccountScreen clickSaveBeautyProf() throws IOException {
+    public VerifyAccountScreen clickSaveBeautyProf() {
 
         isElementPresent(contentBeautyProf);
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
@@ -537,7 +553,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickSkipBeautyProfile() throws IOException {
+    public VerifyAccountScreen clickSkipBeautyProfile() {
 
         isElementPresent(contentBeautyProf);
         verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
@@ -547,43 +563,43 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseSkinType() throws IOException {
+    public VerifyAccountScreen chooseSkinType() {
 
         tapByElement(skinTypeNormal);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseSkinTone() throws IOException {
+    public VerifyAccountScreen chooseSkinTone() {
 
         tapByElement(skinToneDark);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseSkinUndertone() throws IOException {
+    public VerifyAccountScreen chooseSkinUndertone() {
 
         tapByElement(skinUnderToneWarm);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseHairType() throws IOException {
+    public VerifyAccountScreen chooseHairType() {
 
         tapByElement(hairTypeCurly);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseColoredHair() throws IOException {
+    public VerifyAccountScreen chooseColoredHair() {
 
         tapByElement(coloredHairNo);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseHijaber() throws IOException {
+    public VerifyAccountScreen chooseHijaber() {
 
         tapByElement(isHijaberNo);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorSkinType() throws IOException {
+    public VerifyAccountScreen getErrorSkinType() {
 
         isElementPresent(errorMsgSkinType);
         String txtErrorSkinType = errorMsgSkinType.getText();
@@ -592,7 +608,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorSkinTone() throws IOException {
+    public VerifyAccountScreen getErrorSkinTone() {
 
         isElementPresent(errorMsgSkinTone);
         String txtErrorSkinTone = errorMsgSkinTone.getText();
@@ -601,7 +617,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorSkinUndertone() throws IOException {
+    public VerifyAccountScreen getErrorSkinUndertone() {
 
         isElementPresent(errorMsgSkinUndertone);
         String txtErrorSkinUndertone = errorMsgSkinUndertone.getText();
@@ -610,7 +626,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorHairType() throws IOException {
+    public VerifyAccountScreen getErrorHairType() {
 
         isElementPresent(errorMsgHairType);
         String txtErrorHairType = errorMsgHairType.getText();
@@ -619,7 +635,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorColoredHair() throws IOException {
+    public VerifyAccountScreen getErrorColoredHair() {
 
         isElementPresent(errorMsgColoredHair);
         String txtErrorColoredHair = errorMsgColoredHair.getText();
@@ -628,7 +644,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorHijaber() throws IOException {
+    public VerifyAccountScreen getErrorHijaber() {
 
         isElementPresent(errorMsgHijaber);
         String txtErrorHijaber = errorMsgHijaber.getText();
@@ -638,7 +654,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  beauty concern  ***/
-    public VerifyAccountScreen clickSaveBeautyCon() throws IOException {
+    public VerifyAccountScreen clickSaveBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
         verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
@@ -647,7 +663,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen clickSkipBeautyCon() throws IOException {
+    public VerifyAccountScreen clickSkipBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
         verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
@@ -656,14 +672,14 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseSkinCon() throws IOException {
+    public VerifyAccountScreen chooseSkinCon() {
 
         isElementPresent(blackOrWhite);
         tapByElement(blackOrWhite);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorSkinCon() throws IOException {
+    public VerifyAccountScreen getErrorSkinCon() {
 
         isElementPresent(errorSkinCon);
         String txtErrorSkinCon = errorSkinCon.getText();
@@ -672,14 +688,14 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseBodyCon() throws IOException {
+    public VerifyAccountScreen chooseBodyCon() {
 
         isElementPresent(looseSkin);
         tapByElement(looseSkin);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorBodyCon() throws IOException {
+    public VerifyAccountScreen getErrorBodyCon() {
 
         isElementPresent(errorBodyCon);
         String txtErrorBodyCon = errorBodyCon.getText();
@@ -688,14 +704,14 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen chooseHairCon() throws IOException {
+    public VerifyAccountScreen chooseHairCon() {
 
         isElementPresent(greyHair);
         tapByElement(greyHair);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen getErrorHairCon() throws IOException {
+    public VerifyAccountScreen getErrorHairCon() {
 
         isElementPresent(errorHairCon);
         String txtErrorHairCon = errorHairCon.getText();
@@ -704,7 +720,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen verifySneakMsg() throws IOException {
+    public VerifyAccountScreen verifySneakMsg() {
 
         isElementPresent(snackbarMsg);
         String sm = snackbarMsg.getText();
@@ -713,7 +729,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  get title screen  ***/
-    public VerifyAccountScreen checkTitleScreenBeautyProfile() throws IOException, InterruptedException {
+    public VerifyAccountScreen checkTitleScreenBeautyProfile() {
 
         //Thread.sleeps(200);
         isElementPresent(titleScreen);
@@ -724,7 +740,7 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen checkTitleScreenBeautyConcern() throws IOException, InterruptedException {
+    public VerifyAccountScreen checkTitleScreenBeautyConcern() {
 
         //Thread.sleep(200);
         isElementPresent(titleScreen);
@@ -736,7 +752,7 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  modal successfully complete profile  ***/
-    public VerifyAccountScreen checkModalSuccessfullyCompleteProfile() throws IOException, InterruptedException {
+    public VerifyAccountScreen checkModalSuccessfullyCompleteProfile() throws InterruptedException {
 
         Thread.sleep(500);
         isElementPresent(imgModalSuccessComplete);
@@ -747,16 +763,38 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /* compare image */
-    public VerifyAccountScreen checkPercentage(String namafile1, String namafile2) throws IOException, InterruptedException {
+    public VerifyAccountScreen checkPercentage(String namafile1, String namafile2) throws InterruptedException {
 
         compareImgIfUploaded(namafile1, namafile2);
         Thread.sleep(300);
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen deleteImageStored(String namafile1, String namafile2) throws IOException {
+    public VerifyAccountScreen deleteImageStored(String namafile1, String namafile2) {
 
         deleteFile(namafile1, namafile2);
         return new VerifyAccountScreen(driver);
     }
+
+    /* switch account */
+    public VerifyAccountScreen tapBtnGetItNow() {
+        tapByElement(btnGetItNow);
+        return new VerifyAccountScreen(driver);
+    }
+    public VerifyAccountScreen tapBtnChangeAccount() {
+        isElementPresent(btnChangeAccount);
+        tapByElement(btnChangeAccount);
+        return new VerifyAccountScreen(driver);
+    }
+    public VerifyAccountScreen confirmChangeAccount() {
+        isElementPresent(modalSwitchAccountTittle);
+        tapByElement(btnOkChangeAccount);
+        return new VerifyAccountScreen(driver);
+    }
+    public VerifyAccountScreen tapBtnNextOnModalVerifySuccess() {
+        isElementPresent(descModalSuccessVerifyPhone);
+        tapByElement(nextButtonModalVerifyPhone);
+        return new VerifyAccountScreen(driver);
+    }
+
 }

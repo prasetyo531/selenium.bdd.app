@@ -67,7 +67,7 @@ public class OtpScreen extends ActionBase{
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[6]")
     public MobileElement box6;
 
-    public OtpScreen(AppiumDriver driver) throws IOException {
+    public OtpScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
@@ -147,7 +147,7 @@ public class OtpScreen extends ActionBase{
     }
 
 
-    public OtpScreen fillByPassOtp() throws IOException {
+    public OtpScreen fillByPassOtp() {
 
         inputValue(box1,"1");
         inputValue(box2,"1");
@@ -195,7 +195,7 @@ public class OtpScreen extends ActionBase{
         return new OtpScreen(driver);
     }
 
-    public OtpScreen clickConfirmOtp() throws IOException {
+    public OtpScreen clickConfirmOtp() {
 
         isElementEnabled(confirmOtpBtn);
         tapByElement(confirmOtpBtn);
