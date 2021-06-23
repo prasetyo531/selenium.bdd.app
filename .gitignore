@@ -8,7 +8,7 @@ output/tc/
 *.iml
 *.properties
 #ignore folder
-target/
+target/test-classes
 test-output/
 src/main/java/utils/AppiumServer.java
 src/main/java/utils/CommonUtils.java
