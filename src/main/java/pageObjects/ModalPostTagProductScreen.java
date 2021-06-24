@@ -50,14 +50,14 @@ public class ModalPostTagProductScreen extends ActionBase {
     public MobileElement iconClose;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public ModalPostTagProductScreen(AppiumDriver driver) throws IOException {
+    public ModalPostTagProductScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public ModalPostTagProductScreen clickViewProductDetailBtn() throws IOException {
+    public ModalPostTagProductScreen clickViewProductDetailBtn() {
 
         isElementPresent(viewProductDetailBtn);
         tapByElement(viewProductDetailBtn);
@@ -101,13 +101,13 @@ public class ModalPostTagProductScreen extends ActionBase {
         return (pt && un && ts && img && e1 && e2 && e4 && e5 && e6 && e7 && e8 && e9);
     }
 
-    public ModalPostTagProductScreen checkElementPresentTaggedProductPost() throws IOException {
+    public ModalPostTagProductScreen checkElementPresentTaggedProductPost() {
 
         isElementPresentTaggedProductPost();
         return new ModalPostTagProductScreen(driver);
     }
 
-    public ModalPostTagProductScreen checkElementPresentTaggedProductReviewPost() throws IOException {
+    public ModalPostTagProductScreen checkElementPresentTaggedProductReviewPost() {
 
         isElementPresentTaggedProductReviewPost();
         return new ModalPostTagProductScreen(driver);

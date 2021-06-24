@@ -43,7 +43,7 @@ public class EditReviewSteps extends DriverFactory {
     }
 
     @When("^User clicks edit review from modal tagged product$")
-    public void user_clicks_edit_review_from_modal_tagged_product() throws Throwable {
+    public void user_clicks_edit_review_from_modal_tagged_product() {
 
         homeScreen.clickFeedMenu();
 

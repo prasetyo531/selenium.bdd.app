@@ -16,7 +16,7 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will direct to beauty profile screen$")
-    public void user_will_direct_to_beauty_profile_screen() {
+    public void user_will_direct_to_beauty_profile_screen() throws Throwable {
 
         verifyAccountScreen.checkTitleScreenBeautyProfile();
         verifyAccountScreen.clickSkipBeautyProfile();
@@ -26,7 +26,7 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will direct to beauty concern screen$")
-    public void user_will_direct_to_beauty_concern_screen() {
+    public void user_will_direct_to_beauty_concern_screen() throws Throwable {
 
         verifyAccountScreen.checkTitleScreenBeautyConcern();
     }

@@ -79,7 +79,7 @@ public class ProductDetailScreen extends ActionBase {
         return (boolElem1);
     }
 
-    public ProductDetailScreen clickAddReviewBtn() throws IOException {
+    public ProductDetailScreen clickAddReviewBtn() {
 
         isElementPresent(imgProduct);
         isElementPresent(addReviewBtn);

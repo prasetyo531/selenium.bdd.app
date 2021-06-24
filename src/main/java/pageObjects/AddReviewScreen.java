@@ -36,14 +36,17 @@ public class AddReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/inputSearch")
     public MobileElement searchBar;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstPopularProduct;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='1']")
     public MobileElement secondPopularProduct;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='2']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='2']")
     public MobileElement thirdPopularProduct;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='3']")
+    public MobileElement fourthPopularProduct;
 
     @AndroidFindBy(id="Navigate up")
     public MobileElement back;
@@ -194,6 +197,13 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(thirdPopularProduct);
         tapByElement(thirdPopularProduct);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen chooseFourthPopularProduct() throws IOException {
+
+        isElementPresent(fourthPopularProduct);
+        tapByElement(fourthPopularProduct);
         return new AddReviewScreen(driver);
     }
 

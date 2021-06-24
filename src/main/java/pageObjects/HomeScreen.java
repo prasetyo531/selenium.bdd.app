@@ -142,6 +142,9 @@ public class HomeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Products\"]")
     public MobileElement productsTab;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent')]")
+    public List<MobileElement> resultProduct;
+
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.fdbr.android.main:id/imagePhoto')]")
     public List<MobileElement> firstResultUsersTab;
 
@@ -429,6 +432,11 @@ public class HomeScreen extends ActionBase {
 
     public HomeScreen clickFirstElementSearch() {
         clickFirstMenus(firstResultUsersTab);
+        return new HomeScreen(driver);
+    }
+
+    public HomeScreen clickRandomElementSearch() {
+        clickRandomMenus(resultProduct);
         return new HomeScreen(driver);
     }
 

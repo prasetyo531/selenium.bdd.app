@@ -9,6 +9,13 @@ import utils.DriverFactory;
 
 public class AddReviewSteps extends DriverFactory {
 
+    @Given("^User search product \"([^\"]*)\" from home$")
+    public void user_search_product_something_from_home(String product) {
+
+        homeScreen.clickSearch();
+        homeScreen.inputSearch(product);
+    }
+
     @Given("^User clicks menu category from homescreen menu$")
     public void user_clicks_menu_category_from_homescreen_menu() throws Throwable {
 
@@ -40,10 +47,16 @@ public class AddReviewSteps extends DriverFactory {
         addReviewScreen.chooseSecondPopularProduct();
     }
 
-    @When("^User clicks any popular product to review$")
-    public void User_clicks_any_popular_product_to_review() throws Throwable {
+    @When("^User clicks third popular product to review$")
+    public void User_clicks_third_popular_product_to_review() throws Throwable {
 
         addReviewScreen.chooseThirdPopularProduct();
+    }
+
+    @When("^User clicks fourth of popular product to review$")
+    public void User_clicks_fourth_of_popular_product_to_review() throws Throwable {
+
+        addReviewScreen.chooseFourthPopularProduct();
     }
 
     @And("^User will clicks one of product on product category screen$")
@@ -53,9 +66,15 @@ public class AddReviewSteps extends DriverFactory {
     }
 
     @When("^User clicks add review button on product detail screen$")
-    public void user_clicks_add_review_button_on_product_detail_screen() throws Throwable {
+    public void user_clicks_add_review_button_on_product_detail_screen() {
 
         productDetailScreen.clickAddReviewBtn();
+    }
+
+    @And("^User select product from search result$")
+    public void user_select_product_from_search_result() {
+
+        homeScreen.clickRandomElementSearch();
     }
 
     /*** add review screen ***/
@@ -107,6 +126,12 @@ public class AddReviewSteps extends DriverFactory {
 
         addReviewScreen.clickSeeMyReview();
         feedScreen.checkIsOnFeedAfterReview();
+    }
+
+    @Then("^User will see congrats screen and direct to review detail$")
+    public void User_will_see_congrats_screen_and_direct_to_review_detail() throws Throwable {
+
+        addReviewScreen.clickSeeMyReview();
     }
 
     @Then("^User will see congrats screen and direct to review detail from product detail$")
@@ -184,6 +209,5 @@ public class AddReviewSteps extends DriverFactory {
 
         productDetailScreen.verifyProductDetail();
     }
-
 
 }

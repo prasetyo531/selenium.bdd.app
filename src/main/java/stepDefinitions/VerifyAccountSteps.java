@@ -348,31 +348,32 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @And("^User tap button get it now modal get point$")
-    public void userTapButtonGetItNowModalGetPoint() throws InterruptedException {
+    public void user_tap_button_get_it_now_modal_get_point() {
         verifyAccountScreen.tapBtnGetItNow();
     }
 
     @When("^User switch account by tap button change$")
-    public void userSwitchAccountByTapButtonChange() throws InterruptedException {
+    public void user_switch_account_by_tap_button_change() {
         verifyAccountScreen.tapBtnChangeAccount();
         verifyAccountScreen.confirmChangeAccount();
     }
 
     @Then("^User logout from FD apps$")
-    public void userLogoutFromFDApps() {
+    public void user_logout_from_fd_apps() {
         loginScreen.validateLoginPageAfterlogout();
     }
 
     @And("^User tap button next on modal verify success$")
-    public void userTapButtonNextOnModalVerifySuccess() throws InterruptedException {
+    public void user_tap_button_next_on_modal_verify_success() {
         verifyAccountScreen.tapBtnNextOnModalVerifySuccess();
         homeScreen.acceptAlertPermission();
     }
 
     @When("^User change phone \"([^\"]*)\" before switch account$")
-    public void userChangePhoneBeforeSwitchAccount(String newphone) throws Throwable {
-        verifyAccountScreen.tapToChangePhone(newphone);
+    public void user_change_phone_something_before_switch_account(String newphonum) {
+        verifyAccountScreen.tapToChangePhone(newphonum);
         verifyAccountScreen.tapBtnChangeAccount();
         verifyAccountScreen.confirmChangeAccount();
     }
+
 }
