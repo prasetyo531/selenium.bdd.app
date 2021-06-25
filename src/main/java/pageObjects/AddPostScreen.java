@@ -55,13 +55,13 @@ public class AddPostScreen extends ActionBase {
     public MobileElement firstTaggedProd;
 
     /* common element */
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='0']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstIndexProduct;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='1']")
     public MobileElement secondIndexProduct;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='2']")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='2']")
     public MobileElement threeIndexProduct;
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
@@ -197,7 +197,7 @@ public class AddPostScreen extends ActionBase {
 
     public AddPostScreen chooseFirstPopularProduct() throws IOException {
 
-        tapByElement(firstIndexProduct);
+        tapByElement(secondIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }

@@ -12,7 +12,7 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then User will be directed to homescreeen app
 
-  @RPA-148 @AddReview @Production @testABC
+  @RPA-148 @AddReview @Production @OkrDone
   Scenario Outline: Add Review from profile tab Review
     Given User open profile then see add review button on review tab
     When User clicks fifth of popular product to review
@@ -25,7 +25,7 @@ Feature: User Add Review
     Then User will see congrats screen and direct to review detail
 
     Examples:
-      | source            |
+      | source           |
       | addreviewprofile |
 
   @FDBRMA-23 @AddReview @Production @OkrDone
@@ -88,7 +88,7 @@ Feature: User Add Review
       | source            |
       | addreviewfreetext |
 
-  @FDBRMA-367 @AddReview @Production @testABCD
+  @FDBRMA-367 @AddReview @Production @OkrDone
   Scenario Outline: Add Review by Search Product
     Given User clicks add review from homescreen menu
     When User search "<product>" and select product from popular product to review

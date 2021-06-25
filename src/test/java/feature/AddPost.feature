@@ -66,7 +66,7 @@ Feature: User Add Post
       |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-58 #FDBRMA-59 FDBRMA-220
-  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @testdata
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @OkrDone
   Scenario Outline: Add post with tag product - Review product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
