@@ -100,7 +100,7 @@ public class LoginScreen extends ActionBase {
 
     // ** hardcode
     public LoginScreen inputHardcodeAuth() {
-        inputValue(usernameEmailField, "bdduser01");
+        inputValue(usernameEmailField, "bddreviewprofile01");
         return new LoginScreen(driver);
     }
 

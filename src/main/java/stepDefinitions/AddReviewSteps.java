@@ -9,11 +9,13 @@ import utils.DriverFactory;
 
 public class AddReviewSteps extends DriverFactory {
 
-    @Given("^User search product \"([^\"]*)\" from home$")
-    public void user_search_product_something_from_home(String product) {
+    @Given("^User open profile then see add review button on review tab$")
+    public void user_open_profile_then_see_add_review_button_on_review_tab() {
 
-        homeScreen.clickSearch();
-        homeScreen.inputSearch(product);
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickReviewsTab();
+        profileScreen.isButtonAddPostReviewAppear();
+        profileScreen.clickButtonAddPostReviewAppear();
     }
 
     @Given("^User clicks menu category from homescreen menu$")
@@ -33,6 +35,13 @@ public class AddReviewSteps extends DriverFactory {
     public void user_clicks_add_review_from_homescreen_menu() throws Throwable {
 
         homeScreen.clickAddReviewHomeMenu();
+    }
+
+    @When("^User search \"([^\"]*)\" and select product from popular product to review$")
+    public void user_search_something_and_select_product_from_popular_product_to_review(String product) {
+
+        addReviewScreen.inputKeywordSearch(product);
+        addReviewScreen.chooseFirstPopularProduct();
     }
 
     @When("^User clicks one of popular product to review$")
@@ -59,6 +68,12 @@ public class AddReviewSteps extends DriverFactory {
         addReviewScreen.chooseFourthPopularProduct();
     }
 
+    @When("^User clicks fifth of popular product to review$")
+    public void User_clicks_fifth_of_popular_product_to_review() throws Throwable {
+
+        addReviewScreen.chooseFifthPopularProduct();
+    }
+
     @And("^User will clicks one of product on product category screen$")
     public void user_will_clicks_one_of_product_on_product_category_screen() throws Throwable {
 
@@ -69,12 +84,6 @@ public class AddReviewSteps extends DriverFactory {
     public void user_clicks_add_review_button_on_product_detail_screen() {
 
         productDetailScreen.clickAddReviewBtn();
-    }
-
-    @And("^User select product from search result$")
-    public void user_select_product_from_search_result() {
-
-        homeScreen.clickRandomElementSearch();
     }
 
     /*** add review screen ***/
@@ -98,9 +107,9 @@ public class AddReviewSteps extends DriverFactory {
     }
 
     @And("^User choose new purchase point product \"([^\"]*)\"$")
-    public void user_choose_new_purchase_point_product_something(String source) throws Throwable {
+    public void user_choose_new_purchase_point_product_something(String sourceproduct) throws Throwable {
 
-        addReviewScreen.inputNoneAbove(source);
+        addReviewScreen.inputNoneAbove(sourceproduct);
     }
 
     @And("^User choose would recommend this product$")

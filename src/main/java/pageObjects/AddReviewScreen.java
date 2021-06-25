@@ -48,6 +48,9 @@ public class AddReviewScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='3']")
     public MobileElement fourthPopularProduct;
 
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='4']")
+    public MobileElement fifthPopularProduct;
+
     @AndroidFindBy(id="Navigate up")
     public MobileElement back;
 
@@ -179,7 +182,13 @@ public class AddReviewScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public AddReviewScreen chooseFirstPopularProduct() throws IOException {
+    public AddReviewScreen inputKeywordSearch(String product) {
+        WaitUntilElementIsVisible(searchBar);
+        inputValue(searchBar, product);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen chooseFirstPopularProduct() {
 
         isElementPresent(firstPopularProduct);
         tapByElement(firstPopularProduct);
@@ -204,6 +213,13 @@ public class AddReviewScreen extends ActionBase {
 
         isElementPresent(fourthPopularProduct);
         tapByElement(fourthPopularProduct);
+        return new AddReviewScreen(driver);
+    }
+
+    public AddReviewScreen chooseFifthPopularProduct() throws IOException {
+
+        isElementPresent(fifthPopularProduct);
+        tapByElement(fifthPopularProduct);
         return new AddReviewScreen(driver);
     }
 

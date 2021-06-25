@@ -33,6 +33,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonFollow")
     public MobileElement btnFollow;
 
+    @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
+    public MobileElement btnAddPostReviewProfile;
+
     /* review or post list */
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
     public List<MobileElement> listProductReviewsProfile;
@@ -340,6 +343,7 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickPostsTab() {
+        WaitUntilElementIsVisible(postsTab);
         tapByElement(postsTab);
         return new ProfileScreen(driver);
     }
@@ -836,6 +840,17 @@ public class ProfileScreen extends ActionBase{
         String getValue = btnFollow.getText();
         org.testng.Assert.assertEquals(getValue, "Following");
         System.out.println(getValue);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen isButtonAddPostReviewAppear() {
+        WaitUntilElementIsVisible(btnAddPostReviewProfile);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickButtonAddPostReviewAppear() {
+        WaitUntilElementIsVisible(btnAddPostReviewProfile);
+        tapByElement(btnAddPostReviewProfile);
         return new ProfileScreen(driver);
     }
 }

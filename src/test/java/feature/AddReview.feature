@@ -12,6 +12,22 @@ Feature: User Add Review
     And User clicks login button on login screen
     Then User will be directed to homescreeen app
 
+  @RPA-148 @AddReview @Production @testABC
+  Scenario Outline: Add Review from profile tab Review
+    Given User open profile then see add review button on review tab
+    When User clicks fifth of popular product to review
+    Then User choose overall rating
+    And User choose usage periode product
+    And User choose new purchase point product "<source>"
+    And User choose would recommend this product
+    And User fill in add review box that should contain than 200 char
+    And User clicks submit review button
+    Then User will see congrats screen and direct to review detail
+
+    Examples:
+      | source            |
+      | addreviewprofile |
+
   @FDBRMA-23 @AddReview @Production @OkrDone
   Scenario: Add Review by select Category
     Given User clicks menu category from homescreen menu
@@ -72,18 +88,17 @@ Feature: User Add Review
       | source            |
       | addreviewfreetext |
 
-  @FDBRMA-367 @AddReview @Production @OkrDone
+  @FDBRMA-367 @AddReview @Production @testABCD
   Scenario Outline: Add Review by Search Product
-    Given User search product "<product>" from home
-    And User select product from search result
-    When User clicks add review button on product detail screen
+    Given User clicks add review from homescreen menu
+    When User search "<product>" and select product from popular product to review
     Then User choose overall rating
     And User choose usage periode product
-    And User choose new purchase point product "<source>"
+    And User choose new purchase point product "<product>"
     And User choose would recommend this product
     And User fill in add review box that should contain than 200 char
     And User clicks submit review button
-    Then User will see congrats screen and direct to review detail
+    Then User will see congrats screen and direct to review detail from feed
 
     Examples:
       | product   |
