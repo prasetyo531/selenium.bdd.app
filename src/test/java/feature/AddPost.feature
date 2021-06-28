@@ -4,9 +4,28 @@ Feature: User Add Post
   I should able to fill all option of add post process
   If user cancel post, user will direct to current menu
 
+  @RPA-149 @AddReview @Production @OkrDone @testABCDE
+  Scenario Outline: Add Post from profile tab Post
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will be directed to homescreeen app
+    When User clicks add post from tab post profile
+    And User take picture to add post
+    Then User enters caption of post
+    And User clicks submit post and choose yes to skip tagging product
+    Then User will see new post and button to add post dissapear
+
+    Examples:
+      |         email    |        password       |
+      |	      bddpostprofile01	 |        test123        |
+
   #FDBRMA-54
-  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Add post image only camera - Add post with tag product
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @OkrDone
+  Scenario Outline: Add Post image only camera - Add post with tag product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -21,12 +40,12 @@ Feature: User Add Post
     Then User will direct to product list screen to tag product
 
     Examples:
-      |         email            |        password       |
-      |	      bddtestaddpost01	 |        test123        |
+      |         email    |        password       |
+      |	      vnsphl	 |        dora12345        |
 
   #FDBRMA-55
-  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Add post image from gallery - Add post without tag product
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @OkrDone
+  Scenario Outline: Add Post image from gallery - Add post without tag product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -42,11 +61,11 @@ Feature: User Add Post
 
     Examples:
       |         email            |        password       |
-      |	      bddtestaddpost01	 |        test123        |
+      |	      	vnsphl |        dora12345        |
 
   #FDBRMA-57 #FDBRMA-65 #FDBRMA-317
-  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Add post cancel tag post and cancel post
+  @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @OkrDone
+  Scenario Outline: Add Post cancel tag post and cancel post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -67,7 +86,7 @@ Feature: User Add Post
 
   #FDBRMA-58 #FDBRMA-59 FDBRMA-220
   @Android @AddPost @Smoke @RealAccount @RealDevices @IntegrationTest @OkrDone
-  Scenario Outline: Add post with tag product - Review product
+  Scenario Outline: Add Post with tag product - Review product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -88,8 +107,8 @@ Feature: User Add Post
       |	      bddtestaddpost01	 |        test123        |
 
   #FDBRMA-56 #FDBRMA-60
-  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Add post - Tag reviewed product by search product
+  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest @OkrDone
+  Scenario Outline: Add Post - Tag reviewed product by search product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -110,8 +129,8 @@ Feature: User Add Post
       |	      bddtestaddpost01	 |	      test123      |       nature republic          |
 
   #FDBRMA-61  #FDBRMA-63
-  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest
-  Scenario Outline: Add post with multiple tag product - review each tagged product
+  @Android @AddPost @Staging @RealAccount @RealDevices @IntegrationTest @OkrDone
+  Scenario Outline: Add Post with multiple tag product - review each tagged product
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login

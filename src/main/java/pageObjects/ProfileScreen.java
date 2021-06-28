@@ -36,6 +36,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
     public MobileElement btnAddPostReviewProfile;
 
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android:id/buttonAction')]")
+    public List<MobileElement> buttonAddPostReviewProfile;
+
     /* review or post list */
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
     public List<MobileElement> listProductReviewsProfile;
@@ -851,6 +854,17 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen clickButtonAddPostReviewAppear() {
         WaitUntilElementIsVisible(btnAddPostReviewProfile);
         tapByElement(btnAddPostReviewProfile);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen isButtonAddPostReviewDissappear() {
+        WaitUntilElementIsVisible(firstPostProfile);
+        Boolean fol = buttonAddPostReviewProfile.isEmpty();
+        System.out.println(fol);
+        //it depends screen size
+        if(fol==false){
+            org.testng.Assert.fail("follow btn still appear");
+        }
         return new ProfileScreen(driver);
     }
 }

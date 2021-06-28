@@ -71,7 +71,7 @@ public class AddPostScreen extends ActionBase {
     public MobileElement submitBtn;
 
     /* first img in gallery */
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.google.android.documentsui:id/icon_thumb') and @index='0']")
     public MobileElement firstIndexImg;
 
     @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
@@ -89,20 +89,21 @@ public class AddPostScreen extends ActionBase {
 
 
     // This is a constructor, as every page need a base driver to find android elements
-    public AddPostScreen(AppiumDriver driver) throws IOException {
+    public AddPostScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public AddPostScreen clickPhotoBtn() throws IOException {
+    public AddPostScreen clickPhotoBtn() {
 
+        WaitUntilElementIsVisible(captureBtn);
         tapByElement(captureBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickGalleryBtn() throws IOException {
+    public AddPostScreen clickGalleryBtn() {
 
         tapByElement(galleryBtn);
         isElementPresent(firstIndexImg);
@@ -113,26 +114,26 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickDone() throws IOException {
+    public AddPostScreen clickDone() {
 
         tapByElement(doneBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen isCameraScreen() throws IOException {
+    public AddPostScreen isCameraScreen() {
 
         WaitUntilElementIsVisible(captureBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen capturePhoto() throws IOException {
+    public AddPostScreen capturePhoto() {
 
         clickPhotoBtn();
         clickDone();
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen selectPhotoFromGallery() throws IOException {
+    public AddPostScreen selectPhotoFromGallery() {
 
         clickGalleryBtn();
         clickDone();
@@ -140,34 +141,34 @@ public class AddPostScreen extends ActionBase {
     }
 
     //insert caption
-    public AddPostScreen fillCaption() throws IOException {
+    public AddPostScreen fillCaption() {
 
         tapByElement(inputCaptionField);
         inputValue(inputCaptionField, "caption test");
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen fillCustomCaption(String caption) throws IOException {
+    public AddPostScreen fillCustomCaption(String caption) {
 
         tapByElement(inputCaptionField);
         inputValue(inputCaptionField, caption);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen fillCaptionWithHashtag(String hashtag) throws IOException {
+    public AddPostScreen fillCaptionWithHashtag(String hashtag) {
 
         tapByElement(inputCaptionField);
         inputValue(inputCaptionField, "caption test with hashtag"+" "+hashtag);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickSubmitPost() throws IOException {
+    public AddPostScreen clickSubmitPost() {
 
         tapByElement(submitPostBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen submitPostNoTag() throws IOException {
+    public AddPostScreen submitPostNoTag() {
 
         clickSubmitPost();
         //command skip taging
@@ -175,55 +176,56 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen submitPostTag() throws IOException {
+    public AddPostScreen submitPostTag() {
 
         clickSubmitPost();
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickTagProduct() throws IOException {
+    public AddPostScreen clickTagProduct() {
 
         isElementPresent(addProdPost);
         tapByElement(addProdPost);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen waitProductList() throws IOException {
+    public AddPostScreen waitProductList() {
 
         isElementPresent(searchField);
         isElementPresent(firstIndexProduct);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen chooseFirstPopularProduct() throws IOException {
+    public AddPostScreen chooseFirstPopularProduct() {
 
         tapByElement(secondIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen chooseTwoPopularProduct() throws IOException {
+    public AddPostScreen chooseTwoPopularProduct() {
 
         tapByElement(firstIndexProduct);
+        WaitUntilElementIsVisible(secondIndexProduct);
         tapByElement(secondIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickReviewTaggedProduct() throws IOException {
+    public AddPostScreen clickReviewTaggedProduct() {
 
         tapByElement(addReviewPost);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen inputKeywordToSearch(String keyword) throws IOException {
+    public AddPostScreen inputKeywordToSearch(String keyword) {
 
         tapByElement(searchField);
         inputValue(searchField, keyword);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen selectFirstResult() throws IOException {
+    public AddPostScreen selectFirstResult() {
 
         WaitUntilElementIsVisible(firstIndexProduct);
         tapByElement(firstIndexProduct);
@@ -231,61 +233,61 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen cancelTag() throws IOException {
+    public AddPostScreen cancelTag() {
 
         tapByElement(backBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen removeTaggedProduct() throws IOException {
+    public AddPostScreen removeTaggedProduct() {
 
         tapByElement(firstTaggedProd);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen cancelPost() throws IOException {
+    public AddPostScreen cancelPost() {
 
         tapByElement(backBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen getTextModalAddPost() throws IOException {
+    public AddPostScreen getTextModalAddPost() {
 
         String txt = descText.getText();
         Assert.assertTrue(txt.equals("Are you sure want to stop adding new post?"));
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen getTextModalEditPost() throws IOException {
+    public AddPostScreen getTextModalEditPost() {
 
         String txt = descText.getText();
         Assert.assertTrue(txt.equals("Are you sure want to stop Editing post?"));
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen yesCancelPost() throws IOException {
+    public AddPostScreen yesCancelPost() {
 
         tapByElement(yesBtn);
 
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen chooseFirstTaggedProduct() throws IOException {
+    public AddPostScreen chooseFirstTaggedProduct() {
 
         tapByElement(firstIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen chooseSecondTaggedProduct() throws IOException {
+    public AddPostScreen chooseSecondTaggedProduct() {
 
         tapByElement(secondIndexProduct);
         tapByElement(submitBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen backToAddPostScreen() throws IOException {
+    public AddPostScreen backToAddPostScreen() {
 
         WaitUntilElementIsVisible(labelReviewed);
         String label = labelReviewed.getText();
@@ -296,7 +298,7 @@ public class AddPostScreen extends ActionBase {
     }
 
     /* check label after tag product */
-    public AddPostScreen checkNumProd() throws IOException {
+    public AddPostScreen checkNumProd() {
 
         WaitUntilElementIsVisible(labelNumberProducts);
         String numProdLabel = labelNumberProducts.getText();
@@ -305,7 +307,7 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen checkNumRev() throws IOException {
+    public AddPostScreen checkNumRev() {
 
         WaitUntilElementIsVisible(labelNumberReviewed);
         String numReviewedLabel = labelNumberReviewed.getText();
@@ -314,7 +316,7 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen checkLabelMultipleTag() throws IOException {
+    public AddPostScreen checkLabelMultipleTag() {
 
         WaitUntilElementIsVisible(labelNumberProducts);
         String numProdLabel = labelNumberProducts.getText();
@@ -323,7 +325,7 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen checkLabelMultipleReview() throws IOException {
+    public AddPostScreen checkLabelMultipleReview() {
 
         WaitUntilElementIsVisible(labelNumberReviewed);
         String numReviewedLabel = labelNumberReviewed.getText();
@@ -332,7 +334,7 @@ public class AddPostScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen checkNumRevShouldNull() throws IOException {
+    public AddPostScreen checkNumRevShouldNull() {
 
         //https://sqa.stackexchange.com/questions/14190/how-to-continue-script-when-element-is-not-found-in-selenium
         Boolean numreview = driver.findElements(numrev).size() > 0;
@@ -343,21 +345,21 @@ public class AddPostScreen extends ActionBase {
     }
 
     /* modal warning info */
-    public AddPostScreen clickNoSkipTag() throws IOException {
+    public AddPostScreen clickNoSkipTag() {
 
         WaitUntilElementIsVisible(yesBtn);
         tapByElement(yesBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen clickSkipTag() throws IOException {
+    public AddPostScreen clickSkipTag() {
 
         WaitUntilElementIsVisible(noBtn);
         tapByElement(noBtn);
         return new AddPostScreen(driver);
     }
 
-    public AddPostScreen checkOnPostScreen () throws IOException {
+    public AddPostScreen checkOnPostScreen () {
 
         WaitUntilElementIsVisible(inputCaptionField);
         return new AddPostScreen(driver);
