@@ -148,7 +148,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipPersonalInfo")
     public MobileElement skipBtnPersonalInfo;
 
-    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     public MobileElement searchLocationPersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
@@ -252,6 +252,12 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement titleScreen;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Beauty Profile']")
+    public MobileElement titleBeautyProfileScreen;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Beauty Concern']")
+    public MobileElement titleBeautyConcernScreen;
+
     //take picture
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement capturePhoto;
@@ -269,10 +275,10 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/imageCompleteProfile")
     public MobileElement imgModalSuccessComplete;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/tvSubtitle")
+    @AndroidFindBy(xpath="com.fdbr.android.main:id/tvSubtitle")
     public MobileElement descModalSuccessComplete;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/btnClose")
+    @AndroidFindBy(xpath="xpath=\"//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
     public MobileElement closeModalSuccessComplete;
 
     /* first img in gallery */
@@ -546,18 +552,16 @@ public class VerifyAccountScreen extends ActionBase {
     /***  beauty profile  ***/
     public VerifyAccountScreen clickSaveBeautyProf() {
 
-        isElementPresent(contentBeautyProf);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        WaitUntilElementIsVisible(contentBeautyProf);
+        verticalSwipe(contentBeautyProf, 900);
         tapByElement(buttonSaveBeautyProfile);
         return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen clickSkipBeautyProfile() {
 
-        isElementPresent(contentBeautyProf);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentBeautyProf, 0.4,0.01,0.5,500);
+        WaitUntilElementIsVisible(contentBeautyProf);
+        verticalSwipe(contentBeautyProf, 900);
         tapByElement(skipBeautyProfile);
 
         return new VerifyAccountScreen(driver);
@@ -657,8 +661,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSaveBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
-        verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
+        verticalSwipe(contentScreenBodyCon, 900);
         tapByElement(btnSaveBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
@@ -666,8 +669,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSkipBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
-        verticalSwipeByPercentages(contentScreenBodyCon,0.4,0.01,0.5,500);
-        verticalSwipeByPercentages(contentScreenBodyCon, 0.4,0.01,0.5,500);
+        verticalSwipe(contentScreenBodyCon, 900);
         tapByElement(btnSkipBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
@@ -732,6 +734,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen checkTitleScreenBeautyProfile() {
 
         //Thread.sleeps(200);
+        WaitUntilElementIsVisible(titleBeautyProfileScreen);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);
@@ -743,6 +746,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen checkTitleScreenBeautyConcern() {
 
         //Thread.sleep(200);
+        WaitUntilElementIsVisible(titleBeautyConcernScreen);
         isElementPresent(titleScreen);
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);

@@ -12,6 +12,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -237,6 +238,23 @@ public class ActionBase extends DriverFactory {
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(endPoint, anchor))
                 .release().perform();
+    }
+
+    //Vertical Swipe by percentages
+    public void verticalSwipe(MobileElement mobileElement,int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int startX = size.width / 2;
+        int endX = startX;
+        int startY = (int) (size.height * 0.8);
+        int endY = (int) (size.height * 0.2);
+
+        for(int i=0;i<4;i++){
+            new TouchAction(driver)
+                    .press(PointOption.point(startX, startY))
+                    .waitAction(WaitOptions.waitOptions(ofMillis(duration)))
+                    .moveTo(point(endX, endY))
+                    .release().perform();
+        }
     }
 
     //Vertical Swipe by percentages

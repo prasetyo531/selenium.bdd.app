@@ -6,15 +6,15 @@ Feature: Verify account
   User should fill personal info, beauty profile and concern
 
   #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @Android @staging @Smoke @bypassotp @IntegrationTest
-  Scenario Outline: Verify Registered Email - Registered Phone
+  @Android @staging @Smoke @bypassotp @IntegrationTest @FDBRMA-221
+  Scenario Outline: Verify Registered Phone - Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" username on login screen
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
-    When User click complete verify button on modal
-    Then User will see verify process
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
     When User clicks verify now button on verify phone screen bypass otp
     Then User will see success msg verified by phone contains "<phone>"
     When User clicks verify now button on verify email screen bypass otp
@@ -25,8 +25,8 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |             email             |   password    |       phone           |     fullname    |
-      |	  webverify@mailinator.com	  |   test123     |     6287876600001     |     bddandroverify   |
+      |     email             |   password    |       phone           |     fullname    |
+      |	  verifyempty01	  |   test123     |     6287876600002     |     bddandroverify   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
@@ -122,10 +122,9 @@ Feature: Verify account
   ### UI VALIDATION ###
 
   #FDBRMA-19
-  @FDBRMA-19
+  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone @FDBRMA-19
   Scenario Outline: Verify Input With Invalid Format Email
     Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
     And User clicks next button on login screen
@@ -137,29 +136,29 @@ Feature: Verify account
 
     Examples:
       |   username    |   password      |                 email                 |
-      |	  vnsphl	  |   dora12345     |             wrongformatemail          |
-      |	  vnsphl	  |   dora12345     |         wrongformatemail@gmail        |
-      |	  vnsphl	  |   dora12345     |   wrongformatemail@gmail@gmail.com    |
+      |	  mixrevamp01	  |   test123     |             wrongformatemail          |
+      |	  mixrevamp01	  |   test123     |         wrongformatemail@gmail        |
+      |	  mixrevamp01	  |   test123     |   wrongformatemail@gmail@gmail.com    |
 
   #FDBRMA-20
-  @FDBRMA-20
+  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone @FDBRMA-20
   Scenario Outline: Verify Input With Invalid Format Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
+    Then User enters the "<username>" email to login
     And User clicks next button on login screen
     And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    When User click complete verify button on modal
-    And User skip verify email
+    When User clicks login button on login screen
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
     And User input "<phone>" and click verify on verify phone screen
     Then display msg "Please enter your correct phone number" is displayed under verify phone field
 
     Examples:
-      |   username    |   password      |     phone      |
-      |	  vnsphl	  |   dora12345     |      0         |
-      |	  vnsphl	  |   dora12345     |    081702      |
-      |	  vnsphl	  |   dora12345     |  081702081702081702081702 |
+      |   username    |   password    |     phone      |
+      |	  datatnr03	  |   test123     |      0         |
+      |	  datatnr03	  |   test123     |    081702      |
+      |	  datatnr03	  |   test123     |  081702081702081702081702 |
 
 
   ### PERSONAL INFO SCREEN ###
