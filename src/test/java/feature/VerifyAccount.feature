@@ -6,7 +6,7 @@ Feature: Verify account
   User should fill personal info, beauty profile and concern
 
   #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @Android @staging @Smoke @bypassotp @IntegrationTest @FDBRMA-221
+  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-221
   Scenario Outline: Verify Registered Phone - Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -25,19 +25,20 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |     email             |   password    |       phone           |     fullname    |
-      |	  verifyempty01	  |   test123     |     6287876600002     |     bddandroverify   |
+      |     email         |   password    |       phone       |     fullname    |
+      |	  verifyempty08	  |   test123     |     6287876600002     |     verifyempty   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
-  @Android @staging @Smoke @bypassotp @IntegrationTest
-  Scenario Outline: Verify Changed Email - Changed Phone
+  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-223
+  Scenario Outline: Verify Changed Phone - Changed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" username on login screen
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
-    When User click complete verify button on modal
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
     Then User will see verify process
     When User change phone "<newphone>" to verify phone bypass otp
     Then User will see success msg verified by phone contains "<newphone>"
@@ -49,12 +50,11 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |             email                 |   password    |          newemail                  |      newphone     |     fullname    |
-      |	  welcomeemail01@mailinator.com	  |   test123     |     welcomeemail@mailinator.com    |     628129000229   |   changedemailphone   |
-
-  #FDBRMA-224 #FDBRMA-230
-  @Android @Smoke @bypassotp @IntegrationTest
-  Scenario Outline: Verify Registered Email - Registered Phone on Profile
+      |             email                 |   password    |          newemail                          |      newphone     |     fullname    |
+      |	  verifynotempty01@mailinator.com	  |   test123     |     verifynotempty10@mailinator.com    |     6281290009009  |   verifynotempty   |
+   #FDBRMA-230
+  @Android @Smoke @bypassotp @IntegrationTest @FDBRMA-224 @wip
+  Scenario Outline: Verify Registered Email on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -64,15 +64,15 @@ Feature: Verify account
     Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu and edit profile
     When User clicks label to verify your email
-    And User input bypass otp code then confirm
-    Then User will see success msg verified by email contains "<email>" and label Verified will appear
-    When User clicks label to verify your phone
-    And User input bypass otp code then confirm
-    Then User will see success msg verified by phone contains "<phone>" and label Verified will appear
+#    And User input bypass otp code then confirm
+#    Then User will see success msg verified by email contains "<email>" and label Verified will appear
+#    When User clicks label to verify your phone
+#    And User input bypass otp code then confirm
+#    Then User will see success msg verified by phone contains "<phone>" and label Verified will appear
 
     Examples:
-      |                    email                     |        password       |      phone         |
-      |	      bddverifyprofile01@mailinator.com	     |        test123        |    6287876600224   |
+      |                    email                 |        password       |      phone         |
+      |	      registeredemailprofile@mailinator.com	     |        test123        |    628129000226   |
 
   #FDBRMA-226 #FDBRMA-232 #FDBRMA-245 #FDBRMA-237
   #check email and should use new phone
@@ -94,8 +94,8 @@ Feature: Verify account
     Then User will see success msg verified by phone contains "<newphone>" and label Verified will appear
 
     Examples:
-      |             email             |   password    |          newemail                |      newphone      |         fullname      |
-      |	  verifyprofile01@gmail.com	  |   test123     |     verifyprofile02@gmail.com    |     628129000232   |   changedemailphone   |
+      |             email                 |   password    |                newemail                |      newphone      |         fullname      |
+      |	  verifyprofile@mailinator.com	  |   test123     |     verifyprofilenew@mailinator.com    |     628129000232   |   changedemailphone   |
 
   #FDBRMA-240 #FDBRMA-248
   #check email and phone using suspend data

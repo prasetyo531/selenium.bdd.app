@@ -18,9 +18,6 @@ public class VerifyAccountSteps extends DriverFactory {
 
     @Then("^User will see modal account status on homescreen$")
     public void User_will_see_modal_account_status_on_homescreen() {
-        homeScreen.acceptAlertPermission();
-        homeScreen.acceptAlertPermission();
-
         homeScreen.verifyAccountStatusModal();
     }
 
@@ -252,7 +249,9 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @Then("^User will see congratulation modal$")
-    public void user_will_see_congratulation_modal() throws Throwable {
+    public void user_will_see_congratulation_modal() {
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
         verifyAccountScreen.checkModalSuccessfullyCompleteProfile();
     }
 
@@ -286,6 +285,7 @@ public class VerifyAccountSteps extends DriverFactory {
     public void user_clicks_profile_from_homescreen_menu_and_edit_profile() throws Throwable {
         homeScreen.clickProfileHomeMenu();
         profileScreen.clickSettingProfile();
+        profileScreen.clickDrawerSetting();
         profileScreen.clickEditProfile();
     }
 

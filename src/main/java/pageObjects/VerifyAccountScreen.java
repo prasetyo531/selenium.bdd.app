@@ -170,13 +170,13 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyProfile")
     public MobileElement contentBeautyProf;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
     public MobileElement skinTypeNormal;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinType")
     public MobileElement errorMsgSkinType;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[5]/android.widget.RadioButton")
     public MobileElement skinToneDark;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinTone")
@@ -188,7 +188,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinUnderTone")
     public MobileElement errorMsgSkinUndertone;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.RadioButton")
     public MobileElement hairTypeCurly;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
@@ -200,7 +200,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorColoredHair")
     public MobileElement errorMsgColoredHair;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.RadioButton")
     public MobileElement isHijaberNo;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHijab")
@@ -275,10 +275,10 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.main:id/imageCompleteProfile")
     public MobileElement imgModalSuccessComplete;
 
-    @AndroidFindBy(xpath="com.fdbr.android.main:id/tvSubtitle")
+    @AndroidFindBy(id="com.fdbr.android.main:id/tvSubtitle")
     public MobileElement descModalSuccessComplete;
 
-    @AndroidFindBy(xpath="xpath=\"//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    @AndroidFindBy(id="com.fdbr.android.main:id/btnClose")
     public MobileElement closeModalSuccessComplete;
 
     /* first img in gallery */
@@ -553,7 +553,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSaveBeautyProf() {
 
         WaitUntilElementIsVisible(contentBeautyProf);
-        verticalSwipe(contentBeautyProf, 900);
+        verticalSwipe(contentBeautyProf, 3, 900);
         tapByElement(buttonSaveBeautyProfile);
         return new VerifyAccountScreen(driver);
     }
@@ -561,7 +561,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSkipBeautyProfile() {
 
         WaitUntilElementIsVisible(contentBeautyProf);
-        verticalSwipe(contentBeautyProf, 900);
+        verticalSwipe(contentBeautyProf, 3, 900);
         tapByElement(skipBeautyProfile);
 
         return new VerifyAccountScreen(driver);
@@ -661,7 +661,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSaveBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
-        verticalSwipe(contentScreenBodyCon, 900);
+        verticalSwipe(contentScreenBodyCon, 3, 900);
         tapByElement(btnSaveBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
@@ -669,7 +669,7 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen clickSkipBeautyCon() {
 
         isElementPresent(contentScreenBodyCon);
-        verticalSwipe(contentScreenBodyCon, 900);
+        verticalSwipe(contentScreenBodyCon, 3, 900);
         tapByElement(btnSkipBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
@@ -756,11 +756,10 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  modal successfully complete profile  ***/
-    public VerifyAccountScreen checkModalSuccessfullyCompleteProfile() throws InterruptedException {
+    public VerifyAccountScreen checkModalSuccessfullyCompleteProfile() {
 
-        Thread.sleep(500);
-        isElementPresent(imgModalSuccessComplete);
-        isElementPresent(descModalSuccessComplete);
+        WaitUntilElementIsVisible(imgModalSuccessComplete);
+        WaitUntilElementIsVisible(descModalSuccessComplete);
         tapByElement(closeModalSuccessComplete);
 
         return new VerifyAccountScreen(driver);

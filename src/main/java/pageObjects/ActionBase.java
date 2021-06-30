@@ -226,6 +226,22 @@ public class ActionBase extends DriverFactory {
     }
 
     //Horizontal Swipe by percentages
+    public void verticalSwipe(MobileElement mobileElement,int swipe, int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int startX = size.width / 2;
+        int endX = startX;
+        int startY = (int) (size.height * 0.8);
+        int endY = (int) (size.height * 0.2);
+
+        for(int i=0;i<swipe;i++){
+            new TouchAction(driver)
+                    .press(PointOption.point(startX, startY))
+                    .waitAction(WaitOptions.waitOptions(ofMillis(duration)))
+                    .moveTo(point(endX, endY))
+                    .release().perform();
+        }
+    }
+
     public void horizontalSwipeByPercentage (MobileElement mobileElement, double startPercentage, double endPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.height * anchorPercentage);
@@ -238,23 +254,6 @@ public class ActionBase extends DriverFactory {
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(endPoint, anchor))
                 .release().perform();
-    }
-
-    //Vertical Swipe by percentages
-    public void verticalSwipe(MobileElement mobileElement,int duration) {
-        Dimension size = driver.manage().window().getSize();
-        int startX = size.width / 2;
-        int endX = startX;
-        int startY = (int) (size.height * 0.8);
-        int endY = (int) (size.height * 0.2);
-
-        for(int i=0;i<4;i++){
-            new TouchAction(driver)
-                    .press(PointOption.point(startX, startY))
-                    .waitAction(WaitOptions.waitOptions(ofMillis(duration)))
-                    .moveTo(point(endX, endY))
-                    .release().perform();
-        }
     }
 
     //Vertical Swipe by percentages
