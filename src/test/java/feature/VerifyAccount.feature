@@ -26,7 +26,7 @@ Feature: Verify account
 
     Examples:
       |     email         |   password    |       phone       |     fullname    |
-      |	  verifyempty08	  |   test123     |     6287876600002     |     verifyempty   |
+      |	  verifyempty10	  |   test123     |     6287876600002     |     verifyempty   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
@@ -52,8 +52,9 @@ Feature: Verify account
     Examples:
       |             email                 |   password    |          newemail                          |      newphone     |     fullname    |
       |	  verifynotempty01@mailinator.com	  |   test123     |     verifynotempty10@mailinator.com    |     6281290009009  |   verifynotempty   |
-   #FDBRMA-230
-  @Android @Smoke @bypassotp @IntegrationTest @FDBRMA-224 @wip
+
+  #FDBRMA-224 #FDBRMA-230
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-224
   Scenario Outline: Verify Registered Email on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -62,17 +63,17 @@ Feature: Verify account
     And User enters the "<password>" password on login screen
     When User clicks login button on login screen
     Then User will see modal account status on homescreen
-    And User clicks profile from homescreen menu and edit profile
+    And User clicks profile from homescreen menu and edit account
     When User clicks label to verify your email
-#    And User input bypass otp code then confirm
-#    Then User will see success msg verified by email contains "<email>" and label Verified will appear
+    And User input bypass otp code then confirm
+    Then User will see success msg verified by email contains "<email>" and label Verified will appear
 #    When User clicks label to verify your phone
 #    And User input bypass otp code then confirm
 #    Then User will see success msg verified by phone contains "<phone>" and label Verified will appear
 
     Examples:
-      |                    email                 |        password       |      phone         |
-      |	      registeredemailprofile@mailinator.com	     |        test123        |    628129000226   |
+      |                    email                         |        password       |      phone         |
+      |	      registeredemailprofile@mailinator.com	     |        test123        |    628129000224   |
 
   #FDBRMA-226 #FDBRMA-232 #FDBRMA-245 #FDBRMA-237
   #check email and should use new phone

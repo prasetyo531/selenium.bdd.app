@@ -289,6 +289,14 @@ public class VerifyAccountSteps extends DriverFactory {
         profileScreen.clickEditProfile();
     }
 
+    @And("^User clicks profile from homescreen menu and edit account$")
+    public void user_clicks_profile_from_homescreen_menu_and_edit_account() throws Throwable {
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickSettingProfile();
+        profileScreen.clickDrawerSetting();
+        profileScreen.clickEditAccount();
+    }
+
     @When("^User clicks change email \"([^\"]*)\" to verify email bypass otp$")
     public void user_clicks_change_email_something_to_verify_email_bypass_otp(String newemail) throws Throwable {
         profileScreen.tapToChangeEmailProfile(newemail);
@@ -308,7 +316,7 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     @When("^User clicks label to verify your email$")
-    public void user_clicks_label_to_verify_your_email() throws Throwable {
+    public void user_clicks_label_to_verify_your_email() {
         profileScreen.clickVerifyEmail();
     }
 

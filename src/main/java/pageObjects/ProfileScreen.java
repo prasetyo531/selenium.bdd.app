@@ -62,13 +62,13 @@ public class ProfileScreen extends ActionBase{
     public MobileElement drawerSupport;
 
     /**** setting list option ****/
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/textTitle') and @text='Profile']")
     public MobileElement editProfile;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/textTitle') and @text='Account']")
     public MobileElement editAccount;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/textTitle') and @text='Beauty ID']")
     public MobileElement editBeautyID;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/textSub') and @text='Log Out']")
@@ -90,29 +90,16 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout")
     public MobileElement listChangePassword;
 
-    /**** edit profile ****/
-    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
-    public MobileElement cancelEditprofile;
+    /**** edit account ****/
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
+    public MobileElement changePassword;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/save")
-    public MobileElement saveEditprofile;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/viewChooseImage")
-    public MobileElement uploadImgBtn;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/layoutDob")
-    public MobileElement dobEditProfile;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/inputDob")
-    public MobileElement inputedDob;
-
-    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
-    public MobileElement editCancel;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/textStatusEmail")
+    //@AndroidFindBy(id="com.fdbr.android.main:id/textStatusEmail")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
     public MobileElement labelVerifyEmail;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/textStatusPhone")
+    //@AndroidFindBy(id="com.fdbr.android.main:id/textStatusPhone")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
     public MobileElement labelVerifyPhone;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonChangeEmail")
@@ -152,6 +139,25 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.beauty:id/btnClose")
     public MobileElement closeModalPassword;
 
+    /**** edit profile ****/
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    public MobileElement cancelEditprofile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/save")
+    public MobileElement saveEditprofile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/viewChooseImage")
+    public MobileElement uploadImgBtn;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutDob")
+    public MobileElement dobEditProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputDob")
+    public MobileElement inputedDob;
+
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    public MobileElement editCancel;
+
     //previous month
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.NumberPicker[1]/android.widget.Button[1]")
     public MobileElement MonthDob;
@@ -174,6 +180,9 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutLocation")
     public MobileElement locationField;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputBio")
+    public MobileElement fieldBio;
+
     //location screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchLocField;
@@ -181,19 +190,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.main:id/textCityName') and @text='Ambon']")
     public MobileElement ambon;
 
-    //setting
-    @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
-    public MobileElement changePassword;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyProfile")
-    public MobileElement updateBeautyProfile;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyConcern")
-    public MobileElement updateBeautyConcern;
-
-    @AndroidFindBy(id="com.fdbr.android.main:id/inputBio")
-    public MobileElement fieldBio;
-
+    //drawer
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Invite Friends']")
     public MobileElement inviteFriends;
 
@@ -206,6 +203,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.setting:id/labelAction') and @text='Privacy Policy']")
     public MobileElement privacyPolicy;
 
+    /**** beauty id ****/
     /***  beauty profile screen  ***/
     @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyProfile")
     public MobileElement contentBeautyProf;
@@ -354,6 +352,12 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id= "com.fdbr.android:id/buttonNegative")
     public MobileElement btnOkModal;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyProfile")
+    public MobileElement updateBeautyProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyConcern")
+    public MobileElement updateBeautyConcern;
+
     // This is a constructor, as every page need a base driver to find android elements
     public ProfileScreen(AppiumDriver driver) {
 
@@ -403,6 +407,13 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen clickDrawerSetting() {
         WaitUntilElementIsVisible(drawerSetting);
         tapByElement(drawerSetting);
+        return new ProfileScreen(driver);
+    }
+
+    /* setting list  */
+    public ProfileScreen clickEditAccount() {
+        WaitUntilElementIsVisible(editAccount);
+        tapByElement(editAccount);
         return new ProfileScreen(driver);
     }
 
