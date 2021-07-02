@@ -102,10 +102,10 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
     public MobileElement labelVerifyPhone;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonChangeEmail")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/layoutItem') and @index='2']")
     public MobileElement changeEmail;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonChangePhoneNumber")
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/layoutItem') and @index='1']")
     public MobileElement changePhone;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/inputEmail")

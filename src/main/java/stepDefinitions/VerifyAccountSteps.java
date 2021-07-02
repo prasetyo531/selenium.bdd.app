@@ -281,14 +281,6 @@ public class VerifyAccountSteps extends DriverFactory {
     }
 
     //from profile
-    @And("^User clicks profile from homescreen menu and edit profile$")
-    public void user_clicks_profile_from_homescreen_menu_and_edit_profile() throws Throwable {
-        homeScreen.clickProfileHomeMenu();
-        profileScreen.clickSettingProfile();
-        profileScreen.clickDrawerSetting();
-        profileScreen.clickEditProfile();
-    }
-
     @And("^User clicks profile from homescreen menu and edit account$")
     public void user_clicks_profile_from_homescreen_menu_and_edit_account() throws Throwable {
         homeScreen.clickProfileHomeMenu();
