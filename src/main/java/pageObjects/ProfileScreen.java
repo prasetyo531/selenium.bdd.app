@@ -95,11 +95,11 @@ public class ProfileScreen extends ActionBase{
     public MobileElement changePassword;
 
     //@AndroidFindBy(id="com.fdbr.android.main:id/textStatusEmail")
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
+    @AndroidFindBy(xpath="//android.widget.TextView[@content-desc='textStatusEmail']")
     public MobileElement labelVerifyEmail;
 
     //@AndroidFindBy(id="com.fdbr.android.main:id/textStatusPhone")
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
+    @AndroidFindBy(xpath="//android.widget.TextView[@content-desc='textStatusPhone']")
     public MobileElement labelVerifyPhone;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/layoutItem') and @index='2']")

@@ -282,7 +282,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement closeModalSuccessComplete;
 
     /* first img in gallery */
-    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.android.documentsui:id/icon_thumb') and @index='0']")
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.google.android.documentsui:id/icon_thumb') and @index='0']")
     public MobileElement firstIndexImg;
 
     @AndroidFindBy(id="com.fdbr.android:id/menu_crop")

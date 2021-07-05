@@ -6,7 +6,7 @@ Feature: Verify account
   User should fill personal info, beauty profile and concern
 
   #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-221
+  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone
   Scenario Outline: Verify Registered Phone - Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -30,7 +30,7 @@ Feature: Verify account
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone
-  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-223
+  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone
   Scenario Outline: Verify Changed Phone - Changed Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -54,7 +54,7 @@ Feature: Verify account
       |	  verifynotempty10@mailinator.com	  |   test123     |     verifynotempty01@mailinator.com    |     6281390009009  |   verifynotempty   |
 
   #FDBRMA-224 #FDBRMA-230
-  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-224
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone
   Scenario Outline: Verify Registered Email on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -77,7 +77,7 @@ Feature: Verify account
 
   #FDBRMA-226 #FDBRMA-232 #FDBRMA-245 #FDBRMA-237
   #check email and should use new phone
-  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-226
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone
   Scenario Outline: Verify Changed Email - Changed Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -100,7 +100,7 @@ Feature: Verify account
 
   #FDBRMA-240 #FDBRMA-248
   #check email and phone using suspend data
-  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-240
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone
   Scenario Outline: Verify Changed Email - Changed Phone using Suspend email and phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -123,7 +123,7 @@ Feature: Verify account
   ### UI VALIDATION ###
 
   #FDBRMA-19
-  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone @FDBRMA-19
+  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone
   Scenario Outline: Verify Input With Invalid Format Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -142,7 +142,7 @@ Feature: Verify account
       |	  mixrevamp01	  |   test123     |   wrongformatemail@gmail@gmail.com    |
 
   #FDBRMA-20
-  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone @FDBRMA-20
+  @Android @VerifyEmail @Smoke @RealAccount @RealDevices @OkrDone
   Scenario Outline: Verify Input With Invalid Format Phone
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -165,7 +165,7 @@ Feature: Verify account
   ### PERSONAL INFO SCREEN ###
 
   #FDBRMA-254 @FDBRMA-251 #FDBRMA-255 #FDBRMA-366
-  @FDBRMA-254
+  @Android @staging @Smoke @IntegrationTest @OkrDone @FDBRMA-254
   Scenario Outline: Save personal info input fullname contains integer or special character - input without fullname, gender and location
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -175,7 +175,6 @@ Feature: Verify account
     And User clicks login button on login screen
     When User click complete verify button on modal
     Then User click skip button on verify email screen
-    And User click skip button on verify phone screen
     When User fill all mandatory field on personal info screen "<fullname>"
     Then User will see modal fullname only alphabet
 
@@ -185,7 +184,8 @@ Feature: Verify account
       |	  verifywebprod	  |   test123       |       vnsph_satu     |
 
   #FDBRMA-429 #FDBRMA-250
-  @FDBRMA-429
+   #check should use new data
+  @Android @staging @Smoke @IntegrationTest @OkrDone @FDBRMA-429
   Scenario Outline: Save personal using photo from gallery
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -195,10 +195,9 @@ Feature: Verify account
     And User clicks login button on login screen
     When User click complete verify button on modal
     Then User click skip button on verify email screen
-    And User click skip button on verify phone screen
     When User use picture from gallery to complete personal info
     Then User will see image that has taken appear in thumbnail
 
     Examples:
       |   username    |   password      |
-      |	  newnew02	  |   test123     |
+      |	  profilepicture	  |   test123     |

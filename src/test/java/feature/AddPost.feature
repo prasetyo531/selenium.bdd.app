@@ -4,7 +4,7 @@ Feature: User Add Post
   I should able to fill all option of add post process
   If user cancel post, user will direct to current menu
 
-  @Android @AddPost @Production @OkrDone @RPA-149
+  @Android @AddPost @Production @OkrDone
   Scenario Outline: Add Post from profile tab Post
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
