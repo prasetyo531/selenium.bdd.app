@@ -4,6 +4,44 @@ Feature: Update Profile
   if user update beauty profile, product matches and beauty box direct to beauty concern
   if user update beauty concern, product matches and beauty box direct to beauty profile
 
+    #FDBRMA-276 #RPA-138 #RPA-140
+  @Android @Smoke @updateprofile @staging @FDBRMA-276
+  Scenario Outline: Input all Field on profile screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    And User fill dob, location, gender, bio "<bio>"
+    When User clicks save to save all updated field
+    Then User will see all inputed data "<fullname>", gender, location, "<bio>" are stored
+
+    Examples:
+      |   username        |   password      |       fullname        |     bio       |
+      |	  bddbeautyid01	  |   test123       |     bddbeautyid     |   pras pras pras  |
+
+  #FDBRMA-278
+  @Android @Smoke @updateprofile @staging @FDBRMA-278 @Bug
+  Scenario Outline: Save profile using empty personal info, save without fill any field
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    When User clicks save to save all updated field
+    Then User will see all inputed data fullname, gender, location, bio are empty
+
+    Examples:
+      |   username            |   password      |
+      |	  emptypersonal03	  |   test123       |
+
   #FDBRMA-328
   @updateprofile @staging @FDBRMA-328
   Scenario Outline: Update beauty id on product matches
@@ -38,47 +76,6 @@ Feature: Update Profile
     Examples:
       |   username        |   password      |
       |	  bddbeautyid02	  |   test123       |
-
-    #FDBRMA-276
-  @updateprofile @staging @FDBRMA-276
-  Scenario Outline: Input all Field on profile screen
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User clicks next button on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    Then User will see modal account status on homescreen
-    And User clicks profile from homescreen menu
-    And User clicks setting icon
-    And User clicks edit profile
-    And User fill dob, fullname "<fullname>", gender, location, bio "<bio>"
-    When User clicks save to save all updated field
-    Then User will see all inputed data "<fullname>", gender, location, "<bio>" are stored
-
-    Examples:
-      |   username        |   password      |       fullname        |     bio       |
-      |	  bddbeautyid01	  |   test123       |     bddbeautyid     |   pras pras pras  |
-
-  #FDBRMA-278
-  @updateprofile @staging @FDBRMA-278 @Bug
-  Scenario Outline: Save profile using empty personal info, save without fill any field
-    Given User navigates to onboarding screen by swipe
-    When User clicks login button on onboarding screen
-    Then User enters the "<username>" username on login screen
-    And User clicks next button on login screen
-    And User enters the "<password>" password on login screen
-    And User clicks login button on login screen
-    Then User will see modal account status on homescreen
-    And User clicks profile from homescreen menu
-    And User clicks setting icon
-    And User clicks edit profile
-    When User clicks save to save all updated field
-    Then User will see all inputed data fullname, gender, location, bio are empty
-
-    Examples:
-      |   username            |   password      |
-      |	  emptypersonal03	  |   test123       |
 
   #FDBRMA-283
   @updateprofile @staging @FDBRMA-283

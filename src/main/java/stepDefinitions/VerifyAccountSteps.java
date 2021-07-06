@@ -266,11 +266,6 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.assertTextWarningLogin(message);
     }
 
-    @Then("^User will see modal fullname only alphabet$")
-    public void user_will_see_modal_fullname_only_alphabet() {
-        verifyAccountScreen.getErrorModalFullname();
-    }
-
     @Then("^User will see image that has taken appear in thumbnail$")
     public void user_will_see_image_that_has_taken_appear_in_thumbnail() throws Throwable {
         //capture not allowed to change
@@ -280,13 +275,12 @@ public class VerifyAccountSteps extends DriverFactory {
         //verifyAccountScreen.deleteImageStored("before-upload-photo-profile","after-upload-photo-profile");
     }
 
-    //from profile
-    @And("^User clicks profile from homescreen menu and edit account$")
-    public void user_clicks_profile_from_homescreen_menu_and_edit_account() throws Throwable {
+    @And("^User clicks profile from homescreen menu and edit profile$")
+    public void user_clicks_profile_from_homescreen_menu_and_edit_profile() {
         homeScreen.clickProfileHomeMenu();
         profileScreen.clickSettingProfile();
         profileScreen.clickDrawerSetting();
-        profileScreen.clickEditAccount();
+        profileScreen.clickEditProfile();
     }
 
     @When("^User clicks change email \"([^\"]*)\" to verify email bypass otp$")
