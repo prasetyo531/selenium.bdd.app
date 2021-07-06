@@ -12,6 +12,15 @@ import java.util.List;
 
 public class ProfileScreen extends ActionBase{
 
+    @AndroidFindBy(id="com.fdbr.android:id/tv_message")
+    public MobileElement toastMsg;
+
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc='Navigate up']")
+    public MobileElement backArrow;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelName")
+    public MobileElement fullnameLabelProfile;
+
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Posts\"]")
     public MobileElement postsTab;
 
@@ -78,9 +87,6 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
     public MobileElement listFullname;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/inputName")
-    public MobileElement fullnameField;
-
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")
     public MobileElement listPhoneNumber;
 
@@ -91,6 +97,9 @@ public class ProfileScreen extends ActionBase{
     public MobileElement listChangePassword;
 
     /**** edit account ****/
+    @AndroidFindBy(id="com.fdbr.android.main:id/inputFullname")
+    public MobileElement fullnameField;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/labelChangePassword")
     public MobileElement changePassword;
 
@@ -143,7 +152,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement cancelEditprofile;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/save")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonSave")
     public MobileElement saveEditprofile;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/viewChooseImage")
@@ -290,9 +299,6 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
 
-    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
-    public MobileElement backArrow;
-
     @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
     public MobileElement retakeBtn;
 
@@ -305,6 +311,9 @@ public class ProfileScreen extends ActionBase{
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputNewPassword")
     public MobileElement newPassField;
+
+    @AndroidFindBy(id="com.fdbr.android.auth:id/inputConfirmPassword")
+    public MobileElement confirmNewPassField;
 
     @AndroidFindBy(id="com.fdbr.android.auth:id/text_input_end_icon")
     public MobileElement showPassIcon;
@@ -410,6 +419,20 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen getTextFullname(String fullname) {
+        WaitUntilElementIsVisible(fullnameLabelProfile);
+        String fn = fullnameLabelProfile.getText();
+        org.testng.Assert.assertEquals(fn, fullname);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen isToastAppear() {
+        WaitUntilElementIsVisible(toastMsg);
+        String fn = toastMsg.getText();
+        org.testng.Assert.assertEquals(fn, "Successfully updated full name");
+        return new ProfileScreen(driver);
+    }
+
     /* setting list  */
     public ProfileScreen clickEditAccount() {
         WaitUntilElementIsVisible(editAccount);
@@ -424,8 +447,18 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickBackSetting() {
-        isElementPresent(backArrow);
+        WaitUntilElementIsVisible(backArrow);
         tapByElement(backArrow);
+        return new ProfileScreen(driver);
+    }
+
+    /* account menu */
+    public ProfileScreen inputFullname(String fullname) {
+        WaitUntilElementIsVisible(listFullname);
+        tapByElement(listFullname);
+
+        WaitUntilElementIsVisible(fullnameField);
+        inputValue(fullnameField, fullname);
         return new ProfileScreen(driver);
     }
 
@@ -520,12 +553,6 @@ public class ProfileScreen extends ActionBase{
         tapByElement(MonthDob);
 
         tapByElement(dobOk);
-        return new ProfileScreen(driver);
-    }
-
-    public ProfileScreen inputFullname(String fullname) {
-        isElementPresent(fullnameField);
-        inputValue(fullnameField, fullname);
         return new ProfileScreen(driver);
     }
 
@@ -746,9 +773,8 @@ public class ProfileScreen extends ActionBase{
 
     /*   change password   */
     public ProfileScreen clickChangePassword() {
-        this.verticalSwipeByPercentages(locationField,0.4,0.01,0.5,500);
-
-        tapByElement(changePassword);
+        WaitUntilElementIsVisible(listChangePassword);
+        tapByElement(listChangePassword);
         return new ProfileScreen(driver);
     }
 
@@ -764,6 +790,12 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen inputConfirmNewPassword(String confirmnewpass) {
+        isElementPresent(confirmNewPassField);
+        inputValue(confirmNewPassField, confirmnewpass);
+        return new ProfileScreen(driver);
+    }
+
     public ProfileScreen clickSubmitChangePassword() {
         isElementPresent(submitBtn);
         tapByElement(submitBtn);
@@ -771,8 +803,8 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getSneakMsgOldPassword(String text) {
-        isElementPresent(sneakbarChangePassword);
-        String msg = sneakbarChangePassword.getText();
+        isElementPresent(toastMsg);
+        String msg = toastMsg.getText();
         Assert.assertEquals(text, msg);
         return new ProfileScreen(driver);
     }

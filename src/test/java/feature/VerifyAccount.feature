@@ -183,7 +183,7 @@ Feature: Verify account
       |	  verifywebprod	  |   test123       |       vnsphl2        |
       |	  verifywebprod	  |   test123       |       vnsph_satu     |
 
-  #FDBRMA-429 #FDBRMA-250
+  #FDBRMA-429 #FDBRMA-250 #RPA-59
    #check should use new data
   @Android @staging @Smoke @IntegrationTest @OkrDone @FDBRMA-429
   Scenario Outline: Save personal using photo from gallery

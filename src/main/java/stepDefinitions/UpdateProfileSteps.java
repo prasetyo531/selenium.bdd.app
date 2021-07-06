@@ -55,18 +55,24 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickEditProfile();
     }
 
-    @And("^User fill dob, fullname \"([^\"]*)\", gender, location, bio \"([^\"]*)\"$")
-    public void user_fill_dob_fullname_something_gender_location_bio_something(String fullname, String bio) throws Throwable {
-
-        profileScreen.editDobToPreviousMonth();
+    @And("^User fill fullname \"([^\"]*)\"$")
+    public void user_fill_fullname_something(String fullname) {
 
         profileScreen.inputFullname(fullname);
+    }
 
-        profileScreen.chooseMaleGender();
+    @And("^User will see toast msg after update fullname$")
+    public void user_will_see_toast_msg_after_update_fullname() {
 
-        profileScreen.chooseLocationEditProfile();
+        profileScreen.isToastAppear();
+    }
 
-        profileScreen.inputBio(bio);
+    @Then("^User will see fullname \"([^\"]*)\" on profile updated$")
+    public void user_will_see_fullname_something_on_profile_updated(String fullname) {
+
+        profileScreen.clickBackSetting();
+        profileScreen.clickBackSetting();
+        profileScreen.getTextFullname(fullname);
     }
 
     @When("^User clicks save to save all updated field$")
@@ -175,8 +181,8 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.checkTitleScreenBeautyProfile();
     }
 
-    @And("^User clicks update password$")
-    public void user_clicks_update_password() throws Throwable {
+    @And("^User clicks change password$")
+    public void user_clicks_change_password() {
 
         profileScreen.clickChangePassword();
     }
@@ -187,10 +193,16 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.inputOldPassword(oldpassword);
     }
 
-    @When("^User input new \"([^\"]*)\" invalid format on new password field$")
-    public void user_input_new_something_invalid_format_on_new_password_field(String newpassword) throws Throwable {
+    @And("^User input new \"([^\"]*)\" on new password field$")
+    public void user_input_new_something_on_new_password_field(String newpassword) {
 
         profileScreen.inputNewPassword(newpassword);
+    }
+
+    @And("^User input new \"([^\"]*)\" on confirm new password field$")
+    public void user_input_new_something_on_confirm_new_password_field(String confirmnewpassword) {
+
+        profileScreen.inputConfirmNewPassword(confirmnewpassword);
     }
 
     @When("^User clicks submit button to change password$")
