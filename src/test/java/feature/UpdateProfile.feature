@@ -4,8 +4,8 @@ Feature: Update Profile
   if user update beauty profile, product matches and beauty box direct to beauty concern
   if user update beauty concern, product matches and beauty box direct to beauty profile
 
-    #FDBRMA-276 #RPA-138 #RPA-140
-  @Android @Smoke @updateprofile @staging @FDBRMA-276
+  #FDBRMA-276 #RPA-138 #RPA-140
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-276
   Scenario Outline: Input all Field on profile screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -17,14 +17,14 @@ Feature: Update Profile
     And User clicks profile from homescreen menu and edit profile
     And User fill dob, location, gender, bio "<bio>"
     When User clicks save to save all updated field
-    Then User will see all inputed data "<fullname>", gender, location, "<bio>" are stored
+    Then User will see all inputed data location and "<bio>" are stored
 
     Examples:
-      |   username        |   password      |       fullname        |     bio       |
-      |	  bddbeautyid01	  |   test123       |     bddbeautyid     |   pras pras pras  |
+      |   username        |   password      |     bio       |
+      |	  bddbeautyid01	  |   test123       |   pras pras pras  |
 
   #FDBRMA-278
-  @Android @Smoke @updateprofile @staging @FDBRMA-278 @Bug
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-278
   Scenario Outline: Save profile using empty personal info, save without fill any field
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -33,17 +33,16 @@ Feature: Update Profile
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
-    Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu and edit profile
     When User clicks save to save all updated field
-    Then User will see all inputed data fullname, gender, location, bio are empty
+    Then User will see all inputed data location and bio are empty
 
     Examples:
       |   username            |   password      |
       |	  emptypersonal03	  |   test123       |
 
   #FDBRMA-328
-  @updateprofile @staging @FDBRMA-328
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-328
   Scenario Outline: Update beauty id on product matches
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -57,11 +56,11 @@ Feature: Update Profile
 
     Examples:
       |   username        |   password      |
-      |	  bddbeautyid01	  |   test123       |
+      |	  productmatches	  |   test123       |
 
-  #FDBRMA-329
-  @updateprofile @staging @FDBRMA-329
-  Scenario Outline: Update beauty id by click btn beauty summary box
+  #FDBRMA-329 #FDBRMA-283
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-329
+  Scenario Outline: Update beauty id by click btn beauty summary box/drawer
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -70,16 +69,16 @@ Feature: Update Profile
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu
-    When User clicks beautyId button on beauty box on profile
-    Then User will direct to beauty profile screen
+    When User clicks beautyId button on beauty drawer on profile
+    Then User will direct to empty data beauty id screen
 
     Examples:
       |   username        |   password      |
-      |	  bddbeautyid02	  |   test123       |
+      |	  productmatches  |   test123       |
 
   #FDBRMA-283
-  @updateprofile @staging @FDBRMA-283
-  Scenario Outline: Update beauty profile and concern on beauty id box
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-283
+  Scenario Outline: Update beauty profile and concern on beauty id box/drawer
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -88,12 +87,16 @@ Feature: Update Profile
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
     And User clicks profile from homescreen menu
-    When User clicks beautyId button on beauty box on profile
-    Then User will direct to beauty profile screen
+    When User clicks beautyId button on beauty drawer on profile
+    Then User will direct to edit beauty id screen
+    And User clicks edit and complete beauty profile
+    Then User will see completed data beauty profile screen
+    And User clicks edit and not complete beauty concern
+    Then User will direct to edit beauty id screen
 
     Examples:
       |   username            |   password      |
-      |	  emptypersonal04	  |   test123       |
+      |	  emptypersonal012	  |   test123       |
 
   #FDBRMA-279 #FDBRMA-281
   @updateprofile @staging @FDBRMA-279

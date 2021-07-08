@@ -25,6 +25,71 @@ public class UpdateProfileSteps extends DriverFactory {
         verifyAccountScreen.clickSkipBeautyCon();
     }
 
+    @Then("^User will direct to empty data beauty id screen$")
+    public void user_will_direct_to_empty_data_beauty_id_screen() {
+
+        profileScreen.isOnBeautyIdScreen();
+    }
+
+    @Then("^User will direct to edit beauty id screen$")
+    public void user_will_direct_to_edit_beauty_id_screen() {
+
+        profileScreen.isOnBeautyIdScreen();
+    }
+
+    @And("^User clicks edit and complete beauty profile$")
+    public void user_clicks_edit_and_complete_beauty_profile() {
+
+        profileScreen.clickEditBeautyProfile();
+
+        verifyAccountScreen.checkTitleScreenBeautyProfile();
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinType();
+        verifyAccountScreen.chooseSkinType();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinTone();
+        verifyAccountScreen.chooseSkinTone();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinUndertone();
+        verifyAccountScreen.chooseSkinUndertone();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHairType();
+        verifyAccountScreen.chooseHairType();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorColoredHair();
+        verifyAccountScreen.chooseColoredHair();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHijaber();
+        verifyAccountScreen.chooseHijaber();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+    }
+
+    @And("^User clicks edit and not complete beauty concern$")
+    public void user_clicks_edit_and_not_complete_beauty_concern() {
+
+        profileScreen.clickEditBeautyConcern();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+    }
+
+    @Then("^User will see completed data beauty profile screen$")
+    public void user_will_see_completed_data_beauty_profile_screen() {
+
+        profileScreen.islabelCompleteBeautyProfileDissapear();
+    }
+
+    @Then("^User will see completed data beauty concern screen$")
+    public void user_will_see_completed_data_beauty_concern_screen() {
+
+        profileScreen.islabelCompleteBeautyConcernDissapear();
+    }
+
     @Then("^User will direct to beauty concern screen$")
     public void user_will_direct_to_beauty_concern_screen() throws Throwable {
 
@@ -37,8 +102,8 @@ public class UpdateProfileSteps extends DriverFactory {
         homeScreen.clickProfileHomeMenu();
     }
 
-    @When("^User clicks beautyId button on beauty box on profile$")
-    public void user_clicks_beautyid_button_on_beauty_box_on_profile() {
+    @When("^User clicks beautyId button on beauty drawer on profile$")
+    public void user_clicks_beautyid_button_on_beauty_drawer_on_profile() {
 
         profileScreen.clickBeautyIdOnBeautyBox();
     }
@@ -63,26 +128,12 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.getTextDob();
     }
 
-    @Then("^User will see all inputed data \"([^\"]*)\", gender, location, \"([^\"]*)\" are stored$")
-    public void user_will_see_all_inputed_data_something_gender_location_something_are_stored(String fullname, String bio) throws Throwable {
-
-        profileScreen.clickEditProfile();
-
-        profileScreen.getTextDob();
-        profileScreen.getFullnameEditProfile(fullname);
-        profileScreen.getLocationEditProfile();
-        profileScreen.getTextBio(bio);
-    }
-
-    @Then("^User will see all inputed data fullname, gender, location, bio are empty$")
-    public void user_will_see_all_inputed_data_fullname_gender_location_bio_are_empty() throws Throwable {
-
-        profileScreen.clickEditProfile();
-
-        profileScreen.getTextEmptyDob();
-        profileScreen.getFullnameEmptyEditProfile();
+    @Then("^User will see all inputed data location and bio are empty$")
+    public void user_will_see_all_inputed_data_location_and_bio_are_empty() throws InterruptedException {
+        Thread.sleep(3000);
+        profileScreen.clickBackSetting();
         profileScreen.getLocationEmptyEditProfile();
-        profileScreen.getTextEmptyBio();
+        profileScreen.isBioNotAppear();
     }
 
     @When("^User click update beauty profile and user fill all option$")
@@ -130,7 +181,7 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will see toast msg to inform beauty concern updated$")
-    public void user_will_see_toast_msg_to_inform_beauty_concern_updated() throws Throwable {
+    public void user_will_see_toast_msg_to_inform_beauty_concern_updated() {
 
         profileScreen.findToastAfterUpdateBeautyConcern();
     }
@@ -150,16 +201,32 @@ public class UpdateProfileSteps extends DriverFactory {
     }
 
     @Then("^User will direct automatically to beauty profile screen$")
-    public void user_will_direct_automatically_to_beauty_profile_screen() throws Throwable {
+    public void user_will_direct_automatically_to_beauty_profile_screen() throws InterruptedException {
 
         profileScreen.checkTitleScreenBeautyProfile();
     }
 
     @When("^User input new \"([^\"]*)\" invalid format on new password field and then submit$")
-    public void user_input_new_something_invalid_format_on_new_password_field_and_then_submit(String newpassword) throws Throwable {
+    public void user_input_new_something_invalid_format_on_new_password_field_and_then_submit(String newpassword) {
 
         profileScreen.inputNewPassword(newpassword);
 
         profileScreen.clickSubmitChangePassword();
+    }
+
+    @And("^User fill dob, location, gender, bio \"([^\"]*)\"$")
+    public void user_fill_dob_location_gender_bio_something(String bio) {
+        profileScreen.editDobToPreviousMonth();
+        profileScreen.chooseLocationEditProfile();
+        profileScreen.chooseMaleGender();
+        profileScreen.inputBio(bio);
+    }
+
+    @Then("^User will see all inputed data location and \"([^\"]*)\" are stored$")
+    public void user_will_see_all_inputed_data_location_and_something_are_stored(String bio) throws InterruptedException {
+        Thread.sleep(3000);
+        profileScreen.clickBackSetting();
+        profileScreen.getLocationEditProfile();
+        profileScreen.getTextBio(bio);
     }
 }

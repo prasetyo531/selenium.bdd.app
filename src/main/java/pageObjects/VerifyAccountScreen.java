@@ -188,7 +188,7 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorSkinUnderTone")
     public MobileElement errorMsgSkinUndertone;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.RadioButton")
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.RadioButton")
     public MobileElement hairTypeCurly;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/textErrorHairType")
@@ -732,26 +732,12 @@ public class VerifyAccountScreen extends ActionBase {
 
     /***  get title screen  ***/
     public VerifyAccountScreen checkTitleScreenBeautyProfile() {
-
-        //Thread.sleeps(200);
         WaitUntilElementIsVisible(titleBeautyProfileScreen);
-        isElementPresent(titleScreen);
-        String title = titleScreen.getText();
-        System.out.println("title screen"+" "+title);
-        Assert.assertEquals(title, "Beauty Profile");
-
         return new VerifyAccountScreen(driver);
     }
 
     public VerifyAccountScreen checkTitleScreenBeautyConcern() {
-
-        //Thread.sleep(200);
         WaitUntilElementIsVisible(titleBeautyConcernScreen);
-        isElementPresent(titleScreen);
-        String title = titleScreen.getText();
-        System.out.println("title screen"+" "+title);
-        Assert.assertEquals(title, "Beauty Concern");
-
         return new VerifyAccountScreen(driver);
     }
 

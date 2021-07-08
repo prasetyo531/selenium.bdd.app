@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -21,6 +22,15 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/labelName")
     public MobileElement fullnameLabelProfile;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelLocationAge")
+    public MobileElement locationAgeLabelProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelBio")
+    public MobileElement bioLabelProfile;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/labelBio")
+    public List<MobileElement> bioLabelProfileArray;
+
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Posts\"]")
     public MobileElement postsTab;
 
@@ -33,9 +43,6 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"Talks\"]")
     public MobileElement talksTab;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonUpdateBeautyId")
-    public MobileElement updateBeautyIdBeautyBox;
-
     @AndroidFindBy(id="com.fdbr.android.main:id/setting")
     public MobileElement settingIcon;
 
@@ -47,6 +54,13 @@ public class ProfileScreen extends ActionBase{
 
     @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android:id/buttonAction')]")
     public List<MobileElement> buttonAddPostReviewProfile;
+
+    /* drawer beauty id */
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonUpdateBeautyId")
+    public MobileElement updateBeautyIdBeautyBox;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
+    public MobileElement completeMyBeautyIdDrawer;
 
     /* review or post list */
     @AndroidFindBy(id="com.fdbr.android.main:id/labelProductName")
@@ -149,7 +163,7 @@ public class ProfileScreen extends ActionBase{
     public MobileElement closeModalPassword;
 
     /**** edit profile ****/
-    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc='Navigate up']")
     public MobileElement cancelEditprofile;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonSave")
@@ -180,10 +194,10 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/tvItemSpinner")
     public MobileElement genderField;
 
-    @AndroidFindBy(id="//android.widget.CheckedTextView[contains(@resource-id,'android:id/text1') and @text='Female']")
+    @AndroidFindBy(id="com.fdbr.android.main:id/radioFemale")
     public MobileElement rbFemalePersonalInfo;
 
-    @AndroidFindBy(xpath="//android.widget.CheckedTextView[contains(@resource-id,'android:id/text1') and @text='Male']")
+    @AndroidFindBy(id="com.fdbr.android.main:id/radioMale")
     public MobileElement rbMalePersonalInfo;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutLocation")
@@ -214,6 +228,27 @@ public class ProfileScreen extends ActionBase{
 
     /**** beauty id ****/
     /***  beauty profile screen  ***/
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Beauty ID']")
+    public MobileElement titleBeautyIDScreen;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textInfoBeautyProfile') and @text='Please complete your beauty profile']")
+    public MobileElement labelCompleteBeautyProfile;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textInfoBeautyProfile') and @text='Please complete your beauty profile']")
+    public List<MobileElement> labelCompleteBeautyProfileEmpty;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textInfoBeautyConcern') and @text='Please complete your beauty concern']")
+    public MobileElement labelCompleteBeautyConcern;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.beauty:id/textInfoBeautyConcern') and @text='Please complete your beauty concern']")
+    public List<MobileElement> labelCompleteBeautyConcernEmpty;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textEditBeautyProfile")
+    public MobileElement editBeautyProf;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/textEditBeautyConcern")
+    public MobileElement editBeautyCon;
+
     @AndroidFindBy(id="com.fdbr.android.beauty:id/scrollBeautyProfile")
     public MobileElement contentBeautyProf;
 
@@ -402,8 +437,11 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen clickBeautyIdOnBeautyBox() {
-        isElementPresent(updateBeautyIdBeautyBox);
+        WaitUntilElementIsVisible(updateBeautyIdBeautyBox);
         tapByElement(updateBeautyIdBeautyBox);
+
+        WaitUntilElementIsVisible(completeMyBeautyIdDrawer);
+        tapByElement(completeMyBeautyIdDrawer);
         return new ProfileScreen(driver);
     }
 
@@ -449,6 +487,56 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen clickBackSetting() {
         WaitUntilElementIsVisible(backArrow);
         tapByElement(backArrow);
+        return new ProfileScreen(driver);
+    }
+
+    /* beauty id menu */
+    public ProfileScreen isOnBeautyIdScreen() {
+        WaitUntilElementIsVisible(titleBeautyIDScreen);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen isEmptyBeautyIdScreen() {
+        WaitUntilElementIsVisible(labelCompleteBeautyProfile);
+        WaitUntilElementIsVisible(labelCompleteBeautyConcern);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickEditBeautyProfile() {
+        WaitUntilElementIsVisible(editBeautyProf);
+        tapByElement(editBeautyProf);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickEditBeautyConcern() {
+        WaitUntilElementIsVisible(editBeautyCon);
+        tapByElement(editBeautyCon);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen islabelCompleteBeautyProfileDissapear() {
+        WaitUntilElementIsVisible(titleBeautyIDScreen);
+        List<MobileElement> bp = labelCompleteBeautyProfileEmpty;
+        System.out.println("after beauty profile completed"+" "+bp.size());
+        Boolean isdissapear = bp.isEmpty();
+        System.out.println(isdissapear);
+        //it depends screen size
+        if(isdissapear==false){
+            org.testng.Assert.fail("label Complete Beauty Profile Still Exist");
+        }
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen islabelCompleteBeautyConcernDissapear() {
+        WaitUntilElementIsVisible(titleBeautyIDScreen);
+        List<MobileElement> bc = labelCompleteBeautyConcernEmpty;
+        System.out.println("after beauty profile completed"+" "+bc.size());
+        Boolean isdissapear = bc.isEmpty();
+        System.out.println(isdissapear);
+        //it depends screen size
+        if(isdissapear==false){
+            org.testng.Assert.fail("label Complete Beauty Concern Still Exist");
+        }
         return new ProfileScreen(driver);
     }
 
@@ -534,22 +622,24 @@ public class ProfileScreen extends ActionBase{
 
     /*  edit profile screen */
     public ProfileScreen clickSaveProfile() {
-        isElementPresent(saveEditprofile);
+        WaitUntilElementIsVisible(saveEditprofile);
         tapByElement(saveEditprofile);
+
+        WaitUntilElementIsVisible(editProfile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickCancelEditProfile() {
-        isElementPresent(cancelEditprofile);
+        WaitUntilElementIsVisible(cancelEditprofile);
         tapByElement(cancelEditprofile);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen editDobToPreviousMonth() {
-        isElementPresent(dobEditProfile);
+        WaitUntilElementIsVisible(dobEditProfile);
         tapByElement(dobEditProfile);
 
-        isElementPresent(MonthDob);
+        WaitUntilElementIsVisible(MonthDob);
         tapByElement(MonthDob);
 
         tapByElement(dobOk);
@@ -558,37 +648,33 @@ public class ProfileScreen extends ActionBase{
 
     public ProfileScreen chooseFemaleGender() {
         tapByElement(genderField);
-
-        isElementPresent(rbFemalePersonalInfo);
+        WaitUntilElementIsVisible(rbFemalePersonalInfo);
         tapByElement(rbFemalePersonalInfo);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseMaleGender() {
-        tapByElement(genderField);
-
-        isElementPresent(rbMalePersonalInfo);
+        WaitUntilElementIsVisible(rbMalePersonalInfo);
         tapByElement(rbMalePersonalInfo);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen chooseLocationEditProfile() {
-        verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
         tapByElement(locationField);
-
-        isElementPresent(ambon);
+        WaitUntilElementIsVisible(ambon);
         tapByElement(ambon);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen inputBio(String bio) {
-        isElementPresent(fieldBio);
+        WaitUntilElementIsVisible(fieldBio);
         inputValue(fieldBio, bio);
         return new ProfileScreen(driver);
     }
 
+    /* choose beauty id */
     public ProfileScreen clickUpdateBeautyProfile() {
-        isElementPresent(fullnameField);
+        WaitUntilElementIsVisible(fullnameField);
         this.verticalSwipeByPercentages(fullnameField,0.4,0.01,0.5,500);
 
         tapByElement(updateBeautyProfile);
@@ -702,18 +788,17 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getLocationEditProfile() {
-        verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
-        isElementPresent(locationField);
+        WaitUntilElementIsVisible(locationAgeLabelProfile);
 
-        String getLoc = locationField.getText();
+        String getLoc = locationAgeLabelProfile.getText();
         System.out.println("loc is"+" "+getLoc);
         Assert.assertNotSame(null, getLoc);
         return new ProfileScreen(driver);
     }
 
     public ProfileScreen getTextBio(String txt) {
-        isElementPresent(fieldBio);
-        String getBio = fieldBio.getText();
+        isElementPresent(bioLabelProfile);
+        String getBio = bioLabelProfile.getText();
         System.out.println("dobiob is"+" "+getBio);
         Assert.assertEquals(txt, getBio);
         return new ProfileScreen(driver);
@@ -736,20 +821,23 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen getLocationEmptyEditProfile() {
-        verticalSwipeByPercentages(locationField, 0.4,0.01,0.5,500);
-        isElementPresent(locationField);
-
-        String getLoc = locationField.getText();
+        WaitUntilElementIsVisible(locationAgeLabelProfile);
+        String getLoc = locationAgeLabelProfile.getText();
         System.out.println("loc is"+" "+getLoc);
-        Assert.assertSame(null, getLoc);
+        Boolean check = getLoc.contains(",");
+        if(check==Boolean.TRUE){
+            org.testng.Assert.fail("location should empty");
+        }
         return new ProfileScreen(driver);
     }
 
-    public ProfileScreen getTextEmptyBio() {
-        isElementPresent(fieldBio);
-        String getBio = fieldBio.getText();
-        System.out.println("dobiob is"+" "+getBio);
-        Assert.assertSame(null, getBio);
+    public ProfileScreen isBioNotAppear() {
+        WaitUntilElementIsVisible(postsTab);
+        Boolean bio = driver.findElements(By.id("com.fdbr.android.main:id/labelBio")).isEmpty();
+        System.out.println(bio);
+        if(bio==false){
+            org.testng.Assert.fail("bio should not appear on profile if empty ");
+        }
         return new ProfileScreen(driver);
     }
 
