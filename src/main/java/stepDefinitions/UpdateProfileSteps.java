@@ -31,6 +31,15 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.isOnBeautyIdScreen();
     }
 
+    @Then("^User will direct to completed data beauty id screen$")
+    public void user_will_direct_to_completed_data_beauty_id_screen() {
+
+        profileScreen.isOnBeautyIdScreen();
+
+        profileScreen.islabelCompleteBeautyProfileDissapear();
+        profileScreen.islabelCompleteBeautyConcernDissapear();
+    }
+
     @Then("^User will direct to edit beauty id screen$")
     public void user_will_direct_to_edit_beauty_id_screen() {
 
@@ -78,8 +87,27 @@ public class UpdateProfileSteps extends DriverFactory {
         verifyAccountScreen.clickSaveBeautyCon();
     }
 
+    @And("^User clicks edit and complete beauty concern$")
+    public void user_clicks_edit_and_complete_beauty_concern() {
+
+        profileScreen.clickEditBeautyConcern();
+
+        verifyAccountScreen.chooseSkinCon();
+        verifyAccountScreen.chooseBodyCon();
+        verifyAccountScreen.chooseHairCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+    }
+
     @Then("^User will see completed data beauty profile screen$")
     public void user_will_see_completed_data_beauty_profile_screen() {
+
+        profileScreen.islabelCompleteBeautyProfileDissapear();
+        profileScreen.verifyCompletedDataBeautyId();
+    }
+
+    @Then("^User will see completed beauty profile screen$")
+    public void user_will_see_completed_beauty_profile_screen() {
 
         profileScreen.islabelCompleteBeautyProfileDissapear();
     }
@@ -108,18 +136,6 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickBeautyIdOnBeautyBox();
     }
 
-    @And("^User clicks setting icon$")
-    public void user_clicks_setting_icon() {
-
-        profileScreen.clickSettingProfile();
-    }
-
-    @And("^User clicks edit profile$")
-    public void user_clicks_edit_profile() {
-
-        profileScreen.clickEditProfile();
-    }
-
     @Then("^User will see all inputed data are stored$")
     public void user_will_see_all_inputed_data_are_stored() throws Throwable {
 
@@ -134,28 +150,6 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickBackSetting();
         profileScreen.getLocationEmptyEditProfile();
         profileScreen.isBioNotAppear();
-    }
-
-    @When("^User click update beauty profile and user fill all option$")
-    public void user_click_update_beauty_profile_and_user_fill_all_option() throws Throwable {
-
-        profileScreen.clickUpdateBeautyProfile();
-
-//        verifyAccountScreen.checkTitleScreenBeautyProfile();
-
-        profileScreen.chooseSkinType();
-
-        profileScreen.chooseSkinTone();
-
-        profileScreen.chooseSkinUndertone();
-
-        profileScreen.chooseHairType();
-
-        profileScreen.chooseColoredHair();
-
-        profileScreen.chooseHijaber();
-
-        profileScreen.clickSaveBeautyProf();
     }
 
     @When("^User click update beauty concern and user fill all option$")
@@ -174,7 +168,7 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickSaveBeautyCon();
     }
 
-    @Then("^User will see toast msg to inform beauty profile updated$")
+    @And("^User will see toast msg to inform beauty profile updated$")
     public void user_will_see_toast_msg_to_inform_beauty_profile_updated() throws Throwable {
 
         profileScreen.findToastAfterUpdateBeautyProfile();
@@ -184,14 +178,6 @@ public class UpdateProfileSteps extends DriverFactory {
     public void user_will_see_toast_msg_to_inform_beauty_concern_updated() {
 
         profileScreen.findToastAfterUpdateBeautyConcern();
-    }
-
-    @And("^User clicks save on edit profile screen$")
-    public void user_clicks_save_on_edit_profile_screen() throws Throwable {
-
-        profileScreen.clickSaveProfile();
-        Thread.sleep(1000);
-        profileScreen.clickBackSetting();
     }
 
     @Then("^User will direct automatically to beauty concern screen$")
@@ -228,5 +214,13 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickBackSetting();
         profileScreen.getLocationEditProfile();
         profileScreen.getTextBio(bio);
+    }
+
+    @And("^User clicks profile from homescreen menu and edit beautyId$")
+    public void user_clicks_profile_from_homescreen_menu_and_edit_beautyid() {
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickSettingProfile();
+        profileScreen.clickDrawerSetting();
+        profileScreen.clickEditBeautyId();
     }
 }

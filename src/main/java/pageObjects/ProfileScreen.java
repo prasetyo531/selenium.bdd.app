@@ -294,9 +294,26 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSkipBeautyProfile")
     public MobileElement skipBeautyProfile;
 
-    /*********
-     beauty concern screen
-     *********/
+    /* inputed value profile and concern */
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputSkinType")
+    public MobileElement valueSkinType;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputSkinTone")
+    public MobileElement valueSkinTone;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputSkinUndertone")
+    public MobileElement valueSkinUndertone;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputHairType")
+    public MobileElement valueHairType;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputColoredHair")
+    public MobileElement valueColoredHair;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputHijaber")
+    public MobileElement valueIsHijab;
+
+    /* beauty concern screen */
     //title screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement titleScreen;
@@ -487,6 +504,12 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen clickBackSetting() {
         WaitUntilElementIsVisible(backArrow);
         tapByElement(backArrow);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickEditBeautyId() {
+        WaitUntilElementIsVisible(editBeautyID);
+        tapByElement(editBeautyID);
         return new ProfileScreen(driver);
     }
 
@@ -1026,5 +1049,24 @@ public class ProfileScreen extends ActionBase{
             org.testng.Assert.fail("follow btn still appear");
         }
         return new ProfileScreen(driver);
+    }
+
+    public void verifyCompletedDataBeautyId() {
+
+        String getTxtSkinType = valueSkinType.getText();
+        String getTxtSkinTone  = valueSkinTone.getText();
+        String getTxtSkinUndertone = valueSkinUndertone.getText();
+        String getTxtHairType = valueHairType.getText();
+        String getTxtIsHijab = valueIsHijab.getText();
+
+        Boolean ck1= getTxtSkinType.contains("[^-]+");
+        Boolean ck2= getTxtSkinTone.contains("[^-]+");
+        Boolean ck3= getTxtSkinUndertone.contains("[^-]+");
+        Boolean ck4= getTxtHairType.contains("[^-]+");
+        Boolean ck5= getTxtIsHijab.contains("[^-]+");
+
+        if(ck1 || ck2 || ck3 || ck4 || ck5 ==true){
+            Assert.fail("beauty profile not updated");
+        }
     }
 }

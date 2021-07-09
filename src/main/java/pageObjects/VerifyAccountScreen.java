@@ -708,6 +708,7 @@ public class VerifyAccountScreen extends ActionBase {
 
     public VerifyAccountScreen chooseHairCon() {
 
+        verticalSwipe(contentScreenBodyCon, 1, 900);
         isElementPresent(greyHair);
         tapByElement(greyHair);
         return new VerifyAccountScreen(driver);
