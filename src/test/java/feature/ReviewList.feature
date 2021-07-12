@@ -5,7 +5,7 @@ Feature: Review List
   This thumbnail located on snippet review on product detail, review list screen and review list profile
 
   #FDBRMA-323 #FDBRMA-324 #FDBRMA-325
-  @Android @reviewlist @Staging
+  @Android @reviewlist @Staging @FDBRMA-323
   Scenario Outline: User filter - sort review list
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -21,4 +21,4 @@ Feature: Review List
 
     Examples:
       |   username        |   password    |
-      |	  newnew02	      |   test123     |
+      |	  editreviewbdd	      |   test123     |

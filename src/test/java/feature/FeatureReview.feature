@@ -6,7 +6,7 @@ Feature: User Check Review
   I should able report, share, delete post
 
    #FDBRMA-348 #FDBRMA-349
-  @Android @CheckReview @Production @testShareReview @OkrDone
+  @Android @CheckReview @Staging @testShareReview @OkrDone @FDBRMA-348
   Scenario Outline: Report - Share review other user from other user profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -24,4 +24,4 @@ Feature: User Check Review
 
     Examples:
       |         email    |        password       |     fullname     |
-      |	      qatest@mailinator.com	 |        tester123        |    hanafeberia      |
+      |	      editreviewbdd	 |        test123        |    hanafeberia      |

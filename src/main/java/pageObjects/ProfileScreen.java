@@ -931,7 +931,7 @@ public class ProfileScreen extends ActionBase{
 
     /* review */
     public ProfileScreen clickRandomReviewListProfile() {
-        this.verticalSwipeByPercentages(listPhotoReviewsProfile, 0.4,0.01,0.5,500);
+        verticalSwipe(listPhotoReviewsProfile, 1, 900);
         isElementPresent(listPhotoReviewsProfile);
         clickRandomMenus(listProductReviewsProfile);
         return new ProfileScreen(driver);
@@ -939,7 +939,7 @@ public class ProfileScreen extends ActionBase{
 
     /* post */
     public ProfileScreen clickFirstPostProfile() {
-        this.verticalSwipeByPercentages(postsTab, 0.4,0.01,0.5,500);
+        verticalSwipe(postsTab, 1, 900);
         isElementPresent(firstPostProfile);
         tapByElement(firstPostProfile);
         return new ProfileScreen(driver);

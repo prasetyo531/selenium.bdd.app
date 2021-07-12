@@ -8,7 +8,7 @@ Feature: User Edit Review
                  set all field to only choose first field
 
   #FDBRMA-39 #FDBRMA-41
-  @Android @EditReview @Staging
+  @Android @EditReview @Staging @OkrDone @FDBRMA-39
   Scenario Outline: Update review - from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -32,7 +32,7 @@ Feature: User Edit Review
       |	      editreviewbdd	 |        test123        |
 
   #FDBRMA-420 #FDBRMA-415 #FDBRMA-416
-  @Android @EditReview @Staging
+  @Android @EditReview @Staging @OkrDone @FDBRMA-420
   Scenario Outline: Update review - from tagged modal feed and Product detail
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -55,7 +55,7 @@ Feature: User Edit Review
       |	      postreviewbdd01	 |        test123        |
 
   #FDBRMA-414 #FDBRMA-40
-  @Android @EditReview @Staging
+  @Android @EditReview @Staging @OkrDone @FDBRMA-414
   Scenario Outline: Update review - from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
