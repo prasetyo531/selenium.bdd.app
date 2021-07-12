@@ -99,11 +99,19 @@ public class UpdateProfileSteps extends DriverFactory {
         verifyAccountScreen.clickSaveBeautyCon();
     }
 
+    @Then("^User will see completed data beautyid screen$")
+    public void user_will_see_completed_data_beautyid_screen() {
+
+        profileScreen.islabelCompleteBeautyProfileDissapear();
+        profileScreen.verifyCompletedDataBeautyProfile();
+        profileScreen.verifyCompletedDataBeautyConcern();
+    }
+
     @Then("^User will see completed data beauty profile screen$")
     public void user_will_see_completed_data_beauty_profile_screen() {
 
         profileScreen.islabelCompleteBeautyProfileDissapear();
-        profileScreen.verifyCompletedDataBeautyId();
+        profileScreen.verifyCompletedDataBeautyProfile();
     }
 
     @Then("^User will see completed beauty profile screen$")

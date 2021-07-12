@@ -55,7 +55,7 @@ Feature: Update Profile
     And User clicks edit and complete beauty profile
     Then User will see completed data beauty profile screen
     And User clicks edit and complete beauty concern
-    Then User will direct to edit beauty id screen
+    Then User will see completed data beautyid screen
 
     Examples:
       |   username            |   password      |
@@ -80,10 +80,10 @@ Feature: Update Profile
 
     Examples:
       |   username                 |   password      |
-      |	  emptybeautyprofileown05  |   test123       |
+      |	  emptybeautyprofileown06  |   test123       |
 
   #FDBRMA-280 #FDBRMA-282
-  @updateprofile @staging @FDBRMA-280
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280
   Scenario Outline: Update beauty concern and then click save on its own screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -92,12 +92,12 @@ Feature: Update Profile
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
-    And User clicks profile from homescreen menu
-    When User click update beauty concern and user fill all option
-    Then User will see toast msg to inform beauty concern updated
-    Then User will direct automatically to beauty profile screen
+    And User clicks profile from homescreen menu and edit beautyId
+    Then User will direct to edit beauty id screen
+    And User clicks edit and complete beauty concern
+    Then User will see completed data beauty concern screen
 
     Examples:
       |   username                |   password      |
-      |	  emptybeautyprofile08	  |   test123       |
+      |	  emptypersonal015	  |   test123       |
 

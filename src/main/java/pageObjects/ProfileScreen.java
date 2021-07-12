@@ -313,6 +313,15 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.beauty:id/inputHijaber")
     public MobileElement valueIsHijab;
 
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputSkinConcern")
+    public MobileElement skinConcern;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputBodyConcern")
+    public MobileElement bodyConcern;
+
+    @AndroidFindBy(id="com.fdbr.android.beauty:id/inputHairConcern")
+    public MobileElement hairConcern;
+
     /* beauty concern screen */
     //title screen
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
@@ -1051,22 +1060,39 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    public void verifyCompletedDataBeautyId() {
+    public void verifyCompletedDataBeautyProfile() {
 
         String getTxtSkinType = valueSkinType.getText();
         String getTxtSkinTone  = valueSkinTone.getText();
         String getTxtSkinUndertone = valueSkinUndertone.getText();
         String getTxtHairType = valueHairType.getText();
+        String getColoredHair = valueColoredHair.getText();
         String getTxtIsHijab = valueIsHijab.getText();
 
-        Boolean ck1= getTxtSkinType.contains("[^-]+");
-        Boolean ck2= getTxtSkinTone.contains("[^-]+");
-        Boolean ck3= getTxtSkinUndertone.contains("[^-]+");
-        Boolean ck4= getTxtHairType.contains("[^-]+");
-        Boolean ck5= getTxtIsHijab.contains("[^-]+");
+        Boolean ck1= getTxtSkinType.contains("-");
+        Boolean ck2= getTxtSkinTone.contains("-");
+        Boolean ck3= getTxtSkinUndertone.contains("-");
+        Boolean ck4= getTxtHairType.contains("-");
+        Boolean ck5= getColoredHair.contains("-");
+        Boolean ck6= getTxtIsHijab.contains("-");
 
-        if(ck1 || ck2 || ck3 || ck4 || ck5 ==true){
+        if(ck1 || ck2 || ck3 || ck4 || ck5 || ck6 ==true){
             Assert.fail("beauty profile not updated");
+        }
+    }
+
+    public void verifyCompletedDataBeautyConcern() {
+
+        String getTxtSkinCon = valueSkinType.getText();
+        String getTxtBodyCon  = valueSkinTone.getText();
+        String getTxtHairCon = valueSkinUndertone.getText();
+
+        Boolean ck1= getTxtSkinCon.contains("-");
+        Boolean ck2= getTxtBodyCon.contains("-");
+        Boolean ck3= getTxtHairCon.contains("-");
+
+        if(ck1 || ck2 || ck3 ==true){
+            Assert.fail("beauty concern not updated");
         }
     }
 }
