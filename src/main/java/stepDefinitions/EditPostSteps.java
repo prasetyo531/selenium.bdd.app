@@ -109,5 +109,10 @@ public class EditPostSteps extends DriverFactory {
         feedScreen.checkIsOnFeedAfterPost();
     }
 
+    @Then("^User will see button to add post appear$")
+    public void user_will_see_button_to_add_post_appear() {
+
+        profileScreen.isButtonAddPostReviewAppear();
+    }
 
 }

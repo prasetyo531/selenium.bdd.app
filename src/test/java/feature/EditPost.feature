@@ -117,5 +117,5 @@ Feature: User Edit Post
     Then User will direct to feed
 
     Examples:
-      |         email            |        password       |                hashtag                 |
+      |         email    |        password       |                hashtag                 |
       |	      vnsphl05	 |        test123        |        edit post tag only 1 product    |

@@ -61,12 +61,7 @@ public class CheckPostSteps extends DriverFactory {
 
         feedScreen.clickReadMorePost();
         feedScreen.clickDeletePost();
-    }
-
-    @Then("^User will see confirmation dialog to delete post$")
-    public void user_will_see_confirmation_dialog_to_delete_post() throws Throwable {
-
-        feedScreen.chooseNoDeletePost();
+        feedScreen.chooseYesDeletePost();
     }
 
     @When("^User clicks tag icon in post from feed menu$")

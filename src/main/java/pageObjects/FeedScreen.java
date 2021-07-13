@@ -259,6 +259,15 @@ public class FeedScreen extends ActionBase {
         return new FeedScreen(driver);
     }
 
+    public FeedScreen chooseYesDeletePost() {
+        isElementPresent(titleModal);
+        String titleModalReport = titleModal.getText();
+        Assert.assertTrue(titleModalReport.equals("Sure want to delete Post?"));
+        isElementPresent(okDelete);
+        tapByElement(okDelete);
+        return new FeedScreen(driver);
+    }
+
     /*  comment of post screen*/
     public FeedScreen submitReplyCommentPost() throws InterruptedException {
         isElementEnabled(commentList);

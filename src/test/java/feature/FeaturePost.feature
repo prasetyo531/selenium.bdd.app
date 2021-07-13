@@ -7,7 +7,7 @@ Feature: User Check Post
 
   #need to maintain
   #FDBRMA-345 #FDBRMA-346
-  @Android @CheckPost @staging
+  @Android @CheckPost @Staging @OkrDone @FDBRMA-345
   Scenario Outline: Report - Share post other user from discover
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -27,8 +27,8 @@ Feature: User Check Post
       |         email        |        password       |
       |	      addpostbdd	     |        test123        |
 
-  #FDBRMA-346 #FDBRMA-347
-  @Android @CheckPost @staging
+  #FDBRMA-347
+  @Android @CheckPost @staging @OkrDone @FDBRMA-347
   Scenario Outline: Share - Delete own post from profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -41,14 +41,14 @@ Feature: User Check Post
     When User clicks share post from profile menu
     Then User will see option which app to taking share
     When User clicks delete post from profile menu
-    Then User will see confirmation dialog to delete post
+    Then User will see button to add post appear
 
     Examples:
       |         email        |        password   |
       |	      addpostbdd	     |        test123        |
 
   #FDBRMA-421
-  @Android @CheckPost @staging
+  @Android @CheckPost @staging @OkrDone @FDBRMA-421
   Scenario Outline: Check tagged post with user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -65,7 +65,7 @@ Feature: User Check Post
       |	      onlypostbdd	     |        test123    |
 
   #FDBRMA-422
-  @Android @CheckPost @staging
+  @Android @CheckPost @staging @OkrDone @FDBRMA-422
   Scenario Outline: Check tagged post without user review from feed
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -78,5 +78,5 @@ Feature: User Check Post
     Then User will see overall rating for product
 
     Examples:
-      |         email             |        password   |
-      |	      postreviewbdd01	  |        test123    |
+      |         email         |        password   |
+      |	      onlypost01	  |        test123    |

@@ -15,14 +15,11 @@ public class ProductCategoryScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     public MobileElement searchBar;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelMenuName') and @text='Body']")
-    public MobileElement productCategoryBody;
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.product:id/labelSubItem') and @text='Cream']")
+    public MobileElement productCategoryMakeUp;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelMenuName') and @text='SkinCare']")
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.product:id/labelItem') and @text='Cream & Lotion']")
     public MobileElement productCategorySkincare;
-
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/parent') and @index='1']")
-    public MobileElement firstPopularProduct;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelSubItem')]")
     public List<MobileElement> listProductCat;
@@ -49,13 +46,15 @@ public class ProductCategoryScreen extends ActionBase {
         return new ProductCategoryScreen(driver);
     }
 
-    public ProductCategoryScreen clickMenuBody() {
-        tapByElement(productCategoryBody);
+    public ProductCategoryScreen clickMenuMakeUp() {
+        WaitUntilElementIsVisible(productCategoryMakeUp);
+        tapByElement(productCategoryMakeUp);
 
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickMenuSkincare() {
+        WaitUntilElementIsVisible(productCategorySkincare);
         tapByElement(productCategorySkincare);
 
         return new ProductCategoryScreen(driver);
@@ -63,12 +62,6 @@ public class ProductCategoryScreen extends ActionBase {
 
     public ProductCategoryScreen clickRandomMenuProductCat() {
         clickRandomMenus(listProductCat);
-
-        return new ProductCategoryScreen(driver);
-    }
-
-    public ProductCategoryScreen clickFirstPopularProduct() {
-        tapByElement(firstPopularProduct);
 
         return new ProductCategoryScreen(driver);
     }

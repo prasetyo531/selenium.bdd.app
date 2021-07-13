@@ -88,14 +88,14 @@ public class ProductDetailScreen extends ActionBase {
         return new ProductDetailScreen(driver);
     }
 
-    public ProductDetailScreen clickWishlistBtn() throws IOException {
+    public ProductDetailScreen clickWishlistBtn() {
 
         isElementPresent(wishlistBtn);
         tapByElement(wishlistBtn);
         return new ProductDetailScreen(driver);
     }
 
-    public ProductDetailScreen checkIsOnProductDetailAfterReview() throws IOException {
+    public ProductDetailScreen checkIsOnProductDetailAfterReview() {
 
         isElementPresent(descReviewDetail);
         tapByElement(back);
@@ -103,10 +103,10 @@ public class ProductDetailScreen extends ActionBase {
         return new ProductDetailScreen(driver);
     }
 
-    public ProductDetailScreen scrollFindSeeMoreReviews() throws IOException {
+    public ProductDetailScreen scrollFindSeeMoreReviews() {
 
         isElementPresent(contentPercentageReview);
-        this.verticalSwipeByPercentages(contentPercentageReview,0.8,0.01,0.5,500);
+        verticalSwipe(contentPercentageReview, 1, 900);
 
         return new ProductDetailScreen(driver);
     }

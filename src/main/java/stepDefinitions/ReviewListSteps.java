@@ -13,9 +13,9 @@ public class ReviewListSteps extends DriverFactory {
     public void user_clicks_see_more_reviews_on_product_detail() throws Throwable {
         //homeScreen.findAndCloseFloatingImg();
         homeScreen.clickProductCategory();
+        productCategoryScreen.clickMenuSkincare();
 
-        productCategoryScreen.clickFirstPopularProduct();
-
+        productListScreen.clickFirstProduct();
         productDetailScreen.scrollFindSeeMoreReviews();
         productDetailScreen.clickSeeMoreReviews();
     }
