@@ -27,7 +27,7 @@ public class EditPostSteps extends DriverFactory {
     }
 
     @Then("^User enters caption of post contains hashtag \"([^\"]*)\"$")
-    public void user_enters_caption_of_post_contains_hashtag_something(String hashtag) throws Throwable {
+    public void user_enters_caption_of_post_contains_hashtag_something(String hashtag) {
 
         addPostScreen.fillCaptionWithHashtag(hashtag);
     }

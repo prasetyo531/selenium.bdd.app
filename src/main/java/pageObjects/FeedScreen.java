@@ -186,7 +186,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen checkCaptionEditedWithHashtag(String hashtag) {
-        this.verticalSwipeByPercentages(iconLove, 0.2,0.01,0.2,500);
+        //this.verticalSwipeByPercentages(iconLove, 0.2,0.01,0.2,500);
         WaitUntilElementIsVisible(firstCaptionOwnUserFeeds);
         String caption = firstCaptionOwnUserFeeds.getText();
         org.junit.Assert.assertTrue(caption.contains(hashtag));

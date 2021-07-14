@@ -181,7 +181,7 @@ public class ActionBase extends DriverFactory {
      **********************************************************************************/
     protected void acceptAlert() {
         System.out.println("wait to dismiss dialog");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
             wait.until(ExpectedConditions.alertIsPresent());
             driver.switchTo().alert().accept();

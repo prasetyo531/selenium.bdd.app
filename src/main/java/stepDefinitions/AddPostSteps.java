@@ -37,12 +37,12 @@ public class AddPostSteps extends DriverFactory {
     }
 
     @Then("^User enters caption of post contains special char \"([^\"]*)\"$")
-    public void user_enters_caption_of_post_contains_special_char_something(String caption) throws Throwable {
+    public void user_enters_caption_of_post_contains_special_char_something(String caption) {
         addPostScreen.fillCustomCaption(caption);
     }
 
     @And("^User tag product and select by search product \"([^\"]*)\"$")
-    public void user_tag_product_and_select_by_search_product_something(String search) throws Throwable {
+    public void user_tag_product_and_select_by_search_product_something(String search) {
         addPostScreen.clickTagProduct();
         addPostScreen.inputKeywordToSearch(search);
         addPostScreen.selectFirstResult();
