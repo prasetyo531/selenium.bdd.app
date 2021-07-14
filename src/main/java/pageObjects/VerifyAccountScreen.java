@@ -252,6 +252,9 @@ public class VerifyAccountScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
     public MobileElement titleScreen;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Personal Info']")
+    public MobileElement titlePersonalInfoScreen;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Beauty Profile']")
     public MobileElement titleBeautyProfileScreen;
 
@@ -302,6 +305,13 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen checkStepper() {
 
         isElementPresent(stepper);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen isCloseStepperAppear() {
+
+        WaitUntilElementIsVisible(closeStep);
+
         return new VerifyAccountScreen(driver);
     }
 
@@ -543,12 +553,6 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public VerifyAccountScreen skipPersonalInfo() {
-
-        tapByElement(skipBtnPersonalInfo);
-        return new VerifyAccountScreen(driver);
-    }
-
     /***  beauty profile  ***/
     public VerifyAccountScreen clickSaveBeautyProf() {
 
@@ -732,6 +736,11 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /***  get title screen  ***/
+    public VerifyAccountScreen checkTitleScreenPersonalInfo() {
+        WaitUntilElementIsVisible(titlePersonalInfoScreen);
+        return new VerifyAccountScreen(driver);
+    }
+
     public VerifyAccountScreen checkTitleScreenBeautyProfile() {
         WaitUntilElementIsVisible(titleBeautyProfileScreen);
         return new VerifyAccountScreen(driver);
@@ -763,6 +772,32 @@ public class VerifyAccountScreen extends ActionBase {
     public VerifyAccountScreen deleteImageStored(String namafile1, String namafile2) {
 
         deleteFile(namafile1, namafile2);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen skipEmail() {
+        WaitUntilElementIsVisible(skipEmailBtn);
+        tapByElement(skipEmailBtn);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen skipPersonalInfo() {
+        WaitUntilElementIsVisible(skipBtnPersonalInfo);
+        tapByElement(skipBtnPersonalInfo);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen skipBeautyProfile() {
+        verticalSwipe(contentBeautyProf, 1, 900);
+        WaitUntilElementIsVisible(skipBeautyProfile);
+        tapByElement(skipBeautyProfile);
+        return new VerifyAccountScreen(driver);
+    }
+
+    public VerifyAccountScreen skipBeautyConcern() {
+        verticalSwipe(contentBeautyProf, 1, 900);
+        WaitUntilElementIsVisible(btnSkipBeautyConcern);
+        tapByElement(btnSkipBeautyConcern);
         return new VerifyAccountScreen(driver);
     }
 

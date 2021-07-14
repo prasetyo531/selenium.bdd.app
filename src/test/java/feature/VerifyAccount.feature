@@ -184,7 +184,7 @@ Feature: Verify account
       |	  verifywebprod	  |   test123       |       vnsph_satu     |
 
   #FDBRMA-429 #FDBRMA-250 #RPA-59
-   #check should use new data
+  #check should use new data
   @Android @staging @Smoke @IntegrationTest @OkrDone @FDBRMA-429
   Scenario Outline: Save personal using photo from gallery
     Given User navigates to onboarding screen by swipe
@@ -201,3 +201,20 @@ Feature: Verify account
     Examples:
       |   username    |   password      |
       |	  profilepicture	  |   test123     |
+
+
+  ### CLOSE STEPPER ###
+  #RPA-26
+  @Android @staging @Smoke @IntegrationTest @OkrDone @RPA-26
+  Scenario Outline: Save personal using photo from gallery
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User check close icon on each step verify and complete
+
+    Examples:
+      |   username    |   password    |
+      |	  emptyverify |   test123     |

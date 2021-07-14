@@ -370,4 +370,25 @@ public class VerifyAccountSteps extends DriverFactory {
         verifyAccountScreen.confirmChangeAccount();
     }
 
+    @Then("^User check close icon on each step verify and complete$")
+    public void user_check_close_icon_on_each_step_verify_and_complete() {
+        homeScreen.clickAccountCompleteVerBtn();
+
+        verifyAccountScreen.isCloseStepperAppear();
+        verifyAccountScreen.skipEmail();
+
+        verifyAccountScreen.checkTitleScreenPersonalInfo();
+        verifyAccountScreen.isCloseStepperAppear();
+        verifyAccountScreen.skipPersonalInfo();
+
+        verifyAccountScreen.checkTitleScreenBeautyProfile();
+        verifyAccountScreen.isCloseStepperAppear();
+        verifyAccountScreen.skipBeautyProfile();
+
+        verifyAccountScreen.checkTitleScreenBeautyConcern();
+        verifyAccountScreen.isCloseStepperAppear();
+        verifyAccountScreen.skipBeautyConcern();
+
+        homeScreen.checkProgressBarVerifyEmailPhone();
+    }
 }
