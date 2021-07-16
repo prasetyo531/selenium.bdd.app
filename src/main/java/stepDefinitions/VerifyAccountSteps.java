@@ -56,7 +56,7 @@ public class VerifyAccountSteps extends DriverFactory {
     //***   modal account status    ***
     @And("^User change email and input \"([^\"]*)\" and click verify on verify email screen$")
     public void User_change_email_and_input_something_and_click_verify_on_verify_email_screen(String email) {
-        verifyAccountScreen.clickChangeAuth();
+        verifyAccountScreen.clickChangeAuthEmail();
         verifyAccountScreen.inputFieldVerifyEmail(email);
         verifyAccountScreen.clickVerifyEmailNow();
     }
@@ -123,6 +123,27 @@ public class VerifyAccountSteps extends DriverFactory {
     public void User_input_something_and_click_verify_on_verify_phone_screen(String phone) {
         verifyAccountScreen.inputFieldVerifyPhone(phone);
         verifyAccountScreen.clickVerifyPhoneNow();
+    }
+
+    @And("^User change \"([^\"]*)\" and click verify on verify phone screen$")
+    public void User_change_something_and_click_verify_on_verify_phone_screen(String phone) {
+        verifyAccountScreen.clickChangeAuthPhone();
+        verifyAccountScreen.inputFieldVerifyPhone(phone);
+        verifyAccountScreen.clickVerifyPhoneNow();
+    }
+
+    @And("^User change phone \"([^\"]*)\" and confirm password$")
+    public void user_change_phone_something_and_confirm_password(String phone) {
+        verifyAccountScreen.tapToChangePhone(phone);
+        verifyAccountScreen.clickVerifyPhoneNow();
+        verifyAccountScreen.inputPasswordToChangePhone();
+    }
+
+    @And("^User change email \"([^\"]*)\" and confirm password$")
+    public void user_change_email_something_and_confirm_password(String email) {
+        verifyAccountScreen.tapToChangeEmail(email);
+        verifyAccountScreen.clickVerifyEmailNow();
+        verifyAccountScreen.inputPasswordToChangeEmail();
     }
 
     @Then("^User click skip button on verify email screen$")

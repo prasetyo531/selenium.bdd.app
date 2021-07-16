@@ -54,8 +54,8 @@ Feature: Verify account
       |	  verifynotempty10@mailinator.com	  |   test123     |     verifynotempty01@mailinator.com    |     6281390009009  |   verifynotempty   |
 
   #FDBRMA-224 #FDBRMA-230
-  @Android @Smoke @bypassotp @IntegrationTest @OkrDone
-  Scenario Outline: Verify Registered Email on Profile
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-224
+  Scenario Outline: Verify Registered Email And Phone on Profile
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<email>" email to login
@@ -119,6 +119,96 @@ Feature: Verify account
     Examples:
       |             email             |   password    |          newemail                |      newphone      |         fullname      |
       |	  bddtalk01@mailinator.com	  |   test123     | suspendemailqa@mailinator.com    |     081280005001   |   changedemailphone   |
+
+  #FDBRMA-234 #FDBRMA-242
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-242 @Demobsk
+  Scenario Outline: Changed Registered Phone Using Registered Phone Number - Changed Registered Email Using Registered Email
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
+    When User change phone "<newphone>" to verify phone bypass otp
+    Then User will see success msg verified by phone contains "<newphone>"
+    When User change email "<newemail>" to verify email bypass otp
+    Then User will see success msg verified by email contains "<newemail>"
+
+    Examples:
+      |     email                         |   password    |       newphone    |      newemail                       |
+      |	  verifyempty10@mailinator.com	  |   test123     |     628224624123 |   vverifynotempty01@mailinator.com   |
+
+  #FDBRMA-235
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-235 @Demobsk
+  Scenario Outline: Changed Registered Phone Using Verified Phone Number
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
+    And User change "<phone>" and click verify on verify phone screen
+    Then display msg "Phone number has been registered." is displayed under verify phone field
+
+    Examples:
+      |   email                               |   password    |     phone      |
+      |	  verifyregistered01@mailinator.com	  |   test123     |      628123456112         |
+
+  #FDBRMA-243
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-243 @Demobsk
+  Scenario Outline: Changed Registered Email Using Verified Email
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    And User change email and input "<newemail>" and click verify on verify email screen
+    Then display msg "Email has been registered." is displayed under verify email field
+
+    Examples:
+      |   email                               |   password    |     newemail      |
+      |	  emptypersonal015@mailinator.com	  |   test123     |      verifyempty07@mailinator.com         |
+
+  #FDBRMA-236
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-236 @Demobsk
+  Scenario Outline: Changed Registered Phone Using Suspend Phone Number
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    And User tap button get it now modal get point
+    Then User will see verify phone screen to complete by user
+    And User change phone "<phone>" and confirm password
+    Then Display toast error msg suspend "Phone number you entered has been suspended. Please try again in"
+
+    Examples:
+      |   email                               |   password    |     phone      |
+      |	  verifyregistered01@mailinator.com	  |   test123     |      081280005001         |
+
+  #FDBRMA-244
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-244 @Demobsk
+  Scenario Outline: Changed Registered Email Using Suspend Email
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<email>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    When User click complete verify button on modal
+    And User change email "<newemail>" and confirm password
+    Then Display toast error msg suspend "Email you entered has been suspended. Please try again in"
+
+    Examples:
+      |   email                               |   password    |     newemail      |
+      |	  emptypersonal015@mailinator.com	  |   test123     |    suspendemailqa@mailinator.com  |
 
   ### UI VALIDATION ###
 
@@ -204,7 +294,8 @@ Feature: Verify account
 
 
   ### CLOSE STEPPER ###
-  #RPA-26
+
+  #RPA-26 #RPA-27
   @Android @staging @Smoke @IntegrationTest @OkrDone @RPA-26
   Scenario Outline: Save personal using photo from gallery
     Given User navigates to onboarding screen by swipe

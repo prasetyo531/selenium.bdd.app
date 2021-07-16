@@ -22,7 +22,7 @@ public class VerifyAccountScreen extends ActionBase {
     public MobileElement closeStep;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangeEmail")
-    public MobileElement changeAuth;
+    public MobileElement changeEmailBtn;
 
     @AndroidFindBy(id = "com.fdbr.android:id/textinput_error")
     public MobileElement txtWarningEmailPhone;
@@ -33,9 +33,6 @@ public class VerifyAccountScreen extends ActionBase {
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/labelEmail")
     public MobileElement inputedEmail;
-
-    @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonChangeEmail")
-    public MobileElement changeEmailBtn;
 
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonVerifyEmail")
     public MobileElement verifyNowEmailBtn;
@@ -315,9 +312,14 @@ public class VerifyAccountScreen extends ActionBase {
         return new VerifyAccountScreen(driver);
     }
 
-    public void clickChangeAuth(){
+    public void clickChangeAuthPhone(){
 
-        tapByElement(changeAuth);
+        tapByElement(changePhoneBtn);
+    }
+
+    public void clickChangeAuthEmail(){
+
+        tapByElement(changeEmailBtn);
     }
 
     /*  error msg underneath field   */
@@ -330,7 +332,7 @@ public class VerifyAccountScreen extends ActionBase {
     /***  email screen  ***/
     public VerifyAccountScreen tapToChangeEmail(String email) {
 
-        isElementPresent(changeEmailBtn);
+        WaitUntilElementIsVisible(changeEmailBtn);
         tapByElement(changeEmailBtn);
         inputValue(fieldVerifyEmail, email);
         return new VerifyAccountScreen(driver);
