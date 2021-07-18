@@ -141,7 +141,7 @@ Feature: Verify account
       |	  verifyempty10@mailinator.com	  |   test123     |     628224624123 |   vverifynotempty01@mailinator.com   |
 
   #FDBRMA-235
-  @Android @switchAccount @Staging @OkrDone @FDBRMA-235 @Demobsk
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-235
   Scenario Outline: Changed Registered Phone Using Verified Phone Number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -159,7 +159,7 @@ Feature: Verify account
       |	  verifyregistered01@mailinator.com	  |   test123     |      628123456112         |
 
   #FDBRMA-243
-  @Android @switchAccount @Staging @OkrDone @FDBRMA-243 @Demobsk
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-243
   Scenario Outline: Changed Registered Email Using Verified Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -176,7 +176,7 @@ Feature: Verify account
       |	  emptypersonal015@mailinator.com	  |   test123     |      verifyempty07@mailinator.com         |
 
   #FDBRMA-236
-  @Android @switchAccount @Staging @OkrDone @FDBRMA-236 @Demobsk
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-236
   Scenario Outline: Changed Registered Phone Using Suspend Phone Number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -194,7 +194,7 @@ Feature: Verify account
       |	  verifyregistered01@mailinator.com	  |   test123     |      081280005001         |
 
   #FDBRMA-244
-  @Android @switchAccount @Staging @OkrDone @FDBRMA-244 @Demobsk
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-244
   Scenario Outline: Changed Registered Email Using Suspend Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
