@@ -53,6 +53,42 @@ Feature: Verify account
       |             email                 |   password    |          newemail                          |      newphone     |     fullname    |
       |	  verifynotempty10@mailinator.com	  |   test123     |     verifynotempty01@mailinator.com    |     6281390009009  |   verifynotempty   |
 
+  #FDBRMA-239
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-239 @Demo
+  Scenario Outline: Changed verified Phone Using Verified Phone Number on Profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit account
+    When User clicks change phone number and input "<newphone>"
+    Then display msg "Phone number has been registered." is displayed under verify phone field
+
+    Examples:
+      |   username           |        password       |      newphone         |
+      |	      putwid	     |        123tester        |    6287005555551   |
+
+  #FDBRMA-247
+  @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-247 @Demo
+  Scenario Outline: Changed Registered Email Using Verified Email on Profile
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" email to login
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    When User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit account
+    When User clicks change email and input "<newemail>"
+    Then display msg "Email has been registered." is displayed under verify email field
+
+    Examples:
+      |   username           |        password       |      newemail         |
+      |	      putwid	     |        123tester        |    testfitri43@mailinator.com   |
+
   #FDBRMA-224 #FDBRMA-230
   @Android @Smoke @bypassotp @IntegrationTest @OkrDone @FDBRMA-224
   Scenario Outline: Verify Registered Email And Phone on Profile
@@ -120,8 +156,8 @@ Feature: Verify account
       |             email             |   password    |          newemail                |      newphone      |         fullname      |
       |	  bddtalk01@mailinator.com	  |   test123     | suspendemailqa@mailinator.com    |     081280005001   |   changedemailphone   |
 
-  #FDBRMA-234 #FDBRMA-242
-  @Android @switchAccount @Staging @OkrDone @FDBRMA-242 @Demobsk
+  #FDBRMA-234 #FDBRMA-242 #FDBRMA-246
+  @Android @switchAccount @Staging @OkrDone @FDBRMA-242
   Scenario Outline: Changed Registered Phone Using Registered Phone Number - Changed Registered Email Using Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

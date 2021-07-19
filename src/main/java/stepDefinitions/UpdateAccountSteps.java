@@ -16,6 +16,18 @@ public class UpdateAccountSteps extends DriverFactory {
         profileScreen.clickEditAccount();
     }
 
+    @When("^User clicks change phone number and input \"([^\"]*)\"$")
+    public void user_clicks_change_phone_number_and_input_something(String newphone) {
+        profileScreen.tapToChangePhoneProfile(newphone);
+        profileScreen.confirmChangeVerifyPhone();
+    }
+
+    @When("^User clicks change email and input \"([^\"]*)\"$")
+    public void user_clicks_change_email_and_input_something(String newemail) {
+        profileScreen.tapToChangeEmailProfile(newemail);
+        profileScreen.confirmChangeVerifyEmail();
+    }
+
     @And("^User fill fullname \"([^\"]*)\"$")
     public void user_fill_fullname_something(String fullname) {
 
