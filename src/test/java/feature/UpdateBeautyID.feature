@@ -23,7 +23,7 @@ Feature: Update Profile
 
   #FDBRMA-329 #RPA-129
   @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-329
-  Scenario Outline: Update beautyID from beautyID  drawer using user haven't complete data beautyID
+  Scenario Outline: Update beautyID from beautyID drawer using user haven't complete data beautyID
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
     Then User enters the "<username>" username on login screen
@@ -101,3 +101,46 @@ Feature: Update Profile
       |   username                |   password      |
       |	  emptypersonal015	  |   test123       |
 
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279 @wip
+  Scenario Outline: Update beauty profile and then click save on edit profile screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+
+    Examples:
+      |   username                |   password      |
+      |	  emptypersonal015	  |   test123       |
+
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280 @wip
+  Scenario Outline: Update beauty concern and then click save on edit profile screen
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+
+    Examples:
+      |   username                |   password      |
+      |	  emptypersonal015	  |   test123       |
+
+  @Android @Smoke @staging @OkrDone @RPA-275
+  Scenario Outline: Close Bottom Sheet Vertical Ellipsis Menu
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and close more menu
+    Then User click beautyid and close drawer beautyId
+
+    Examples:
+      |   username        |   password      |
+      |	  productmatches  |   test123       |

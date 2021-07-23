@@ -2,10 +2,14 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -45,6 +49,9 @@ public class ProfileScreen extends ActionBase{
 
     @AndroidFindBy(id="com.fdbr.android.main:id/setting")
     public MobileElement settingIcon;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
+    public MobileElement closeIconSetting;
 
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonFollow")
     public MobileElement btnFollow;
@@ -471,9 +478,27 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen clickBeautyIdOnBeautyBoxAndClose() {
+        WaitUntilElementIsVisible(updateBeautyIdBeautyBox);
+        tapByElement(updateBeautyIdBeautyBox);
+
+        WaitUntilElementIsVisible(completeMyBeautyIdDrawer);
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ESCAPE));
+        return new ProfileScreen(driver);
+    }
+
     public ProfileScreen clickSettingProfile() {
         isElementPresent(settingIcon);
         tapByElement(settingIcon);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickCloseSettingProfile() {
+        isElementPresent(settingIcon);
+        tapByElement(settingIcon);
+
+        WaitUntilElementIsVisible(closeIconSetting);
+        tapByElement(closeIconSetting);
         return new ProfileScreen(driver);
     }
 

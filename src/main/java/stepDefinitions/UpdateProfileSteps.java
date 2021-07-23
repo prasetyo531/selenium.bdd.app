@@ -231,4 +231,9 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.clickDrawerSetting();
         profileScreen.clickEditBeautyId();
     }
+
+    @Then("^User click beautyid and close drawer beautyId$")
+    public void user_click_beautyid_and_close_drawer_beautyid() {
+        profileScreen.clickBeautyIdOnBeautyBoxAndClose();
+    }
 }
