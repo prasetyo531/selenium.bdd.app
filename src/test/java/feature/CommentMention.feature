@@ -25,7 +25,7 @@ Feature: Comment and Mention
 
     Examples:
       |   fulname    |     commentmention        |
-      |	  restapps	 |    test comment post @putwid   |
+      |	  hanafeberia	 |    test comment post @hanafeberia   |
 
   #staging
   @Android @Comment @FDBRMA-343
@@ -40,4 +40,4 @@ Feature: Comment and Mention
 
     Examples:
       |   fulname            |     commentmention       |
-      |	  restapps	         |    test comment review @putwid  |
+      |	  hanafeberia	         |    test comment review @hanafeberia  |
