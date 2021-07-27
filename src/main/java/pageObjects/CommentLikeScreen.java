@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 public class CommentLikeScreen extends ActionBase {
 
@@ -25,21 +26,24 @@ public class CommentLikeScreen extends ActionBase {
     @iOSXCUITFindBy(id="COMPLETE VERIFY")
     public MobileElement firstReviewProfile;
 
-    @AndroidFindBy(id="com.fdbr.android:id/textCommentCounter")
-    public MobileElement clickCommentIcon;
-
-    @AndroidFindBy(id="com.fdbr.android:id/textLikeCounter")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLove")
     public MobileElement clickLikeIcon;
 
-    @AndroidFindBy(id="com.fdbr.android:id/inputComment")
-    public MobileElement commentField;
-
-    @AndroidFindBy(id="com.fdbr.android:id/buttonSend")
-    public MobileElement postBtn;
-
-    @AndroidFindBy(id="com.fdbr.android:id/buttonBackToolbar")
+    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc='Navigate up']")
     public MobileElement backToolbar;
 
+    /*comment screen*/
+    @AndroidFindBy(id="com.fdbr.android.comment:id/inputComment")
+    public MobileElement commentField;
+
+    @AndroidFindBy(id="com.fdbr.android.comment:id/buttonPost")
+    public MobileElement postComment;
+
+    @AndroidFindBy(id="com.fdbr.android.comment:id/listComments")
+    public MobileElement commentList;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.comment:id/parent')]")
+    public List<MobileElement> commentSize;
 
     // This is a constructor, as every page need a base driver to find android elements
     public CommentLikeScreen(AppiumDriver driver) {
@@ -47,31 +51,6 @@ public class CommentLikeScreen extends ActionBase {
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
-    }
-
-    //count total comment
-    public Integer getTotalCommentBefore(){
-        String total1 = clickCommentIcon.getText();
-        //parse to integer
-        t1=Integer.parseInt(total1);
-        System.out.println("get Total Comment Before"+" "+t1);
-        return t1;
-    }
-
-    public Integer getTotalCommentAfter(){
-        String total2 = clickCommentIcon.getText();
-        //parse to integer
-        t2=Integer.parseInt(total2);
-        System.out.println("get Total Comment After"+" "+t2);
-        return t2;
-    }
-
-    public void totalComm(){
-        System.out.println(t1+" "+t2);
-        if(t2.equals(t1)){
-            Assert.fail("total should not same"+" "+t1);
-            System.out.println("fail get Total Comment After"+" "+getTotalCommentAfter());
-        }
     }
 
     public CommentLikeScreen clickFirstPostProfile() {
@@ -86,20 +65,14 @@ public class CommentLikeScreen extends ActionBase {
         return new CommentLikeScreen(driver);
     }
 
-    public CommentLikeScreen clickCommentIcon() {
-        isElementPresent(clickCommentIcon);
-        tapByElement(clickCommentIcon);
-        return new CommentLikeScreen(driver);
-    }
-
     public CommentLikeScreen inputCommentField(String commentmention) {
-        isElementPresent(commentField);
+        WaitUntilElementIsVisible(commentField);
         inputValue(commentField, commentmention);
         return new CommentLikeScreen(driver);
     }
 
     public CommentLikeScreen postComment() {
-        tapByElement(postBtn);
+        tapByElement(postComment);
         return new CommentLikeScreen(driver);
     }
 

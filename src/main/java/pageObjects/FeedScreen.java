@@ -18,6 +18,11 @@ public class FeedScreen extends ActionBase {
     private Integer deletecomment1;
     private Integer deletecomment2;
 
+    public static Integer t1;
+    public static Integer t2;
+    public static Integer t3;
+    public static Integer t4;
+
     By iconProdTag = By.id("com.fdbr.android:id/labelProductTags");
 
     @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
@@ -81,6 +86,20 @@ public class FeedScreen extends ActionBase {
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/textValue') and @text='Cancel']")
     public MobileElement cancelDelete;
+
+    /*post detail screen*/
+    @AndroidFindBy(id="com.fdbr.android:id/buttonComment")
+    public MobileElement commentIconPost;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLove")
+    public MobileElement likeIcon;
+
+    /*review detail screen*/
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonComment")
+    public MobileElement commentIconReview;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonLove")
+    public MobileElement likeIconReview;
 
     /*comment screen*/
     @AndroidFindBy(id="com.fdbr.android.comment:id/inputComment")
@@ -350,5 +369,66 @@ public class FeedScreen extends ActionBase {
     public FeedScreen checkToastReportComment() {
         toastMatches("Thank you for reporting this comment", false);
         return new FeedScreen(driver);
+    }
+
+    //count total comment
+    public Integer getTotalCommentPostBefore(){
+        String total1 = commentIconPost.getText();
+        //parse to integer
+        t1=Integer.parseInt(total1);
+        System.out.println("get Total Comment Post Before"+" "+t1);
+        return t1;
+    }
+
+    public Integer getTotalCommentPostAfter(){
+        String total2 = commentIconPost.getText();
+        //parse to integer
+        t2=Integer.parseInt(total2);
+        System.out.println("get Total Comment Post After"+" "+t2);
+        return t2;
+    }
+
+    public Integer getTotalCommentReviewBefore(){
+        String total3 = commentIconReview.getText();
+        //parse to integer
+        t3=Integer.parseInt(total3);
+        System.out.println("get Total Comment Review Before"+" "+t3);
+        return t3;
+    }
+
+    public Integer getTotalCommentReviewAfter(){
+        String total4 = commentIconReview.getText();
+        //parse to integer
+        t4=Integer.parseInt(total4);
+        System.out.println("get Total Comment Review After"+" "+t4);
+        return t4;
+    }
+
+    public CommentLikeScreen clickCommentIconPost() {
+        isElementPresent(commentIconPost);
+        tapByElement(commentIconPost);
+        return new CommentLikeScreen(driver);
+    }
+
+    public CommentLikeScreen clickCommentIconReview() {
+        isElementPresent(commentIconReview);
+        tapByElement(commentIconReview);
+        return new CommentLikeScreen(driver);
+    }
+
+    public void totalCommentPost(){
+        System.out.println("total before"+"="+t1+" "+"total after"+"="+t2);
+        if(t2.equals(t1)){
+            org.junit.Assert.fail("total should not same"+" "+t1);
+            System.out.println("fail get Total Comment After"+" "+getTotalCommentPostAfter());
+        }
+    }
+
+    public void totalCommentReview(){
+        System.out.println("total before"+"="+t3+" "+"total after"+"="+t4);
+        if(t4.equals(t3)){
+            org.junit.Assert.fail("total should not same"+" "+t1);
+            System.out.println("fail get Total Comment After"+" "+getTotalCommentReviewAfter());
+        }
     }
 }

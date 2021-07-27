@@ -16,15 +16,15 @@ Feature: Comment and Mention
   #staging
   @Android @Comment @FDBRMA-330
   Scenario Outline: Add comment and mention on post
-    When User clicks search "<fulname>" users on homescreen
+    When User clicks search "<fullname>" users on homescreen
     And User select most top result
     When User clicks post list on profile
-    And user clicks comment icon
+    And user clicks comment icon post
     And User post "<commentmention>" comment
     Then User back to post detail
 
     Examples:
-      |   fulname    |     commentmention        |
+      |   fullname    |     commentmention        |
       |	  hanafeberia	 |    test comment post @hanafeberia   |
 
   #staging
@@ -34,7 +34,7 @@ Feature: Comment and Mention
     And User select most top result
     When User clicks reviews tab on profile
     And User clicks review list on profile
-    And user clicks comment icon
+    And user clicks comment icon review
     And User post "<commentmention>" comment
     Then User back to review detail
 

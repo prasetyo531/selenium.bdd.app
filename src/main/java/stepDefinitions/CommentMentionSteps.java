@@ -33,13 +33,20 @@ public class CommentMentionSteps extends DriverFactory {
 
     @When("^User clicks post list on profile$")
     public void user_clicks_post_list_on_profile() {
-        commentLikeScreen.clickFirstPostProfile();
+//        commentLikeScreen.clickFirstPostProfile();
+        profileScreen.clickRandomPostListProfile();
     }
 
-    @And("^user clicks comment icon$")
-    public void user_clicks_comment_icon() {
-        commentLikeScreen.getTotalCommentBefore();
-        commentLikeScreen.clickCommentIcon();
+    @And("^user clicks comment icon post$")
+    public void user_clicks_comment_icon_post() {
+        feedScreen.getTotalCommentPostBefore();
+        feedScreen.clickCommentIconPost();
+    }
+
+    @And("^user clicks comment icon review$")
+    public void user_clicks_comment_icon_review() {
+        feedScreen.getTotalCommentReviewBefore();
+        feedScreen.clickCommentIconReview();
     }
 
     @And("^User post \"([^\"]*)\" comment$")
@@ -51,8 +58,8 @@ public class CommentMentionSteps extends DriverFactory {
     @Then("^User back to post detail$")
     public void user_back_to_post_detail() {
        commentLikeScreen.clickBack();
-       commentLikeScreen.getTotalCommentAfter();
-       commentLikeScreen.totalComm();
+       feedScreen.getTotalCommentPostAfter();
+       feedScreen.totalCommentPost();
     }
 
     @When("^User clicks reviews tab on profile$")
@@ -62,14 +69,14 @@ public class CommentMentionSteps extends DriverFactory {
 
     @And("^User clicks review list on profile$")
     public void user_clicks_review_list_on_profile() {
-        commentLikeScreen.clickFirstReviewProfile();
+        profileScreen.clickRandomReviewListProfile();
     }
 
     @Then("^User back to review detail$")
     public void user_back_to_review_detail() {
         commentLikeScreen.clickBack();
-        commentLikeScreen.getTotalCommentAfter();
-        commentLikeScreen.totalComm();
+        feedScreen.getTotalCommentReviewAfter();
+        feedScreen.totalCommentReview();
     }
 
     @And("^User click reply from any comment and click post$")
