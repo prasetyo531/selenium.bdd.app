@@ -370,11 +370,14 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.photo:id/buttonCapture")
     public MobileElement captureBtn;
 
-    @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
-    public MobileElement retakeBtn;
+    @AndroidFindBy(id="com.fdbr.android.photo:id/buttonPicker")
+    public MobileElement gallery;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonRightCustom")
-    public MobileElement doneArrow;
+    public MobileElement doneBtn;
+
+    @AndroidFindBy(id="com.fdbr.android:id/buttonLeftCustom")
+    public MobileElement retakeBtn;
 
     /**** change password ****/
     @AndroidFindBy(id="com.fdbr.android.auth:id/inputOldPassword")
@@ -437,6 +440,13 @@ public class ProfileScreen extends ActionBase{
 
     @AndroidFindBy(id="com.fdbr.android.main:id/layoutBeautyConcern")
     public MobileElement updateBeautyConcern;
+
+    /* first img in gallery */
+    @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id, 'com.google.android.documentsui:id/icon_thumb') and @index='0']")
+    public MobileElement firstIndexImg;
+
+    @AndroidFindBy(id="com.fdbr.android:id/menu_crop")
+    public MobileElement doneCropBtn;
 
     // This is a constructor, as every page need a base driver to find android elements
     public ProfileScreen(AppiumDriver driver) {
@@ -847,6 +857,23 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen changeProfilePicture() {
+        WaitUntilElementIsVisible(uploadImgBtn);
+        tapByElement(uploadImgBtn);
+
+        tapByElement(gallery);
+        isElementPresent(firstIndexImg);
+        tapByElement(firstIndexImg);
+
+        isElementPresent(doneCropBtn);
+        tapByElement(doneCropBtn);
+
+        isElementPresent(doneBtn);
+        tapByElement(doneBtn);
+
+        return new ProfileScreen(driver);
+    }
+
     public ProfileScreen getLocationEditProfile() {
         WaitUntilElementIsVisible(locationAgeLabelProfile);
 
@@ -1129,5 +1156,12 @@ public class ProfileScreen extends ActionBase{
         if(ck1 || ck2 || ck3 ==true){
             Assert.fail("beauty concern not updated");
         }
+    }
+
+    public ProfileScreen captureSS(String nama) throws IOException, InterruptedException {
+
+        isElementPresent(locationField);
+        captureScreenshot(nama);
+        return new ProfileScreen(driver);
     }
 }

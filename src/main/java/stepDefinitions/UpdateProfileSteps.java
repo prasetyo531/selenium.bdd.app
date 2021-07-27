@@ -7,6 +7,8 @@ import cucumber.api.java.en.When;
 import pageObjects.ActionBase;
 import utils.DriverFactory;
 
+import java.io.IOException;
+
 public class UpdateProfileSteps extends DriverFactory {
 
     @When("^User clicks complete my beautyId button$")
@@ -235,5 +237,16 @@ public class UpdateProfileSteps extends DriverFactory {
     @Then("^User click beautyid and close drawer beautyId$")
     public void user_click_beautyid_and_close_drawer_beautyid() {
         profileScreen.clickBeautyIdOnBeautyBoxAndClose();
+    }
+
+    @When("^User use picture from gallery to complete profile photo$")
+    public void user_use_picture_from_gallery_to_complete_profile_photo() {
+        profileScreen.changeProfilePicture();
+    }
+
+    @Then("^User will see image as photo profile$")
+    public void user_will_see_image_as_photo_profile() throws IOException, InterruptedException {
+        profileScreen.captureSS("after-upload-photo-profile");
+        verifyAccountScreen.checkPercentage("before-upload-photo-profile","after-upload-photo-profile");
     }
 }

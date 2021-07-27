@@ -5,7 +5,7 @@ Feature: User Check Review
   I should able see post tagged product with review
   I should able report, share, delete post
 
-   #FDBRMA-348 #FDBRMA-349
+   #FDBRMA-348 #FDBRMA-349 #RPA-212
   @Android @CheckReview @Staging @testShareReview @OkrDone @FDBRMA-348
   Scenario Outline: Report - Share review other user from other user profile
     Given User navigates to onboarding screen by swipe

@@ -456,8 +456,6 @@ public class VerifyAccountScreen extends ActionBase {
         isElementPresent(firstIndexImg);
         tapByElement(firstIndexImg);
 
-        tapByElement(firstIndexImg);
-
         isElementPresent(doneCropBtn);
         tapByElement(doneCropBtn);
 

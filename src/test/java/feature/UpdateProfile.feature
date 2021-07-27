@@ -40,3 +40,21 @@ Feature: Update Profile
     Examples:
       |   username            |   password      |
       |	  emptypersonal03	  |   test123       |
+
+  #FDBRMA-373
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-373
+  Scenario Outline: Update profile picture
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu and edit profile
+    When User use picture from gallery to complete profile photo
+    Then User will see image as photo profile
+
+    Examples:
+      |   username    |   password      |
+      |	  profilepicture	  |   test123     |
