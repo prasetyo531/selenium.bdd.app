@@ -55,6 +55,18 @@ public class CommentMentionSteps extends DriverFactory {
        commentLikeScreen.postComment();
     }
 
+    @And("^User post \"([^\"]*)\" comment and mention owned post$")
+    public void user_post_something_comment_and_mention_owned_post(String commentmention) {
+        commentLikeScreen.inputMentionedCommentField(commentmention);
+        commentLikeScreen.postComment();
+    }
+
+    @And("^User post \"([^\"]*)\" comment and mention owned review$")
+    public void user_post_something_comment_and_mention_owned_review(String commentmention) {
+        commentLikeScreen.inputMentionedCommentField(commentmention);
+        commentLikeScreen.postComment();
+    }
+
     @Then("^User back to post detail$")
     public void user_back_to_post_detail() {
        commentLikeScreen.clickBack();

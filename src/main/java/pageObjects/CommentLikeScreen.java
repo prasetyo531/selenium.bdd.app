@@ -45,6 +45,13 @@ public class CommentLikeScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.comment:id/parent')]")
     public List<MobileElement> commentSize;
 
+    //list user to mention
+    @AndroidFindBy(id="com.fdbr.android.comment:id/listUsers")
+    public MobileElement elementListUserToMention;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.comment:id/labelUsername')]")
+    public List<MobileElement> listUserToMention;
+
     // This is a constructor, as every page need a base driver to find android elements
     public CommentLikeScreen(AppiumDriver driver) {
 
@@ -68,6 +75,14 @@ public class CommentLikeScreen extends ActionBase {
     public CommentLikeScreen inputCommentField(String commentmention) {
         WaitUntilElementIsVisible(commentField);
         inputValue(commentField, commentmention);
+        return new CommentLikeScreen(driver);
+    }
+
+    public CommentLikeScreen inputMentionedCommentField(String commentmention) {
+        WaitUntilElementIsVisible(commentField);
+        inputValue(commentField, commentmention);
+        WaitUntilElementIsVisible(elementListUserToMention);
+        clickFirstMenus(listUserToMention);
         return new CommentLikeScreen(driver);
     }
 

@@ -417,6 +417,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public void totalCommentPost(){
+        WaitUntilElementIsVisible(commentIconPost);
         System.out.println("total before"+"="+t1+" "+"total after"+"="+t2);
         if(t2.equals(t1)){
             org.junit.Assert.fail("total should not same"+" "+t1);
@@ -425,6 +426,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public void totalCommentReview(){
+        WaitUntilElementIsVisible(commentIconReview);
         System.out.println("total before"+"="+t3+" "+"total after"+"="+t4);
         if(t4.equals(t3)){
             org.junit.Assert.fail("total should not same"+" "+t1);

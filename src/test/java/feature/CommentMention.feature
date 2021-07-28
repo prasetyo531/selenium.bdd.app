@@ -15,7 +15,36 @@ Feature: Comment and Mention
 
   #staging
   @Android @Comment @FDBRMA-330
-  Scenario Outline: Add comment and mention on post
+  Scenario Outline: Mention followed user on post
+    When User clicks search "<fullname>" users on homescreen
+    And User select most top result
+    When User clicks post list on profile
+    And user clicks comment icon post
+    And User post "<commentmention>" comment and mention owned post
+    Then User back to post detail
+
+    Examples:
+      |   fullname    |     commentmention        |
+      |	  hanafeberia	 |    @h   |
+
+  #staging
+  @Android @Comment @FDBRMA-343
+  Scenario Outline: Mention followed user on review
+    When User clicks search "<fulname>" users on homescreen
+    And User select most top result
+    When User clicks reviews tab on profile
+    And User clicks review list on profile
+    And user clicks comment icon review
+    And User post "<commentmention>" comment and mention owned review
+    Then User back to review detail
+
+    Examples:
+      |   fulname            |     commentmention       |
+      |	  hanafeberia	         |     @h  |
+
+  #staging
+  @Android @Comment @RPA-216
+  Scenario Outline: Mention unfollowed user on post
     When User clicks search "<fullname>" users on homescreen
     And User select most top result
     When User clicks post list on profile
@@ -28,8 +57,8 @@ Feature: Comment and Mention
       |	  hanafeberia	 |    test comment post @hanafeberia   |
 
   #staging
-  @Android @Comment @FDBRMA-343
-  Scenario Outline: Add comment and mention on review
+  @Android @Comment @RPA-314
+  Scenario Outline: Mention unfollowed user on review
     When User clicks search "<fulname>" users on homescreen
     And User select most top result
     When User clicks reviews tab on profile
@@ -40,4 +69,4 @@ Feature: Comment and Mention
 
     Examples:
       |   fulname            |     commentmention       |
-      |	  hanafeberia	         |    test comment review @hanafeberia  |
+      |	  hanafeberia	         |   @h  |
