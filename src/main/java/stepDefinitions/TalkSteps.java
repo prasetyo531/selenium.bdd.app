@@ -225,12 +225,6 @@ public class TalkSteps extends DriverFactory {
         profileScreen.followUserFromProfile();
     }
 
-    @Then("^User will see button change to following$")
-    public void user_will_see_button_change_to_following() {
-        profileScreen.checkButtonAfterFollow();
-    }
-
-
     @When("^User like recent talk from tab Talk$")
     public void user_like_recent_talk_from_tab_talk() {
         talkScreen.checkCounterBeforeLike();

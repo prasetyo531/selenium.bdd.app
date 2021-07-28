@@ -53,7 +53,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonClose")
     public MobileElement closeIconSetting;
 
-    @AndroidFindBy(id="com.fdbr.android.main:id/buttonFollow")
+    @AndroidFindBy(id="com.fdbr.android.main:id/buttonEditOrFollowing")
     public MobileElement btnFollow;
 
     @AndroidFindBy(id="com.fdbr.android:id/buttonAction")
@@ -1095,7 +1095,15 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen checkButtonAfterFollow() {
         isElementPresent(btnFollow);
         String getValue = btnFollow.getText();
-        org.testng.Assert.assertEquals(getValue, "Following");
+        org.testng.Assert.assertEquals(getValue, "FOLLOWING");
+        System.out.println(getValue);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen checkButtonAfterUnfollow() {
+        isElementPresent(btnFollow);
+        String getValue = btnFollow.getText();
+        org.testng.Assert.assertEquals(getValue, "FOLLOW");
         System.out.println(getValue);
         return new ProfileScreen(driver);
     }
