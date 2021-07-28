@@ -45,4 +45,4 @@ Feature: Follow User
 
     Examples:
       |    hashtag        |
-      |	    skin	     |
+      |	    hash	     |

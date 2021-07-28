@@ -18,6 +18,9 @@ public class DiscoverScreen extends ActionBase {
     public static String counterCommentBefore;
     public static String counterCommentAfter;
 
+    public static Integer fol1;
+    public static Integer fol2;
+
     //android.widget.ImageView[contains(@resource-id, 'com.fdbr.android:id/imagePhoto') and @index='0']
     @AndroidFindBy(id="com.fdbr.android.main:id/search")
     public MobileElement iconSearchHashtag;
@@ -129,6 +132,7 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
+    /*
     public DiscoverScreen checkFollowShouldDissapear() throws IOException {
 
         List<MobileElement> li = followBtn;
@@ -137,6 +141,29 @@ public class DiscoverScreen extends ActionBase {
         System.out.println(fol);
         //it depends screen size
         if(fol==false){
+            Assert.fail("follow btn still appear");
+        }
+        return new DiscoverScreen(driver);
+    }
+     */
+
+    public DiscoverScreen checkBeforeFollow() throws IOException {
+
+        List<MobileElement> li1 = followBtn;
+        System.out.println("before follow"+" "+li1.size());
+        fol1 = li1.size();
+        System.out.println("before follow"+" "+fol1);
+
+        return new DiscoverScreen(driver);
+    }
+
+    public DiscoverScreen checkFollowShouldDissapear() throws IOException {
+
+        List<MobileElement> li2 = followBtn;
+        fol2 = li2.size();
+        System.out.println("after follow"+" "+fol2);
+        //it depends screen size
+        if(fol2==fol1){
             Assert.fail("follow btn still appear");
         }
         return new DiscoverScreen(driver);
