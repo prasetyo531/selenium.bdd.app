@@ -32,6 +32,12 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/labelBio")
     public MobileElement bioLabelProfile;
 
+    @AndroidFindBy(id="com.fdbr.android.main:id/containerFollowing")
+    public MobileElement counterFollowing;
+
+    @AndroidFindBy(id="com.fdbr.android.main:id/containerFollowers")
+    public MobileElement counterFollower;
+
     @AndroidFindBy(id="com.fdbr.android.main:id/labelBio")
     public List<MobileElement> bioLabelProfileArray;
 
@@ -454,6 +460,17 @@ public class ProfileScreen extends ActionBase{
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
+    }
+
+    public ProfileScreen waitProfile() {
+        WaitUntilElementIsVisible(bioLabelProfile);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickFollowersTab() {
+        WaitUntilElementIsVisible(btnFollow);
+        tapByElement(reviewsTab);
+        return new ProfileScreen(driver);
     }
 
     public ProfileScreen clickReviewsTab() {
@@ -1127,6 +1144,12 @@ public class ProfileScreen extends ActionBase{
         if(fol==false){
             org.testng.Assert.fail("follow btn still appear");
         }
+        return new ProfileScreen(driver);
+    }
+
+    //follow fro profile
+    public ProfileScreen clickFollowerCounter() {
+        tapByElement(counterFollower);
         return new ProfileScreen(driver);
     }
 

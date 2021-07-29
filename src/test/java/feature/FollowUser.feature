@@ -46,3 +46,14 @@ Feature: Follow User
     Examples:
       |    hashtag        |
       |	    hash	     |
+
+  #follower-following screen
+  #RPA-277 #RPA-202 #RPA-297
+  @Android @Comment @RPA-277
+  Scenario: Open Followers Tab From Followers Counter at Profile Screen - Open Another User Profile Screen From Followers Tab - Follow user from follow button at followers list
+    When User clicks followers tab profile
+    Then User will see list user which following account
+    When User clicks follow on list follower
+    Then User will see button change to following on list
+    When User click user from list
+    Then User will directed to user profile
