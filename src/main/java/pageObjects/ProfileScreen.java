@@ -463,7 +463,8 @@ public class ProfileScreen extends ActionBase{
     }
 
     public ProfileScreen waitProfile() {
-        WaitUntilElementIsVisible(bioLabelProfile);
+        WaitUntilElementIsVisible(counterFollower);
+        WaitUntilElementIsVisible(counterFollowing);
         return new ProfileScreen(driver);
     }
 
@@ -1147,9 +1148,15 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
-    //follow fro profile
+    //follow from profile
     public ProfileScreen clickFollowerCounter() {
         tapByElement(counterFollower);
+        return new ProfileScreen(driver);
+    }
+
+    //unfollow from profile
+    public ProfileScreen clickFollowingCounter() {
+        tapByElement(counterFollowing);
         return new ProfileScreen(driver);
     }
 

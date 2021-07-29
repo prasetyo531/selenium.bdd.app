@@ -50,10 +50,20 @@ Feature: Follow User
   #follower-following screen
   #RPA-277 #RPA-202 #RPA-297
   @Android @Comment @RPA-277
-  Scenario: Open Followers Tab From Followers Counter at Profile Screen - Open Another User Profile Screen From Followers Tab - Follow user from follow button at followers list
+  Scenario: Open Followers Tab From Followers Counter at Profile Screen - Follow user from follow button at followers list - Open Another User Profile Screen From Followers Tab
     When User clicks followers tab profile
     Then User will see list user which following account
     When User clicks follow on list follower
     Then User will see button change to following on list
+    When User click user from list
+    Then User will directed to user profile
+
+  #RPA-278 #RPA-205 #RPA-298
+  @Android @Comment @RPA-278
+  Scenario: Open Following Tab From Following Counter at Profile Screen - Unfollow user from following list - Open Another User Profile Screen From Following Tab
+    When User clicks following tab profile
+    Then User will see list user which followed by account
+    When User clicks unfollow on list following
+    Then User will see button change to follow on list
     When User click user from list
     Then User will directed to user profile

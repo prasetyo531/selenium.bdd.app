@@ -20,6 +20,9 @@ public class FollowerFollowingScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonFollow') and @text='FOLLOW']")
     public List<MobileElement> btnFollowListSize;
 
+    @AndroidFindBy(xpath="//android.widget.Button[contains(@resource-id, 'com.fdbr.android.main:id/buttonFollow') and @text='FOLLOWING']")
+    public List<MobileElement> btnFollowingListSize;
+
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android.main:id/parent') and @index='0']")
     public MobileElement firstElement;
 
@@ -48,6 +51,11 @@ public class FollowerFollowingScreen extends ActionBase {
         return new FollowerFollowingScreen(driver);
     }
 
+    public FollowerFollowingScreen clickUnfollow() {
+        clickFirstMenus(btnFollowingListSize);
+        return new FollowerFollowingScreen(driver);
+    }
+
     public FollowerFollowingScreen clickRandomUserToVisit() {
         WaitUntilElementIsVisible(firstElement);
         verticalSwipe(firstElement, 1, 900);
@@ -61,10 +69,25 @@ public class FollowerFollowingScreen extends ActionBase {
         System.out.println("total before follow"+"="+totalBeforeFollow);
     }
 
+    public void beforeUnfollow() {
+        WaitUntilElementIsVisible(firstElement);
+        totalBeforeFollow = btnFollowingListSize.size();
+        System.out.println("total before unfollow"+"="+totalBeforeFollow);
+    }
+
     public void checkAfterFollow() {
         WaitUntilElementIsVisible(firstElement);
         totalAfterFollow = btnFollowListSize.size();
         System.out.println("total after follow"+"="+totalAfterFollow);
+        if(totalAfterFollow==totalBeforeFollow){
+            Assert.fail("total follow should not same");
+        }
+    }
+
+    public void checkAfterUnfollow() {
+        WaitUntilElementIsVisible(firstElement);
+        totalAfterFollow = btnFollowingListSize.size();
+        System.out.println("total after unfollow"+"="+totalAfterFollow);
         if(totalAfterFollow==totalBeforeFollow){
             Assert.fail("total follow should not same");
         }

@@ -33,8 +33,19 @@ public class FollowUnfollowSteps extends DriverFactory {
         profileScreen.clickFollowerCounter();
     }
 
+    @When("^User clicks following tab profile$")
+    public void user_clicks_following_tab_profile() {
+        homeScreen.clickProfileHomeMenu();
+        profileScreen.clickFollowingCounter();
+    }
+
     @Then("^User will see list user which following account$")
     public void user_will_see_list_user_which_following_account() {
+        followerFollowingScreen.waitUntilListVisible();
+    }
+
+    @Then("^User will see list user which followed by account$")
+    public void user_will_see_list_user_which_followed_by_account() {
         followerFollowingScreen.waitUntilListVisible();
     }
 
@@ -42,6 +53,17 @@ public class FollowUnfollowSteps extends DriverFactory {
     public void user_clicks_follow_on_list_follower() {
         followerFollowingScreen.beforeFollow();
         followerFollowingScreen.clickFollow();
+    }
+
+    @When("^User clicks unfollow on list following$")
+    public void user_clicks_unfollow_on_list_following() {
+        followerFollowingScreen.beforeUnfollow();
+        followerFollowingScreen.clickUnfollow();
+    }
+
+    @Then("^User will see button change to follow on list$")
+    public void user_will_see_button_change_to_follow_on_list() {
+        followerFollowingScreen.checkAfterUnfollow();
     }
 
     @Then("^User will see button change to following on list$")
