@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -77,7 +76,7 @@ public class AddReviewSteps extends DriverFactory {
     @And("^User will clicks one of product on product category screen$")
     public void user_will_clicks_one_of_product_on_product_category_screen() throws Throwable {
 
-        productListScreen.clickFirstProduct();
+        productListFilterSortScreen.clickFirstProduct();
     }
 
     @When("^User clicks add review button on product detail screen$")

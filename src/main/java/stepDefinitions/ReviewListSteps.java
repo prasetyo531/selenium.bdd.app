@@ -1,10 +1,8 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageObjects.ActionBase;
 import utils.DriverFactory;
 
 public class ReviewListSteps extends DriverFactory {
@@ -15,7 +13,7 @@ public class ReviewListSteps extends DriverFactory {
         homeScreen.clickProductCategory();
         productCategoryScreen.clickMenuSkincare();
 
-        productListScreen.clickFirstProduct();
+        productListFilterSortScreen.clickFirstProduct();
         productDetailScreen.scrollFindSeeMoreReviews();
         productDetailScreen.clickSeeMoreReviews();
     }
