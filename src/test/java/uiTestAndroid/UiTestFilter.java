@@ -15,7 +15,7 @@ import java.nio.file.FileSystems;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@FDBRMA-330, @FDBRMA-355"},
+        tags = {"@RPA-8"},
         plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
                 "json:test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
@@ -23,7 +23,7 @@ import java.nio.file.FileSystems;
                 "usage:test-output/cucumber/cucumber-usage.json"}
 )
 
-public class UiTestComment extends AbstractTestNGCucumberTests {
+public class UiTestFilter extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport() throws IOException {
