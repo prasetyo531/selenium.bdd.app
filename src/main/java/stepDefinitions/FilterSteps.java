@@ -14,10 +14,27 @@ public class FilterSteps extends DriverFactory {
         productCategoryScreen.clickMenuSkincare();
     }
 
+    @When("^User apply filter on category lipstick$")
+    public void user_apply_filter_on_category_lipstick() {
+        homeScreen.clickProductCategory();
+        productCategoryScreen.clickMenuMakeUpLipstick();
+    }
+
+    @And("^User choose filter brand and shade$")
+    public void user_choose_filter_brand_and_shade() {
+        productListFilterSortScreen.getTotalRatingBeforeFilter();
+        productListFilterSortScreen.clickFilterChooseBrandAndShade();
+    }
+
     @And("^User choose filter mybeautyId, rating, skin type, skin concern, brand$")
     public void user_choose_filter_mybeautyid_rating_skin_type_skin_concern_brand() {
         productListFilterSortScreen.getTotalRatingBeforeFilter();
         productListFilterSortScreen.clickFilterChooseAllOption();
+    }
+
+    @Then("^User will see not found result$")
+    public void user_will_see_not_found_result() {
+        productListFilterSortScreen.isResultNotFoundAppear();
     }
 
     @Then("^User will see product list changed$")

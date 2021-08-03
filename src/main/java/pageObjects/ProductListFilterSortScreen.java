@@ -15,10 +15,11 @@ public class ProductListFilterSortScreen extends ActionBase {
 
     public static String o1;
     public static String o2;
-
     public static Integer overallRatBeforeFilter;
     public static Integer overallRatAfterFilter;
     public static Integer overallRatAfterReset;
+    public static String checkBeforeSelected;
+    public static String checkAfterSelected;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstProduct;
@@ -77,11 +78,14 @@ public class ProductListFilterSortScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/actionBrand")
     public MobileElement filterBrand;
 
+    @AndroidFindBy(id="com.fdbr.android.product:id/actionShade")
+    public MobileElement filterShade;
+
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/toolbarTitle') and @text='Brand']")
     public MobileElement tittleBrand;
 
-    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent')]")
-    public List<MobileElement> listBrand;
+    @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
+    public MobileElement firstBrand;
 
     @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     public MobileElement searchBrand;
@@ -97,6 +101,9 @@ public class ProductListFilterSortScreen extends ActionBase {
 
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]")
     public MobileElement firstProductTotalRating;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textErrorDescription') and @text='There’s no result found']")
+    public MobileElement testResultNotFound;
 
     // This is a constructor, as every page need a base driver to find android elements
     public ProductListFilterSortScreen(AppiumDriver driver) {
@@ -144,24 +151,35 @@ public class ProductListFilterSortScreen extends ActionBase {
         tapByElement(rating1Filter);
         tapByElement(filterOily);
         clickRandomMultipleMenus(filterSkinConcernList);
-        //choose brand
-        /*
+        //choose apply filter
+        tapByElement(applyFilterBtn);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen clickFilterChooseBrandAndShade() {
+        tapByElement(filterOption);
+        WaitUntilElementIsVisible(filterBrand);
         tapByElement(filterBrand);
-        WaitUntilElementIsVisible(addBrandBtn);
-        String checkBeforeSelected = selectedBrand.getText();
-        clickRandomMenus(listBrand);
-        String checkAfterSelected = selectedBrand.getText();
-        if (checkAfterSelected==checkBeforeSelected) {
-            Assert.fail("total brands not increased");
+        //choose brand
+        checkBeforeSelected = selectedBrand.getText();
+        WaitUntilElementIsVisible(firstBrand);
+        tapByElement(firstBrand);
+        checkAfterSelected = selectedBrand.getText();
+        if(checkAfterSelected.equals(checkBeforeSelected)) {
+            Assert.fail("counter selected brand should changed");
         }
         tapByElement(addBrandBtn);
-         */
+        //choose shade
+        tapByElement(filterShade);
+        WaitUntilElementIsVisible(firstBrand);
+        tapByElement(firstBrand);
+        tapByElement(addBrandBtn);
+        //choose apply filter
         tapByElement(applyFilterBtn);
         return new ProductListFilterSortScreen(driver);
     }
 
     public ProductListFilterSortScreen clickResetFilterAndDone() {
-
         tapByElement(filterOption);
         WaitUntilElementIsVisible(resetFilterBtn);
         tapByElement(resetFilterBtn);
@@ -170,7 +188,6 @@ public class ProductListFilterSortScreen extends ActionBase {
     }
 
     public ProductListFilterSortScreen getTotalRatingAfterResetFilter() {
-
         WaitUntilElementIsVisible(firstProduct);
         //o2 = firstProductTotalRating.getText();
         overallRatAfterReset=listProduct.size();
@@ -179,6 +196,11 @@ public class ProductListFilterSortScreen extends ActionBase {
         if((overallRatAfterFilter - overallRatBeforeFilter)==0) {
             Assert.fail("total list product reset should same");
         }
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen isResultNotFoundAppear() {
+        WaitUntilElementIsVisible(testResultNotFound);
         return new ProductListFilterSortScreen(driver);
     }
 }
