@@ -5,7 +5,7 @@ Feature: Filter
   If filter active, display red dot on button filter
   If filter active, display red dot on button brand
 
-  #RPA-8 #RPA-12 #RPA-17
+  #RPA-8 #RPA-12 #RPA-17 #RPA-10
   @Android @reviewlist @Staging @OkrDone @RPA-8
   Scenario Outline: Check when filter applied - Check result if user use filter BeautyId - Check state Beauty after complete beautyId
     Given User navigates to onboarding screen by swipe
@@ -18,8 +18,8 @@ Feature: Filter
     When User apply filter on category skincare
     And User choose filter mybeautyId, rating, skin type, skin concern, brand
     Then User will see product list changed
-#    When User clicks reset filter
-#    Then User will see default product list
+    When User clicks reset filter
+    Then User will see default product list
 
     Examples:
       |   username    |   password      |

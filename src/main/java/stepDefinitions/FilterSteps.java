@@ -25,4 +25,14 @@ public class FilterSteps extends DriverFactory {
         productListFilterSortScreen.getTotalRatingAfterFilter();
     }
 
+    @When("^User clicks reset filter$")
+    public void user_clicks_reset_filter() {
+        productListFilterSortScreen.clickResetFilterAndDone();
+    }
+
+    @Then("^User will see default product list$")
+    public void user_will_see_default_product_list() {
+        productListFilterSortScreen.getTotalRatingAfterResetFilter();
+    }
+
 }

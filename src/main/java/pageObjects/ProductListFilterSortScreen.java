@@ -18,6 +18,7 @@ public class ProductListFilterSortScreen extends ActionBase {
 
     public static Integer overallRatBeforeFilter;
     public static Integer overallRatAfterFilter;
+    public static Integer overallRatAfterReset;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstProduct;
@@ -117,7 +118,7 @@ public class ProductListFilterSortScreen extends ActionBase {
         //o1 = firstProductTotalRating.getText();
         overallRatBeforeFilter=listProduct.size();
         //overallRatBeforeFilter=Integer.parseInt(o1);
-        System.out.println("first product before filter"+" "+overallRatBeforeFilter);
+        System.out.println("total product before filter"+" "+overallRatBeforeFilter);
         return new ProductListFilterSortScreen(driver);
     }
 
@@ -127,7 +128,7 @@ public class ProductListFilterSortScreen extends ActionBase {
         //o2 = firstProductTotalRating.getText();
         overallRatAfterFilter=listProduct.size();
         //overallRatAfterFilter=Integer.parseInt(o2);
-        System.out.println("first product after filter"+" "+overallRatAfterFilter);
+        System.out.println("total product after filter"+" "+overallRatAfterFilter);
         if(overallRatAfterFilter.equals(overallRatBeforeFilter)) {
             Assert.fail("total list product should not same");
         }
@@ -156,6 +157,28 @@ public class ProductListFilterSortScreen extends ActionBase {
         tapByElement(addBrandBtn);
          */
         tapByElement(applyFilterBtn);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen clickResetFilterAndDone() {
+
+        tapByElement(filterOption);
+        WaitUntilElementIsVisible(resetFilterBtn);
+        tapByElement(resetFilterBtn);
+        tapByElement(applyFilterBtn);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen getTotalRatingAfterResetFilter() {
+
+        WaitUntilElementIsVisible(firstProduct);
+        //o2 = firstProductTotalRating.getText();
+        overallRatAfterReset=listProduct.size();
+        //overallRatAfterFilter=Integer.parseInt(o2);
+        System.out.println("total product after reset"+" "+overallRatAfterReset);
+        if((overallRatAfterFilter - overallRatBeforeFilter)==0) {
+            Assert.fail("total list product reset should same");
+        }
         return new ProductListFilterSortScreen(driver);
     }
 }
