@@ -22,13 +22,13 @@ public class FilterSteps extends DriverFactory {
 
     @And("^User choose filter brand and shade$")
     public void user_choose_filter_brand_and_shade() {
-        productListFilterSortScreen.getTotalRatingBeforeFilter();
+        productListFilterSortScreen.getTotalProductBeforeFilter();
         productListFilterSortScreen.clickFilterChooseBrandAndShade();
     }
 
     @And("^User choose filter mybeautyId, rating, skin type, skin concern, brand$")
     public void user_choose_filter_mybeautyid_rating_skin_type_skin_concern_brand() {
-        productListFilterSortScreen.getTotalRatingBeforeFilter();
+        productListFilterSortScreen.getTotalProductBeforeFilter();
         productListFilterSortScreen.clickFilterChooseAllOption();
     }
 
@@ -39,7 +39,7 @@ public class FilterSteps extends DriverFactory {
 
     @Then("^User will see product list changed$")
     public void user_will_see_product_list_changed() {
-        productListFilterSortScreen.getTotalRatingAfterFilter();
+        productListFilterSortScreen.getTotalProductAfterFilter();
     }
 
     @When("^User clicks reset filter$")
@@ -49,7 +49,40 @@ public class FilterSteps extends DriverFactory {
 
     @Then("^User will see default product list$")
     public void user_will_see_default_product_list() {
-        productListFilterSortScreen.getTotalRatingAfterResetFilter();
+        productListFilterSortScreen.getTotalProductAfterResetFilter();
     }
 
+    @And("^User choose filter brand and shade then close filter$")
+    public void user_choose_filter_brand_and_shade_then_close_filter() {
+        productListFilterSortScreen.getTotalProductBeforeFilter();
+        productListFilterSortScreen.clickCloseFilterChooseBrandAndShade();
+    }
+
+    @When("^User apply sort newest$")
+    public void user_apply_sort_newest() {
+        productListFilterSortScreen.getFirstProductBeforeSort();
+        productListFilterSortScreen.clickSortNewest();
+    }
+
+    @And("^User scroll list product then apply sort$")
+    public void user_scroll_list_product_then_apply_sort() {
+        productListFilterSortScreen.scrollList();
+        productListFilterSortScreen.clickSortNewest();
+    }
+
+    @Then("^User will see product list not changed$")
+    public void user_will_see_product_list_not_changed() {
+        productListFilterSortScreen.getTotalProductAfterClose();
+    }
+
+    @And("^User choose filter shade$")
+    public void user_choose_filter_shade() {
+        productListFilterSortScreen.getTotalProductBeforeFilter();
+        productListFilterSortScreen.clickFilterChooseShade();
+    }
+
+    @Then("^User will see list product sort from newest$")
+    public void user_will_see_list_product_sort_from_newest() {
+        productListFilterSortScreen.getFirstProductAfterSort();
+    }
 }

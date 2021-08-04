@@ -42,3 +42,58 @@ Feature: Filter
     Examples:
       |   username    |   password      |
       |	  putwid	  |   123tester       |
+
+  #RPA-15
+  @Android @filter @Staging @OkrDone @RPA-15
+  Scenario Outline: Choose filter but click close icon
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will be directed to homescreeen app
+    When User apply filter on category lipstick
+    And User choose filter brand and shade then close filter
+    Then User will see product list not changed
+
+    Examples:
+      |   username    |   password      |
+      |	  putwid	  |   123tester       |
+
+  #RPA-21 #RPA-23
+  @Android @filter @Staging @OkrDone @RPA-21
+  Scenario Outline: Check state new set of sort not change filter option - Check when user use sort option
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will be directed to homescreeen app
+    When User apply filter on category lipstick
+    And User choose filter shade
+    When User apply sort newest
+    Then User will see list product sort from newest
+
+    Examples:
+      |   username    |   password      |
+      |	  putwid	  |   123tester       |
+
+  #RPA-22
+  @Android @filter @Staging @OkrDone @RPA-22
+  Scenario Outline: Check state set sort after load next data product
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User will be directed to homescreeen app
+    When User apply filter on category lipstick
+    And User scroll list product then apply sort
+    Then User will see list product sort from newest
+
+    Examples:
+      |   username    |   password      |
+      |	  putwid	  |   123tester       |

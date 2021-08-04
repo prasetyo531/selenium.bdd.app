@@ -46,6 +46,7 @@ public class DeeplinkTest {
         wait = new WebDriverWait(driver, 10);
     }
 
+    //RPA-1
     @Test(priority = 1)
     public void openProductCategory() throws InterruptedException {
 

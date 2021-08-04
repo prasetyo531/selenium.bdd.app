@@ -20,9 +20,15 @@ public class ProductListFilterSortScreen extends ActionBase {
     public static Integer overallRatAfterReset;
     public static String checkBeforeSelected;
     public static String checkAfterSelected;
+    public static String checkBeforeSort;
+    public static String checkAfterSort;
+
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent') and @index='0']")
     public MobileElement firstProduct;
+
+    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[2]")
+    public MobileElement firstProductName;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id, 'com.fdbr.android:id/layoutParent')]")
     public List<MobileElement> listProduct;
@@ -32,6 +38,9 @@ public class ProductListFilterSortScreen extends ActionBase {
      ****/
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonFilter")
     public MobileElement filterOption;
+
+    @AndroidFindBy(id="com.fdbr.android.product:id/close")
+    public MobileElement closeFilter;
 
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonApply")
     public MobileElement applyFilterBtn;
@@ -99,6 +108,9 @@ public class ProductListFilterSortScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.product:id/buttonSorting")
     public MobileElement sortingOption;
 
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android:id/textItem') and @text='Newest']")
+    public MobileElement newestSort;
+
     @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]")
     public MobileElement firstProductTotalRating;
 
@@ -119,7 +131,7 @@ public class ProductListFilterSortScreen extends ActionBase {
         return new ProductListFilterSortScreen(driver);
     }
 
-    public ProductListFilterSortScreen getTotalRatingBeforeFilter() {
+    public ProductListFilterSortScreen getTotalProductBeforeFilter() {
 
         WaitUntilElementIsVisible(firstProduct);
         //o1 = firstProductTotalRating.getText();
@@ -129,7 +141,7 @@ public class ProductListFilterSortScreen extends ActionBase {
         return new ProductListFilterSortScreen(driver);
     }
 
-    public ProductListFilterSortScreen getTotalRatingAfterFilter() {
+    public ProductListFilterSortScreen getTotalProductAfterFilter() {
 
         WaitUntilElementIsVisible(firstProduct);
         //o2 = firstProductTotalRating.getText();
@@ -151,6 +163,19 @@ public class ProductListFilterSortScreen extends ActionBase {
         tapByElement(rating1Filter);
         tapByElement(filterOily);
         clickRandomMultipleMenus(filterSkinConcernList);
+        //choose apply filter
+        tapByElement(applyFilterBtn);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen clickFilterChooseShade() {
+        tapByElement(filterOption);
+        WaitUntilElementIsVisible(filterBrand);
+        //choose shade
+        tapByElement(filterShade);
+        WaitUntilElementIsVisible(firstBrand);
+        tapByElement(firstBrand);
+        tapByElement(addBrandBtn);
         //choose apply filter
         tapByElement(applyFilterBtn);
         return new ProductListFilterSortScreen(driver);
@@ -187,7 +212,7 @@ public class ProductListFilterSortScreen extends ActionBase {
         return new ProductListFilterSortScreen(driver);
     }
 
-    public ProductListFilterSortScreen getTotalRatingAfterResetFilter() {
+    public ProductListFilterSortScreen getTotalProductAfterResetFilter() {
         WaitUntilElementIsVisible(firstProduct);
         //o2 = firstProductTotalRating.getText();
         overallRatAfterReset=listProduct.size();
@@ -196,6 +221,74 @@ public class ProductListFilterSortScreen extends ActionBase {
         if((overallRatAfterFilter - overallRatBeforeFilter)==0) {
             Assert.fail("total list product reset should same");
         }
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen clickCloseFilterChooseBrandAndShade() {
+        tapByElement(filterOption);
+        WaitUntilElementIsVisible(filterBrand);
+        tapByElement(filterBrand);
+        //choose brand
+        checkBeforeSelected = selectedBrand.getText();
+        WaitUntilElementIsVisible(firstBrand);
+        tapByElement(firstBrand);
+        checkAfterSelected = selectedBrand.getText();
+        if(checkAfterSelected.equals(checkBeforeSelected)) {
+            Assert.fail("counter selected brand should changed");
+        }
+        tapByElement(addBrandBtn);
+        //choose shade
+        tapByElement(filterShade);
+        WaitUntilElementIsVisible(firstBrand);
+        tapByElement(firstBrand);
+        tapByElement(addBrandBtn);
+        //choose apply filter
+        tapByElement(closeFilter);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen getTotalProductAfterClose() {
+        WaitUntilElementIsVisible(firstProduct);
+        //o1 = firstProductTotalRating.getText();
+        Integer overallProducAfterClose = listProduct.size();
+        //overallRatBeforeFilter=Integer.parseInt(o1);
+        System.out.println("total product after close"+" "+overallProducAfterClose);
+        if((overallProducAfterClose - overallRatBeforeFilter)!=0) {
+            Assert.fail("total list product reset should same");
+        }
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen clickSortNewest() {
+        WaitUntilElementIsVisible(sortingOption);
+        tapByElement(sortingOption);
+        WaitUntilElementIsVisible(newestSort);
+        tapByElement(newestSort);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen getFirstProductBeforeSort() {
+        WaitUntilElementIsVisible(firstProduct);
+        checkBeforeSort=firstProductName.getText();
+        System.out.println("first product before sort"+" "+checkBeforeSort);
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen getFirstProductAfterSort() {
+        WaitUntilElementIsVisible(firstProduct);
+        //o2 = firstProductTotalRating.getText();
+        checkAfterSort=firstProductName.getText();
+        //overallRatAfterFilter=Integer.parseInt(o2);
+        System.out.println("first product before sort"+" "+checkBeforeSort);
+        System.out.println("first product after sort"+" "+checkAfterSort);
+        if(checkAfterSort.equals(checkBeforeSort)) {
+            Assert.fail("product name should not same");
+        }
+        return new ProductListFilterSortScreen(driver);
+    }
+
+    public ProductListFilterSortScreen scrollList() {
+        verticalSwipe(firstProduct, 3, 900);
         return new ProductListFilterSortScreen(driver);
     }
 
