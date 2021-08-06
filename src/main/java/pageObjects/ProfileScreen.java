@@ -546,6 +546,12 @@ public class ProfileScreen extends ActionBase{
         return new ProfileScreen(driver);
     }
 
+    public ProfileScreen clickDrawerInviteFriends() {
+        WaitUntilElementIsVisible(drawerInviteFriends);
+        tapByElement(drawerInviteFriends);
+        return new ProfileScreen(driver);
+    }
+
     public ProfileScreen getTextFullname(String fullname) {
         WaitUntilElementIsVisible(fullnameLabelProfile);
         String fn = fullnameLabelProfile.getText();
@@ -1181,19 +1187,22 @@ public class ProfileScreen extends ActionBase{
         Boolean ck4= getTxtHairType.contains("-");
         Boolean ck5= getColoredHair.contains("-");
         Boolean ck6= getTxtIsHijab.contains("-");
+        System.out.println("profile:"+getTxtSkinType+""+getTxtSkinTone+""+getTxtSkinUndertone+""+getTxtHairType+""+getColoredHair+""+getTxtIsHijab);
         if(ck1 || ck2 || ck3 || ck4 || ck5 || ck6 ==true){
             Assert.fail("beauty profile not updated");
         }
     }
 
     public void verifyCompletedDataBeautyConcern() {
-        String getTxtSkinCon = valueSkinType.getText();
-        String getTxtBodyCon  = valueSkinTone.getText();
-        String getTxtHairCon = valueSkinUndertone.getText();
+
+        String getTxtSkinCon = skinConcern.getText();
+        String getTxtBodyCon  = bodyConcern.getText();
+        String getTxtHairCon = hairConcern.getText();
 
         Boolean ck1= getTxtSkinCon.contains("-");
         Boolean ck2= getTxtBodyCon.contains("-");
         Boolean ck3= getTxtHairCon.contains("-");
+        System.out.println("concern:"+getTxtSkinCon+""+getTxtBodyCon+""+getTxtHairCon);
         if(ck1 || ck2 || ck3 ==true){
             Assert.fail("beauty concern not updated");
         }

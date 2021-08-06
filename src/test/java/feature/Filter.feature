@@ -6,7 +6,7 @@ Feature: Filter
   If filter active, display red dot on button brand
 
   #RPA-8 #RPA-12 #RPA-17 #RPA-10
-  @Android @filter @Staging @OkrDone @RPA-8
+  @Android @filter @Staging @OkrDone @RPA-8 @DemoTest
   Scenario Outline: Check when filter applied - Check result if user use filter BeautyId - Check state Beauty after complete beautyId
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -26,7 +26,7 @@ Feature: Filter
       |	  putwid	  |   123tester       |
 
   #RPA-7 #RPA-11 #RPA-4
-  @Android @filter @Staging @OkrDone @RPA-7
+  @Android @filter @Staging @OkrDone @RPA-7 @DemoTest
   Scenario Outline: Check filter applied on category lipstick - Check state if do reset filter on filter brand screen - Check state when result is not found
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

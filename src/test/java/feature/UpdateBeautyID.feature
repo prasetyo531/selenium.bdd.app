@@ -101,7 +101,7 @@ Feature: Update Profile
       |   username                |   password      |
       |	  emptypersonal015	  |   test123       |
 
-  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279 @wip
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279 @RPA-135
   Scenario Outline: Update beauty profile and then click save on edit profile screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -110,12 +110,17 @@ Feature: Update Profile
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    When User clicks beautyId button on beauty drawer on profile
+    Then User will direct to edit beauty id screen
+    When User click save on empty profile then complete beauty profile
+    Then User will see completed data beauty profile screen
 
     Examples:
       |   username                |   password      |
-      |	  emptypersonal015	  |   test123       |
+      |	  emptypersonal020	  |   test123       |
 
-  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280 @wip
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280 @RPA-136 @DemoTest
   Scenario Outline: Update beauty concern and then click save on edit profile screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -124,10 +129,15 @@ Feature: Update Profile
     And User enters the "<password>" password on login screen
     And User clicks login button on login screen
     Then User will see modal account status on homescreen
+    And User clicks profile from homescreen menu
+    When User clicks beautyId button on beauty drawer on profile
+    Then User will direct to edit beauty id screen
+    When User click save on empty concern then complete beauty concern
+    Then User will see completed data beauty concern screen
 
     Examples:
       |   username                |   password      |
-      |	  emptypersonal015	  |   test123       |
+      |	  emptypersonal020	  |   test123       |
 
   @Android @Smoke @staging @OkrDone @RPA-275
   Scenario Outline: Close Bottom Sheet Vertical Ellipsis Menu

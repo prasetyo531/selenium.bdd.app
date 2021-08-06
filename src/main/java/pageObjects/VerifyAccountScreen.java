@@ -690,7 +690,7 @@ public class VerifyAccountScreen extends ActionBase {
         isElementPresent(errorSkinCon);
         String txtErrorSkinCon = errorSkinCon.getText();
         System.out.println(txtErrorSkinCon);
-        Assert.assertEquals(txtErrorSkinCon, "Please enter your skin concern");
+        Assert.assertEquals(txtErrorSkinCon, "Please choose your skin concern");
         return new VerifyAccountScreen(driver);
     }
 
@@ -706,7 +706,7 @@ public class VerifyAccountScreen extends ActionBase {
         isElementPresent(errorBodyCon);
         String txtErrorBodyCon = errorBodyCon.getText();
         System.out.println(txtErrorBodyCon);
-        Assert.assertEquals(txtErrorBodyCon, "Please enter your body concern");
+        Assert.assertEquals(txtErrorBodyCon, "Please choose your body concern");
         return new VerifyAccountScreen(driver);
     }
 
@@ -723,7 +723,7 @@ public class VerifyAccountScreen extends ActionBase {
         isElementPresent(errorHairCon);
         String txtErrorHairCon = errorHairCon.getText();
         System.out.println(txtErrorHairCon);
-        Assert.assertEquals(txtErrorHairCon, "Please enter your hair concern");
+        Assert.assertEquals(txtErrorHairCon, "Please choose your hair concern");
         return new VerifyAccountScreen(driver);
     }
 

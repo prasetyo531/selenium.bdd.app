@@ -126,6 +126,7 @@ public class UpdateProfileSteps extends DriverFactory {
     public void user_will_see_completed_data_beauty_concern_screen() {
 
         profileScreen.islabelCompleteBeautyConcernDissapear();
+        profileScreen.verifyCompletedDataBeautyConcern();
     }
 
     @Then("^User will direct to beauty concern screen$")
@@ -249,4 +250,55 @@ public class UpdateProfileSteps extends DriverFactory {
         profileScreen.captureSS("after-upload-photo-profile");
         verifyAccountScreen.checkPercentage("before-upload-photo-profile","after-upload-photo-profile");
     }
+
+    @When("^User click save on empty concern then complete beauty concern$")
+    public void user_click_save_on_empty_concern_then_complete_beauty_concern() {
+        profileScreen.clickEditBeautyConcern();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorSkinCon();
+        verifyAccountScreen.chooseSkinCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorBodyCon();
+        verifyAccountScreen.chooseBodyCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+        verifyAccountScreen.getErrorHairCon();
+        verifyAccountScreen.chooseHairCon();
+
+        verifyAccountScreen.clickSaveBeautyCon();
+    }
+
+    @When("^User click save on empty profile then complete beauty profile$")
+    public void user_click_save_on_empty_profile_then_complete_beauty_profile() {
+        profileScreen.clickEditBeautyProfile();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinType();
+        verifyAccountScreen.chooseSkinType();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinTone();
+        verifyAccountScreen.chooseSkinTone();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorSkinUndertone();
+        verifyAccountScreen.chooseSkinUndertone();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHairType();
+        verifyAccountScreen.chooseHairType();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorColoredHair();
+        verifyAccountScreen.chooseColoredHair();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+        verifyAccountScreen.getErrorHijaber();
+        verifyAccountScreen.chooseHijaber();
+
+        verifyAccountScreen.clickSaveBeautyProf();
+    }
+
 }
