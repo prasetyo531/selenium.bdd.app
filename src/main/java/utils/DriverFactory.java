@@ -41,6 +41,7 @@ public class DriverFactory {
     public static TryAndReviewScreen tryAndReviewScreen;
     public static BrandScreen brandScreen;
     public static FollowerFollowingScreen followerFollowingScreen;
+    public static FeedbackScreen feedbackScreen;
 
     public AppiumDriver getDriver() throws IOException {
         try {
@@ -85,6 +86,7 @@ public class DriverFactory {
             tryAndReviewScreen = new TryAndReviewScreen(driver);
             brandScreen = new BrandScreen(driver);
             followerFollowingScreen = new FollowerFollowingScreen(driver);
+            feedbackScreen = new FeedbackScreen(driver);
         }
         return driver;
     }

@@ -88,6 +88,7 @@ public class ProfileScreen extends ActionBase{
     @AndroidFindBy(id="com.fdbr.android.main:id/imagePhoto")
     public MobileElement listPhotoReviewsProfile;
 
+    /* drawer setting */
     @AndroidFindBy(id="com.fdbr.android.main:id/buttonQrCode")
     public MobileElement drawerQRCode;
 
@@ -536,6 +537,12 @@ public class ProfileScreen extends ActionBase{
     public ProfileScreen clickDrawerSetting() {
         WaitUntilElementIsVisible(drawerSetting);
         tapByElement(drawerSetting);
+        return new ProfileScreen(driver);
+    }
+
+    public ProfileScreen clickDrawerSupport() {
+        WaitUntilElementIsVisible(drawerSupport);
+        tapByElement(drawerSupport);
         return new ProfileScreen(driver);
     }
 
@@ -1161,7 +1168,6 @@ public class ProfileScreen extends ActionBase{
     }
 
     public void verifyCompletedDataBeautyProfile() {
-
         String getTxtSkinType = valueSkinType.getText();
         String getTxtSkinTone  = valueSkinTone.getText();
         String getTxtSkinUndertone = valueSkinUndertone.getText();
@@ -1175,14 +1181,12 @@ public class ProfileScreen extends ActionBase{
         Boolean ck4= getTxtHairType.contains("-");
         Boolean ck5= getColoredHair.contains("-");
         Boolean ck6= getTxtIsHijab.contains("-");
-
         if(ck1 || ck2 || ck3 || ck4 || ck5 || ck6 ==true){
             Assert.fail("beauty profile not updated");
         }
     }
 
     public void verifyCompletedDataBeautyConcern() {
-
         String getTxtSkinCon = valueSkinType.getText();
         String getTxtBodyCon  = valueSkinTone.getText();
         String getTxtHairCon = valueSkinUndertone.getText();
@@ -1190,16 +1194,21 @@ public class ProfileScreen extends ActionBase{
         Boolean ck1= getTxtSkinCon.contains("-");
         Boolean ck2= getTxtBodyCon.contains("-");
         Boolean ck3= getTxtHairCon.contains("-");
-
         if(ck1 || ck2 || ck3 ==true){
             Assert.fail("beauty concern not updated");
         }
     }
 
     public ProfileScreen captureSS(String nama) throws IOException, InterruptedException {
-
         isElementPresent(locationField);
         captureScreenshot(nama);
+        return new ProfileScreen(driver);
+    }
+
+    /* profile list  */
+    public ProfileScreen clickMenuFeedback() {
+        WaitUntilElementIsVisible(feedback);
+        tapByElement(feedback);
         return new ProfileScreen(driver);
     }
 }
