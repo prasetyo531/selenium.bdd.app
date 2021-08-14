@@ -202,6 +202,13 @@ public class LoginSteps extends DriverFactory {
         loginScreen.errorDescPasswordNotValidModal();
     }
 
+    @Then("^User see and close modal account not found$")
+    public void user_see_and_close_modal_account_not_found(){
+        loginScreen.errorTitleEmailUsernameNotRegisteredModal();
+        loginScreen.errorDescPasswordNotValidModal();
+    }
+
+
     @Then("^User see and close modal username is not registered ios$")
     public void User_see_and_close_modal_username_is_not_registered_ios() throws Throwable {
 

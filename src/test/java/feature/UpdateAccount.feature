@@ -66,7 +66,22 @@ Feature: Update Account
 
     Examples:
       |   username    |   password       |   oldpassword        |     newpassword       |  confirmnewpassword       |
-      |	  matches00	  |   test1234       |     test1234          |     test123          |     test123               |
+      |	  matches00	  |   test123       |     test123          |     test1234          |     test1234               |
+
+  #RPA-147
+  @Android @Smoke @updateprofile @staging @OkrDone @RPA-147
+  Scenario Outline: Update password again - input old password when login
+    Given User navigates to onboarding screen by swipe
+    When User clicks login button on onboarding screen
+    Then User enters the "<username>" username on login screen
+    And User clicks next button on login screen
+    And User enters the "<password>" password on login screen
+    And User clicks login button on login screen
+    Then User see and close modal account not found
+
+    Examples:
+      |   username    |   password      |
+      |	  matches00	  |   test123      |
 
   #FDBRMA-284
   @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-284
