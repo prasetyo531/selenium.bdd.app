@@ -87,7 +87,6 @@ public class AddPostScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonNegative")
     public MobileElement noBtn;
 
-
     // This is a constructor, as every page need a base driver to find android elements
     public AddPostScreen(AppiumDriver driver) {
 

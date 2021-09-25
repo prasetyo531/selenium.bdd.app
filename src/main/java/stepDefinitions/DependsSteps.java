@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
 import utils.DriverFactory;
 
 public class DependsSteps extends DriverFactory {

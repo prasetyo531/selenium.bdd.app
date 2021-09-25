@@ -139,14 +139,14 @@ public class AddProductScreen extends ActionBase {
     public MobileElement okPopUp;
 
     // This is a constructor, as every page need a base driver to find android elements
-    public AddProductScreen(AppiumDriver driver) throws IOException {
+    public AddProductScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public AddProductScreen clickImSureDrawer() throws IOException {
+    public AddProductScreen clickImSureDrawer() {
 
         isElementPresent(layoutTC);
         this.verticalSwipeByPercentages(layoutTC,0.4,0.01,0.5,500);
@@ -154,18 +154,16 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen chooseBrandName() throws IOException {
+    public AddProductScreen chooseBrandName() {
 
         tapByElement(brandField);
-
         tapByElement(firstResultBrand);
-
         getSelectedBrand = brandField.getText();
         System.out.println(getSelectedBrand);
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen chooseBrandName(String Brand) throws IOException {
+    public AddProductScreen chooseBrandName(String Brand) {
 
         tapByElement(brandField);
 
@@ -181,7 +179,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen chooseProdCat() throws IOException, InterruptedException {
+    public AddProductScreen chooseProdCat() {
 
         tapByElement(productCatField);
         isElementPresent(firstResultProdCat);
@@ -211,7 +209,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen editSelectedBrandName() throws IOException {
+    public AddProductScreen editSelectedBrandName() {
 
         //this.verticalSwipeByPercentages(productDescField,0.01,0.4,0.5,500);
 
@@ -229,46 +227,42 @@ public class AddProductScreen extends ActionBase {
     }
 
 
-    public AddProductScreen editSelectedProductCat() throws IOException, InterruptedException {
+    public AddProductScreen editSelectedProductCat() {
 
         this.verticalSwipeByPercentages(productNameField,0.3,0.6,0.20,500);
-
         getSelectedProdCat = productCatField.getText();
         System.out.println(getSelectedProdCat);
 
         tapByElement(productCatField);
         isElementPresent(firstResultProdCat);
 
-        /*
-        tapByElement(firstResultProdCat);
-        tapByElement(firstResultProdCat);
-        tapByElement(firstResultProdCat);
-        tapByElement(firstResultProdCat);
-         */
-
         clickRandomMenus(listProdCat);
 
         boolean isListPresent = secondResultProdCat.isDisplayed();
-        while(isListPresent==true) {
-            Thread.sleep(100);
-            clickRandomMenus(listProdCat);
-            Thread.sleep(100);
 
-            Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
-            if(numreview == true){
+        try {
+            while (isListPresent == true) {
+                Thread.sleep(100);
                 clickRandomMenus(listProdCat);
-            } else {
-                break;
-            }
-        }
+                Thread.sleep(100);
 
-        getEditedProdCat = productCatField.getText();
-        System.out.println(getEditedProdCat);
-        Assert.assertNotEquals(getSelectedProdCat, getEditedProdCat);
+                Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
+                if (numreview == true) {
+                    clickRandomMenus(listProdCat);
+                } else {
+                    break;
+                }
+            }
+            getEditedProdCat = productCatField.getText();
+            System.out.println(getEditedProdCat);
+            Assert.assertNotEquals(getSelectedProdCat, getEditedProdCat);
+        } catch (InterruptedException e) {
+            e.getMessage();
+        }
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductName() throws IOException {
+    public AddProductScreen fillProductName() {
 
         //tapByElement(productNameField);
         inputValue(productNameField, "hardcode add product");
@@ -277,7 +271,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductName(String name) throws IOException {
+    public AddProductScreen fillProductName(String name) {
 
         //tapByElement(productNameField);
         inputValue(productNameField, name);
@@ -286,7 +280,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen editInputedProductName(String name) throws IOException {
+    public AddProductScreen editInputedProductName(String name) {
 
         getSelectedProdName = productNameField.getText();
         System.out.println(getSelectedProdName);
@@ -299,7 +293,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductShade() throws IOException {
+    public AddProductScreen fillProductShade() {
 
         //tapByElement(productShadeField);
         inputValue(productShadeField, "hardcode shade add product");
@@ -308,7 +302,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductShade(String shade) throws IOException {
+    public AddProductScreen fillProductShade(String shade) {
 
         //tapByElement(productShadeField);
         inputValue(productShadeField, shade);
@@ -317,7 +311,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductDesc() throws IOException {
+    public AddProductScreen fillProductDesc() {
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         //tapByElement(productDescField);
@@ -325,21 +319,21 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductPrice() throws IOException {
+    public AddProductScreen fillProductPrice() {
 
         //tapByElement(priceField);
         inputValue(priceField, "90000");
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen fillProductTags() throws IOException {
+    public AddProductScreen fillProductTags() {
 
         tapByElement(tagsField);
         inputValue(tagsField, "tagtest");
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen capturePhoto() throws IOException {
+    public AddProductScreen capturePhoto() {
 
         tapByElement(photoThumbnail);
 
@@ -350,7 +344,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddPostScreen choosePhotoFromGallery() throws IOException {
+    public AddPostScreen choosePhotoFromGallery() {
 
         tapByElement(photoThumbnail);
 
@@ -367,64 +361,61 @@ public class AddProductScreen extends ActionBase {
         return new AddPostScreen(driver);
     }
 
-    public AddProductScreen submitAddProduct() throws IOException {
+    public AddProductScreen submitAddProduct() {
 
         tapByElement(addProductBtn);
         return new AddProductScreen(driver);
     }
 
     //action drawer
-    public AddProductScreen checkDrawer() throws IOException {
+    public AddProductScreen checkDrawer() {
 
         isElementPresent(drawerLayout);
         return new AddProductScreen(driver);
     }
-    public AddProductScreen getBrandDrawer() throws IOException {
+    public AddProductScreen getBrandDrawer() {
 
         getSubmittedBrand = brandText.getText();
         System.out.println(getSubmittedBrand);
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen getProdNameDrawer() throws IOException {
+    public AddProductScreen getProdNameDrawer() {
 
         getSubmittedProdName = productText.getText();
         System.out.println(getSubmittedProdName);
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen getProdShadeDrawer() throws IOException {
+    public AddProductScreen getProdShadeDrawer() {
 
         getSubmittedProdShade = shadeText.getText();
         System.out.println(getSubmittedProdShade);
         return new AddProductScreen(driver);
     }
 
-    public boolean isBrandSame() throws IOException {
+    public boolean isBrandSame() {
 
         getBrandDrawer();
-
         boolean brand = getSelectedBrand.equals(getSubmittedBrand);
         return brand;
     }
 
-    public boolean isEditedBrandSame() throws IOException {
+    public boolean isEditedBrandSame() {
 
         getBrandDrawer();
-
         boolean brand = getEditedBrand.equals(getSubmittedBrand);
         return brand;
     }
 
-    public boolean isProdNameSame() throws IOException {
+    public boolean isProdNameSame() {
 
         getProdNameDrawer();
-
         boolean name = getSelectedProdName.equals(getSubmittedProdName);
         return name;
     }
 
-    public boolean isEditedProdNameSame() throws IOException {
+    public boolean isEditedProdNameSame() {
 
         getProdNameDrawer();
 
@@ -432,7 +423,7 @@ public class AddProductScreen extends ActionBase {
         return name;
     }
 
-    public boolean isProdShadeSame() throws IOException {
+    public boolean isProdShadeSame() {
 
         getProdShadeDrawer();
 
@@ -441,20 +432,20 @@ public class AddProductScreen extends ActionBase {
     }
 
     // action on drawer
-    public AddProductScreen clickReview() throws IOException {
+    public AddProductScreen clickReview() {
 
         tapByElement(reviewBtn);
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen clickSkipReview() throws IOException {
+    public AddProductScreen clickSkipReview() {
 
         tapByElement(skipBtn);
         return new AddProductScreen(driver);
     }
 
     //error modal
-    public AddProductScreen okErrorShouldUsingImg() throws IOException {
+    public AddProductScreen okErrorShouldUsingImg() {
 
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
@@ -466,7 +457,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen okErrorShouldChooseBrandName() throws IOException {
+    public AddProductScreen okErrorShouldChooseBrandName() {
 
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
@@ -478,7 +469,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen okErrorShouldChooseProductCategory() throws IOException {
+    public AddProductScreen okErrorShouldChooseProductCategory() {
 
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
@@ -490,7 +481,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen okErrorShouldChooseProductName() throws IOException {
+    public AddProductScreen okErrorShouldChooseProductName() {
 
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
@@ -502,7 +493,7 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen okErrorShouFillProductNameLessThan3MoreThan100() throws IOException {
+    public AddProductScreen okErrorShouFillProductNameLessThan3MoreThan100() {
 
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
@@ -514,13 +505,13 @@ public class AddProductScreen extends ActionBase {
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen scrollToTop() throws IOException {
+    public AddProductScreen scrollToTop() {
 
         this.verticalSwipeByPercentages(photoThumbnail,0.3,0.6,0.20,500);
         return new AddProductScreen(driver);
     }
 
-    public AddProductScreen scrollToBottom() throws IOException {
+    public AddProductScreen scrollToBottom() {
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         return new AddProductScreen(driver);

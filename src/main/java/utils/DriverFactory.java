@@ -12,7 +12,7 @@ public class DriverFactory {
     //public static Process process;
 
     //set configuration
-    public static String loadPropertyFile = "android.properties";
+    public String loadPropertyFile = "android.properties";
 
     /****************
      Android & IOS Screen
