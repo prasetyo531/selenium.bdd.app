@@ -181,8 +181,9 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen chooseProdCat() {
 
-        tapByElement(productCatField);
-        isElementPresent(firstResultProdCat);
+        try {
+            tapByElement(productCatField);
+            isElementPresent(firstResultProdCat);
 
         /*
         tapByElement(firstResultProdCat);
@@ -191,20 +192,23 @@ public class AddProductScreen extends ActionBase {
         tapByElement(firstResultProdCat);
          */
 
-        clickRandomMenus(listProdCat);
-
-        boolean isListPresent = secondResultProdCat.isDisplayed();
-        while(isListPresent==true) {
-            Thread.sleep(100);
             clickRandomMenus(listProdCat);
-            Thread.sleep(100);
 
-            Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
-            if(numreview == true){
+            boolean isListPresent = secondResultProdCat.isDisplayed();
+            while (isListPresent == true) {
+                Thread.sleep(100);
                 clickRandomMenus(listProdCat);
-            } else {
-                break;
+                Thread.sleep(100);
+
+                Boolean numreview = driver.findElements(qtyProdCat).size() > 1;
+                if (numreview == true) {
+                    clickRandomMenus(listProdCat);
+                } else {
+                    break;
+                }
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return new AddProductScreen(driver);
     }

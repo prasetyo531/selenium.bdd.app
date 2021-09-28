@@ -911,7 +911,7 @@ public class ProfileScreen extends ActionBase{
             String title = titleScreen.getText();
             System.out.println("title screen" + " " + title);
             org.testng.Assert.assertEquals(title, "Beauty Profile");
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -924,7 +924,7 @@ public class ProfileScreen extends ActionBase{
         String title = titleScreen.getText();
         System.out.println("title screen"+" "+title);
         org.testng.Assert.assertEquals(title, "Beauty Concern");
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

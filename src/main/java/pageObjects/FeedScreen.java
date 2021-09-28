@@ -319,7 +319,7 @@ public class FeedScreen extends ActionBase {
             Assert.assertTrue(txt.startsWith("@"));
             tapByElement(postComment);
             Thread.sleep(3000);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new FeedScreen(driver);
@@ -336,7 +336,7 @@ public class FeedScreen extends ActionBase {
             inputValue(commentField, "submit comment post");
             tapByElement(postComment);
             Thread.sleep(3000);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new FeedScreen(driver);
@@ -367,7 +367,7 @@ public class FeedScreen extends ActionBase {
             Assert.assertTrue(titleModalReport.equals("Sure want to delete Comment?"));
             isElementPresent(okDelete);
             tapByElement(okDelete);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new FeedScreen(driver);

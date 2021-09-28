@@ -299,7 +299,7 @@ public class DiscoverScreen extends ActionBase {
             Thread.sleep(1000);
             isElementPresent(commentList);
             tapByElement(backBtn);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new DiscoverScreen(driver);

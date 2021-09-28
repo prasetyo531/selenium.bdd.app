@@ -502,7 +502,7 @@ public class HomeScreen extends ActionBase {
             } else {
                 System.out.println("button changed to member is appear");
             }
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new HomeScreen(driver);

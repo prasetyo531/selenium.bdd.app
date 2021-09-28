@@ -508,7 +508,7 @@ public class AddReviewScreen extends ActionBase {
             Thread.sleep(1000);
             tapByElement(moreBtn);
             tapByElement(editReview);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new AddReviewScreen(driver);

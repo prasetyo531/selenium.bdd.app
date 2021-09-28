@@ -267,7 +267,7 @@ public class TryAndReviewScreen extends ActionBase {
             tapByElement(expandArrow2);
             tapByElement(expandArrow3);
             Thread.sleep(500);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new TryAndReviewScreen(driver);
@@ -279,7 +279,7 @@ public class TryAndReviewScreen extends ActionBase {
         try {
             Thread.sleep(2000);
             isElementPresent(titleParticipantSum);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.getMessage();
         }
         return new TryAndReviewScreen(driver);

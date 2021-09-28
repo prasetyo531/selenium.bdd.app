@@ -182,7 +182,7 @@ public class OtpScreen extends ActionBase{
             tapByElement(resendCodeLabel);
             Thread.sleep(32000);
             tapByElement(resendCodeLabel);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new OtpScreen(driver);

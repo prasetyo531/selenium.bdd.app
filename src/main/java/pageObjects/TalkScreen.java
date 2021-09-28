@@ -310,7 +310,7 @@ public class TalkScreen extends ActionBase {
             tapByElement(seeMoreGrouptn);
             inputValue(searchTalkBar, group);
             Thread.sleep(3000);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new TalkScreen(driver);
@@ -342,7 +342,7 @@ public class TalkScreen extends ActionBase {
             } else {
                 System.out.println("button changed to member is appear");
             }
-        } catch (NoSuchElementException e){
+        } catch (InterruptedException e){
             e.printStackTrace();
         }
         return new TalkScreen(driver);
@@ -368,7 +368,7 @@ public class TalkScreen extends ActionBase {
             } else {
                 System.out.println("button changed to member is appear");
             }
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new TalkScreen(driver);
@@ -425,7 +425,7 @@ public class TalkScreen extends ActionBase {
             driver.hideKeyboard();
             inputValueEnter(inputTaggingAddTopicScreen, tagEditTopic);
             tapByElement(submitAddTopicTalkBtn);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new TalkScreen(driver);
@@ -543,7 +543,7 @@ public class TalkScreen extends ActionBase {
             tapByElement(inputDescAddTalkScreen);
             inputValue(inputDescAddTalkScreen, fakeValuesService.regexify("[a-z1-9]{100}") + " " + "reply talk description");
             tapByElement(submitAddTopicTalkBtn);
-        } catch (NoSuchElementException e){
+        } catch (InterruptedException e){
             e.printStackTrace();
         }
         return new TalkScreen(driver);

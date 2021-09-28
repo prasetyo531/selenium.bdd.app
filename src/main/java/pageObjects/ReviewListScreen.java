@@ -178,7 +178,7 @@ public class ReviewListScreen extends ActionBase {
             //check label selected should present on filter
             Thread.sleep(2000);
             isElementPresent(labelFilterSelected2);
-        } catch (NoSuchElementException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new ReviewListScreen(driver);
