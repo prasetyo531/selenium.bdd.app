@@ -96,7 +96,7 @@ public class ActionBase extends DriverFactory {
      **********************************************************************************/
     public boolean WaitUntilElementIsVisible(MobileElement mobileElement) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, 15);
             wait.until(ExpectedConditions.visibilityOf(mobileElement));
             System.out.println("WebElement is visible using locator: " + "<" + mobileElement.toString() + ">");
             return true;
@@ -272,6 +272,7 @@ public class ActionBase extends DriverFactory {
     }
 
     //--https://qavalidation.com/2016/07/scrolling-in-appium.html/
+    //newest scroll to user
     public void verticalSwipeByPercentagesDirectly(int xoffset1, int yoffset1, int xoffset2, int yoffset2) {
         new TouchAction(driver)
                 .press(point(xoffset1, yoffset1))

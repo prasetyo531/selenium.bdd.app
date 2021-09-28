@@ -195,28 +195,28 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen chooseSecondPopularProduct() throws IOException {
+    public AddReviewScreen chooseSecondPopularProduct() {
 
         isElementPresent(secondPopularProduct);
         tapByElement(secondPopularProduct);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen chooseThirdPopularProduct() throws IOException {
+    public AddReviewScreen chooseThirdPopularProduct() {
 
         isElementPresent(thirdPopularProduct);
         tapByElement(thirdPopularProduct);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen chooseFourthPopularProduct() throws IOException {
+    public AddReviewScreen chooseFourthPopularProduct() {
 
         isElementPresent(fourthPopularProduct);
         tapByElement(fourthPopularProduct);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen chooseFifthPopularProduct() throws IOException {
+    public AddReviewScreen chooseFifthPopularProduct() {
 
         isElementPresent(fifthPopularProduct);
         tapByElement(fifthPopularProduct);
@@ -224,19 +224,19 @@ public class AddReviewScreen extends ActionBase {
     }
 
     /* add review screen */
-    public AddReviewScreen clickNextScreen() throws IOException {
+    public AddReviewScreen clickNextScreen() {
 
         tapByElement(nextBtn);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickPrevScreen() throws IOException {
+    public AddReviewScreen clickPrevScreen() {
 
         tapByElement(prevBtn);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen fillRatingAddReview() throws IOException {
+    public AddReviewScreen fillRatingAddReview() {
 
         isElementPresent(ratingbarAddReview);
         //http://www.pavantestingtools.com/2019/02/handling-ratingstar-using-appium.html
@@ -257,7 +257,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen editRatingAddReview() throws IOException {
+    public AddReviewScreen editRatingAddReview() {
 
         isElementPresent(ratingbarAddReview);
         //http://www.pavantestingtools.com/2019/02/handling-ratingstar-using-appium.html
@@ -278,7 +278,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen setStepperDurationofUser() throws IOException {
+    public AddReviewScreen setStepperDurationofUser() {
 
         isElementPresent(imgDurationScreen);
         //http://www.pavantestingtools.com/2019/02/handling-ratingstar-using-appium.html
@@ -302,7 +302,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen editStepperDurationofUser() throws IOException {
+    public AddReviewScreen editStepperDurationofUser() {
 
         isElementPresent(imgDurationScreen);
         //http://www.pavantestingtools.com/2019/02/handling-ratingstar-using-appium.html
@@ -326,14 +326,14 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen checkFirstTimeUse() throws IOException {
+    public AddReviewScreen checkFirstTimeUse() {
 
         isElementPresent(firstTimeUse);
         tapByElement(firstTimeUse);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickEcommerce() throws IOException {
+    public AddReviewScreen clickEcommerce() {
 
         try{
             isElementPresent(ecommerce);
@@ -349,7 +349,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickMultibrandStore() throws IOException {
+    public AddReviewScreen clickMultibrandStore() {
 
         try{
             isElementPresent(offlineTab);
@@ -369,7 +369,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen inputNoneAbove(String source) throws IOException {
+    public AddReviewScreen inputNoneAbove(String source) {
 
         isElementPresent(othersTab);
         tapByElement(othersTab);
@@ -386,7 +386,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen setTokopedia() throws IOException {
+    public AddReviewScreen setTokopedia() {
 
         isElementPresent(findotheoption);
         tapByElement(listTokopedia);
@@ -395,7 +395,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen setMetro() throws IOException {
+    public AddReviewScreen setMetro() {
 
         isElementPresent(findotheoption);
         tapByElement(listMetro);
@@ -404,7 +404,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen choosePositiveRecommendation() throws IOException {
+    public AddReviewScreen choosePositiveRecommendation() {
 
         isElementPresent(reviewdesc);
         driver.hideKeyboard();
@@ -412,14 +412,14 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen chooseNegativeRecommendation() throws IOException {
+    public AddReviewScreen chooseNegativeRecommendation() {
 
         isElementPresent(reviewdesc);
         tapByElement(no);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen writeReview() throws IOException {
+    public AddReviewScreen writeReview() {
 
         inputValue(reviewdesc,reviewTxt);
 
@@ -428,7 +428,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen editReview() throws IOException {
+    public AddReviewScreen editReview() {
 
         getReviewBeforeEditDesc = reviewdesc.getText();
 
@@ -436,14 +436,14 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickSubmitReview() throws IOException {
+    public AddReviewScreen clickSubmitReview() {
 
         isElementEnabled(submitreview);
         tapByElement(submitreview);
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickSeeMyReview() throws IOException {
+    public AddReviewScreen clickSeeMyReview() {
 
         //get text congrats
 
@@ -454,7 +454,7 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen compareFieldReview() throws IOException {
+    public AddReviewScreen compareFieldReview() {
 
         isElementPresent(descReviewDetail);
 
@@ -469,31 +469,31 @@ public class AddReviewScreen extends ActionBase {
     }
 
     /* edit submitted review */
-    public AddReviewScreen getDetailDescReview() throws IOException {
+    public AddReviewScreen getDetailDescReview() {
 
         getSubmittedRevDesc = descReviewDetail.getText();
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen getDetailUsagePeriodReview() throws IOException {
+    public AddReviewScreen getDetailUsagePeriodReview() {
 
         getSubmittedRevUsagePer = usagePeriod.getText().toLowerCase();
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen getDetailProdFromReview() throws IOException {
+    public AddReviewScreen getDetailProdFromReview() {
 
         getSubmittedRevProdFrom = productFrom.getText().toLowerCase();
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen getDetailRecommReview() throws IOException {
+    public AddReviewScreen getDetailRecommReview() {
 
         getSubmittedRevRecomm = recommended.getText().toLowerCase();
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen compareFieldBeforeEdited() throws IOException {
+    public AddReviewScreen compareFieldBeforeEdited() {
 
         getDetailDescReview();
         getDetailUsagePeriodReview();
@@ -502,15 +502,19 @@ public class AddReviewScreen extends ActionBase {
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen clickEditReview() throws IOException, InterruptedException {
+    public AddReviewScreen clickEditReview() {
 
-        Thread.sleep(1000);
-        tapByElement(moreBtn);
-        tapByElement(editReview);
+        try {
+            Thread.sleep(1000);
+            tapByElement(moreBtn);
+            tapByElement(editReview);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new AddReviewScreen(driver);
     }
 
-    public AddReviewScreen editSubmittedReview() throws IOException {
+    public AddReviewScreen editSubmittedReview() {
 
         inputValue(reviewdesc,editSubmittedReviewTxt);
         return new AddReviewScreen(driver);

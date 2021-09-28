@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -83,7 +84,7 @@ public class OtpScreen extends ActionBase{
     }
 
     //get String phone android
-    public OtpScreen comparePhoneReceiver() throws IOException {
+    public OtpScreen comparePhoneReceiver() {
 
         String titleReceiver = tittleScreenVerify.getText();
         Assert.assertTrue(titleReceiver.equals("Verifying Number"));
@@ -93,12 +94,11 @@ public class OtpScreen extends ActionBase{
 
         String labelwn = labelBeforeTapToChange.getText();
         Assert.assertTrue(labelwn.equals("Wrong number?"));
-
         return new OtpScreen(driver);
     }
 
     //get phone
-    public OtpScreen compareEmailReceiver() throws IOException {
+    public OtpScreen compareEmailReceiver() {
 
         String titleReceiver = tittleScreenVerify.getText();
         Assert.assertTrue(titleReceiver.equals("Verifying Email"));
@@ -118,31 +118,27 @@ public class OtpScreen extends ActionBase{
         String labelwe = labelBeforeTapToChange.getText();
         Assert.assertTrue(labelwe.equals("Wrong email?"));
         //Assert.assertTrue(labelReceiver.contains(".com"));
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen tapToChangeFromPhoneToEmail() throws IOException {
+    public OtpScreen tapToChangeFromPhoneToEmail() {
 
        tapByElement(tapToChangeLabel);
-
         return new OtpScreen(driver);
     }
 
     //get counter time
-    public OtpScreen getCounter() throws IOException {
+    public OtpScreen getCounter() {
 
         isElementPresent(countdownTimer);
         String counter = countdownTimer.getText();
         Assert.assertTrue(counter.contains("00:2"));
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen getLabelToResendCode() throws IOException {
+    public OtpScreen getLabelToResendCode() {
 
         isElementPresent(resendCodeLabel);
-
         return new OtpScreen(driver);
     }
 
@@ -155,11 +151,10 @@ public class OtpScreen extends ActionBase{
         inputValue(box4,"1");
         inputValue(box5,"1");
         inputValue(box6,"1");
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen fillWrongOtp() throws IOException {
+    public OtpScreen fillWrongOtp() {
 
         inputValue(box1,"1");
         inputValue(box2,"2");
@@ -167,31 +162,29 @@ public class OtpScreen extends ActionBase{
         inputValue(box4,"4");
         inputValue(box5,"5");
         inputValue(box6,"6");
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen clickResendCode() throws IOException {
+    public OtpScreen clickResendCode() {
 
         WaitUntilElementIsVisible(resendCodeLabel);
         tapByElement(resendCodeLabel);
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen clickResendCodeUntilSuspend() throws IOException, InterruptedException {
+    public OtpScreen clickResendCodeUntilSuspend() {
 
-        Thread.sleep(30000);
-        isElementEnabled(resendCodeLabel);
-
-        tapByElement(resendCodeLabel);
-        Thread.sleep(31000);
-
-        tapByElement(resendCodeLabel);
-        Thread.sleep(32000);
-
-        tapByElement(resendCodeLabel);
-
+        try {
+            Thread.sleep(30000);
+            isElementEnabled(resendCodeLabel);
+            tapByElement(resendCodeLabel);
+            Thread.sleep(31000);
+            tapByElement(resendCodeLabel);
+            Thread.sleep(32000);
+            tapByElement(resendCodeLabel);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new OtpScreen(driver);
     }
 
@@ -203,25 +196,23 @@ public class OtpScreen extends ActionBase{
         return new OtpScreen(driver);
     }
 
-    public OtpScreen assertTextErrorOtp(String text) throws IOException {
+    public OtpScreen assertTextErrorOtp(String text) {
 
         isElementPresent(errorMsgOtp);
         String txtWarning = errorMsgOtp.getText();
         Assert.assertEquals(txtWarning, text);
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen assertTextErrorSuspendOtp(String text) throws IOException {
+    public OtpScreen assertTextErrorSuspendOtp(String text) {
 
         isElementPresent(errorMsgOtp);
         String txtWarning = errorMsgOtp.getText();
         Assert.assertTrue(txtWarning.contains(text));
-
         return new OtpScreen(driver);
     }
 
-    public OtpScreen assertErrorOtpAfterResendCode() throws IOException {
+    public OtpScreen assertErrorOtpAfterResendCode() {
 
         Boolean errorMsg = errorMsgOtp.isDisplayed();
         System.out.println(errorMsg);

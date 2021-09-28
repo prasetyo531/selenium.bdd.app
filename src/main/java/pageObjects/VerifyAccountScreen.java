@@ -762,10 +762,14 @@ public class VerifyAccountScreen extends ActionBase {
     }
 
     /* compare image */
-    public VerifyAccountScreen checkPercentage(String namafile1, String namafile2) throws InterruptedException {
+    public VerifyAccountScreen checkPercentage(String namafile1, String namafile2) {
 
-        compareImgIfUploaded(namafile1, namafile2);
-        Thread.sleep(300);
+        try {
+            compareImgIfUploaded(namafile1, namafile2);
+            Thread.sleep(300);
+        } catch (Exception e) {
+            e.getMessage();
+        }
         return new VerifyAccountScreen(driver);
     }
 

@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -105,7 +106,7 @@ public class DiscoverScreen extends ActionBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public DiscoverScreen scrollOnDiscover() throws IOException {
+    public DiscoverScreen scrollOnDiscover() {
 
         WaitUntilElementIsVisible(postList);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -118,14 +119,14 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickFirstPost() throws IOException {
+    public DiscoverScreen clickFirstPost() {
 
         isElementEnabled(firstPostDiscover);
         tapByElement(firstPostDiscover);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickPostList() throws IOException {
+    public DiscoverScreen clickPostList() {
 
         isElementEnabled(postList);
         tapByElement(postList);
@@ -147,7 +148,7 @@ public class DiscoverScreen extends ActionBase {
     }
      */
 
-    public DiscoverScreen checkBeforeFollow() throws IOException {
+    public DiscoverScreen checkBeforeFollow() {
 
         List<MobileElement> li1 = followBtn;
         System.out.println("before follow"+" "+li1.size());
@@ -157,7 +158,7 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen checkFollowShouldDissapear() throws IOException {
+    public DiscoverScreen checkFollowShouldDissapear() {
 
         List<MobileElement> li2 = followBtn;
         fol2 = li2.size();
@@ -169,7 +170,7 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickFollow() throws IOException {
+    public DiscoverScreen clickFollow() {
 
         List<MobileElement> li = followBtn;
         System.out.println("before follow"+" "+li.size());
@@ -177,21 +178,21 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickBack() throws IOException {
+    public DiscoverScreen clickBack() {
 
         tapByElement(backBtn);
         return new DiscoverScreen(driver);
     }
 
     //trending hashtag
-    public DiscoverScreen clickFirstHashtag() throws IOException {
+    public DiscoverScreen clickFirstHashtag() {
 
         isElementPresent(firstTrendingHashtag);
         tapByElement(firstTrendingHashtag);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen scrollOnHashtag() throws IOException {
+    public DiscoverScreen scrollOnHashtag() {
 
         //isElementEnabled(postList);
         isElementPresent(postHashtagGrid);
@@ -203,14 +204,14 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickRandomPost() throws IOException {
+    public DiscoverScreen clickRandomPost() {
 
         isElementPresent(postHashtagGrid);
         tapByElement(firstPostHashtag);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen scrollPostList() throws IOException {
+    public DiscoverScreen scrollPostList() {
 
         isElementPresent(commentIcon);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -221,7 +222,7 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen inputKeywordHashtag(String hashtag) throws IOException {
+    public DiscoverScreen inputKeywordHashtag(String hashtag) {
 
         tapByElement(iconSearchHashtag);
         isElementEnabled(searchHashtag);
@@ -230,19 +231,19 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickFirstHashtagAfterSearch() throws IOException {
+    public DiscoverScreen clickFirstHashtagAfterSearch() {
 
         tapByElement(firstTrendingHashtagSearch);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickSearchIcon() throws IOException {
+    public DiscoverScreen clickSearchIcon() {
 
         tapByElement(iconSearchHashtag);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickFirstHashtagOnSearch() throws IOException {
+    public DiscoverScreen clickFirstHashtagOnSearch() {
 
         isElementPresent(titlePopularNow);
         isElementPresent(firstTrendingHashtagSearch);
@@ -250,27 +251,27 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen scrollHashtagResult() throws IOException {
+    public DiscoverScreen scrollHashtagResult() {
 
         isElementPresent(firstTrendingHashtagSearch);
         verticalSwipeByPercentages(firstTrendingHashtagSearch, 0.8,0.01,0.5,500);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen backToSearchHashtagScreen() throws IOException {
+    public DiscoverScreen backToSearchHashtagScreen() {
 
         isElementPresent(backBtn);
         tapByElement(backBtn);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen checkHashtagDetail() throws IOException {
+    public DiscoverScreen checkHashtagDetail() {
 
         isElementPresent(firstPostHashtag);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickLike() throws IOException {
+    public DiscoverScreen clickLike() {
 
         isElementPresent(likeIcon);
         counterLikeBefore = likeIcon.getText();
@@ -281,7 +282,7 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen clickComment() throws IOException {
+    public DiscoverScreen clickComment() {
 
         isElementPresent(commentIcon);
         counterCommentBefore = commentIcon.getText();
@@ -290,26 +291,27 @@ public class DiscoverScreen extends ActionBase {
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen addComment(String comment) throws IOException, InterruptedException {
+    public DiscoverScreen addComment(String comment) {
 
-        inputValue(commentField, comment);
-        tapByElement(postComment);
-
-        Thread.sleep(1000);
-        isElementPresent(commentList);
-
-        tapByElement(backBtn);
-
+        try {
+            inputValue(commentField, comment);
+            tapByElement(postComment);
+            Thread.sleep(1000);
+            isElementPresent(commentList);
+            tapByElement(backBtn);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen checkCounterLike() throws IOException {
+    public DiscoverScreen checkCounterLike() {
 
         Assert.assertNotSame(counterLikeAfter, counterLikeBefore);
         return new DiscoverScreen(driver);
     }
 
-    public DiscoverScreen checkCounterComment() throws IOException {
+    public DiscoverScreen checkCounterComment() {
 
         isElementPresent(commentIcon);
         counterCommentAfter = commentIcon.getText();

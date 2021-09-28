@@ -1,11 +1,13 @@
 package pageObjects;
 
+import gherkin.lexer.Ca;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -306,6 +308,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public Boolean checkProgressBarVerifyEmailPhone() {
+
         boolean e1= isElementPresent(progressBar);
         boolean e2= isElementPresent(textNeedVerify);
         boolean e3= isElementPresent(btnNeedVerify);
@@ -317,6 +320,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public Boolean checkProgressBarCompleteProfile(){
+
         boolean e1= isElementPresent(progressBar);
         boolean e2= isElementPresent(textNeedVerify);
         boolean e3= isElementPresent(btnNeedVerify);
@@ -333,6 +337,7 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen completeMyBeautyIdProductMatches() {
+
         verticalSwipe(contentScrollableHome, 2, 900);
         isElementPresent(btnCompleteBeautyID);
         tapByElement(btnCompleteBeautyID);
@@ -342,74 +347,87 @@ public class HomeScreen extends ActionBase {
 
     //menu bar
     public HomeScreen clickProductCategory() {
+
         isElementPresent(productCategoryMenu);
         tapByElement(productCategoryMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickTnrMenu() {
+
         isElementPresent(tnrMenu);
         tapByElement(tnrMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickTalkMenu() {
+
         isElementPresent(talkMenu);
         tapByElement(talkMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen verifyProductMatches() {
+
         isElementPresent(firstindextproductmatches);
         System.out.println("product matches is present");
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickAccountCompleteVerBtn() {
+
         isElementPresent(accountCompleteVerBtn);
         tapByElement(accountCompleteVerBtn);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickAddReviewHomeMenu() {
+
         tapByElement(plusTab);
         tapByElement(addReviewMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickAddProductHomeMenu() {
+
         tapByElement(plusTab);
         tapByElement(addProductMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickAddPostHomeMenu() {
+
         tapByElement(plusTab);
         tapByElement(addPostMenu);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickHomeMenu() {
+
         tapByElement(homeTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickFeedMenu() {
+
         tapByElement(feedTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickDiscoverHomeMenu() {
+
         tapByElement(discoverTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickProfileHomeMenu() {
+
         tapByElement(profileTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen scrollClickMenuAppToAllBrands() {
+
         horizontalSwipeByPercentagesDirectly(991,798, 460, 803);
         isElementEnabled(brandMenu);
         tapByElement(brandMenu);
@@ -418,39 +436,46 @@ public class HomeScreen extends ActionBase {
 
     //search
     public HomeScreen clickSearch() {
+
         WaitUntilElementIsVisible(searchIcon);
         tapByElement(searchIcon);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickUsersTab() {
+
         isElementPresent(usersTab);
         tapByElement(usersTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen inputSearch(String fullname) {
+
         inputValue(toolbarSearch, fullname);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickFirstElementSearch() {
+
         clickFirstMenus(firstResultUsersTab);
         return new HomeScreen(driver);
     }
 
     public HomeScreen clickRandomElementSearch() {
+
         clickRandomMenus(resultProduct);
         return new HomeScreen(driver);
     }
 
     public HomeScreen acceptAlertPermission() {
+
         acceptAlert();
         return new HomeScreen(driver);
     }
 
     /*talk*/
     public HomeScreen scrollToTalkSection() {
+
         verticalSwipeByPercentagesDirectly(90,1736,90, 316);
         verticalSwipeByPercentagesDirectly(85,1729,85, 259);
         verticalSwipeByPercentagesDirectly(99,1703,97, 882);
@@ -462,19 +487,24 @@ public class HomeScreen extends ActionBase {
     }
 
     public HomeScreen joinGroupTalk() {
+
         clickLastMenus(btnJoinGroup);
         return new HomeScreen(driver);
     }
 
-    public HomeScreen checkBtnAfterJoinGroup() throws InterruptedException {
-        Thread.sleep(1500);
-        Integer btnMember = btnMemberGroup.size();
-        if(btnMember==0){
-            Assert.fail("button changed to member is not appear");
-        }else {
-            System.out.println("button changed to member is appear");
+    public HomeScreen checkBtnAfterJoinGroup() {
+
+        try {
+            Thread.sleep(1500);
+            Integer btnMember = btnMemberGroup.size();
+            if (btnMember == 0) {
+                Assert.fail("button changed to member is not appear");
+            } else {
+                System.out.println("button changed to member is appear");
+            }
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
         }
         return new HomeScreen(driver);
     }
-
 }

@@ -47,24 +47,22 @@ public class RegisterScreen extends ActionBase {
     @iOSXCUITFindBy(id="Identify your phone number")
     public MobileElement createNewBtnModal;
 
-    public RegisterScreen(AppiumDriver driver) throws IOException {
+    public RegisterScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public RegisterScreen inputUsrEmailPhoneName(String usremailphonename) throws IOException {
+    public RegisterScreen inputUsrEmailPhoneName(String usremailphonename) {
 
         inputValue(emailPhoneField, usremailphonename);
-
         return new RegisterScreen(driver);
     }
 
-    public RegisterScreen clickNext() throws IOException {
+    public RegisterScreen clickNext() {
 
         tapByElement(nextLoginRegisterBtn);
-
         return new RegisterScreen(driver);
     }
 
@@ -76,23 +74,21 @@ public class RegisterScreen extends ActionBase {
 
     /*  action modal phone number and email */
     /*  title modal */
-    public RegisterScreen errorTitlePhoneNumberNotVerifiedModal() throws IOException {
+    public RegisterScreen errorTitlePhoneNumberNotVerifiedModal() {
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         System.out.println(getTitle);
         Assert.assertEquals(getTitle,"Identify your phone number");
-
         return new RegisterScreen(driver);
     }
 
-    public RegisterScreen errorTitlePhoneNumberIsVerifiedModal() throws IOException {
+    public RegisterScreen errorTitlePhoneNumberIsVerifiedModal() {
 
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         System.out.println(getTitle);
         Assert.assertEquals(getTitle,"Phone number has been registered");
-
         return new RegisterScreen(driver);
     }
 
@@ -112,12 +108,11 @@ public class RegisterScreen extends ActionBase {
         String getTitle = titleModal2.getText();
         System.out.println(getTitle);
         Assert.assertEquals(getTitle,"Phone number has been registered");
-
         return new RegisterScreen(driver);
     }
 
     /*  content or description modal */
-    public RegisterScreen errorDescPhoneNumberNotVerifiedModal() throws IOException {
+    public RegisterScreen errorDescPhoneNumberNotVerifiedModal() {
 
         WaitUntilElementIsVisible(descModal);
         isElementPresent(descModal);
@@ -128,27 +123,24 @@ public class RegisterScreen extends ActionBase {
         Assert.assertTrue(getTitle.contains("Identify your phone number"));
         Assert.assertTrue(getDesc.contains("Please login with the correct email.\n" +
                 "If the email does not belong to you, please create a new account."));
-
         return new RegisterScreen(driver);
     }
 
-    public RegisterScreen errorDescPhoneNumberIsVerifiedModal() throws IOException {
+    public RegisterScreen errorDescPhoneNumberIsVerifiedModal() {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Continue to login with this phone number?"));
-
         return new RegisterScreen(driver);
     }
 
-    public RegisterScreen errorDescEmailIsVerifiedModal() throws IOException {
+    public RegisterScreen errorDescEmailIsVerifiedModal() {
 
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
         Assert.assertTrue(getDesc.contains("Continue to login with this email?"));
-
         return new RegisterScreen(driver);
     }
 }

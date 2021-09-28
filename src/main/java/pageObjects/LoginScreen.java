@@ -89,43 +89,51 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen inputUsrEmailPhoneName(String usremailphonename) {
+
         inputValue(usernameEmailField, usremailphonename);
         return new LoginScreen(driver);
     }
 
     public LoginScreen inputPassword(String password) {
+
         inputValue(passwordField, password);
         return new LoginScreen(driver);
     }
 
     // ** hardcode
     public LoginScreen inputHardcodeAuth() {
+
         inputValue(usernameEmailField, "bddreviewprofile01");
         return new LoginScreen(driver);
     }
 
     public LoginScreen inputHardcodeAuthHavePost() {
+
         inputValue(usernameEmailField, "fixnotif");
         return new LoginScreen(driver);
     }
 
     public LoginScreen inputHardcodeAuthHaveReview() {
+
         inputValue(usernameEmailField, "testcampaign");
         return new LoginScreen(driver);
     }
 
     public LoginScreen inputHardcodePassword() {
+
         inputValue(passwordField, "test123");
         return new LoginScreen(driver);
     }
 
     public LoginScreen clickLogin() {
+
         tapByElement(nextLoginBtn);
         return new LoginScreen(driver);
     }
 
     /*  error msg underneath field   */
     public LoginScreen assertTextWarningLogin(String text){
+
         String txtWarning = txtWarningPhoneId.getText();
         Assert.assertEquals(txtWarning, text);
         return new LoginScreen(driver);
@@ -134,6 +142,7 @@ public class LoginScreen extends ActionBase {
     /*  action modal phone number and email */
     /*  title modal */
     public LoginScreen errorTitlePhoneNumberNotVerifiedModal() {
+
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your phone number");
@@ -141,6 +150,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitleEmailDuplicateModal(){
+
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your username");
@@ -148,6 +158,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitleUsernameDuplicateModal(){
+
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Identify your email");
@@ -155,6 +166,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitlePhoneNumberNotRegisteredModal() {
+
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
@@ -162,6 +174,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitlePhoneNumberNotRegisteredModalIos() {
+
         isElementPresent(titlePhoneNumberIsNotRegisteredIos);
         String getTitle = titlePhoneNumberIsNotRegisteredIos.getText();
         Assert.assertEquals(getTitle,"Phone number is not registered");
@@ -169,6 +182,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitleEmailUsernameNotRegisteredModal() {
+
         isElementPresent(titleModal);
         String getTitle = titleModal.getText();
         Assert.assertEquals(getTitle,"Uh-oh! Account not found!");
@@ -176,6 +190,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorTitleEmailUsernameNotRegisteredModalIos() {
+
         isElementPresent(accountNotFoundIos);
         String getTitle = accountNotFoundIos.getText();
         Assert.assertTrue(getTitle.contains("Uh-oh! Account not found!"));
@@ -184,6 +199,7 @@ public class LoginScreen extends ActionBase {
 
     /*  content or description modal */
     public LoginScreen errorDescPhoneNumberNotVerifiedModal() {
+
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
@@ -194,6 +210,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescEmailDuplicateModal() {
+
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
@@ -203,6 +220,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescPhoneNumberNotRegisteredModal() {
+
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
@@ -211,6 +229,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescEmailNotRegisteredModal() {
+
         isElementPresent(descModal);
         String getDesc = descModal.getText();
         System.out.println(getDesc);
@@ -220,6 +239,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescPasswordNotValidModal() {
+
         isElementPresent(descModal);
         String textInvalidPassword = descModal.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
@@ -228,6 +248,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescUsernamePasswordNotValidModalIos() {
+
         isElementPresent(usernamePasswordNotValidIos);
         String textInvalidPassword = usernamePasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The username and password you entered do not match."));
@@ -236,6 +257,7 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen errorDescEmailPasswordNotValidModalIos() {
+
         isElementPresent(emailPasswordNotValidIos);
         String textInvalidPassword = emailPasswordNotValidIos.getText();
         Assert.assertTrue(textInvalidPassword.contains("The email and password you entered do not match."));
@@ -244,33 +266,39 @@ public class LoginScreen extends ActionBase {
     }
 
     public LoginScreen clickLoginBtnModal() {
+
         tapByElement(yesBtnModal);
         return new LoginScreen(driver);
     }
 
     public LoginScreen clickYesBtnPhoneUnregisteredModal() {
+
         tapByElement(yesBtnModal);
         return new LoginScreen(driver);
     }
 
     public LoginScreen clickRegisterBtnModal() {
+
         tapByElement(noBtnModal);
         return new LoginScreen(driver);
     }
 
     public LoginScreen inputNewChannelToLogin(String channel) {
+
         usernameEmailField.clear();
         inputValue(usernameEmailField, channel);
         return new LoginScreen(driver);
     }
 
     public LoginScreen validateLoginPageAfterlogout() {
+
         isElementPresent(labelWelcomeLogin);
         return new LoginScreen(driver);
     }
 
     //toast msg
     public LoginScreen assertToastSuspend(String text) {
+
         isElementPresent(toastMsg);
         String txtWarning = toastMsg.getText();
         Assert.assertTrue(txtWarning.contains(text));

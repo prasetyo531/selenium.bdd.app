@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -242,7 +243,6 @@ public class TryAndReviewScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.beauty:id/buttonSave")
     public MobileElement saveAddressBtn;
 
-
     public TryAndReviewScreen(AppiumDriver driver) {
 
         this.driver = driver;
@@ -254,28 +254,34 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(moreHighlightCampBtn);
         tapByElement(moreHighlightCampBtn);
-
         isElementPresent(joinNowBtn);
         tapByElement(joinNowBtn);
         return new TryAndReviewScreen(driver);
     }
 
-    public TryAndReviewScreen clickToCollapse() throws InterruptedException {
+    public TryAndReviewScreen clickToCollapse() {
 
-        isElementEnabled(expandArrow1);
-        tapByElement(expandArrow1);
-        tapByElement(expandArrow2);
-        tapByElement(expandArrow3);
-
-        Thread.sleep(500);
+        try {
+            isElementEnabled(expandArrow1);
+            tapByElement(expandArrow1);
+            tapByElement(expandArrow2);
+            tapByElement(expandArrow3);
+            Thread.sleep(500);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new TryAndReviewScreen(driver);
     }
 
     //participant summary
-    public TryAndReviewScreen checkIsOnScreenParticapantSummary() throws InterruptedException {
+    public TryAndReviewScreen checkIsOnScreenParticapantSummary() {
 
-        Thread.sleep(2000);
-        isElementPresent(titleParticipantSum);
+        try {
+            Thread.sleep(2000);
+            isElementPresent(titleParticipantSum);
+        } catch (NoSuchElementException e) {
+            e.getMessage();
+        }
         return new TryAndReviewScreen(driver);
     }
 
@@ -283,7 +289,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(editPersonalInfoTnrIcon);
         isElementEnabled(editPersonalInfoTnrIcon);
-
         tapByElement(editPersonalInfoTnrIcon);
         return new TryAndReviewScreen(driver);
     }
@@ -330,7 +335,6 @@ public class TryAndReviewScreen extends ActionBase {
         tapByElement(femalePersonalInfo);
 
         tapByElement(savePersonalInfoBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -338,7 +342,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(fullNameField);
         inputValueEnter(fullNameField, fullname);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -349,7 +352,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(dobOK);
         tapByElement(dobOK);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -360,7 +362,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(femalePersonalInfo);
         tapByElement(femalePersonalInfo);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -368,7 +369,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(fullNameField);
         tapByElement(savePersonalInfoBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -379,7 +379,6 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         tapByElement(buttonSaveBeautyProfile);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -389,7 +388,6 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinType = errorMsgSkinType.getText();
         System.out.println(txtErrorSkinType);
         Assert.assertEquals(txtErrorSkinType, "Please choose your skin type");
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -399,7 +397,6 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinTone = errorMsgSkinTone.getText();
         System.out.println(txtErrorSkinTone);
         Assert.assertEquals(txtErrorSkinTone, "Please choose your skin tone");
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -409,7 +406,6 @@ public class TryAndReviewScreen extends ActionBase {
         String txtErrorSkinUndertone = errorMsgSkinUndertone.getText();
         System.out.println(txtErrorSkinUndertone);
         Assert.assertEquals(txtErrorSkinUndertone, "Please choose your skin undertone");
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -485,12 +481,10 @@ public class TryAndReviewScreen extends ActionBase {
         verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
         verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
         tapByElement(btnSaveBeautyConcern);
-
         return new TryAndReviewScreen(driver);
     }
 
     public TryAndReviewScreen chooseSkinCon() {
-
         isElementPresent(blackOrWhite);
         tapByElement(blackOrWhite);
         return new TryAndReviewScreen(driver);
@@ -547,7 +541,6 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen clickChooseAddressFromList() {
 
         clickFirstMenus(chooseAddressButton);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -567,7 +560,6 @@ public class TryAndReviewScreen extends ActionBase {
     public TryAndReviewScreen isTrueLabelMainAddress() {
 
         WaitUntilElementIsVisible(flagMainAddressListSumm);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -584,7 +576,6 @@ public class TryAndReviewScreen extends ActionBase {
         isElementEnabled(firstnameField);
         isElementEnabled(provinceOpt);
         isElementEnabled(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -627,7 +618,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementPresent(listBaliDistrict);
         tapByElement(listBaliDistrict);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -635,14 +625,12 @@ public class TryAndReviewScreen extends ActionBase {
 
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         inputValueEnter(zipField, faker.address().zipCode());
-
         return new TryAndReviewScreen(driver);
     }
 
     public TryAndReviewScreen fillCompleteAddress() {
 
         inputValueEnter(completeAddressField, faker.address().streetAddress());
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -675,7 +663,6 @@ public class TryAndReviewScreen extends ActionBase {
         setAsMainAddress();
 
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -708,7 +695,6 @@ public class TryAndReviewScreen extends ActionBase {
         setAsMainAddress();
 
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -741,7 +727,6 @@ public class TryAndReviewScreen extends ActionBase {
         setAsMainAddress();
 
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -778,7 +763,6 @@ public class TryAndReviewScreen extends ActionBase {
         setAsMainAddress();
 
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -805,7 +789,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         tapByElement(mainAddressBtn);
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -819,7 +802,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -850,7 +832,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 
@@ -881,7 +862,6 @@ public class TryAndReviewScreen extends ActionBase {
 
         isElementEnabled(saveAddressBtn);
         tapByElement(saveAddressBtn);
-
         return new TryAndReviewScreen(driver);
     }
 

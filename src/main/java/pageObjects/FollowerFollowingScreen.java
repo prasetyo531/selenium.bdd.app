@@ -34,12 +34,14 @@ public class FollowerFollowingScreen extends ActionBase {
     }
 
     public FollowerFollowingScreen waitUntilListVisible() {
+
         WaitUntilElementIsVisible(firstElement);
         verticalSwipe(firstElement, 3, 900);
         return new FollowerFollowingScreen(driver);
     }
 
     public FollowerFollowingScreen getUserList() {
+
         WaitUntilElementIsVisible(firstElement);
         verticalSwipe(firstElement, 3, 900);
         clickFirstMenus(btnFollowListSize);
@@ -47,16 +49,19 @@ public class FollowerFollowingScreen extends ActionBase {
     }
 
     public FollowerFollowingScreen clickFollow() {
+
         clickFirstMenus(btnFollowListSize);
         return new FollowerFollowingScreen(driver);
     }
 
     public FollowerFollowingScreen clickUnfollow() {
+
         clickFirstMenus(btnFollowingListSize);
         return new FollowerFollowingScreen(driver);
     }
 
     public FollowerFollowingScreen clickRandomUserToVisit() {
+
         WaitUntilElementIsVisible(firstElement);
         verticalSwipe(firstElement, 1, 900);
         clickRandomMenus(userListSize);
@@ -64,18 +69,21 @@ public class FollowerFollowingScreen extends ActionBase {
     }
 
     public void beforeFollow() {
+
         WaitUntilElementIsVisible(firstElement);
         totalBeforeFollow = btnFollowListSize.size();
         System.out.println("total before follow"+"="+totalBeforeFollow);
     }
 
     public void beforeUnfollow() {
+
         WaitUntilElementIsVisible(firstElement);
         totalBeforeFollow = btnFollowingListSize.size();
         System.out.println("total before unfollow"+"="+totalBeforeFollow);
     }
 
     public void checkAfterFollow() {
+
         WaitUntilElementIsVisible(firstElement);
         totalAfterFollow = btnFollowListSize.size();
         System.out.println("total after follow"+"="+totalAfterFollow);
@@ -85,6 +93,7 @@ public class FollowerFollowingScreen extends ActionBase {
     }
 
     public void checkAfterUnfollow() {
+
         WaitUntilElementIsVisible(firstElement);
         totalAfterFollow = btnFollowingListSize.size();
         System.out.println("total after unfollow"+"="+totalAfterFollow);

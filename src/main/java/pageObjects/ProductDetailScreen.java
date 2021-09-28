@@ -75,7 +75,6 @@ public class ProductDetailScreen extends ActionBase {
 
         WaitUntilElementIsVisible(imgProduct);
         boolean boolElem1= isElementPresent(labelFirstReview);
-
         return (boolElem1);
     }
 
@@ -107,7 +106,6 @@ public class ProductDetailScreen extends ActionBase {
 
         isElementPresent(contentPercentageReview);
         verticalSwipe(contentPercentageReview, 1, 900);
-
         return new ProductDetailScreen(driver);
     }
 
@@ -115,7 +113,6 @@ public class ProductDetailScreen extends ActionBase {
 
         isElementPresent(seeMoreReviewBtn);
         tapByElement(seeMoreReviewBtn);
-
         return new ProductDetailScreen(driver);
     }
 
@@ -123,7 +120,6 @@ public class ProductDetailScreen extends ActionBase {
 
         isElementPresent(backBtn);
         tapByElement(backBtn);
-
         return new ProductDetailScreen(driver);
     }
 }

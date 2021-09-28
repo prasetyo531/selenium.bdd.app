@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -136,42 +137,49 @@ public class FeedScreen extends ActionBase {
     }
 
     public DiscoverScreen clickCommentFirstPost() {
+
         WaitUntilElementIsVisible(iconCommentFirstPost);
         tapByElement(iconCommentFirstPost);
         return new DiscoverScreen(driver);
     }
 
     public DiscoverScreen clickCommentFirstReview() {
+
         WaitUntilElementIsVisible(iconCommentFirstPost);
         tapByElement(iconCommentFirstPost);
         return new DiscoverScreen(driver);
     }
 
     public FeedScreen clickPostTagProduct() {
+
         WaitUntilElementIsVisible(firstPostFeed);
         tapByElement(firstPostFeed);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickReadMoreReview() {
+
         WaitUntilElementIsVisible(readMoreDetail);
         tapByElement(readMoreDetail);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickReadMorePost() {
+
         WaitUntilElementIsVisible(readMorePost);
         tapByElement(readMorePost);
         return new FeedScreen(driver);
     }
 
     public FeedScreen clickIconTagsPost() {
+
         WaitUntilElementIsVisible(iconTags);
         tapByElement(iconTags);
         return new FeedScreen(driver);
     }
 
     public FeedScreen checkIsOnFeedAfterReview() {
+
         WaitUntilElementIsVisible(descReviewDetail);
         tapByElement(back);
 
@@ -182,6 +190,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen checkIsOnFeedAfterPost() {
+
         WaitUntilElementIsVisible(labelFeed);
         WaitUntilElementIsVisible(feedTitleToolbar);
         String title = feedTitleToolbar.getText();
@@ -190,6 +199,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen checkIsonOwnFeeds() {
+
         WaitUntilElementIsVisible(titleOwnUserFeeds);
         String title = titleOwnUserFeeds.getText();
         System.out.println(title);
@@ -199,6 +209,7 @@ public class FeedScreen extends ActionBase {
 
     /*  edit submitted post */
     public FeedScreen clickEditPost() {
+
         WaitUntilElementIsVisible(editOption);
         tapByElement(editOption);
         return new FeedScreen(driver);
@@ -233,6 +244,7 @@ public class FeedScreen extends ActionBase {
 
     /*  report submitted post */
     public FeedScreen clickReportPost() {
+
         isElementPresent(reportOption);
         tapByElement(reportOption);
 
@@ -240,6 +252,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen chooseReasonNotRelevant() {
+
         isElementPresent(titleModal);
         String titleModalReport = titleModal.getText();
         Assert.assertTrue(titleModalReport.equals("What's your reason for reporting Post?"));
@@ -264,12 +277,14 @@ public class FeedScreen extends ActionBase {
 
     /*  delete submitted post */
     public FeedScreen clickDeletePost() {
+
         isElementPresent(deleteOption);
         tapByElement(deleteOption);
         return new FeedScreen(driver);
     }
 
     public FeedScreen chooseNoDeletePost() {
+
         isElementPresent(titleModal);
         String titleModalReport = titleModal.getText();
         Assert.assertTrue(titleModalReport.equals("Sure want to delete Post?"));
@@ -279,6 +294,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen chooseYesDeletePost() {
+
         isElementPresent(titleModal);
         String titleModalReport = titleModal.getText();
         Assert.assertTrue(titleModalReport.equals("Sure want to delete Post?"));
@@ -288,31 +304,41 @@ public class FeedScreen extends ActionBase {
     }
 
     /*  comment of post screen*/
-    public FeedScreen submitReplyCommentPost() throws InterruptedException {
-        isElementEnabled(commentList);
-        postcomment1 = commentSize.size();
-        System.out.println("total comment"+" "+postcomment1);
+    public FeedScreen submitReplyCommentPost() {
 
-        Thread.sleep(1500);
-        isElementEnabled(replyButton);
-        clickRandomMenus(listReplyButton);
-        isElementEnabled(commentField);
-        String txt = commentField.getText();
-        Assert.assertTrue(txt.startsWith("@"));
-        tapByElement(postComment);
-        Thread.sleep(3000);
+        try {
+            isElementEnabled(commentList);
+            postcomment1 = commentSize.size();
+            System.out.println("total comment" + " " + postcomment1);
+
+            Thread.sleep(1500);
+            isElementEnabled(replyButton);
+            clickRandomMenus(listReplyButton);
+            isElementEnabled(commentField);
+            String txt = commentField.getText();
+            Assert.assertTrue(txt.startsWith("@"));
+            tapByElement(postComment);
+            Thread.sleep(3000);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new FeedScreen(driver);
     }
 
-    public FeedScreen submitCommentPost() throws InterruptedException {
-        isElementEnabled(commentList);
-        postcomment1 = commentSize.size();
-        System.out.println("total comment"+" "+postcomment1);
+    public FeedScreen submitCommentPost() {
 
-        isElementEnabled(commentField);
-        inputValue(commentField,"submit comment post");
-        tapByElement(postComment);
-        Thread.sleep(3000);
+        try {
+            isElementEnabled(commentList);
+            postcomment1 = commentSize.size();
+            System.out.println("total comment" + " " + postcomment1);
+
+            isElementEnabled(commentField);
+            inputValue(commentField, "submit comment post");
+            tapByElement(postComment);
+            Thread.sleep(3000);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new FeedScreen(driver);
     }
 
@@ -324,27 +350,33 @@ public class FeedScreen extends ActionBase {
         return new FeedScreen(driver);
     }
 
-    public FeedScreen deleteCommentPost() throws InterruptedException {
-        isElementEnabled(commentList);
-        deletecomment1 = commentSize.size();
-        System.out.println("total comment"+" "+deletecomment1);
+    public FeedScreen deleteCommentPost() {
 
-        clickLastMenus(listMoreComment);
-        isElementPresent(deleteOption);
-        tapByElement(deleteOption);
-        Thread.sleep(3000);
-        //confirmation before delete
-        isElementPresent(titleModal);
-        String titleModalReport = titleModal.getText();
-        Assert.assertTrue(titleModalReport.equals("Sure want to delete Comment?"));
-        isElementPresent(okDelete);
-        tapByElement(okDelete);
+        try {
+            isElementEnabled(commentList);
+            deletecomment1 = commentSize.size();
+            System.out.println("total comment" + " " + deletecomment1);
+
+            clickLastMenus(listMoreComment);
+            isElementPresent(deleteOption);
+            tapByElement(deleteOption);
+            Thread.sleep(3000);
+            //confirmation before delete
+            isElementPresent(titleModal);
+            String titleModalReport = titleModal.getText();
+            Assert.assertTrue(titleModalReport.equals("Sure want to delete Comment?"));
+            isElementPresent(okDelete);
+            tapByElement(okDelete);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new FeedScreen(driver);
     }
 
-    public FeedScreen checkDeleteCommentPost() throws InterruptedException {
+    public FeedScreen checkDeleteCommentPost() {
+
+        WaitUntilElementIsVisible(commentList);
         isElementEnabled(commentList);
-        Thread.sleep(2000);
         deletecomment2 = commentSize.size();
         System.out.println("total comment"+" "+deletecomment2);
         Assert.assertNotEquals(deletecomment2, deletecomment1);
@@ -352,6 +384,8 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen reportCommentPost() {
+
+        WaitUntilElementIsVisible(commentList);
         isElementEnabled(commentList);
         //isElementPresent(moreComment);
         //tapByElement(moreComment);
@@ -367,12 +401,14 @@ public class FeedScreen extends ActionBase {
     }
 
     public FeedScreen checkToastReportComment() {
+
         toastMatches("Thank you for reporting this comment", false);
         return new FeedScreen(driver);
     }
 
     //count total comment
     public Integer getTotalCommentPostBefore(){
+
         String total1 = commentIconPost.getText();
         //parse to integer
         t1=Integer.parseInt(total1);
@@ -381,6 +417,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public Integer getTotalCommentPostAfter(){
+
         String total2 = commentIconPost.getText();
         //parse to integer
         t2=Integer.parseInt(total2);
@@ -389,6 +426,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public Integer getTotalCommentReviewBefore(){
+
         String total3 = commentIconReview.getText();
         //parse to integer
         t3=Integer.parseInt(total3);
@@ -397,6 +435,7 @@ public class FeedScreen extends ActionBase {
     }
 
     public Integer getTotalCommentReviewAfter(){
+
         String total4 = commentIconReview.getText();
         //parse to integer
         t4=Integer.parseInt(total4);
@@ -405,32 +444,38 @@ public class FeedScreen extends ActionBase {
     }
 
     public CommentLikeScreen clickCommentIconPost() {
+
         isElementPresent(commentIconPost);
         tapByElement(commentIconPost);
         return new CommentLikeScreen(driver);
     }
 
     public CommentLikeScreen clickCommentIconReview() {
+
         isElementPresent(commentIconReview);
         tapByElement(commentIconReview);
         return new CommentLikeScreen(driver);
     }
 
-    public void totalCommentPost(){
+    public CommentLikeScreen totalCommentPost(){
+
         WaitUntilElementIsVisible(commentIconPost);
         System.out.println("total before"+"="+t1+" "+"total after"+"="+t2);
         if(t2.equals(t1)){
             org.junit.Assert.fail("total should not same"+" "+t1);
             System.out.println("fail get Total Comment After"+" "+getTotalCommentPostAfter());
         }
+        return new CommentLikeScreen(driver);
     }
 
-    public void totalCommentReview(){
+    public CommentLikeScreen totalCommentReview(){
+
         WaitUntilElementIsVisible(commentIconReview);
         System.out.println("total before"+"="+t3+" "+"total after"+"="+t4);
         if(t4.equals(t3)){
             org.junit.Assert.fail("total should not same"+" "+t1);
             System.out.println("fail get Total Comment After"+" "+getTotalCommentReviewAfter());
         }
+        return new CommentLikeScreen(driver);
     }
 }

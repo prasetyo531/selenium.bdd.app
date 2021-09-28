@@ -48,6 +48,7 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickInputSearchBar(String productname) throws InterruptedException {
+
         WaitUntilElementIsVisible(searchBar);
         inputValueEnter(searchBar,productname);
         Thread.sleep(4000);
@@ -55,18 +56,21 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickMenuMakeUp() {
+
         WaitUntilElementIsVisible(parentMakeUp);
         tapByElement(parentMakeUp);
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickMenuSkincare() {
+
         WaitUntilElementIsVisible(productCategorySkincare);
         tapByElement(productCategorySkincare);
         return new ProductCategoryScreen(driver);
     }
 
     public ProductCategoryScreen clickMenuMakeUpLipstick() {
+
         WaitUntilElementIsVisible(parentMakeUp);
         tapByElement(parentMakeUp);
         verticalSwipe(categoryToScroll, 2, 900);
@@ -75,11 +79,13 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickRandomMenuProductCat() {
+
         clickRandomMenus(listProductCat);
         return new ProductCategoryScreen(driver);
     }
 
     public boolean isSearchBarActive() {
+
         WaitUntilElementIsVisible(searchBar);
         boolean boolElem1= isElementPresent(searchBar);
         String txt = searchBar.getText();
@@ -87,6 +93,7 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public boolean isSearchResultAppear() {
+
         WaitUntilElementIsVisible(photoProduct);
         boolean boolElem1= isElementPresent(photoProduct);
         boolean boolElem2= isElementPresent(productName);
@@ -94,6 +101,7 @@ public class ProductCategoryScreen extends ActionBase {
     }
 
     public ProductCategoryScreen clickFirstProductSearchResult() {
+
         clickFirstMenus(listProductCat);
         return new ProductCategoryScreen(driver);
     }

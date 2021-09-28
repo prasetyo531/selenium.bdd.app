@@ -69,18 +69,21 @@ public class OnboardingScreen extends ActionBase {
     }
 
     public OnboardingScreen clickGetStartedBtn() {
+
         tapByElement(getStartedBtn);
         return new OnboardingScreen(driver);
     }
 
 
     public OnboardingScreen clickLoginBtn() {
+
         isElementEnabled(loginBtn);
         tapByElement(loginBtn);
         return new OnboardingScreen(driver);
     }
 
     public OnboardingScreen clickSignupBtn() {
+
         isElementEnabled(signupBtn);
         tapByElement(signupBtn);
         return new OnboardingScreen(driver);

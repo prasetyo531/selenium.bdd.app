@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import utils.DriverFactory;
@@ -79,49 +80,44 @@ public class ReviewListScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android:id/buttonCancel")
     public MobileElement cancelSort;
 
-    public ReviewListScreen(AppiumDriver driver) throws IOException {
+    public ReviewListScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public ReviewListScreen clickFilter() throws IOException {
+    public ReviewListScreen clickFilter() {
 
         tapByElement(filterBtn);
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen clickSort() throws IOException {
+    public ReviewListScreen clickSort() {
 
         tapByElement(sortBtn);
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen clickResetFilter() throws IOException {
+    public ReviewListScreen clickResetFilter() {
 
         tapByElement(resetFilterBtn);
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen getUsernameBeforeFilterSort() throws IOException {
+    public ReviewListScreen getUsernameBeforeFilterSort() {
 
         isElementPresent(firstReviewList);
         uname1 = firstReviewList.getText();
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen getUsernameAfterFilterSort() throws IOException {
+    public ReviewListScreen getUsernameAfterFilterSort() {
 
         isElementPresent(firstReviewList);
         uname2 = firstReviewList.getText();
         System.out.println("username nya adalah"+" "+uname1+" "+uname2);
         Assert.assertNotSame(uname1, uname2);
-
         return new ReviewListScreen(driver);
     }
 
@@ -132,7 +128,6 @@ public class ReviewListScreen extends ActionBase {
         boolean boolElem3 = isElementPresent(resetFilterBtn);
         boolean boolElem4 = isElementPresent(doneBtn);
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
-
         return (boolElem1 && boolElem2 && boolElem3 && boolElem4);
     }
 
@@ -141,11 +136,10 @@ public class ReviewListScreen extends ActionBase {
         boolean boolElem1 = isElementPresent(addFilterBtn);
         boolean boolElem2 = isElementPresent(labelFilterSelected1);
         //boolean boolElem5= isElementPresent(firstindextproductmatches);
-
         return (boolElem1 && boolElem2);
     }
 
-    public ReviewListScreen chooseFilterAgeRange() throws IOException {
+    public ReviewListScreen chooseFilterAgeRange() {
 
         //choosing age range
         tapByElement(ageRangeOption);
@@ -161,34 +155,32 @@ public class ReviewListScreen extends ActionBase {
 
         //check label selected should present on filter
         isElementPresent(labelFilterSelected2);
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen clickDoneFilter() throws IOException {
+    public ReviewListScreen clickDoneFilter() {
 
         tapByElement(doneBtn);
-
         return new ReviewListScreen(driver);
     }
 
-    public ReviewListScreen chooseFilterSkinType() throws IOException, InterruptedException {
+    public ReviewListScreen chooseFilterSkinType() {
 
-        //choosing skin type
-        tapByElement(skinTypeOption);
+        try {
+            //choosing skin type
+            tapByElement(skinTypeOption);
+            String labelBeforeSelected = labelFilterSelected1.getText();
+            clickRandomMenus(listAgeRangeSkinType);
+            String labelAfterSelected = labelFilterSelected1.getText();
+            Assert.assertNotSame(labelAfterSelected, labelBeforeSelected);
 
-        String labelBeforeSelected = labelFilterSelected1.getText();
-        clickRandomMenus(listAgeRangeSkinType);
-        String labelAfterSelected = labelFilterSelected1.getText();
-        Assert.assertNotSame(labelAfterSelected, labelBeforeSelected);
-
-        tapByElement(addFilterBtn);
-
-        //check label selected should present on filter
-        Thread.sleep(2000);
-        isElementPresent(labelFilterSelected2);
-
-
+            tapByElement(addFilterBtn);
+            //check label selected should present on filter
+            Thread.sleep(2000);
+            isElementPresent(labelFilterSelected2);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new ReviewListScreen(driver);
     }
 
@@ -201,16 +193,13 @@ public class ReviewListScreen extends ActionBase {
         boolean boolElem5 = isElementPresent(highestRating);
         boolean boolElem6 = isElementPresent(lowestRating);
         boolean boolElem7 = isElementPresent(cancelSort);
-
         return (boolElem1 && boolElem2 && boolElem3 && boolElem4 && boolElem5 && boolElem6 && boolElem7);
     }
 
-    public ReviewListScreen chooseMostLikeSort() throws IOException {
+    public ReviewListScreen chooseMostLikeSort() {
 
         acceptanceElementOptionSortCheck();
-
         tapByElement(mostLike);
-
         return new ReviewListScreen(driver);
     }
 }

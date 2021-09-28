@@ -55,49 +55,49 @@ public class CompleteAccountScreen extends ActionBase {
     @iOSXCUITFindBy(id="id_compacc_submit")
     public MobileElement errorMsg;
 
-    public CompleteAccountScreen(AppiumDriver driver) throws IOException {
+    public CompleteAccountScreen(AppiumDriver driver) {
 
         this.driver = driver;
         //Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘
         PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
     }
 
-    public CompleteAccountScreen inputEmail(String email) throws IOException {
+    public CompleteAccountScreen inputEmail(String email) {
 
         inputValue(emailField, email);
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen inputPhone(String phone) throws IOException {
+    public CompleteAccountScreen inputPhone(String phone) {
 
         inputValue(phoneField, phone);
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen inputUsername(String username) throws IOException {
+    public CompleteAccountScreen inputUsername(String username) {
 
         inputValue(usernameField, username);
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen inputPassword() throws IOException {
+    public CompleteAccountScreen inputPassword() {
 
         inputValue(passwordField, "test123");
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen inputPassword(String password) throws IOException {
+    public CompleteAccountScreen inputPassword(String password) {
 
         inputValue(passwordField, password);
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen inputBirthday() throws IOException {
+    public CompleteAccountScreen inputBirthday() {
 
         tapByElement(birthdayField);
         tapByElement(birthdayYesDoneModal);
@@ -105,14 +105,14 @@ public class CompleteAccountScreen extends ActionBase {
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen clickSubmitCompleteAccount() throws IOException {
+    public CompleteAccountScreen clickSubmitCompleteAccount() {
 
         tapByElement(submitField);
 
         return new CompleteAccountScreen(driver);
     }
 
-    public CompleteAccountScreen getErrorMsg(String msg) throws IOException {
+    public CompleteAccountScreen getErrorMsg(String msg) {
 
         String error = errorMsg.getText();
         Assert.assertTrue(error.equals(msg));

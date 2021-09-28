@@ -3,6 +3,7 @@ package pageObjects;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import com.google.common.collect.ImmutableMap;
+import gherkin.lexer.No;
 import gherkin.lexer.Th;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -13,6 +14,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -302,10 +304,15 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen searchGroupTalk(String group) throws InterruptedException {
-        tapByElement(seeMoreGrouptn);
-        inputValue(searchTalkBar,group);
-        Thread.sleep(3000);
+    public TalkScreen searchGroupTalk(String group) {
+
+        try {
+            tapByElement(seeMoreGrouptn);
+            inputValue(searchTalkBar, group);
+            Thread.sleep(3000);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new TalkScreen(driver);
     }
 
@@ -324,40 +331,51 @@ public class TalkScreen extends ActionBase {
         return new TalkScreen(driver);
     }
 
-    public TalkScreen checkBtnAfterJoin() throws InterruptedException {
-        //isElementPresent(memberBtnGroupList);
-        Thread.sleep(1500);
-        Integer btnMember = memberBtnGroupList.size();
-        if(btnMember==0){
-            Assert.fail("button changed to member is not appear");
-        }else {
-            System.out.println("button changed to member is appear");
+    public TalkScreen checkBtnAfterJoin() {
+
+        try {
+            //isElementPresent(memberBtnGroupList);
+            Thread.sleep(1500);
+            Integer btnMember = memberBtnGroupList.size();
+            if (btnMember == 0) {
+                Assert.fail("button changed to member is not appear");
+            } else {
+                System.out.println("button changed to member is appear");
+            }
+        } catch (NoSuchElementException e){
+            e.printStackTrace();
         }
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkBtnAfterJoinGroupDetail() {
+
         isElementPresent(memberBtnGroupDetail);
         return new TalkScreen(driver);
     }
 
-    public TalkScreen checkJoinedGroupJoinedTab() throws InterruptedException {
-        tapByElement(seeMoreGrouptn);
+    public TalkScreen checkJoinedGroupJoinedTab() {
 
-        isElementEnabled(joinedGroupTab);
-        tapByElement(joinedGroupTab);
-        Thread.sleep(1500);
-        //isElementPresent(memberBtnGroupList);
-        Integer btnMember = memberBtnGroupList.size();
-        if(btnMember==0){
-            Assert.fail("button changed to member is not appear");
-        }else {
-            System.out.println("button changed to member is appear");
+        try {
+            tapByElement(seeMoreGrouptn);
+            isElementEnabled(joinedGroupTab);
+            tapByElement(joinedGroupTab);
+            Thread.sleep(1500);
+            //isElementPresent(memberBtnGroupList);
+            Integer btnMember = memberBtnGroupList.size();
+            if (btnMember == 0) {
+                Assert.fail("button changed to member is not appear");
+            } else {
+                System.out.println("button changed to member is appear");
+            }
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
         }
         return new TalkScreen(driver);
     }
 
     public TalkScreen submitAddTopicAsGuest() {
+
         isElementEnabled(addTopicBtn);
         tapByElement(addTopicBtn);
         isElementEnabled(titleAddTopicScreen);
@@ -378,37 +396,43 @@ public class TalkScreen extends ActionBase {
     }
 
     //edit topic
-    public TalkScreen submitEditTopicAsGuest(String topic) throws InterruptedException {
-        isElementPresent(searchTopicGroupDetail);
-        tapAndInputValueKeyboard(searchTopicGroupDetail,topic);
+    public TalkScreen submitEditTopicAsGuest(String topic) {
 
-        Thread.sleep(3000);
-        WaitUntilElementIsVisible(topicResultSearch1);
-        tapByElement(topicResultSearch1);
+        try {
+            isElementPresent(searchTopicGroupDetail);
+            tapAndInputValueKeyboard(searchTopicGroupDetail, topic);
 
-        isElementPresent(topicDetailMoreBtn);
-        tapByElement(topicDetailMoreBtn);
-        isElementPresent(moreOptionModal);
-        isElementEnabled(editTopicFromMoreModal);
-        tapByElement(editTopicFromMoreModal);
+            Thread.sleep(3000);
+            WaitUntilElementIsVisible(topicResultSearch1);
+            tapByElement(topicResultSearch1);
 
-        //edit topic screen
-        isElementPresent(titleAddTopicScreen);
-        String getTextEditTopic = titleAddTopicScreen.getText();
-        Assert.assertEquals("Edit Topic", getTextEditTopic);
+            isElementPresent(topicDetailMoreBtn);
+            tapByElement(topicDetailMoreBtn);
+            isElementPresent(moreOptionModal);
+            isElementEnabled(editTopicFromMoreModal);
+            tapByElement(editTopicFromMoreModal);
 
-        tapByElement(inputTitleAddTopicScreen);
-        //inputValue(inputTitleAddTopicScreen, titleEditTopic);
-        tapByElement(inputDescAddTopicScreen);
-        inputValue(inputDescAddTopicScreen, descEditTopic);
-        tapByElement(inputTaggingAddTopicScreen);
-        driver.hideKeyboard();
-        inputValueEnter(inputTaggingAddTopicScreen, tagEditTopic);
-        tapByElement(submitAddTopicTalkBtn);
+            //edit topic screen
+            isElementPresent(titleAddTopicScreen);
+            String getTextEditTopic = titleAddTopicScreen.getText();
+            Assert.assertEquals("Edit Topic", getTextEditTopic);
+
+            tapByElement(inputTitleAddTopicScreen);
+            //inputValue(inputTitleAddTopicScreen, titleEditTopic);
+            tapByElement(inputDescAddTopicScreen);
+            inputValue(inputDescAddTopicScreen, descEditTopic);
+            tapByElement(inputTaggingAddTopicScreen);
+            driver.hideKeyboard();
+            inputValueEnter(inputTaggingAddTopicScreen, tagEditTopic);
+            tapByElement(submitAddTopicTalkBtn);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkTopicUpdated() {
+
         isElementEnabled(titleTopic);
         isElementEnabled(descTopic);
         isElementEnabled(tagTopic);
@@ -422,6 +446,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen getConfirmationJoinTopic() {
+
         isElementEnabled(descErrorModal);
         String desc = descErrorModal.getText();
         Assert.assertEquals("By submitting this topic, you automatically joined this group.", desc);
@@ -430,6 +455,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen getConfirmationJoinTalk() {
+
         isElementEnabled(descErrorModal);
         String desc = descErrorModal.getText();
         Assert.assertEquals("By submitting this talk, you automatically joined this group.", desc);
@@ -438,11 +464,13 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen checkNewSubmittedTopic() {
+
         isElementPresent(listAllTopic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen clickMostTopTopic() {
+
         isElementPresent(listAllTopic);
         tapByElement(topicList1);
         return new TalkScreen(driver);
@@ -450,6 +478,7 @@ public class TalkScreen extends ActionBase {
 
     //submit reply topic
     public TalkScreen submitReplyTopicAsGuest() {
+
         isElementPresent(listAllTopic);
         tapByElement(topicList1);
 
@@ -464,54 +493,64 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen checkToastTopicEdited() {
+
         toastMatches("Your topic successfully edited!", false);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkNewSubmittedTalk() {
+
         isElementPresent(listTalk);
         return new TalkScreen(driver);
     }
 
     public TalkScreen clickCancelSearchTopic() {
+
         WaitUntilElementIsVisible(cancelLbl);
         tapByElement(cancelLbl);
         return new TalkScreen(driver);
     }
 
     public TalkScreen clickBackToGroupDetail() {
+
         WaitUntilElementIsVisible(backIcon);
         tapByElement(backIcon);
         return new TalkScreen(driver);
     }
 
     //submit reply talk
-    public TalkScreen submitReplyTalkAsGuest(String topic) throws InterruptedException {
-        isElementPresent(searchTopicGroupDetail);
-        tapAndInputValueKeyboard(searchTopicGroupDetail,topic);
+    public TalkScreen submitReplyTalkAsGuest(String topic) {
 
-        Thread.sleep(3000);
-        WaitUntilElementIsVisible(topicResultSearch1);
-        tapByElement(topicResultSearch1);
+        try {
+            isElementPresent(searchTopicGroupDetail);
+            tapAndInputValueKeyboard(searchTopicGroupDetail, topic);
 
-        WaitUntilElementIsVisible(listTalk);
-        clickRandomMenus(listReplyTopicTalk);
-        WaitUntilElementIsVisible(inputDescAddTalkScreen);
-        isElementPresent(replyingLabel);
-        isElementPresent(replyingToLabel);
+            Thread.sleep(3000);
+            WaitUntilElementIsVisible(topicResultSearch1);
+            tapByElement(topicResultSearch1);
 
-        //reply talk screen
-        isElementPresent(titleAddTopicScreen);
-        String getTextReplyTalk = titleAddTopicScreen.getText();
-        Assert.assertEquals("Reply Talk", getTextReplyTalk);
+            WaitUntilElementIsVisible(listTalk);
+            clickRandomMenus(listReplyTopicTalk);
+            WaitUntilElementIsVisible(inputDescAddTalkScreen);
+            isElementPresent(replyingLabel);
+            isElementPresent(replyingToLabel);
 
-        tapByElement(inputDescAddTalkScreen);
-        inputValue(inputDescAddTalkScreen, fakeValuesService.regexify("[a-z1-9]{100}")+" "+"reply talk description");
-        tapByElement(submitAddTopicTalkBtn);
+            //reply talk screen
+            isElementPresent(titleAddTopicScreen);
+            String getTextReplyTalk = titleAddTopicScreen.getText();
+            Assert.assertEquals("Reply Talk", getTextReplyTalk);
+
+            tapByElement(inputDescAddTalkScreen);
+            inputValue(inputDescAddTalkScreen, fakeValuesService.regexify("[a-z1-9]{100}") + " " + "reply talk description");
+            tapByElement(submitAddTopicTalkBtn);
+        } catch (NoSuchElementException e){
+            e.printStackTrace();
+        }
         return new TalkScreen(driver);
     }
     
     public TalkScreen scrollToRecentTalk() {
+
         verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
         verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
         verticalSwipeByPercentagesDirectly(538,2141,545, 1047);
@@ -519,6 +558,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen scrollUntilLastScreen() {
+
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
@@ -528,6 +568,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen scrollAndClickTabTopic() {
+
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
         verticalSwipeByPercentagesDirectly(538,1680,526, 933);
@@ -539,27 +580,32 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen clickTabTopic() {
+
         tapByElement(tabTopic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen clickOnProfileUser() {
+
         tapByElement(userProfile);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkCounterBeforeLike() {
+
         beforeLike = counterFirstLike.getText();
         System.out.println("before like"+" "+beforeLike);
         return new TalkScreen(driver);
     }
 
     public TalkScreen likeRecentTalk() {
+
         clickFirstMenus(listBtnLikeRecentTalk);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkCounterAfterLike() {
+
         afterLike = counterFirstLike.getText();
         System.out.println("after like"+" "+afterLike);
         Assert.assertNotEquals(afterLike, beforeLike);
@@ -567,11 +613,13 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen replyRecentTalk() {
+
         clickLastMenus(listBtnReplyRecentTalk);
         return new TalkScreen(driver);
     }
 
     public TalkScreen getTopicDetail() {
+
         WaitUntilElementIsVisible(titleTopic);
         
         isElementPresent(titleTopic);
@@ -581,6 +629,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen replyTalkOnTopicDetail() {
+
         clickLastMenus(listReplyTopicTalk);
         isElementPresent(descFieldReplyTalk);
         
@@ -591,11 +640,13 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapRecentTopic() {
+
         clickLastMenus(recentTopic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen replyTopicOnTopicDetail() {
+
         tapByElement(replyTopicBtn);
         isElementPresent(descReplyTopic);
 
@@ -606,41 +657,48 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen tapSeeMoreTalkTopic() {
+
         WaitUntilElementIsVisible(btnSeeMoreTalkTopic);
         tapByElement(btnSeeMoreTalkTopic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen getListRecentTalkTopic() {
+
         isElementPresent(listRecentTalkTopic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkBeforeSort() {
+
         beforeSort = firstTopic.getText();
         System.out.println("before sort"+" "+beforeSort);
         return new TalkScreen(driver);
     }
     
     public TalkScreen sortTopicByNewest() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTopicByNewest);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTopicByPopular() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTopicByPopular);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTopicByMostTalks() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTopicByMostTalks);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkAfterSortNewest() {
+
         afterSort = firstTopic.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertEquals(afterSort, beforeSort);
@@ -648,6 +706,7 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen checkAfterSortPopularMostTalks() {
+
         afterSort = firstTopic.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertNotEquals(afterSort, beforeSort);
@@ -655,30 +714,35 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen checkBeforeSortTalk() {
+
         beforeSort = firstTalk.getText();
         System.out.println("before sort"+" "+beforeSort);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTalkByNewest() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTalkByNewest);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTalkByOldest() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTalkByOldest);
         return new TalkScreen(driver);
     }
 
     public TalkScreen sortTalkByMostLikes() {
+
         tapByElement(sortGroupDetail);
         tapByElement(sortTalkByMostLikes);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkAfterSortNewestTalks() {
+
         afterSort = firstTalk.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertEquals(afterSort, beforeSort);
@@ -686,6 +750,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen checkAfterSortOldestMostLikes() {
+
         afterSort = firstTalk.getText();
         System.out.println("after sort"+" "+afterSort);
         Assert.assertNotEquals(afterSort, beforeSort);
@@ -693,23 +758,23 @@ public class TalkScreen extends ActionBase {
     }
     
     public TalkScreen searchTopicOnTalkHome(String topic) {
+
         tapByElement(searchFieldTalkHome);
-        
         isElementPresent(searchField);
         tapByElement(tabSearchTopic);
         tapAndInputValueKeyboard(searchField, topic);
-        
         return new TalkScreen(driver);
     }
     
     public TalkScreen tapSearchResult() {
+
         tapByElement(searchResult);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkTopicSearchResult(String topic) {
-        tapByElement(backTopicDetail);
 
+        tapByElement(backTopicDetail);
         WaitUntilElementIsVisible(searchField);
         String keyword = searchField.getText();
         Assert.assertEquals(topic, keyword);
@@ -717,18 +782,17 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen searchTalkOnTalkHome(String talk) {
-        tapByElement(searchFieldTalkHome);
 
+        tapByElement(searchFieldTalkHome);
         isElementPresent(searchField);
         tapByElement(tabSearchTalk);
         tapAndInputValueKeyboard(searchField, talk);
-
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkTalkSearchResult(String talk) {
-        tapByElement(backTopicDetail);
 
+        tapByElement(backTopicDetail);
         WaitUntilElementIsVisible(searchField);
         String keyword = searchField.getText();
         Assert.assertEquals(talk, keyword);
@@ -736,6 +800,7 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen checkGroupSearchResult(String group) {
+
         isElementPresent(searchResultGroup);
         String keyword = searchTalkBar.getText();
         Assert.assertEquals(group, keyword);
@@ -743,12 +808,13 @@ public class TalkScreen extends ActionBase {
     }
 
     public TalkScreen searchTopicOnGroupDetail(String topic) {
-        tapAndInputValueKeyboard(searchFieldGroupDetail, topic);
 
+        tapAndInputValueKeyboard(searchFieldGroupDetail, topic);
         return new TalkScreen(driver);
     }
 
     public TalkScreen checkListTopicSearchResult(String topic) {
+
         WaitUntilElementIsVisible(listSearchResultTopic);
         return new TalkScreen(driver);
     }
