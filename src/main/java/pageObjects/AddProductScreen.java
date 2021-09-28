@@ -71,6 +71,9 @@ public class AddProductScreen extends ActionBase {
     @AndroidFindBy(id="com.fdbr.android.add:id/layoutBtnAddProduct")
     public MobileElement addProductBtn;
 
+    @AndroidFindBy(id="com.fdbr.android.add:id/layoutBtnAddProduct")
+    public List<MobileElement> listAddProductBtn;
+
     /* brand screen */
     @AndroidFindBy(id="com.fdbr.android.filter:id/listItems")
     public List<MobileElement> listBrand;
@@ -317,7 +320,9 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen fillProductDesc() {
 
-        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         //tapByElement(productDescField);
         inputValue(productDescField, "desc add product test");
         return new AddProductScreen(driver);
@@ -511,13 +516,16 @@ public class AddProductScreen extends ActionBase {
 
     public AddProductScreen scrollToTop() {
 
-        this.verticalSwipeByPercentages(photoThumbnail,0.3,0.6,0.20,500);
+        verticalSwipeTopNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeTopNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen scrollToBottom() {
 
-        verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        while(listAddProductBtn.size()==0){
+            verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        }
         return new AddProductScreen(driver);
     }
 }

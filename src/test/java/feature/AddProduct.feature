@@ -120,7 +120,7 @@ Feature: User Add Product
       |      Nature Republic	  |
 
   #FDBRMA-272 #FDBRMA-271 #FDBRMA-424
-  @Android @AddProduct
+  @Android @AddProductScroll
   Scenario Outline: Add product - edit brand name - edit product root category - edit product name
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"

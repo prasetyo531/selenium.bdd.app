@@ -4,6 +4,7 @@ import com.cucumber.listener.Reporter;
 import com.github.javafaker.Faker;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.TouchAction;
@@ -272,12 +273,41 @@ public class ActionBase extends DriverFactory {
     }
 
     //--https://qavalidation.com/2016/07/scrolling-in-appium.html/
-    //newest scroll to user
     public void verticalSwipeByPercentagesDirectly(int xoffset1, int yoffset1, int xoffset2, int yoffset2) {
         new TouchAction(driver)
                 .press(point(xoffset1, yoffset1))
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(xoffset2, yoffset2))
+                .release().perform();
+    }
+
+    //newest scroll top to user
+    public void verticalSwipeTopNew(AppiumDriver<MobileElement> driver, double startPercentagex, double startPercentagey, double endPercentagex, double endPercentagey, int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int startx = (int) (size.width * startPercentagex);
+        int starty = (int) (size.height * startPercentagey);
+        int endx = (int) (size.width * endPercentagex);
+        int endy = (int) (size.height * endPercentagey);
+
+        new TouchAction(driver)
+                .press(PointOption.point(endx, endy))
+                .waitAction(waitOptions(ofMillis(duration)))
+                .moveTo(PointOption.point(startx, starty))
+                .release().perform();
+    }
+
+    //newest scroll bottom to user
+    public void verticalSwipeBottomNew(AppiumDriver<MobileElement> driver, double startPercentagex, double startPercentagey, double endPercentagex, double endPercentagey, int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int startx = (int) (size.width * startPercentagex);
+        int starty = (int) (size.height * startPercentagey);
+        int endx = (int) (size.width * endPercentagex);
+        int endy = (int) (size.height * endPercentagey);
+
+        new TouchAction(driver)
+                .press(PointOption.point(startx, starty))
+                .waitAction(waitOptions(ofMillis(duration)))
+                .moveTo(PointOption.point(endx, endy))
                 .release().perform();
     }
 

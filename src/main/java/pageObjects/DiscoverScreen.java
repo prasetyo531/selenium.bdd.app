@@ -110,12 +110,10 @@ public class DiscoverScreen extends ActionBase {
 
         WaitUntilElementIsVisible(postList);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        //verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
-        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
-        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
-        verticalSwipeByPercentagesDirectly(729,2284,717, 1197);
-
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         return new DiscoverScreen(driver);
     }
 
@@ -215,7 +213,6 @@ public class DiscoverScreen extends ActionBase {
 
         isElementPresent(commentIcon);
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         this.verticalSwipeByPercentages(postList,0.4,0.01,0.5,500);
         this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
         this.verticalSwipeByPercentages(postList, 0.4,0.01,0.5,500);
