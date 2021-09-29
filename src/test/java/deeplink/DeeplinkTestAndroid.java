@@ -33,6 +33,7 @@ public class DeeplinkTestAndroid {
         wait = new WebDriverWait(driver, 10);
     }
 
+    /*
     @Test(priority = 1)
     public void runShareLinkProductDetail() {
         try {
@@ -77,6 +78,20 @@ public class DeeplinkTestAndroid {
         try {
             HashMap<String, String> deepUrl = new HashMap<>();
             deepUrl.put("url", "https://femaledaily.link/1law6w");
+            deepUrl.put("package", "com.fdbr.android");
+            driver.executeScript("mobile: deepLink", deepUrl);
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    */
+
+    @Test(priority = 1)
+    public void runBobaLink() {
+        try {
+            HashMap<String, String> deepUrl = new HashMap<>();
+            deepUrl.put("url", "https://awards.femaledaily.com");
             deepUrl.put("package", "com.fdbr.android");
             driver.executeScript("mobile: deepLink", deepUrl);
             Thread.sleep(30000);

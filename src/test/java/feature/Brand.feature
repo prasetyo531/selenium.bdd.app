@@ -17,3 +17,17 @@ Feature: User navigate to brand page
     Given User clicks menu all brand from homescreen menu
     When User clicks one of popular brand to find product
     Then User will see product list of brand
+
+  @Android @Brand @AA-702
+  Scenario Outline: View Brand from product detail
+    Given User clicks menu product category from homescreen menu
+    When User input "<brandname>" on search bar
+    Then User will see search result of product
+    When User tap any product from search result
+    Then User will direct to product detail screen
+    When User click brand name on product detail
+    Then User will directed to brand screen "<brandname>"
+
+    Examples:
+      |      brandname     |
+      |     EMINA     |

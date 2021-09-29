@@ -55,15 +55,17 @@ public class DeeplinkTest {
         driver.findElement(By.cssSelector("#__next > div > div.jsx-1857941784.category-content > div.jsx-1857941784.category-landing-content > div.jsx-1857941784.panelutama > div > div > div:nth-child(1) > div")).click();
         driver.findElement(By.cssSelector("#id_group_138")).submit();
         Thread.sleep(9000);
+        //will see option open with
     }
 
-//    @Test(priority = 2)
-//    public void openProductDetail() {
-//
-//        driver.get("https://femaledaily.com/category/skincare");
-//        wait.until(ExpectedConditions.elementToBeClickable((WebElement) driver.findElement(By.cssSelector("#__next > div > div.jsx-1857941784.category-content > div.jsx-1857941784.category-landing-content > div.jsx-1857941784.panelutama > div > div > div:nth-child(1) > div"))));
-//        driver.findElement(By.cssSelector("#__next > div > div.jsx-1857941784.category-content > div.jsx-1857941784.category-landing-content > div.jsx-1857941784.panelutama > div > div > div:nth-child(1) > div")).click();
-//    }
+    @Test(priority = 2)
+    public void openProductDetail() {
+
+        driver.get("https://femaledaily.com/category/skincare");
+        wait.until(ExpectedConditions.elementToBeClickable((WebElement) driver.findElement(By.cssSelector("#__next > div > div.jsx-1857941784.category-content > div.jsx-1857941784.category-landing-content > div.jsx-1857941784.panelutama > div > div > div:nth-child(1) > div"))));
+        driver.findElement(By.cssSelector("#__next > div > div.jsx-1857941784.category-content > div.jsx-1857941784.category-landing-content > div.jsx-1857941784.panelutama > div > div > div:nth-child(1) > div")).click();
+        //will see option open with
+    }
 
     @AfterTest
     public void quit() {

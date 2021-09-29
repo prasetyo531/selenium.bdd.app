@@ -4,12 +4,16 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
 public class BrandScreen extends ActionBase{
 
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     public MobileElement backIcon;
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarTitle")
+    public MobileElement labelTitle;
 
     @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
     public MobileElement searchBarBrand;
@@ -50,6 +54,13 @@ public class BrandScreen extends ActionBase{
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
         verticalSwipeByPercentagesDirectly(609,1843,604, 996);
+        return new BrandScreen(driver);
+    }
+
+    public BrandScreen getTitleBrandScreen(String brandname) {
+        WaitUntilElementIsVisible(labelTitle);
+        String titleBrand= labelTitle.getText();
+        Assert.assertEquals(brandname,titleBrand);
         return new BrandScreen(driver);
     }
 }

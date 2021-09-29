@@ -42,6 +42,7 @@ public class DeeplinkTestHomeDomainIOS {
         driver.activateApp("com.apple.mobilesafari");
         driver.get("https://femaledaily.net/category/skincare");
         WebDriverWait wait = new WebDriverWait(driver, 15);
+        //will see option open with
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(parentMoisturizer)).click();
         wait.until(ExpectedConditions.elementToBeClickable(childNightCream));

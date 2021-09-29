@@ -12,7 +12,10 @@ import java.util.List;
 
 public class ProductCategoryScreen extends ActionBase {
 
-    @AndroidFindBy(id="com.fdbr.android:id/toolbarBottomSearch")
+    @AndroidFindBy(id="com.fdbr.android.product:id/toolbarSearch")
+    public MobileElement searchIcon;
+
+    @AndroidFindBy(id="com.fdbr.android:id/toolbarSearch")
     public MobileElement searchBar;
 
     @AndroidFindBy(xpath="//android.view.ViewGroup[contains(@resource-id,'com.fdbr.android.product:id/itemParent') and @index='6']")
@@ -30,11 +33,11 @@ public class ProductCategoryScreen extends ActionBase {
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android.product:id/labelItem') and @text='Cream & Lotion']")
     public MobileElement productCategorySkincare;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id, 'com.fdbr.android.product:id/labelSubItem')]")
-    public List<MobileElement> listProductCat;
-
     @AndroidFindBy(xpath="//android.widget.ImageView[contains(@resource-id,'com.fdbr.android:id/imagePhoto')]")
     public MobileElement photoProduct;
+
+    @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelProductName')]")
+    public List<MobileElement> listProductName;
 
     @AndroidFindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.fdbr.android:id/labelProductName')]")
     public MobileElement productName;
@@ -49,9 +52,10 @@ public class ProductCategoryScreen extends ActionBase {
 
     public ProductCategoryScreen clickInputSearchBar(String productname) throws InterruptedException {
 
-        WaitUntilElementIsVisible(searchBar);
-        inputValueEnter(searchBar,productname);
+        WaitUntilElementIsVisible(searchIcon);
+        tapByElement(searchIcon);
         Thread.sleep(4000);
+        inputValueEnter(searchBar,productname);
         return new ProductCategoryScreen(driver);
     }
 
@@ -80,7 +84,7 @@ public class ProductCategoryScreen extends ActionBase {
 
     public ProductCategoryScreen clickRandomMenuProductCat() {
 
-        clickRandomMenus(listProductCat);
+        clickRandomMenus(listProductName);
         return new ProductCategoryScreen(driver);
     }
 
@@ -102,7 +106,8 @@ public class ProductCategoryScreen extends ActionBase {
 
     public ProductCategoryScreen clickFirstProductSearchResult() {
 
-        clickFirstMenus(listProductCat);
+        WaitUntilElementIsVisible(productName);
+        clickFirstMenus(listProductName);
         return new ProductCategoryScreen(driver);
     }
 }

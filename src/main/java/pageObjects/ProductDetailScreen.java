@@ -62,24 +62,26 @@ public class ProductDetailScreen extends ActionBase {
     }
 
     public boolean verifyProductDetail() {
-
         boolean boolElem1= isElementPresent(imgProduct);
         boolean boolElem2= isElementPresent(contentRating);
         boolean boolElem3= isElementPresent(labelBrandName);
         boolean boolElem4= isElementPresent(labelProductName);
-
         return (boolElem1 && boolElem2 && boolElem3 && boolElem4);
     }
 
     public boolean verifyFirstReview() {
-
         WaitUntilElementIsVisible(imgProduct);
         boolean boolElem1= isElementPresent(labelFirstReview);
         return (boolElem1);
     }
 
-    public ProductDetailScreen clickAddReviewBtn() {
+    public ProductDetailScreen clickBrandName() {
+        WaitUntilElementIsVisible(labelBrandName);
+        tapByElement(labelBrandName);
+        return new ProductDetailScreen(driver);
+    }
 
+    public ProductDetailScreen clickAddReviewBtn() {
         isElementPresent(imgProduct);
         isElementPresent(addReviewBtn);
         isElementEnabled(addReviewBtn);
@@ -88,14 +90,12 @@ public class ProductDetailScreen extends ActionBase {
     }
 
     public ProductDetailScreen clickWishlistBtn() {
-
         isElementPresent(wishlistBtn);
         tapByElement(wishlistBtn);
         return new ProductDetailScreen(driver);
     }
 
     public ProductDetailScreen checkIsOnProductDetailAfterReview() {
-
         isElementPresent(descReviewDetail);
         tapByElement(back);
         isElementPresent(labelReviewBtn);
@@ -103,21 +103,18 @@ public class ProductDetailScreen extends ActionBase {
     }
 
     public ProductDetailScreen scrollFindSeeMoreReviews() {
-
         isElementPresent(contentPercentageReview);
         verticalSwipe(contentPercentageReview, 1, 900);
         return new ProductDetailScreen(driver);
     }
 
     public ProductDetailScreen clickSeeMoreReviews() {
-
         isElementPresent(seeMoreReviewBtn);
         tapByElement(seeMoreReviewBtn);
         return new ProductDetailScreen(driver);
     }
 
     public ProductDetailScreen clickBack() {
-
         isElementPresent(backBtn);
         tapByElement(backBtn);
         return new ProductDetailScreen(driver);

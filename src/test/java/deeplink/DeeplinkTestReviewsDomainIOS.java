@@ -36,6 +36,7 @@ public class DeeplinkTestReviewsDomainIOS {
 
         driver.activateApp("com.apple.mobilesafari");
         driver.get("https://reviews.femaledaily.net/products/moisturizer/night-cream-16?brand=&order=popular&page=1");
+        //will see option open with
     }
 
     @Test(dependsOnMethods = "runProductCategoryReviewsDomain")
@@ -43,6 +44,7 @@ public class DeeplinkTestReviewsDomainIOS {
 
         driver.activateApp("com.apple.mobilesafari");
         driver.get("https://reviews.femaledaily.net/products/makeup-remover/face-62/garnier/micellar-clenasing-water?tab=reviews");
+        //will see option open with
     }
 
     @AfterMethod
