@@ -2,17 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
     <!--  generate ss to /reports  -->
-    <listeners>
-        <listener class-name="extentListener.ExtentListeners"></listener>
-    </listeners>
+    <!--    <listeners>-->
+    <!--        <listener class-name="extentListener.ExtentListeners"></listener>-->
+    <!--    </listeners>-->
 
-    <test name="firsttest">
-        <classes>
-            <class name="emulator.RunEmulator"/>
-        </classes>
-    </test>
-
-    <test name="secondtest">
+    <!--    <test name="firsttest">-->
+    <!--        <classes>-->
+    <!--            <class name="emulator.RunEmulator"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <test name="firstTest">
         <classes>
             <class name="uiTestAndroid.UiTestRandom"/>
         </classes>

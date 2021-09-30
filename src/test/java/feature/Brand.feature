@@ -30,4 +30,4 @@ Feature: User navigate to brand page
 
     Examples:
       |      brandname     |
-      |     EMINA     |
+      |     Emina     |
