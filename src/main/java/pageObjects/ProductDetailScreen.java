@@ -62,6 +62,7 @@ public class ProductDetailScreen extends ActionBase {
     }
 
     public boolean verifyProductDetail() {
+        WaitUntilElementIsVisible(imgProduct);
         boolean boolElem1= isElementPresent(imgProduct);
         boolean boolElem2= isElementPresent(contentRating);
         boolean boolElem3= isElementPresent(labelBrandName);

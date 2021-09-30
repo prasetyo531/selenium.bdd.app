@@ -34,7 +34,7 @@ public class UiTestRandom extends AbstractTestNGCucumberTests {
                 .toString();
         System.out.println("directory"+" "+userDirectory);
 
-        Reporter.loadXMLConfig(userDirectory +"/src/main/java/utils/ReportsConfig.xml");
-        ActionBase.copyLatestExtentReport();
+        //Reporter.loadXMLConfig(userDirectory +"/src/main/java/utils/ReportsConfig.xml");
+        //ActionBase.copyLatestExtentReport();
     }
 }
