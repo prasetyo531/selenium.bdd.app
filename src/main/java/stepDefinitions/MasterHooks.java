@@ -3,8 +3,10 @@ package stepDefinitions;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import extentListener.TestUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
 import pageObjects.ActionBase;
 import utils.AppiumServer;
 import utils.CommonUtils;
@@ -12,6 +14,8 @@ import utils.DriverFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 public class MasterHooks extends DriverFactory {
 
@@ -29,7 +33,7 @@ public class MasterHooks extends DriverFactory {
         if (scenario.isFailed() && driver !=null) {
             scenario.embed(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png");
             //ActionBase.captureScreenshot();
-            //ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
+            ActionBase.sendMessageToTelegram(scenario.getName(), scenario.getStatus());
             try {
                 switch (this.loadPropertyFile) {
                     case "android.properties":

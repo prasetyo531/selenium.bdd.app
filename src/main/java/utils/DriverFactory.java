@@ -14,6 +14,8 @@ public class DriverFactory {
     //set configuration
     public String loadPropertyFile = "android.properties";
 
+    protected static ThreadLocal <String> dateTime = new ThreadLocal<String>();
+
     /****************
      Android & IOS Screen
      ****************/
@@ -91,5 +93,9 @@ public class DriverFactory {
             inviteFriendsScreen = new InviteFriendsScreen(driver);
         }
         return driver;
+    }
+
+    public String getDateTime() {
+        return dateTime.get();
     }
 }

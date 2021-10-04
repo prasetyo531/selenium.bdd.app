@@ -68,7 +68,7 @@ public class ActionBase extends DriverFactory {
         }
     }
 
-    public boolean isElementPresent(List<MobileElement> mobileElements){
+    public boolean isElementPresent(List<MobileElement> mobileElements) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 80);
             wait.until(ExpectedConditions.visibilityOf((WebElement) mobileElements));
@@ -391,7 +391,7 @@ public class ActionBase extends DriverFactory {
      *** Tap Random Element ***
      **********************************************/
     //xpath fullpath https://stackoverflow.com/questions/39036751/how-to-randomly-click-an-element-in-the-list-androidusing-seleniumappium
-    public void clickRandomMenus(List<MobileElement> mobileElements){
+    public void clickRandomMenus(List<MobileElement> mobileElements) throws IllegalArgumentException {
         try {
             //count size first
             List<MobileElement> li = mobileElements;
@@ -406,13 +406,15 @@ public class ActionBase extends DriverFactory {
             }
             Random rand = new Random();
             int index = rand.nextInt(arrayProductCat.size()-1); // -1 because index will start from 0
+            System.out.println("bounds"+" "+index);
+
             arrayProductCat.get(index).click();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void clickRandomMultipleMenus(List<MobileElement> mobileElements){
+    public void clickRandomMultipleMenus(List<MobileElement> mobileElements) throws IllegalArgumentException {
         try {
             List<MobileElement> li = mobileElements;
             int i = 0;
@@ -426,6 +428,8 @@ public class ActionBase extends DriverFactory {
             }
             Random rand = new Random();
             int index = rand.nextInt(arrayProductCat.size()-1); // -1 because index will start from 0
+            System.out.println("bounds"+" "+index);
+
             arrayProductCat.get(index).click();
 
             while(li.isEmpty()){

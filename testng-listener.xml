@@ -14,7 +14,7 @@
 
     <test name="secondtest">
         <classes>
-            <class name="uiTestAndroid.UiTestRandom"/>
+            <class name="uiTestAndroid.UiTestAddProduct"/>
         </classes>
     </test>
 </suite>

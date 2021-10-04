@@ -150,7 +150,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen clickImSureDrawer() {
-
         isElementPresent(layoutTC);
         this.verticalSwipeByPercentages(layoutTC,0.4,0.01,0.5,500);
         tapByElement(yesBtnDrawer);
@@ -158,7 +157,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen chooseBrandName() {
-
         tapByElement(brandField);
         tapByElement(firstResultBrand);
         getSelectedBrand = brandField.getText();
@@ -167,9 +165,7 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen chooseBrandName(String Brand) {
-
         tapByElement(brandField);
-
         //search
         isElementPresent(searchBrand);
         inputValueEnter(searchBrand, Brand);
@@ -183,7 +179,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen chooseProdCat() {
-
         try {
             tapByElement(productCatField);
             isElementPresent(firstResultProdCat);
@@ -217,9 +212,7 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen editSelectedBrandName() {
-
         //this.verticalSwipeByPercentages(productDescField,0.01,0.4,0.5,500);
-
         getSelectedBrand = brandField.getText();
         System.out.println(getSelectedBrand);
 
@@ -235,7 +228,6 @@ public class AddProductScreen extends ActionBase {
 
 
     public AddProductScreen editSelectedProductCat() {
-
         this.verticalSwipeByPercentages(productNameField,0.3,0.6,0.20,500);
         getSelectedProdCat = productCatField.getText();
         System.out.println(getSelectedProdCat);
@@ -246,7 +238,6 @@ public class AddProductScreen extends ActionBase {
         clickRandomMenus(listProdCat);
 
         boolean isListPresent = secondResultProdCat.isDisplayed();
-
         try {
             while (isListPresent == true) {
                 Thread.sleep(100);
@@ -270,7 +261,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductName() {
-
         //tapByElement(productNameField);
         inputValue(productNameField, "hardcode add product");
         getSelectedProdName = productNameField.getText();
@@ -279,7 +269,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductName(String name) {
-
         //tapByElement(productNameField);
         inputValue(productNameField, name);
         getSelectedProdName = productNameField.getText();
@@ -288,7 +277,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen editInputedProductName(String name) {
-
         getSelectedProdName = productNameField.getText();
         System.out.println(getSelectedProdName);
 
@@ -301,7 +289,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductShade() {
-
         //tapByElement(productShadeField);
         inputValue(productShadeField, "hardcode shade add product");
         getSelectedProdShade = productShadeField.getText();
@@ -310,7 +297,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductShade(String shade) {
-
         //tapByElement(productShadeField);
         inputValue(productShadeField, shade);
         getSelectedProdShade = productShadeField.getText();
@@ -319,7 +305,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductDesc() {
-
         verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
@@ -329,21 +314,18 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen fillProductPrice() {
-
         //tapByElement(priceField);
         inputValue(priceField, "90000");
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen fillProductTags() {
-
         tapByElement(tagsField);
         inputValue(tagsField, "tagtest");
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen capturePhoto() {
-
         tapByElement(photoThumbnail);
 
         isElementPresent(captureBtn);
@@ -354,7 +336,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddPostScreen choosePhotoFromGallery() {
-
         tapByElement(photoThumbnail);
 
         isElementPresent(galleryBtn);
@@ -371,61 +352,53 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen submitAddProduct() {
-
         tapByElement(addProductBtn);
         return new AddProductScreen(driver);
     }
 
     //action drawer
     public AddProductScreen checkDrawer() {
-
         isElementPresent(drawerLayout);
         return new AddProductScreen(driver);
     }
-    public AddProductScreen getBrandDrawer() {
 
+    public AddProductScreen getBrandDrawer() {
         getSubmittedBrand = brandText.getText();
         System.out.println(getSubmittedBrand);
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen getProdNameDrawer() {
-
         getSubmittedProdName = productText.getText();
         System.out.println(getSubmittedProdName);
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen getProdShadeDrawer() {
-
         getSubmittedProdShade = shadeText.getText();
         System.out.println(getSubmittedProdShade);
         return new AddProductScreen(driver);
     }
 
     public boolean isBrandSame() {
-
         getBrandDrawer();
         boolean brand = getSelectedBrand.equals(getSubmittedBrand);
         return brand;
     }
 
     public boolean isEditedBrandSame() {
-
         getBrandDrawer();
         boolean brand = getEditedBrand.equals(getSubmittedBrand);
         return brand;
     }
 
     public boolean isProdNameSame() {
-
         getProdNameDrawer();
         boolean name = getSelectedProdName.equals(getSubmittedProdName);
         return name;
     }
 
     public boolean isEditedProdNameSame() {
-
         getProdNameDrawer();
 
         boolean name = getEditedProdName.equals(getSubmittedProdName);
@@ -433,7 +406,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public boolean isProdShadeSame() {
-
         getProdShadeDrawer();
 
         boolean shade = getSelectedProdShade.equals(getSubmittedProdShade);
@@ -442,20 +414,17 @@ public class AddProductScreen extends ActionBase {
 
     // action on drawer
     public AddProductScreen clickReview() {
-
         tapByElement(reviewBtn);
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen clickSkipReview() {
-
         tapByElement(skipBtn);
         return new AddProductScreen(driver);
     }
 
     //error modal
     public AddProductScreen okErrorShouldUsingImg() {
-
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
         isElementPresent(okPopUp);
@@ -467,7 +436,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen okErrorShouldChooseBrandName() {
-
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
         isElementPresent(okPopUp);
@@ -479,7 +447,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen okErrorShouldChooseProductCategory() {
-
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
         isElementPresent(okPopUp);
@@ -491,7 +458,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen okErrorShouldChooseProductName() {
-
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
         isElementPresent(okPopUp);
@@ -503,7 +469,6 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen okErrorShouFillProductNameLessThan3MoreThan100() {
-
         isElementPresent(titlePopUp);
         isElementPresent(descPopUp);
         isElementPresent(okPopUp);
@@ -515,16 +480,19 @@ public class AddProductScreen extends ActionBase {
     }
 
     public AddProductScreen scrollToTop() {
-
         verticalSwipeTopNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         verticalSwipeTopNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
         return new AddProductScreen(driver);
     }
 
     public AddProductScreen scrollToBottom() {
-
-        while(listAddProductBtn.size()==0){
-            verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+        int i;
+        int j = 5;
+        for(i=listAddProductBtn.size();j>=5;i++) {
+            if(i==1) {
+                verticalSwipeBottomNew(driver, 0.5, 0.8, 0.5, 0.2, 500);
+            }
+            break;
         }
         return new AddProductScreen(driver);
     }

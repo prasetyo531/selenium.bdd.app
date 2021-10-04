@@ -3,7 +3,7 @@
 <suite name="Suite">
     <test name="firstTest">
         <classes>
-            <class name="uiTestAndroid.UiTestRandom"/>
+            <class name="uiTestAndroid.UiTestAddProduct"/>
         </classes>
     </test>
 </suite>

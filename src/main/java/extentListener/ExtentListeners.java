@@ -1,82 +1,116 @@
 package extentListener;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.Markup;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.Reporter;
+import utils.DriverFactory;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExtentListeners implements ITestListener {
 
-	static Date d = new Date();
-	static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
-
-	private static ExtentReports extent = ExtentManager.createInstance(System.getProperty("user.dir")+"/output/report/"+fileName);
-
-	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
-
-
-	public void onTestStart(ITestResult result) {
-		ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
-		testReport.set(test);
-	}
-
-	public void onTestSuccess(ITestResult result) {
-		String methodName=result.getMethod().getMethodName();
-		String logText="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ " PASSED"+"</b>";
-		Markup m=MarkupHelper.createLabel(logText, ExtentColor.GREEN);
-		testReport.get().pass(m);
-	}
+	TestUtils utils = new TestUtils();
 
 	public void onTestFailure(ITestResult result) {
-		String excepionMessage=Arrays.toString(result.getThrowable().getStackTrace());
-		testReport.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>" + "Exception Occured:Click to see"
-				+ "</font>" + "</b >" + "</summary>" +excepionMessage.replaceAll(",", "<br>")+"</details>"+" \n");
+		if(result.getThrowable() != null) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			result.getThrowable().printStackTrace(pw);
+			utils.log().error(sw.toString());
+		}
 
+		DriverFactory base = new DriverFactory();
+		File file = null;
 		try {
-			ExtentManager.captureScreenshot();
-			testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
-					MediaEntityBuilder.createScreenCaptureFromPath(ExtentManager.screenshotName)
-							.build());
+			file = base.getDriver().getScreenshotAs(OutputType.FILE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String failureLogg="TEST CASE FAILED";
-		Markup m = MarkupHelper.createLabel(failureLogg, ExtentColor.RED);
-		testReport.get().log(Status.FAIL, m);
+
+		byte[] encoded = null;
+		try {
+			encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(file));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		Map <String, String> params = new HashMap<String, String>();
+		params = result.getTestContext().getCurrentXmlTest().getAllParameters();
+
+		String imagePath = "Screenshots" + File.separator + result.getTestClass().getRealClass().getSimpleName() + File.separator + result.getName() + ".png";
+
+		String completeImagePath = System.getProperty("user.dir") + File.separator + imagePath;
+
+		try {
+			FileUtils.copyFile(file, new File(imagePath));
+			Reporter.log("This is the sample screenshot");
+			Reporter.log("<a href='"+ completeImagePath + "'> <img src='"+ completeImagePath + "' height='400' width='400'/> </a>");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ExtentManager.getTest().fail("Test Failed",
+					MediaEntityBuilder.createScreenCaptureFromPath(completeImagePath).build());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			ExtentManager.getTest().fail("Test Failed",
+					MediaEntityBuilder.createScreenCaptureFromBase64String(new String(encoded, StandardCharsets.US_ASCII)).build());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		ExtentManager.getTest().fail(result.getThrowable());
+	}
+
+	@Override
+	public void onTestStart(ITestResult result) {
+		DriverFactory base = new DriverFactory();
+		ExtentManager.startTest(result.getName(), result.getMethod().getDescription())
+				.assignAuthor("Omprakash");
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		ExtentManager.getTest().log(Status.PASS, "Test Passed");
 
 	}
 
+	@Override
 	public void onTestSkipped(ITestResult result) {
-		String methodName=result.getMethod().getMethodName();
-		String logText="<b>"+"Test Case:- "+ methodName+ " Skipped"+"</b>";
-		Markup m=MarkupHelper.createLabel(logText, ExtentColor.YELLOW);
-		testReport.get().skip(m);
+		ExtentManager.getTest().log(Status.SKIP, "Test Skipped");
+
 	}
 
+	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void onFinish(ITestContext context) {
-
-		if (extent != null) {
-			extent.flush();
-		}
+		ExtentManager.getReporter().flush();
 	}
 }
