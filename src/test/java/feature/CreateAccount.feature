@@ -20,8 +20,8 @@ Feature: Create account
     Then User will see modal account status on homescreen
 
     Examples:
-      |   phonenumber        |              email                  |      username     |
-      |	  0812119119119	     |    bddregisandro01@mailinator.com   |     bddregisandro01     |
+      |   phonenumber        |              email               |      username     |
+      |	  0895391244428	     |    migration001@mailinator.com   |     migration001     |
 
   #FDBRMA-120 #FDBRMA-121
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest
@@ -89,7 +89,7 @@ Feature: Create account
 
     Examples:
       | phonenumber |
-      | 62812000978846 |
+      | 0895391244428 |
 
   #FDBRMA-211
   @Android @Register @Production @Regression @RealAccount @Emulator @UiTest

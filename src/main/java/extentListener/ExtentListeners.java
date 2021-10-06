@@ -101,6 +101,7 @@ public class ExtentListeners implements ITestListener {
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
 
+
 	}
 
 	@Override

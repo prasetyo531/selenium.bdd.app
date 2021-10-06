@@ -18,6 +18,9 @@ public class VerifyAccountSteps extends DriverFactory {
 
     @Then("^User will see modal account status on homescreen$")
     public void User_will_see_modal_account_status_on_homescreen() {
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
+        homeScreen.acceptAlertPermission();
         homeScreen.verifyAccountStatusModal();
     }
 

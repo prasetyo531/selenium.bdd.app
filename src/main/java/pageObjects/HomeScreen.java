@@ -38,6 +38,9 @@ public class HomeScreen extends ActionBase {
     /************
      home screen
      ************/
+    @AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    public MobileElement firstPermissionAllow;
+
     @AndroidFindBy(id="com.android.packageinstaller:id/permission_allow_button")
     public MobileElement permissionAllow;
 
@@ -461,9 +464,9 @@ public class HomeScreen extends ActionBase {
         return new HomeScreen(driver);
     }
 
-    public HomeScreen clickRandomElementSearch() {
+    public HomeScreen acceptFirstAlertPermission() {
 
-        clickRandomMenus(resultProduct);
+        tapByElement(firstPermissionAllow);
         return new HomeScreen(driver);
     }
 

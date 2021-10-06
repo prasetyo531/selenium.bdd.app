@@ -38,7 +38,7 @@ public class CompleteAccountScreen extends ActionBase {
     @iOSXCUITFindBy(id=" Date of birth")
     public MobileElement birthdayField;
 
-    @AndroidFindBy(id="com.fdbr.android:id/btn_ok")
+    @AndroidFindBy(id="com.fdbr.android:id/buttonOk")
     @iOSXCUITFindBy(id="Done")
     public MobileElement birthdayYesDoneModal;
 

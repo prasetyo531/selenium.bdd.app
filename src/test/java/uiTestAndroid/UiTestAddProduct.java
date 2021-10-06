@@ -16,12 +16,12 @@ import java.nio.file.FileSystems;
         features = {"src/test/java/feature"},
         glue = {"stepDefinitions"},
         monochrome = true,
-        tags = {"@AddProductScroll"},
-        plugin =  {"pretty","html:test-output/cucumber", //report 1, index html
-                "json:test-output/cucumber/cucumber.json",  //report 2
+        tags = {"@AddProduct"},
+        plugin =  {"pretty","html:target/test-output/cucumber", //report 1, index html
+                "json:target/test-output/cucumber/cucumber.json",  //report 2
                 "com.cucumber.listener.ExtentCucumberFormatter:test-output/cucumber/report.html",  //report 3
-                "rerun:test-output/cucumber/rerun.txt",
-                "usage:test-output/cucumber/cucumber-usage.json"}
+                "rerun:target/test-output/cucumber/rerun.txt",
+                "usage:target/test-output/cucumber/cucumber-usage.json"}
 )
 
 public class UiTestAddProduct extends AbstractTestNGCucumberTests {
