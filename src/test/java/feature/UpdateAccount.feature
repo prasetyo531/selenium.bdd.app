@@ -47,7 +47,7 @@ Feature: Update Account
   ##### Update Password #####
 
   #FDBRMA-277
-  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-277
+  @Android @Smoke @updateprofile @staging @OkrDone
   Scenario Outline: Update password
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

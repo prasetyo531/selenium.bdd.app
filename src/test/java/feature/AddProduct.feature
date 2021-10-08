@@ -13,7 +13,7 @@ Feature: User Add Product
     Then User will be directed to homescreeen app
 
   #FDBRMA-267 #FDBRMA-274
-  @Android @AddProduct @Smoke @Staging @IntegrationTest
+  @Android @AddProduct @Smoke @Staging @IntegrationTest @addpro
   Scenario Outline: Add product by capture photo - Add Review
     Given User clicks add product from homescreen menu
     When User fill all field on add product screen "<productname>" and "<productshade>"

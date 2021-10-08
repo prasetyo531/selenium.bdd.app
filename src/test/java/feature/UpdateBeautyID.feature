@@ -59,7 +59,7 @@ Feature: Update Profile
 
     Examples:
       |   username            |   password      |
-      |	  emptypersonal013	  |   test123       |
+      |	  emptypersonal021	  |   test123       |
 
   #FDBRMA-279 #FDBRMA-281
   @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279
@@ -80,7 +80,7 @@ Feature: Update Profile
 
     Examples:
       |   username                 |   password      |
-      |	  emptybeautyprofileown06  |   test123       |
+      |	  emptybeautyprofileown07  |   test123       |
 
   #FDBRMA-280 #FDBRMA-282
   @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280
@@ -99,9 +99,9 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptypersonal015	  |   test123       |
+      |	  emptybeautyprofileown07	  |   test123       |
 
-  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279 @RPA-135
+  @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-279 @RPA-135 @profile01
   Scenario Outline: Update beauty profile and then click save on edit profile screen
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -118,7 +118,7 @@ Feature: Update Profile
 
     Examples:
       |   username                |   password      |
-      |	  emptypersonal020	  |   test123       |
+      |	  emptypersonal022	  |   test123       |
 
   @Android @Smoke @updateprofile @staging @OkrDone @FDBRMA-280 @RPA-136 @DemoTest
   Scenario Outline: Update beauty concern and then click save on edit profile screen
@@ -139,7 +139,7 @@ Feature: Update Profile
       |   username                |   password      |
       |	  emptypersonal020	  |   test123       |
 
-  @Android @Smoke @staging @OkrDone @RPA-275
+  @Android @Smoke @staging @OkrDone @RPA-275 @profile01
   Scenario Outline: Close Bottom Sheet Vertical Ellipsis Menu
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

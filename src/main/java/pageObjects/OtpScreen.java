@@ -50,22 +50,22 @@ public class OtpScreen extends ActionBase{
     public MobileElement confirmOtpBtn;
 
     /* otp box*/
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[1]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='0']")
     public MobileElement box1;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[2]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='1']")
     public MobileElement box2;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[3]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='2']")
     public MobileElement box3;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[4]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='3']")
     public MobileElement box4;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[5]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='4']")
     public MobileElement box5;
 
-    @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.EditText[6]")
+    @AndroidFindBy(xpath="//android.widget.EditText[contains(@package, 'com.fdbr.android') and @index='5']")
     public MobileElement box6;
 
     public OtpScreen(AppiumDriver driver) {
@@ -145,6 +145,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen fillByPassOtp() {
 
+        tapByElement(box1);
         inputValue(box1,"1");
         inputValue(box2,"1");
         inputValue(box3,"1");
@@ -190,6 +191,7 @@ public class OtpScreen extends ActionBase{
 
     public OtpScreen clickConfirmOtp() {
 
+        driver.hideKeyboard();
         isElementEnabled(confirmOtpBtn);
         tapByElement(confirmOtpBtn);
 

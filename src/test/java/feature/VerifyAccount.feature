@@ -6,7 +6,7 @@ Feature: Verify account
   User should fill personal info, beauty profile and concern
 
   #FDBRMA-221 #FDBRMA-227 #FDBRMA-251 #FDBRMA-255 #FDBRMA-366 #FDBRMA-254 #FDBRMA-257 #FDBRMA-258 #FDBRMA-259 #FDBRMA-260 #FDBRMA-262 #FDBRMA-261 #FDBRMA-263 #FDBRMA-264 #FDBRMA-265 #FDBRMA-266
-  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone
+  @Android @staging @Smoke @bypassotp @IntegrationTest @OkrDone @verify01
   Scenario Outline: Verify Registered Phone - Registered Email
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen
@@ -25,8 +25,8 @@ Feature: Verify account
     Then User will see congratulation modal
 
     Examples:
-      |     email         |   password    |       phone       |     fullname    |
-      |	  verifyempty10	  |   test123     |     6287876600002     |     verifyempty   |
+      |     email         |   password    |       phone         |     fullname    |
+      |	  verifyempty12	  |   test123     |     6287876600003   |     verifyempty   |
 
   #FDBRMA-223 #FDBRMA-222 #FDBRMA-229 #FDBRMA-228 #FDBRMA-241 #FDBRMA-233
   #check email and should use new phone

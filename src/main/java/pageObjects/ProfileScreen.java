@@ -761,8 +761,6 @@ public class ProfileScreen extends ActionBase{
 
         WaitUntilElementIsVisible(saveEditprofile);
         tapByElement(saveEditprofile);
-
-        WaitUntilElementIsVisible(editProfile);
         return new ProfileScreen(driver);
     }
 
