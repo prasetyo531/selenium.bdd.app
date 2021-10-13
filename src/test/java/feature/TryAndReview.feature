@@ -8,7 +8,7 @@ Feature: User Join Campaign
                  all personal info, beauty profile and concern data must empty
 
   #FDBRMA-306 #FDBRMA-452 #FDBRMA-457 #FDBRMA-458 #FDBRMA-459 #FDBRMA-460 #FDBRMA-461 #FDBRMA-485 #FDBRMA-473 #FDBRMA-489 #FDBRMA-490
-  @Android @Tnr @Staging
+  @Android @Tnr @Staging @FDBRMA-490
   Scenario Outline: Click Join Now on highlighted campaign - Complete Personal Info - Complete Beauty Profile and Concern - Complete Shipping Info - Submit Campaign
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

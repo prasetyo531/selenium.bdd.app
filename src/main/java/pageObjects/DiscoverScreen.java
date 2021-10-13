@@ -250,7 +250,7 @@ public class DiscoverScreen extends ActionBase {
 
     public DiscoverScreen scrollHashtagResult() {
 
-        isElementPresent(firstTrendingHashtagSearch);
+        WaitUntilElementIsVisible(firstTrendingHashtagSearch);
         verticalSwipeByPercentages(firstTrendingHashtagSearch, 0.8,0.01,0.5,500);
         return new DiscoverScreen(driver);
     }

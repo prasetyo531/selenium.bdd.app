@@ -6,7 +6,7 @@ Feature: login into Android Apps
   So that, I can login into FD Apps
 
   #FDBRMA-717
-  @Android @switchAccount @Staging @switchAccount @OkrDone
+  @Android @switchAccount @Staging @switchAccount @OkrDone @FDBRMA-717
   Scenario Outline: Login after change account using unverified phone number
     Given User navigates to onboarding screen by swipe
     When User clicks login button on onboarding screen

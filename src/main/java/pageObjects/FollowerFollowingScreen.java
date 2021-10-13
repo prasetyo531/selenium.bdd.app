@@ -64,7 +64,7 @@ public class FollowerFollowingScreen extends ActionBase {
 
         WaitUntilElementIsVisible(firstElement);
         verticalSwipe(firstElement, 1, 900);
-        clickRandomMenus(userListSize);
+        clickFirstMenus(userListSize);
         return new FollowerFollowingScreen(driver);
     }
 

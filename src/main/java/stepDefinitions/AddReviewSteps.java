@@ -27,7 +27,7 @@ public class AddReviewSteps extends DriverFactory {
     @When("^User clicks one of category to find product$")
     public void user_clicks_one_of_category_to_find_product() throws Throwable {
 
-        productCategoryScreen.clickRandomMenuProductCat();
+        productCategoryScreen.clickMenuSkincare();
     }
 
     @Given("^User clicks add review from homescreen menu$")
