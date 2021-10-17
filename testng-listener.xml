@@ -6,13 +6,7 @@
         <listener class-name="extentListener.ExtentListeners"></listener>
     </listeners>
 
-<!--    <test name="firsttest">-->
-<!--        <classes>-->
-<!--            <class name="emulator.RunEmulator"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test name="secondtest">
+    <test name="use-listener">
         <classes>
             <class name="uiTestAndroid.UiTestAddProduct"/>
         </classes>

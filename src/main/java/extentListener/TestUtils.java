@@ -51,9 +51,9 @@ public class TestUtils {
 	}
 	
 	public String dateTime() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-		Date date = new Date();
-		return dateFormat.format(date);
+		Date d = new Date();
+		String date = d.toString().replace(":", "_").replace(" ", "_");
+		return date;
 	}
 	
 	public void log(String txt) {
@@ -62,7 +62,7 @@ public class TestUtils {
 		
 		System.out.println(msg);
 		
-		String strFile = "logs" + File.separator + File.separator + base.getDateTime();
+		String strFile = "logs" + File.separator + File.separator + dateTime();
 
 		File logFile = new File(strFile);
 

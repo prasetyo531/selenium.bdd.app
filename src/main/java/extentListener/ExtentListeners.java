@@ -50,7 +50,7 @@ public class ExtentListeners implements ITestListener {
 		Map <String, String> params = new HashMap<String, String>();
 		params = result.getTestContext().getCurrentXmlTest().getAllParameters();
 
-		String imagePath = "Screenshots" + File.separator + result.getTestClass().getRealClass().getSimpleName() + File.separator + result.getName() + ".png";
+		String imagePath = "Screenshots" + File.separator + utils.dateTime() + File.separator + result.getTestClass().getRealClass().getSimpleName() + File.separator + result.getName() + ".png";
 
 		String completeImagePath = System.getProperty("user.dir") + File.separator + imagePath;
 
@@ -88,26 +88,21 @@ public class ExtentListeners implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		ExtentManager.getTest().log(Status.PASS, "Test Passed");
-
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		ExtentManager.getTest().log(Status.SKIP, "Test Skipped");
-
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-
-
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

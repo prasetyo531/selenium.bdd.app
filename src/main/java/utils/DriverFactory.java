@@ -94,8 +94,4 @@ public class DriverFactory {
         }
         return driver;
     }
-
-    public String getDateTime() {
-        return dateTime.get();
-    }
 }
